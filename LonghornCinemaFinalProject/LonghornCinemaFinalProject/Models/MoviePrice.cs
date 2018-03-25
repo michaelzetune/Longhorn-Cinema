@@ -9,7 +9,10 @@ namespace LonghornCinemaFinalProject.Models
     {
         // Properties
         // MoviePriceID
+        public Int32 MoviePriceID { get; set; }
+
         // Time
+        public DateTime MoviePriceTime { get; set; }
 
         // Navigation Properties
         // Movie

@@ -40,3 +40,46 @@ V:\UT\Spring 2018\MIS 333K\LonghornCinema\LonghornCinemaFinalProject\LonghornCin
 V:\UT\Spring 2018\MIS 333K\LonghornCinema\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csproj.CoreCompileInputs.cache
 V:\UT\Spring 2018\MIS 333K\LonghornCinema\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.dll
 V:\UT\Spring 2018\MIS 333K\LonghornCinema\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.pdb
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\ApplicationInsights.config
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\LonghornCinemaFinalProject.dll.config
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\LonghornCinemaFinalProject.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\LonghornCinemaFinalProject.pdb
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Antlr3.Runtime.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Web.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Newtonsoft.Json.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Helpers.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Mvc.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Optimization.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Razor.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\WebGrease.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Helpers.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Mvc.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Optimization.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Razor.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Antlr3.Runtime.pdb
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Newtonsoft.Json.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.ApplicationInsights.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Web.xml
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csprojResolveAssemblyReference.cache
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csproj.CoreCompileInputs.cache
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csproj.CopyComplete
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.dll
+C:\Users\MSBStudent\Documents\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.pdb

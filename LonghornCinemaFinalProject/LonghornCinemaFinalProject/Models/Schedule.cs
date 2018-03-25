@@ -11,6 +11,7 @@ namespace LonghornCinemaFinalProject.Models
 
         // Properties
         // ScheduleID
+        public Int32 ScheduleID { get; set; }
 
         // Navigation Properties
         // Showings

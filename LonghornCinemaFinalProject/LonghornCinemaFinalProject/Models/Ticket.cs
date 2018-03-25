@@ -9,7 +9,9 @@ namespace LonghornCinemaFinalProject.Models
     {
         // Properties
         // TicketID
+        public Int32 TicketID { get; set; }
         // Price
+        public Decimal TicketPrice { get; set; }
 
         // Navigation Properties
         // Order

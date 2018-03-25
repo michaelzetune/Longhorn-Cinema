@@ -9,7 +9,10 @@ namespace LonghornCinemaFinalProject.Models
     {
         // Properties
         // RoleID
+        public Int32 RoleID { get; set; }
+
         // Name
+        public String RoleName { get; set; }
 
         // Navigation Properties
         // Users
