@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+// extra comment
+
 namespace LonghornCinemaFinalProject.Models
 {
     public enum MovieGenre { Horror, Drama, Comedy}
