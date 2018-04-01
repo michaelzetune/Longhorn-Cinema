@@ -11,10 +11,14 @@ namespace LonghornCinemaFinalProject.Models
         // OrderID
         public Int32 OrderID { get; set; }
 
+
         // Navigation Properties
         // User
+        public virtual User User { get; set; }
         // Tickets
+        public virtual List<Ticket> Tickets { get; set; }
         // Credit Card
+        public virtual CreditCard CreditCard { get; set; }
 
     }
 }
