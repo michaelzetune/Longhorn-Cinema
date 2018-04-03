@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
@@ -14,6 +15,8 @@ namespace LonghornCinemaFinalProject.Models
         public Int32 ShowingID { get; set; }
 
         // Time
+        [Display(Name = "Registration Date")]
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm}"), ApplyFormatInEditMode = true]
         public DateTime ShowingTime { get; set; }
 
         // SpecialEvent
@@ -28,8 +31,11 @@ namespace LonghornCinemaFinalProject.Models
 
         // Navigation Properties
         // Movie
+        public virtual Movie Movie { get; set; }
         // Tickets
+        public virtualList<Ticket> Tickets { get; set; }
         // Schedule
+        public virtual Schedule Schedule { get; set;}
 
     }
 }
