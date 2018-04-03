@@ -16,7 +16,7 @@ namespace LonghornCinemaFinalProject.Models
 
         // Time
         [Display(Name = "Registration Date")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}"), ApplyFormatInEditMode = true]
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         public DateTime ShowingTime { get; set; }
 
         // SpecialEvent
@@ -33,7 +33,7 @@ namespace LonghornCinemaFinalProject.Models
         // Movie
         public virtual Movie Movie { get; set; }
         // Tickets
-        public virtualList<Ticket> Tickets { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
         // Schedule
         public virtual Schedule Schedule { get; set;}
 
