@@ -17,6 +17,7 @@ namespace LonghornCinemaFinalProject.Models
         // Price
         public Decimal TicketPrice { get; set; }        */
 
+        public String Actors { get; set; }
         // Navigation Properties
         // Order
         public virtual Order Order { get; set; }
