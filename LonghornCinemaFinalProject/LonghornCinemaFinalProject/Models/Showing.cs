@@ -37,5 +37,6 @@ namespace LonghornCinemaFinalProject.Models
         // Schedule
         public virtual Schedule Schedule { get; set;}
 
+        k
     }
 }
