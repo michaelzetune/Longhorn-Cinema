@@ -6,8 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum SpecialEvent { NotSpecial, Special }
-    public enum Theatre { TheatreOne, TheatreTwo }
+    public enum SpecialEvent { NotSpecial, Special };
+    public enum Theatre { TheatreOne, TheatreTwo };
     public class Showing
     {
         // Properties

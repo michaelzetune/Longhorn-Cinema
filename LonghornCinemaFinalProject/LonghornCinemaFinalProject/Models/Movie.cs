@@ -5,7 +5,8 @@ using System.Web;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum MovieGenre { Horror, Drama, Comedy}
+    public enum MPPArating { G, PG, R, Unrated};
+    
 
     public class Movie
     {
@@ -18,7 +19,7 @@ namespace LonghornCinemaFinalProject.Models
         public String Title { get; set; }
 
         // Genres
-        public MovieGenre Genre { get; set; }
+        public String Genre { get; set; }
 
         // Overview
         public String Overview { get; set; }
@@ -27,21 +28,26 @@ namespace LonghornCinemaFinalProject.Models
         public DateTime ReleaseDate { get; set; }
 
         // Revenue
-        public Decimal Revenue { get; set; }
+        public Int32 Revenue { get; set; }
 
         // Runtime (in minutes)
-        public Decimal Runtime { get; set; }
+        public Int32 Runtime { get; set; }
 
         // Tagline
         public String Tagline { get; set; }
 
         // Actors
         public String Actors { get; set; }
- 
+
+        //MPAA rating
+        public MPPArating MPPArating { get; set; }
+
         
         // Navigation Properties
-        // MoviePrice
         // MovieReviews
+        public virtual List <MovieReview> MovieReviews { get; set; }
+
         // Showings
+        public virtual List <Showing> Showings { get; set; }
     }
 }
