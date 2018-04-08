@@ -5,8 +5,6 @@ using System.Web;
 using LonghornCinemaFinalProject.Models;
 using System.Data.Entity;
 
-//FYI: we need to enable Entity Framework for these errors to disappear
-
 namespace LonghornCinemaFinalProject.DAL
 {
     public class AppDbContext : DbContext
