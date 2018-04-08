@@ -16,5 +16,6 @@ namespace LonghornCinemaFinalProject.Models
 
         // Navigation Properties
         // Users
+        public virtual List<User> Users { get; set; }
     }
 }

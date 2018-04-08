@@ -15,6 +15,7 @@ namespace LonghornCinemaFinalProject.Models
 
         // Navigation Properties
         // Showings
+        public virtual List<Showing> Showings { get; set; }
 
     }
 }

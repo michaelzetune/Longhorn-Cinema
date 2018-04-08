@@ -24,6 +24,8 @@ namespace LonghornCinemaFinalProject.Models
 
         // Navigation Properties
         // Movie
+        public virtual Movie Movie { get; set; }
         // User
+        public virtual User User { get; set; }
     }
 }

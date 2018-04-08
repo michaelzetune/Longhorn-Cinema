@@ -50,8 +50,12 @@ namespace LonghornCinemaFinalProject.Models
 
         // Navigation Properties
         // Roles
+        public virtual List<Role> Roles { get; set; }
         // Orders
+        public virtual List<Order> Orders { get; set; }
         // MovieReviews
+        public virtual List<MovieReview> MovieReviews { get; set; }
         // CreditCards
+        public virtual List<CreditCard> CreditCards { get; set; }
     }
 }
