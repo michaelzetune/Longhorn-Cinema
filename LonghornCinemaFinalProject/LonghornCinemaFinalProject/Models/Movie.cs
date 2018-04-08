@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum MPPArating { G, PG, R, Unrated};
+    public enum MPAARating { G, PG, R, Unrated};
     
 
     public class Movie
@@ -40,7 +40,7 @@ namespace LonghornCinemaFinalProject.Models
         public String Actors { get; set; }
 
         //MPAA rating
-        public MPPArating MPPArating { get; set; }
+        public MPAARating MPAARating { get; set; }
 
         
         // Navigation Properties
