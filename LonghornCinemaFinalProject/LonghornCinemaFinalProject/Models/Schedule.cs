@@ -17,5 +17,12 @@ namespace LonghornCinemaFinalProject.Models
         // Showings
         public virtual List<Showing> Showings { get; set; }
 
+        public Schedule()
+        {
+            if (Showings == null)
+            {
+                Showings = new List<Showing>();
+            }
+        }
     }
 }

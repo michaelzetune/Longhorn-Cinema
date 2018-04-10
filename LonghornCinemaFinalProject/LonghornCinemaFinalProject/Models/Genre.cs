@@ -19,6 +19,11 @@ namespace LonghornCinemaFinalProject.Models
         }
 
         public Genre()
-        { }
+        {
+            if (Movies == null)
+            {
+                Movies = new List<Movie>();
+            }
+        }
     }
 }

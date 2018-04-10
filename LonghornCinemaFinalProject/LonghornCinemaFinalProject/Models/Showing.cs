@@ -37,5 +37,12 @@ namespace LonghornCinemaFinalProject.Models
         // Schedule
         public virtual Schedule Schedule { get; set;}
 
+        public Showing()
+        {
+            if (Tickets == null)
+            {
+                Tickets = new List<Ticket>();
+            }
+        }
     }
 }

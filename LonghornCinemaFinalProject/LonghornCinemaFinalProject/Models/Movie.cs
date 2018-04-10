@@ -85,6 +85,11 @@ namespace LonghornCinemaFinalProject.Models
             {
                 MovieReviews = new List<MovieReview>();
             }
+            
+            if (Showings == null)
+            {
+                Showings = new List<Showing>();   
+            }
         }
     }
 }

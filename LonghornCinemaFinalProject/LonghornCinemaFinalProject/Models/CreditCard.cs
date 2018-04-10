@@ -53,5 +53,13 @@ namespace LonghornCinemaFinalProject.Models
         public virtual User User { get; set; }
         // Orders
         public virtual List<Order> Orders { get; set; }
+
+        public CreditCard()
+        {
+            if (Orders == null)
+            {
+                Orders = new List<Order>();
+            }
+        }
     }
 }

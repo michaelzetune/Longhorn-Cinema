@@ -57,5 +57,28 @@ namespace LonghornCinemaFinalProject.Models
         public virtual List<MovieReview> MovieReviews { get; set; }
         // CreditCards
         public virtual List<CreditCard> CreditCards { get; set; }
+
+        public User()
+        {
+            if (Roles == null)
+            {
+                Roles = new List<Role>();
+            }
+
+            if (Orders == null)
+            {
+                Orders = new List<Order>();
+            }
+
+            if (MovieReviews == null)
+            {
+                MovieReviews = new List<MovieReview>();
+            }
+
+            if (CreditCards == null)
+            {
+                CreditCards = new List<CreditCard>();
+            }
+        }
     }
 }
