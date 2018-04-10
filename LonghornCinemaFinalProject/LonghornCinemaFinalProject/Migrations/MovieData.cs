@@ -17,7 +17,7 @@ namespace LonghornCinemaFinalProject.Migrations
             db.Genres.AddOrUpdate(g => g.Name, m1g1);
             m1.Genres.Add(m1g1);
             m1.Overview = "A producer puts on what may be his last Broadway show, and at the last moment a chorus girl has to replace the star.";
-            m1.ReleaseDate = DateTime.Parse("1998");
+            m1.ReleaseDate = new DateTime(1998, 1, 1);
             m1.Revenue = 2281000;
             m1.Runtime = 89;
             m1.Tagline = "OK. Say, Jones and Barry are doin' a show! - That's great. Jones and Barry are doin' a show.";
