@@ -17,5 +17,8 @@ namespace LonghornCinemaFinalProject.Models
         {
             Name = TheName;
         }
+
+        public Genre()
+        { }
     }
 }

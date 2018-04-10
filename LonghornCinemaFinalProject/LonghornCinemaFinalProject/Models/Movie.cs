@@ -6,7 +6,7 @@ using System.Web;
 namespace LonghornCinemaFinalProject.Models
 {
     public enum MPAARating { G, PG, R, Unrated, None};
-    
+
 
     public class Movie
     {
@@ -44,9 +44,11 @@ namespace LonghornCinemaFinalProject.Models
         {
             get
             {
+                // TODO: db average method
+
                 Decimal sum = 0m;
                 int count = 0;
-                foreach(MovieReview mr in MovieReviews)
+                foreach (MovieReview mr in MovieReviews)
                 {
                     sum += mr.NumStars;
                     count++;
@@ -56,15 +58,33 @@ namespace LonghornCinemaFinalProject.Models
             }
         }
 
-        
+
         // Navigation Properties
         // MovieReviews
-        public virtual List <MovieReview> MovieReviews { get; set; }
+        public virtual List<MovieReview> MovieReviews { get; set; }
 
         // Showings
-        public virtual List <Showing> Showings { get; set; }
+        public virtual List<Showing> Showings { get; set; }
 
         // Genres
         public virtual List<Genre> Genres { get; set; }
+
+        public Movie()
+        {
+            if (Genres == null)
+            {
+                Genres = new List<Genre>();
+            }
+
+            if (Actors == null)
+            {
+                Actors = new List<String>();
+            }
+
+            if (MovieReviews == null)
+            {
+                MovieReviews = new List<MovieReview>();
+            }
+        }
     }
 }
