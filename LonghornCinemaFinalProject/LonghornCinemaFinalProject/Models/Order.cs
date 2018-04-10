@@ -20,5 +20,12 @@ namespace LonghornCinemaFinalProject.Models
         // Credit Card
         public virtual CreditCard CreditCard { get; set; }
 
+        public Order()
+        {
+            if (Tickets == null)
+            {
+                Tickets = new List<Ticket>();
+            }
+        }
     }
 }

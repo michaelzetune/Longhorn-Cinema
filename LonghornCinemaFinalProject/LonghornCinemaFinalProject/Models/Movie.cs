@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LonghornCinemaFinalProject.DAL;
 
 namespace LonghornCinemaFinalProject.Models
 {
@@ -10,6 +11,7 @@ namespace LonghornCinemaFinalProject.Models
 
     public class Movie
     {
+        private AppDbContext db = new AppDbContext();
 
         // Properties
         // MovieID
@@ -44,17 +46,9 @@ namespace LonghornCinemaFinalProject.Models
         {
             get
             {
-                // TODO: db average method
-
-                Decimal sum = 0m;
-                int count = 0;
-                foreach (MovieReview mr in MovieReviews)
-                {
-                    sum += mr.NumStars;
-                    count++;
-                }
-                sum = sum / count;
-                return sum;
+                // replaced iterating through List of MovieReviews to find average rating
+                // with this instead:
+                return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
             }
         }
 
@@ -84,6 +78,11 @@ namespace LonghornCinemaFinalProject.Models
             if (MovieReviews == null)
             {
                 MovieReviews = new List<MovieReview>();
+            }
+            
+            if (Showings == null)
+            {
+                Showings = new List<Showing>();   
             }
         }
     }

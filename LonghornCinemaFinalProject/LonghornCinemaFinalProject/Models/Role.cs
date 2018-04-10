@@ -17,5 +17,13 @@ namespace LonghornCinemaFinalProject.Models
         // Navigation Properties
         // Users
         public virtual List<User> Users { get; set; }
+
+        public Role()
+        {
+            if (Users == null)
+            {
+                Users = new List<User>();
+            }
+        }
     }
 }
