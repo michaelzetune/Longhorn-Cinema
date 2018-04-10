@@ -9,6 +9,7 @@ using LonghornCinemaFinalProject.Models;
 namespace LonghornCinemaFinalProject.Controllers
 {
     public enum Classification {  GreaterThan, LessThan }
+    public enum StarFilter { Greater, Less }
 
     public class SearchController : Controller
     {
@@ -32,18 +33,20 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult DetailedSearch()
         {
             ViewBag.AllGenres = GetAllGenres();
+            ViewBag.AllMPAARatings = GetAllMPAARatings();
+            ViewBag.AllActors = GetAllActors();
             return View();
         }
         
-        public ActionResult DisplaySearchResults(String SearchMovie, String SearchTagline, Genre SelectedGenre, DateTime? SelectedReleaseYear, MPAARating SelectedRating, Classification SelectedClass, String DesiredCustomerRating, String SearchActors)
-        {
+        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Genre SearchGenre, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor)
+        { // Update Actors and other fields to be multiselectable
             var query = from m in db.Movies
                         select m;
 
-            //SearchMovie for Movie Name
-            if (SearchMovie != null)
+            //SearchTitle for Movie Name
+            if (SearchTitle != null)
             {
-                query = query.Where(m => m.Title.Contains(SearchMovie));
+                query = query.Where(m => m.Title.Contains(SearchTitle));
             }
 
             //SearchTagline for Movie Tagline
@@ -52,66 +55,66 @@ namespace LonghornCinemaFinalProject.Controllers
                 query = query.Where(m => m.Tagline.Contains(SearchTagline));
             }
 
-            //code for Genre selection
-            if (SelectedGenre != 0)
+            // SearchGenre for Movie Genre
+            if (SearchGenre != null)
             {
-                query = query.Where(m => m.Movie.MovieID == SelectedGenre);
+                query = query.Where(m => m.Genres.Contains(SearchGenre));
             }
 
-            //code for Released After datetime field in the view
-            if (SelectedReleaseYear != null)
+            // SearchYear for Movie year release
+            if (SearchYear != null)
             {
-                DateTime datSelected = SelectedReleaseYear ?? new DateTime(1900, 1, 1);
-
-                query = query.Where(m => m.ReleaseYear >= datSelected);
+                DateTime YearInDateTime = DateTime.Parse(SearchYear);
+                
+                query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
             }           
               
             //code for MPAA Rating selection
-            if (SelectedRating != 0)
+            if (SearchMPAARating != MPAARating.None)
             {
-                query = query.Where(m => m.Movie.MPAARating == SelectedRating);
+                query = query.Where(m => m.MPAARating == SearchMPAARating);
             }
           
             //code for customer rating text box
-            if (DesiredCustomerRating != null && DesiredCustomerRating != "")
+            if (SearchStars != null)
             {
                 Decimal decCustomerRating;
                 try
                 {
-                    decCustomerRating = Convert.ToDecimal(DesiredCustomerRating);
+                    decCustomerRating = Convert.ToDecimal(SearchStars);
                 }
                 catch
                 {
-                    ViewBag.Message = DesiredCustomerRating + " is not a valid number. Please try again";
+                    ViewBag.Message = SearchStars + " is not a valid number. Please try again";
 
                     ViewBag.AllGenres = GetAllGenres();
 
-                    return View("DetailedSearch")
+                    return View("DetailedSearch");
                 }
 
                 //code for radio buttons
-                if (SelectedClass == Classification.GreaterThan)
+                if (SearchStarFilter == StarFilter.Greater)
                 {
-                    query = query.Where(m => m.NumStars >= decCustomerRating);
+                    query = query.Where(m => m.RatingAverage >= decCustomerRating);
                 }
-                if (SelectedClass == Classification.LessThan)
+                else if(SearchStarFilter == StarFilter.Less)
                 {
-                    query = query.Where(m => m.NumStars <= decCustomerRating);
+                    query = query.Where(m => m.RatingAverage <= decCustomerRating);
                 }
             }
 
             //SearchActors for Movie Actors
-            if (SearchActors != null)
+            if (SearchActor != "")
             {
-                query = query.Where(m => m.Actors.Contains(SearchActors));
+                query = query.Where(m => m.Actors.Contains(SearchActor));
             }
 
             List<Movie> MoviesToDisplay = query.ToList();
 
             MoviesToDisplay.OrderBy(m => m.Title);
 
-            ViewBag.SelectedMovies = MoviesToDisplay.Count();
-            ViewBag.TotalMovies = MoviesToDisplay.Count();
+            ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
+            ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
 
             return View("Index", MoviesToDisplay);
         }
@@ -120,11 +123,47 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             List<Genre> Genres = db.Genres.ToList();
 
-            Genres SelectNone = new Models.Genre() { GenreID = 0, Name = "All Genres" };
+            Genre SelectNone = new Genre("None") { GenreID = 0, Name = "All Genres" };
             Genres.Add(SelectNone);
 
             SelectList AllGenres = new SelectList(Genres.OrderBy(g => g.GenreID), "GenreID", "Name");
             return AllGenres;
+        }
+
+        public SelectList GetAllMPAARatings()
+        {
+            List<MPAARating> MPAARatings = new List<MPAARating>();
+
+            foreach (Movie m in db.Movies.ToList())
+            {
+                if (!MPAARatings.Contains(m.MPAARating))
+                    MPAARatings.Add(m.MPAARating);
+            }
+
+            MPAARating SelectNone = MPAARating.None; // TODO: need to check that this is a valid way to make selectnone
+            MPAARatings.Add(SelectNone);
+
+            SelectList AllRatings = new SelectList(MPAARatings);
+            return AllRatings;
+        }
+
+        public SelectList GetAllActors()
+        {
+            List<String> Actors = new List<String>();
+
+            foreach (Movie m in db.Movies.ToList())
+            {
+                foreach (String a in m.Actors)
+                {
+                    if (!Actors.Contains(a))
+                    {
+                        Actors.Add(a);
+                    }
+                }
+            }
+
+            SelectList AllActors = new SelectList(Actors);
+            return AllActors;
         }
     }
 }
