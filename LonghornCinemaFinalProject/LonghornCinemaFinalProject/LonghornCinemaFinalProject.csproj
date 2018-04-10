@@ -154,7 +154,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804100426178_InitialSetup.cs" />
+    <Compile Include="Migrations\201804100426178_InitialSetup.Designer.cs">
+      <DependentUpon>201804100426178_InitialSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804100526474_TestMovie.cs" />
+    <Compile Include="Migrations\201804100526474_TestMovie.Designer.cs">
+      <DependentUpon>201804100526474_TestMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804100559160_TestMovie2.cs" />
+    <Compile Include="Migrations\201804100559160_TestMovie2.Designer.cs">
+      <DependentUpon>201804100559160_TestMovie2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CreditCard.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviePrice.cs" />
     <Compile Include="Models\MovieReview.cs" />
@@ -164,6 +178,7 @@
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Migrations\MovieData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -201,10 +216,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Search\DetailedSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -218,6 +233,17 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804100426178_InitialSetup.resx">
+      <DependentUpon>201804100426178_InitialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100526474_TestMovie.resx">
+      <DependentUpon>201804100526474_TestMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804100559160_TestMovie2.resx">
+      <DependentUpon>201804100559160_TestMovie2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

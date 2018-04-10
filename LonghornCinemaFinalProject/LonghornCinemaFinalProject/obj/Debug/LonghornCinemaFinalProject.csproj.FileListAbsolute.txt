@@ -88,6 +88,8 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\LonghornCinemaFinalProject.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\LonghornCinemaFinalProject.pdb
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Antlr3.Runtime.dll
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\EntityFramework.dll
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\EntityFramework.SqlServer.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Agent.Intercept.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.DependencyCollector.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -106,6 +108,8 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.WebPages.Razor.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\WebGrease.dll
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\EntityFramework.xml
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\EntityFramework.SqlServer.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Helpers.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\System.Web.Mvc.xml
@@ -122,6 +126,10 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.WindowsServer.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Web.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csprojResolveAssemblyReference.cache
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.InitialSetup.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csproj.GenerateResource.Cache
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.csproj.CoreCompileInputs.cache
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.dll
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.pdb
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.TestMovie.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.TestMovie2.resources
