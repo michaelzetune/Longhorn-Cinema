@@ -21,5 +21,6 @@ namespace LonghornCinemaFinalProject.DAL
         public DbSet<Showing> Showings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Genre> Genres { get; set; }
     }
 }
