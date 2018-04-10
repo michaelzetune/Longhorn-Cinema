@@ -1,12 +1,74 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<LonghornCinemaFinalProject.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
 }
 
-<div class="jumbotron">
-    <h1>Welcome to Longhorn Cinema!</h1>
-    <p class="lead">Team 5 is the best.</p>
-</div>
+<h2>Movies</h2>
 
-<div class="row">
+@using (Html.BeginForm())
+{
+    <p class="form-group">
+        Search (don't touch yet!): @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+        <input type="submit" value="Search" class="btn btn-default" />
+        @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Show All", "Index", null, new { @class = "btn btn-default" })
+    </p>
+}
 
-</div>
+Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MPAARating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RatingAverage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Runtime)
+        </th>
+        <th>
+            Showtimes (add later...)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MPAARating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatingAverage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.MovieID })
+            </td>
+        </tr>
+    }
+
+</table>

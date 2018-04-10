@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum MPAARating { G, PG, R, Unrated};
+    public enum MPAARating { G, PG, R, Unrated, None};
     
 
     public class Movie
@@ -17,9 +17,6 @@ namespace LonghornCinemaFinalProject.Models
 
         // Title
         public String Title { get; set; }
-
-        // Genres
-        public String Genre { get; set; }
 
         // Overview
         public String Overview { get; set; }
@@ -37,10 +34,27 @@ namespace LonghornCinemaFinalProject.Models
         public String Tagline { get; set; }
 
         // Actors
-        public String Actors { get; set; }
+        public List<String> Actors { get; set; }
 
-        //MPAA rating
+        // MPAA rating
         public MPAARating MPAARating { get; set; }
+
+        // Customer Rating Average
+        public Decimal RatingAverage
+        {
+            get
+            {
+                Decimal sum = 0m;
+                int count = 0;
+                foreach(MovieReview mr in MovieReviews)
+                {
+                    sum += mr.NumStars;
+                    count++;
+                }
+                sum = sum / count;
+                return sum;
+            }
+        }
 
         
         // Navigation Properties
@@ -49,5 +63,8 @@ namespace LonghornCinemaFinalProject.Models
 
         // Showings
         public virtual List <Showing> Showings { get; set; }
+
+        // Genres
+        public virtual List<Genre> Genres { get; set; }
     }
 }

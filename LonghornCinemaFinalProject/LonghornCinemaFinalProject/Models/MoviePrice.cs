@@ -9,6 +9,7 @@ namespace LonghornCinemaFinalProject.Models
     public enum Time { Morning, Afternoon, Evening}
     public class MoviePrice
     {
+        public Int32 MoviePriceID { get; set; }
         // Properties
         // MoviePriceID
         // Talked to Katie and she explained how this class is just like a copy type of deal

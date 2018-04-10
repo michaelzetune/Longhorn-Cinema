@@ -1,0 +1,37 @@
+﻿@using LonghornCinemaFinalProject.Controllers
+
+@{
+    ViewBag.Title = "DetailedSearch";
+}
+
+<h2>Detailed Search</h2>
+
+
+@using (Html.BeginForm("DisplaySearchResults", "Home", FormMethod.Get))
+{
+<p class="form-group">
+    Name: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
+
+    Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
+
+    @Html.DropDownList("SearchGenre", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+
+    @Html.TextBox("SearchYear", null, new { @class = "form-control" })
+
+    @Html.DropDownList("SearchMPAARating", (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
+
+    <div class="form-group">
+        Number of stars:
+        <br />
+            @Html.TextBox("SearchStars", null, new { @class = "form-control" }) 
+        <br />
+        <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Greater, true)Greater than</label>
+        <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Less)Less than</label> @ViewBag.Message
+    </div>
+
+    @Html.ListBox("SearchActors", (MultiSelectList)ViewBag.AllActors, new { @class = "form-control" })
+
+    <input type="submit" value="Search" class="=" btn btn-default" />
+</p>
+}
+

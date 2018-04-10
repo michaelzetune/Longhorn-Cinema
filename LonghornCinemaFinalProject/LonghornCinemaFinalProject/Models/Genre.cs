@@ -12,5 +12,10 @@ namespace LonghornCinemaFinalProject.Models
 
 
         public virtual List<Movie> Movies { get; set; }
+
+        public Genre(String TheName)
+        {
+            Name = TheName;
+        }
     }
 }
