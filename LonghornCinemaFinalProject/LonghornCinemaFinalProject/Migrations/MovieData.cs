@@ -11,43 +11,31 @@ namespace LonghornCinemaFinalProject.Migrations
         public void SeedMovies(AppDbContext db)
         {
 
+
             Movie m1 = new Movie();
             m1.Title = "42nd Street";
-            Genre m1g1 = new Genre("TestGenre1");
-            db.Genres.AddOrUpdate(g => g.Name, m1g1);
+            Genre m1g1 = new Genre("Musical");
+            Genre m1g2 = new Genre("Comedy"); // make sure each Genre has a different name. See commented m2 for the difference
+            Genre m1g3 = new Genre("Romance");
+            db.Genres.AddOrUpdate(g => g.Name, m1g1); // make sure to add each Genre to the table separately
+            db.Genres.AddOrUpdate(g => g.Name, m1g2);
+            db.Genres.AddOrUpdate(g => g.Name, m1g3);
             m1.Genres.Add(m1g1);
             m1.Overview = "A producer puts on what may be his last Broadway show, and at the last moment a chorus girl has to replace the star.";
-            m1.ReleaseDate = new DateTime(1998, 1, 1);
+            m1.ReleaseDate = new DateTime(1933, 2, 2);
             m1.Revenue = 2281000;
             m1.Runtime = 89;
             m1.Tagline = "OK. Say, Jones and Barry are doin' a show! - That's great. Jones and Barry are doin' a show.";
             m1.MPAARating = MPAARating.Unrated;
             m1.Actors.Add("Warner Baxter");
+            m1.Actors.Add("Bebe Daniels");
+            m1.Actors.Add("George Brent");
+            m1.Actors.Add("Ruby Keeler");
+            m1.Actors.Add("Guy Kibbee");
+            m1.Actors.Add("Una Merkel");
             db.Movies.AddOrUpdate(m => m.Title, m1);
-            db.SaveChanges();
+            db.SaveChanges(); // check that MovieData.cs has no build errors before commiting 
 
-            //Movie m1 = new Movie();
-            //m1.Title = "42nd Street";
-            //Genre m1g1= new Genre("Musical");
-            //Genre m1g1= new Genre("Comedy");
-            //Genre m1g1= new Genre("Romance");
-            //db.Genres.AddOrUpdate(g => g.Name, m1g1);
-            //m1Genres.Add(m1g1);
-            //m1.Overview = "A producer puts on what may be his last Broadway show, and at the last moment a chorus girl has to replace the star.";
-            //m1.ReleaseYear = new DateTime(1933,2,2);
-            //m1.Revenue = 2281000;
-            //m1.Runtime = 89;
-            //m1.Tagline = "OK. Say, Jones and Barry are doin' a show! - That's great. Jones and Barry are doin' a show.";
-            //m1.MPAArating = MPAARating.Unrated;
-            //m1.Actors.Add("Warner Baxter");
-            //m1.Actors.Add("Bebe Daniels");
-            //m1.Actors.Add("George Brent");
-            //m1.Actors.Add("Ruby Keeler");
-            //m1.Actors.Add("Guy Kibbee");
-            //m1.Actors.Add("Una Merkel");
-            //db.Movies.AddorUpdate(m => m.Title, m1);
-            //db.SaveChanges();
-            //
             //Movie m2 = new Movie();
             //m2.Title = "It Happened One Night";
             //Genre m2g2= new Genre("Comedy");
@@ -2937,7 +2925,7 @@ namespace LonghornCinemaFinalProject.Migrations
             //m134.Actors.Add("Annie Mumolo");
             //db.Movies.AddorUpdate(m => m.Title, m134);
             //db.SaveChanges();
-            a
+      
 
 
 
