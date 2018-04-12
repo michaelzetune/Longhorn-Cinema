@@ -174,6 +174,22 @@
     <Compile Include="Migrations\201804121831302_AllMovieData1.Designer.cs">
       <DependentUpon>201804121831302_AllMovieData1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804122047240_AllMovieData2.cs" />
+    <Compile Include="Migrations\201804122047240_AllMovieData2.Designer.cs">
+      <DependentUpon>201804122047240_AllMovieData2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804122052408_AllMovieData3.cs" />
+    <Compile Include="Migrations\201804122052408_AllMovieData3.Designer.cs">
+      <DependentUpon>201804122052408_AllMovieData3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804122103445_AllMovieData4.cs" />
+    <Compile Include="Migrations\201804122103445_AllMovieData4.Designer.cs">
+      <DependentUpon>201804122103445_AllMovieData4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804122109086_AllMovieData5.cs" />
+    <Compile Include="Migrations\201804122109086_AllMovieData5.Designer.cs">
+      <DependentUpon>201804122109086_AllMovieData5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CreditCard.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -257,6 +273,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804121831302_AllMovieData1.resx">
       <DependentUpon>201804121831302_AllMovieData1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804122047240_AllMovieData2.resx">
+      <DependentUpon>201804122047240_AllMovieData2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804122052408_AllMovieData3.resx">
+      <DependentUpon>201804122052408_AllMovieData3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804122103445_AllMovieData4.resx">
+      <DependentUpon>201804122103445_AllMovieData4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804122109086_AllMovieData5.resx">
+      <DependentUpon>201804122109086_AllMovieData5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

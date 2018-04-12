@@ -10,19 +10,53 @@ namespace LonghornCinemaFinalProject.Migrations
     {
         public void SeedMovies(AppDbContext db)
         {
+            Genre Musical = new Genre("Musical");
+            Genre Comedy = new Genre("Comedy");
+            Genre Romance = new Genre("Romance");
+            Genre Action = new Genre("Action");
+            Genre Adventure = new Genre("Adventure");
+            Genre Animation = new Genre("Animation");
+            Genre Crime = new Genre("Crime");
+            Genre Drama = new Genre("Drama");
+            Genre Family = new Genre("Comedy");
+            Genre Fantasy = new Genre("Fantasy");
+            Genre History = new Genre("History");
+            Genre Horror = new Genre("Horror");
+            Genre ScienceFiction = new Genre("Science Fiction");
+            Genre Thriller = new Genre("Thriller");
+            Genre War = new Genre("War");
+            Genre Western = new Genre("Western");
+            Genre Mystery = new Genre("Mystery");
+
+            db.Genres.Add(Musical);
+            db.Genres.Add(Comedy);
+            db.Genres.Add(Romance);
+            db.Genres.Add(Action);
+            db.Genres.Add(Adventure);
+            db.Genres.Add(Animation);
+            db.Genres.Add(Crime);
+            db.Genres.Add(Drama);
+            db.Genres.Add(Family);
+            db.Genres.Add(Fantasy);
+            db.Genres.Add(History);
+            db.Genres.Add(Horror);
+            db.Genres.Add(ScienceFiction);
+            db.Genres.Add(Thriller);
+            db.Genres.Add(War);
+            db.Genres.Add(Western);
+            db.Genres.Add(Mystery);
+            db.SaveChanges();
+
 
 
             Movie m1 = new Movie();
             m1.Title = "42nd Street";
-            Genre m1g1 = new Genre("Musical");
-            Genre m1g2 = new Genre("Comedy"); // make sure each Genre has a different name. See commented m2 for the difference
-            Genre m1g3 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m1g1); // make sure to add each Genre to the table separately
-            db.Genres.AddOrUpdate(g => g.Name, m1g2);
-            db.Genres.AddOrUpdate(g => g.Name, m1g3);
-            m1.Genres.Add(m1g1);
-            m1.Genres.Add(m1g2);
-            m1.Genres.Add(m1g3);
+            m1.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m1.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m1.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m1.Overview = "A producer puts on what may be his last Broadway show, and at the last moment a chorus girl has to replace the star.";
             m1.ReleaseDate = new DateTime(1933, 2, 2);
             m1.Revenue = 2281000;
@@ -36,16 +70,14 @@ namespace LonghornCinemaFinalProject.Migrations
             m1.Actors.Add("Guy Kibbee");
             m1.Actors.Add("Una Merkel");
             db.Movies.AddOrUpdate(m => m.Title, m1);
-            db.SaveChanges(); // check that MovieData.cs has no build errors before commiting 
+            db.SaveChanges();
 
             Movie m2 = new Movie();
             m2.Title = "It Happened One Night";
-            Genre m2g1 = new Genre("Comedy");
-            Genre m2g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m2g1);
-            db.Genres.AddOrUpdate(g => g.Name, m2g2);
-            m2.Genres.Add(m2g1);
-            m2.Genres.Add(m2g2);
+            m2.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m2.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m2.Overview = "Ellie Andrews has just tied the knot with society aviator King Westley when she is whisked away to her father's yacht and out of King's clutches. Ellie jumps ship and eventually winds up on a bus headed back to her husband. Reluctantly she must accept the help of out-of- work reporter Peter Warne. Actually, Warne doesn't give her any choice: either she sticks with him until he gets her back to her husband, or he'll blow the whistle on Ellie to her father. Either way, Peter gets what he wants... a really juicy newspaper story!";
             m2.ReleaseDate = new DateTime(1934, 2, 22);
             m2.Revenue = 4500000;
@@ -63,16 +95,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m3 = new Movie();
             m3.Title = "Snow White and the Seven Dwarfs";
-            Genre m3g1 = new Genre("Fantasy");
-            Genre m3g2 = new Genre("Animation");
-            Genre m3g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m3g1);
-            db.Genres.AddOrUpdate(g => g.Name, m3g2);
-            db.Genres.AddOrUpdate(g => g.Name, m3g3);
-            m3.Genres.Add(m3g1);
-            m3.Genres.Add(m3g2);
-            m3.Genres.Add(m3g3);
-            m3.Overview = "A beautiful girl, Snow White, takes refuge in the forest in the house of seven dwarfs to hide from her stepmother, the wicked Queen. The Queen is jealous because she wants to be known as" + " the fairest in the land," + "and Snow White's beauty surpasses her own.";
+            m3.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m3.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m3.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            m3.Overview = "A beautiful girl, Snow White, takes refuge in the forest in the house of seven dwarfs to hide from her stepmother, the wicked Queen. The Queen is jealous because she wants to be known as \"the fairest in the land,\" and Snow White's beauty surpasses her own.";
             m3.ReleaseDate = new DateTime(1937, 12, 20);
             m3.Revenue = 184925486;
             m3.Runtime = 83;
@@ -89,15 +118,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m4 = new Movie();
             m4.Title = "The Wizard of Oz";
-            Genre m4g1 = new Genre("Adventure");
-            Genre m4g2 = new Genre("Family");
-            Genre m4g3 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m4g1);
-            db.Genres.AddOrUpdate(g => g.Name, m4g2);
-            db.Genres.AddOrUpdate(g => g.Name, m4g3);
-            m4.Genres.Add(m4g1);
-            m4.Genres.Add(m4g2);
-            m4.Genres.Add(m4g3);
+            m4.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m4.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m4.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m4.Overview = "Young Dorothy finds herself in a magical world where she makes friends with a lion, a scarecrow and a tin man as they make their way along the yellow brick road to talk with the Wizard and ask for the things they miss most in their lives. The Wicked Witch of the West is the only thing that could stop them.";
             m4.ReleaseDate = new DateTime(1939, 8, 15);
             m4.Revenue = 33754967;
@@ -115,15 +141,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m5 = new Movie();
             m5.Title = "Mr. Smith Goes to Washington";
-            Genre m5g1 = new Genre("Drama");
-            Genre m5g2 = new Genre("Romance");
-            Genre m5g3 = new Genre("War");
-            db.Genres.AddOrUpdate(g => g.Name, m5g1);
-            db.Genres.AddOrUpdate(g => g.Name, m5g2);
-            db.Genres.AddOrUpdate(g => g.Name, m5g3);
-            m5.Genres.Add(m5g1);
-            m5.Genres.Add(m5g2);
-            m5.Genres.Add(m5g3);
+            m5.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m5.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m5.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
             m5.Overview = "Naive and idealistic Jefferson Smith, leader of the Boy Rangers, is appointed on a lark by the spineless governor of his state. He is reunited with the state's senior senator--presidential hopeful and childhood hero, Senator Joseph Paine. In Washington, however, Smith discovers many of the shortcomings of the political process as his earnest goal of a national boys' camp leads to a conflict with the state political boss, Jim Taylor. Taylor first tries to corrupt Smith and then later attempts to destroy Smith through a scandal.";
             m5.ReleaseDate = new DateTime(1939, 10, 19);
             m5.Revenue = 9600000;
@@ -141,12 +164,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m6 = new Movie();
             m6.Title = "Gone with the Wind";
-            Genre m6g1 = new Genre("Drama");
-            Genre m6g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m6g1);
-            db.Genres.AddOrUpdate(g => g.Name, m6g2);
-            m6.Genres.Add(m6g1);
-            m6.Genres.Add(m6g2);
+            m6.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m6.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m6.Overview = "An American classic in which a manipulative woman and a roguish man carry on a turbulent love affair in the American south during the Civil War and Reconstruction.";
             m6.ReleaseDate = new DateTime(1939, 12, 15);
             m6.Revenue = 400176459;
@@ -164,12 +185,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m7 = new Movie();
             m7.Title = "Casablanca";
-            Genre m7g1 = new Genre("Drama");
-            Genre m7g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m7g1);
-            db.Genres.AddOrUpdate(g => g.Name, m7g2);
-            m7.Genres.Add(m7g1);
-            m7.Genres.Add(m7g2);
+            m7.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m7.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m7.Overview = "In Casablanca, Morocco in December 1941, a cynical American expatriate meets a former lover, with unforeseen complications.";
             m7.ReleaseDate = new DateTime(1942, 11, 26);
             m7.Revenue = 10462500;
@@ -187,15 +206,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m8 = new Movie();
             m8.Title = "It's a Wonderful Life";
-            Genre m8g1 = new Genre("Drama");
-            Genre m8g2 = new Genre("Family");
-            Genre m8g3 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m8g1);
-            db.Genres.AddOrUpdate(g => g.Name, m8g2);
-            db.Genres.AddOrUpdate(g => g.Name, m8g3);
-            m8.Genres.Add(m8g1);
-            m8.Genres.Add(m8g2);
-            m8.Genres.Add(m8g3);
+            m8.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m8.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m8.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m8.Overview = "George Bailey has spent his entire life giving of himself to the people of Bedford Falls. He has always longed to travel but never had the opportunity in order to prevent rich skinflint Mr. Potter from taking over the entire town. All that prevents him from doing so is George's modest building and loan company, which was founded by his generous father. But on Christmas Eve, George's Uncle Billy loses the business's $8,000 while intending to deposit it in the bank. Potter finds the misplaced money, hides it from Billy, and George's troubles begin.";
             m8.ReleaseDate = new DateTime(1946, 12, 20);
             m8.Revenue = 9644124;
@@ -213,19 +229,15 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m9 = new Movie();
             m9.Title = "Annie Get Your Gun";
-            Genre m9g1 = new Genre("Comedy");
-            Genre m9g2 = new Genre("Musical");
-            Genre m9g3 = new Genre("Romance");
-            Genre m9g4 = new Genre("Western");
-            db.Genres.AddOrUpdate(g => g.Name, m9g1);
-            db.Genres.AddOrUpdate(g => g.Name, m9g2);
-            db.Genres.AddOrUpdate(g => g.Name, m9g3);
-            db.Genres.AddOrUpdate(g => g.Name, m9g4);
-            m9.Genres.Add(m9g1);
-            m9.Genres.Add(m9g2);
-            m9.Genres.Add(m9g3);
-            m9.Genres.Add(m9g4);
-            m9.Overview = "This film adaptation of Irving Berlin's classic musical stars Betty Hutton as gunslinger Annie Oakley, who romances fellow sharpshooter Frank Butler (Howard Keel) as they travel with Buffalo Bill's Wild West Show. Previously off target when it comes to love, Annie proves you can get a man with a gun in this battle-of-the-sexes extravaganza, which features timeless numbers like Anything You Can Do and " + "There's No Business Like Show Business.";
+            m9.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m9.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m9.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m9.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Western"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Western.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Western"));
+            m9.Overview = "This film adaptation of Irving Berlin's classic musical stars Betty Hutton as gunslinger Annie Oakley, who romances fellow sharpshooter Frank Butler (Howard Keel) as they travel with Buffalo Bill's Wild West Show. Previously off target when it comes to love, Annie proves you can get a man with a gun in this battle-of-the-sexes extravaganza, which features timeless numbers like \"Anything You Can Do\" and \"There's No Business Like Show Business.\"";
             m9.ReleaseDate = new DateTime(1950, 5, 17);
             m9.Revenue = 8000000;
             m9.Runtime = 107;
@@ -242,9 +254,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m10 = new Movie();
             m10.Title = "A Streetcar Named Desire";
-            Genre m10g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m10g1);
-            m10.Genres.Add(m10g1);
+            m10.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m10.Overview = "Disturbed Blanche DuBois moves in with her sister in New Orleans and is tormented by her brutish brother-in-law while her reality crumbles around her.";
             m10.ReleaseDate = new DateTime(1951, 9, 18);
             m10.Revenue = 8000000;
@@ -262,15 +273,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m11 = new Movie();
             m11.Title = "Singin' in the Rain";
-            Genre m11g1 = new Genre("Comedy");
-            Genre m11g2 = new Genre("Musical");
-            Genre m11g3 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m11g1);
-            db.Genres.AddOrUpdate(g => g.Name, m11g2);
-            db.Genres.AddOrUpdate(g => g.Name, m11g3);
-            m11.Genres.Add(m11g1);
-            m11.Genres.Add(m11g2);
-            m11.Genres.Add(m11g3);
+            m11.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m11.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m11.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m11.Overview = "In 1927 Hollywood, Don Lockwood and Lina Lamont are a famous on-screen romantic pair in silent movies, but Lina mistakes the on-screen romance for real love. When their latest film is transformed into a musical, Don has the perfect voice for the songs, but strident voice faces the studio to dub her voice. Aspiring actress, Kathy Selden is brought in and, while she is working on the movie, Don falls in love with her.";
             m11.ReleaseDate = new DateTime(1952, 4, 10);
             m11.Revenue = 7200000;
@@ -288,12 +296,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m12 = new Movie();
             m12.Title = "Cat on a Hot Tin Roof";
-            Genre m12g1 = new Genre("Drama");
-            Genre m12g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m12g1);
-            db.Genres.AddOrUpdate(g => g.Name, m12g2);
-            m12.Genres.Add(m12g1);
-            m12.Genres.Add(m12g2);
+            m12.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m12.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m12.Overview = "Brick, an alcoholic ex-football player, drinks his days away and resists the affections of his wife, Maggie. His reunion with his father, Big Daddy, who is dying of cancer, jogs a host of memories and revelations for both father and son.";
             m12.ReleaseDate = new DateTime(1958, 2, 17);
             m12.Revenue = 17570324;
@@ -311,12 +317,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m13 = new Movie();
             m13.Title = "Some Like It Hot";
-            Genre m13g1 = new Genre("Comedy");
-            Genre m13g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m13g1);
-            db.Genres.AddOrUpdate(g => g.Name, m13g2);
-            m13.Genres.Add(m13g1);
-            m13.Genres.Add(m13g2);
+            m13.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m13.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m13.Overview = "Two musicians witness a mob hit and struggle to find a way out of the city before they are found by the gangsters. Their only opportunity is to join an all-girl band as they leave on a tour. To make their getaway they must first disguise themselves as women, then keep their identities secret and deal with the problems this brings - such as an attractive bandmate and a very determined suitor.";
             m13.ReleaseDate = new DateTime(1959, 3, 18);
             m13.Revenue = 25000000;
@@ -334,15 +338,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m14 = new Movie();
             m14.Title = "Psycho";
-            Genre m14g1 = new Genre("Drama");
-            Genre m14g2 = new Genre("Horror");
-            Genre m14g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m14g1);
-            db.Genres.AddOrUpdate(g => g.Name, m14g2);
-            db.Genres.AddOrUpdate(g => g.Name, m14g3);
-            m14.Genres.Add(m14g1);
-            m14.Genres.Add(m14g2);
-            m14.Genres.Add(m14g3);
+            m14.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m14.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m14.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m14.Overview = "When larcenous real estate clerk Marion Crane goes on the lam with a wad of cash and hopes of starting a new life, she ends up at the notorious Bates Motel, where manager Norman Bates cares for his housebound mother. The place seems quirky, but fineâ€¦ until Marion decides to take a shower.";
             m14.ReleaseDate = new DateTime(1960, 6, 16);
             m14.Revenue = 32000000;
@@ -360,16 +361,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m15 = new Movie();
             m15.Title = "West Side Story";
-            Genre m15g1 = new Genre("Crime");
-            Genre m15g2 = new Genre("Drama");
-            Genre m15g3 = new Genre("Musical");
-            db.Genres.AddOrUpdate(g => g.Name, m15g1);
-            db.Genres.AddOrUpdate(g => g.Name, m15g2);
-            db.Genres.AddOrUpdate(g => g.Name, m15g3);
-            m15.Genres.Add(m15g1);
-            m15.Genres.Add(m15g2);
-            m15.Genres.Add(m15g3);
-            m15.Overview = "In the slums of the upper West Side of Manhattan, New York, a gang of Polish-American teenagers called the Jets compete with a rival gang of recently immigrated Puerto Ricans, the Sharks, to  own the neighborhood streets. Tensions are high between the gangs but two kids, one from each rival gang, fall in love leading to tragedy.";
+            m15.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m15.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m15.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            m15.Overview = "In the slums of the upper West Side of Manhattan, New York, a gang of Polish-American teenagers called the Jets compete with a rival gang of recently immigrated Puerto Ricans, the Sharks, to \"own\" the neighborhood streets. Tensions are high between the gangs but two kids, one from each rival gang, fall in love leading to tragedy.";
             m15.ReleaseDate = new DateTime(1961, 10, 18);
             m15.Revenue = 43656822;
             m15.Runtime = 152;
@@ -386,9 +384,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m16 = new Movie();
             m16.Title = "The Man Who Shot Liberty Valance";
-            Genre m16g1 = new Genre("Western");
-            db.Genres.AddOrUpdate(g => g.Name, m16g1);
-            m16.Genres.Add(m16g1);
+            m16.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Western"));
+            Western.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Western"));
             m16.Overview = "A senator, who became famous for killing a notorious outlaw, returns for the funeral of an old friend and tells the truth about his deed.";
             m16.ReleaseDate = new DateTime(1962, 4, 22);
             m16.Revenue = 8000000;
@@ -406,15 +403,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m17 = new Movie();
             m17.Title = "Dr. No";
-            Genre m17g1 = new Genre("Adventure");
-            Genre m17g2 = new Genre("Action");
-            Genre m17g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m17g1);
-            db.Genres.AddOrUpdate(g => g.Name, m17g2);
-            db.Genres.AddOrUpdate(g => g.Name, m17g3);
-            m17.Genres.Add(m17g1);
-            m17.Genres.Add(m17g2);
-            m17.Genres.Add(m17g3);
+            m17.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m17.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m17.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m17.Overview = "In the film that launched the James Bond saga, Agent 007 battles mysterious Dr. No, a scientific genius bent on destroying the U.S. space program. As the countdown to disaster begins, Bond must go to Jamaica, where he encounters beautiful Honey Ryder, to confront a megalomaniacal villain in his massive island headquarters.";
             m17.ReleaseDate = new DateTime(1962, 10, 4);
             m17.Revenue = 59600000;
@@ -432,18 +426,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m18 = new Movie();
             m18.Title = "Lawrence of Arabia";
-            Genre m18g1 = new Genre("Adventure");
-            Genre m18g2 = new Genre("Drama");
-            Genre m18g3 = new Genre("History");
-            Genre m18g4 = new Genre("War");
-            db.Genres.AddOrUpdate(g => g.Name, m18g1);
-            db.Genres.AddOrUpdate(g => g.Name, m18g2);
-            db.Genres.AddOrUpdate(g => g.Name, m18g3);
-            db.Genres.AddOrUpdate(g => g.Name, m18g4);
-            m18.Genres.Add(m18g1);
-            m18.Genres.Add(m18g2);
-            m18.Genres.Add(m18g3);
-            m18.Genres.Add(m18g4);
+            m18.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m18.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m18.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "History"));
+            m18.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            History.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "History"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
             m18.Overview = "An epic about British officer T.E. Lawrence's mission to aid the Arab tribes in their revolt against the Ottoman Empire during the First World War. Lawrence becomes a flamboyant, messianic figure in the cause of Arab unity but his psychological instability threatens to undermine his achievements.";
             m18.ReleaseDate = new DateTime(1962, 12, 10);
             m18.Revenue = 69995385;
@@ -461,12 +451,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m19 = new Movie();
             m19.Title = "To Kill a Mockingbird";
-            Genre m19g1 = new Genre("Crime");
-            Genre m19g2 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m19g1);
-            db.Genres.AddOrUpdate(g => g.Name, m19g2);
-            m19.Genres.Add(m19g1);
-            m19.Genres.Add(m19g2);
+            m19.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m19.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m19.Overview = "In a small Alabama town in the 1930s, scrupulously honest and highly respected lawyer, Atticus Finch puts his career on the line when he agrees to represent Tom Robinson, a black man accused of rape. The trial and the events surrounding it are seen through the eyes of Finch's six-year-old daughter, Scout. While Robinson's trial gives the movie its momentum, there are plenty of anecdotal occurrences before and after the court date: Scout's ever-strengthening bond with older brother, Jem, her friendship with precocious young Dill Harris, her father's no-nonsense reactions to such life-and-death crises as a rampaging mad dog, and especially Scout's reactions to, and relationship with, Boo Radley, the reclusive 'village idiot' who turns out to be her salvation when she is attacked by a venomous bigot.";
             m19.ReleaseDate = new DateTime(1962, 12, 25);
             m19.Revenue = 13129846;
@@ -484,12 +472,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m20 = new Movie();
             m20.Title = "A Hard Day's Night";
-            Genre m20g1 = new Genre("Comedy");
-            Genre m20g2 = new Genre("Musical");
-            db.Genres.AddOrUpdate(g => g.Name, m20g1);
-            db.Genres.AddOrUpdate(g => g.Name, m20g2);
-            m20.Genres.Add(m20g1);
-            m20.Genres.Add(m20g2);
+            m20.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m20.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
             m20.Overview = "Capturing John Lennon, Paul McCartney, George Harrison and Ringo Starr in their electrifying element, 'A Hard Day's Night' is a wildly irreverent journey through this pastiche of a day in the life of The Beatles during 1964. The band have to use all their guile and wit to avoid the pursuing fans and press to reach their scheduled television performance, in spite of Paul's troublemaking grandfather and Ringo's arrest.";
             m20.ReleaseDate = new DateTime(1964, 7, 6);
             m20.Revenue = 12299668;
@@ -507,15 +493,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m21 = new Movie();
             m21.Title = "Mary Poppins";
-            Genre m21g1 = new Genre("Comedy");
-            Genre m21g2 = new Genre("Fantasy");
-            Genre m21g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m21g1);
-            db.Genres.AddOrUpdate(g => g.Name, m21g2);
-            db.Genres.AddOrUpdate(g => g.Name, m21g3);
-            m21.Genres.Add(m21g1);
-            m21.Genres.Add(m21g2);
-            m21.Genres.Add(m21g3);
+            m21.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m21.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m21.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m21.Overview = "The movie combines a diverting story, songs, color and sequences of live action blended with the movements of animated figures. Mary Poppins is a kind of Super-nanny who flies in with her umbrella in response to the request of the Banks children and proceeds to put things right with the aid of her rather extraordinary magical powers before flying off again.";
             m21.ReleaseDate = new DateTime(1964, 8, 27);
             m21.Revenue = 102272727;
@@ -533,18 +516,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m22 = new Movie();
             m22.Title = "My Fair Lady";
-            Genre m22g1 = new Genre("Drama");
-            Genre m22g2 = new Genre("Family");
-            Genre m22g3 = new Genre("Musical");
-            Genre m22g4 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m22g1);
-            db.Genres.AddOrUpdate(g => g.Name, m22g2);
-            db.Genres.AddOrUpdate(g => g.Name, m22g3);
-            db.Genres.AddOrUpdate(g => g.Name, m22g4);
-            m22.Genres.Add(m22g1);
-            m22.Genres.Add(m22g2);
-            m22.Genres.Add(m22g3);
-            m22.Genres.Add(m22g4);
+            m22.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m22.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m22.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m22.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m22.Overview = "A misogynistic and snobbish phonetics professor agrees to a wager that he can take a flower girl and make her presentable in high society.";
             m22.ReleaseDate = new DateTime(1964, 10, 21);
             m22.Revenue = 72070731;
@@ -562,18 +541,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m23 = new Movie();
             m23.Title = "The Sound of Music";
-            Genre m23g1 = new Genre("Drama");
-            Genre m23g2 = new Genre("Family");
-            Genre m23g3 = new Genre("Musical");
-            Genre m23g4 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m23g1);
-            db.Genres.AddOrUpdate(g => g.Name, m23g2);
-            db.Genres.AddOrUpdate(g => g.Name, m23g3);
-            db.Genres.AddOrUpdate(g => g.Name, m23g4);
-            m23.Genres.Add(m23g1);
-            m23.Genres.Add(m23g2);
-            m23.Genres.Add(m23g3);
-            m23.Genres.Add(m23g4);
+            m23.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m23.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m23.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m23.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m23.Overview = "Film adaptation of a classic Rodgers and Hammerstein musical based on a nun who becomes a governess for an Austrian family.";
             m23.ReleaseDate = new DateTime(1965, 3, 2);
             m23.Revenue = 286214286;
@@ -591,18 +566,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m24 = new Movie();
             m24.Title = "Butch Cassidy and the Sundance Kid";
-            Genre m24g1 = new Genre("History");
-            Genre m24g2 = new Genre("Drama");
-            Genre m24g3 = new Genre("Western");
-            Genre m24g4 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m24g1);
-            db.Genres.AddOrUpdate(g => g.Name, m24g2);
-            db.Genres.AddOrUpdate(g => g.Name, m24g3);
-            db.Genres.AddOrUpdate(g => g.Name, m24g4);
-            m24.Genres.Add(m24g1);
-            m24.Genres.Add(m24g2);
-            m24.Genres.Add(m24g3);
-            m24.Genres.Add(m24g4);
+            m24.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "History"));
+            m24.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m24.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Western"));
+            m24.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            History.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "History"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Western.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Western"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m24.Overview = "In late 1890s Wyoming, Butch Cassidy is the affable, clever and talkative leader of the outlaw Hole in the Wall Gang. His closest companion is the laconic dead-shot 'Sundance Kid'. As the west rapidly becomes civilized, the law finally catches up to Butch, Sundance and their gang.  Chased doggedly by a special posse, the two decide to make their way to South America in hopes of evading their pursuers once and for all.";
             m24.ReleaseDate = new DateTime(1969, 9, 23);
             m24.Revenue = 102308889;
@@ -620,16 +591,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m25 = new Movie();
             m25.Title = "Catch-22";
-            Genre m25g1 = new Genre("War");
-            Genre m25g2 = new Genre("Drama");
-            Genre m25g3 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m25g1);
-            db.Genres.AddOrUpdate(g => g.Name, m25g2);
-            db.Genres.AddOrUpdate(g => g.Name, m25g3);
-            m25.Genres.Add(m25g1);
-            m25.Genres.Add(m25g2);
-            m25.Genres.Add(m25g3);
-            m25.Overview = "A bombardier in World War II tries desperately to escape the insanity of the war. However, sometimes insanity is the only sane way to cope with a crazy situation. Catch-22 is a parody of a military mentality and of a bureaucratic society in general.";
+            m25.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            m25.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m25.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            m25.Overview = "A bombardier in World War II tries desperately to escape the insanity of the war. However, sometimes insanity is the only sane way to cope with a crazy situation. Catch-22 is a parody of a \"military mentality\" and of a bureaucratic society in general.";
             m25.ReleaseDate = new DateTime(1970, 6, 24);
             m25.Revenue = 24911670;
             m25.Runtime = 121;
@@ -646,12 +614,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m26 = new Movie();
             m26.Title = "Willy Wonka & the Chocolate Factory";
-            Genre m26g1 = new Genre("Family");
-            Genre m26g2 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m26g1);
-            db.Genres.AddOrUpdate(g => g.Name, m26g2);
-            m26.Genres.Add(m26g1);
-            m26.Genres.Add(m26g2);
+            m26.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m26.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m26.Overview = "Eccentric candy man Willy Wonka prompts a worldwide frenzy when he announces that golden tickets hidden inside five of his delicious candy bars will admit their lucky holders into his top-secret confectionary. But does Wonka have an agenda hidden amid a world of Oompa Loompas and chocolate rivers?";
             m26.ReleaseDate = new DateTime(1971, 6, 29);
             m26.Revenue = 4000000;
@@ -669,12 +635,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m27 = new Movie();
             m27.Title = "Fiddler on the Roof";
-            Genre m27g1 = new Genre("Drama");
-            Genre m27g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m27g1);
-            db.Genres.AddOrUpdate(g => g.Name, m27g2);
-            m27.Genres.Add(m27g1);
-            m27.Genres.Add(m27g2);
+            m27.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m27.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m27.Overview = "This lavishly produced and critically acclaimed screen adaptation of the international stage sensation tells the life-affirming story of Tevye (Topol), a poor milkman whose love, pride and faith help him face the oppression of turn-of-the-century Czarist Russia. Nominated for eight Academy Awards.";
             m27.ReleaseDate = new DateTime(1971, 11, 3);
             m27.Revenue = 83304330;
@@ -692,15 +656,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m28 = new Movie();
             m28.Title = "Diamonds Are Forever";
-            Genre m28g1 = new Genre("Adventure");
-            Genre m28g2 = new Genre(" Action");
-            Genre m28g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m28g1);
-            db.Genres.AddOrUpdate(g => g.Name, m28g2);
-            db.Genres.AddOrUpdate(g => g.Name, m28g3);
-            m28.Genres.Add(m28g1);
-            m28.Genres.Add(m28g2);
-            m28.Genres.Add(m28g3);
+            m28.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m28.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m28.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m28.Overview = "Diamonds are stolen only to be sold again in the international market. James Bond infiltrates a smuggling mission to find out whoâ€™s guilty. The mission takes him to Las Vegas where Bond meets his archenemy Blofeld.";
             m28.ReleaseDate = new DateTime(1971, 12, 13);
             m28.Revenue = 116019547;
@@ -718,12 +679,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m29 = new Movie();
             m29.Title = "American Graffiti";
-            Genre m29g1 = new Genre("Comedy");
-            Genre m29g2 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m29g1);
-            db.Genres.AddOrUpdate(g => g.Name, m29g2);
-            m29.Genres.Add(m29g1);
-            m29.Genres.Add(m29g2);
+            m29.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m29.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m29.Overview = "A couple of high school graduates spend one final night cruising the strip with their buddies before they go off to college.";
             m29.ReleaseDate = new DateTime(1973, 8, 1);
             m29.Revenue = 140000000;
@@ -741,15 +700,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m30 = new Movie();
             m30.Title = "The Sting";
-            Genre m30g1 = new Genre("Comedy");
-            Genre m30g2 = new Genre("Crime");
-            Genre m30g3 = new Genre(" Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m30g1);
-            db.Genres.AddOrUpdate(g => g.Name, m30g2);
-            db.Genres.AddOrUpdate(g => g.Name, m30g3);
-            m30.Genres.Add(m30g1);
-            m30.Genres.Add(m30g2);
-            m30.Genres.Add(m30g3);
+            m30.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m30.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m30.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m30.Overview = "Set in the 1930's this intricate caper deals with an ambitious small-time crook and a veteran con man who seek revenge on a vicious crime lord who murdered one of their gang.";
             m30.ReleaseDate = new DateTime(1973, 12, 25);
             m30.Revenue = 159616327;
@@ -767,15 +723,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m31 = new Movie();
             m31.Title = "The Exorcist";
-            Genre m31g1 = new Genre("Drama");
-            Genre m31g2 = new Genre("Horror");
-            Genre m31g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m31g1);
-            db.Genres.AddOrUpdate(g => g.Name, m31g2);
-            db.Genres.AddOrUpdate(g => g.Name, m31g3);
-            m31.Genres.Add(m31g1);
-            m31.Genres.Add(m31g2);
-            m31.Genres.Add(m31g3);
+            m31.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m31.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m31.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m31.Overview = "12-year-old Regan MacNeil begins to adapt an explicit new personality as strange events befall the local area of Georgetown. Her mother becomes torn between science and superstition in a desperate bid to save her daughter, and ultimately turns to her last hope: Father Damien Karras, a troubled priest who is struggling with his own faith.";
             m31.ReleaseDate = new DateTime(1973, 12, 26);
             m31.Revenue = 441306145;
@@ -793,12 +746,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m32 = new Movie();
             m32.Title = "Blazing Saddles";
-            Genre m32g1 = new Genre("Western");
-            Genre m32g2 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m32g1);
-            db.Genres.AddOrUpdate(g => g.Name, m32g2);
-            m32.Genres.Add(m32g1);
-            m32.Genres.Add(m32g2);
+            m32.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Western"));
+            m32.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Western.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Western"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m32.Overview = "A town â€“ where everyone seems to be named Johnson â€“ is in the way of the railroad and, in order to grab their land, Hedley Lemar, a politically connected nasty person, sends in his henchmen to make the town unlivable. After the sheriff is killed, the town demands a new sheriff from the Governor, so Hedley convinces him to send the town the first black sheriff in the west.";
             m32.ReleaseDate = new DateTime(1974, 2, 7);
             m32.Revenue = 119500000;
@@ -816,16 +767,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m33 = new Movie();
             m33.Title = "Monty Python and the Holy Grail";
-            Genre m33g1 = new Genre("Adventure");
-            Genre m33g2 = new Genre("Fantasy");
-            Genre m33g3 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m33g1);
-            db.Genres.AddOrUpdate(g => g.Name, m33g2);
-            db.Genres.AddOrUpdate(g => g.Name, m33g3);
-            m33.Genres.Add(m33g1);
-            m33.Genres.Add(m33g2);
-            m33.Genres.Add(m33g3);
-            m33.Overview = "King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as it is a silly place.";
+            m33.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m33.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m33.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            m33.Overview = "King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-As-Sir-Lancelot and Sir Galahad the Pure. On the way, Arthur battles the Black Knight who, despite having had all his limbs chopped off, insists he can still fight. They reach Camelot, but Arthur decides not  to enter, as \"it is a silly place\".";
             m33.ReleaseDate = new DateTime(1975, 3, 13);
             m33.Revenue = 5028948;
             m33.Runtime = 91;
@@ -842,15 +790,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m34 = new Movie();
             m34.Title = "Jaws";
-            Genre m34g1 = new Genre("Horror");
-            Genre m34g2 = new Genre("Adventure");
-            Genre m34g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m34g1);
-            db.Genres.AddOrUpdate(g => g.Name, m34g2);
-            db.Genres.AddOrUpdate(g => g.Name, m34g3);
-            m34.Genres.Add(m34g1);
-            m34.Genres.Add(m34g2);
-            m34.Genres.Add(m34g3);
+            m34.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m34.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m34.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m34.Overview = "An insatiable great white shark terrorizes the townspeople of Amity Island, The police chief, an oceanographer and a grizzled shark hunter seek to destroy the bloodthirsty beast.";
             m34.ReleaseDate = new DateTime(1975, 6, 18);
             m34.Revenue = 470654000;
@@ -868,15 +813,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m35 = new Movie();
             m35.Title = "Star Wars";
-            Genre m35g1 = new Genre("Adventure");
-            Genre m35g2 = new Genre("Science Fiction");
-            Genre m35g3 = new Genre("Action");
-            db.Genres.AddOrUpdate(g => g.Name, m35g1);
-            db.Genres.AddOrUpdate(g => g.Name, m35g2);
-            db.Genres.AddOrUpdate(g => g.Name, m35g3);
-            m35.Genres.Add(m35g1);
-            m35.Genres.Add(m35g2);
-            m35.Genres.Add(m35g3);
+            m35.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m35.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m35.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
             m35.Overview = "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.";
             m35.ReleaseDate = new DateTime(1977, 5, 25);
             m35.Revenue = 775398007;
@@ -894,15 +836,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m36 = new Movie();
             m36.Title = "The Spy Who Loved Me";
-            Genre m36g1 = new Genre("Adventure");
-            Genre m36g2 = new Genre("Action");
-            Genre m36g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m36g1);
-            db.Genres.AddOrUpdate(g => g.Name, m36g2);
-            db.Genres.AddOrUpdate(g => g.Name, m36g3);
-            m36.Genres.Add(m36g1);
-            m36.Genres.Add(m36g2);
-            m36.Genres.Add(m36g3);
+            m36.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m36.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m36.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m36.Overview = "Russian and British submarines with nuclear missiles on board both vanish from sight without a trace. England and Russia both blame each other as James Bond tries to solve the riddle of the disappearing ships. But the KGB also has an agent on the case.";
             m36.ReleaseDate = new DateTime(1977, 7, 7);
             m36.Revenue = 185438673;
@@ -920,12 +859,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m37 = new Movie();
             m37.Title = "Close Encounters of the Third Kind";
-            Genre m37g1 = new Genre("Science Fiction");
-            Genre m37g2 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m37g1);
-            db.Genres.AddOrUpdate(g => g.Name, m37g2);
-            m37.Genres.Add(m37g1);
-            m37.Genres.Add(m37g2);
+            m37.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m37.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m37.Overview = "After an encounter with UFOs, a line worker feels undeniably drawn to an isolated area in the wilderness where something spectacular is about to happen.";
             m37.ReleaseDate = new DateTime(1977, 11, 16);
             m37.Revenue = 303788635;
@@ -943,9 +880,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m38 = new Movie();
             m38.Title = "Grease";
-            Genre m38g1 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m38g1);
-            m38.Genres.Add(m38g1);
+            m38.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m38.Overview = "Australian good girl Sandy and greaser Danny fell in love over the summer. But when they unexpectedly discover they're now in the same high school, will they be able to rekindle their romance despite their eccentric friends?";
             m38.ReleaseDate = new DateTime(1978, 7, 7);
             m38.Revenue = 181813770;
@@ -963,9 +899,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m39 = new Movie();
             m39.Title = "Animal House";
-            Genre m39g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m39g1);
-            m39.Genres.Add(m39g1);
+            m39.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m39.Overview = "At a 1962 College, Dean Vernon Wormer is determined to expel the entire Delta Tau Chi Fraternity, but those troublemakers have other plans for him.";
             m39.ReleaseDate = new DateTime(1978, 7, 27);
             m39.Revenue = 141000000;
@@ -983,12 +918,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m40 = new Movie();
             m40.Title = "Halloween";
-            Genre m40g1 = new Genre("Horror");
-            Genre m40g2 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m40g1);
-            db.Genres.AddOrUpdate(g => g.Name, m40g2);
-            m40.Genres.Add(m40g1);
-            m40.Genres.Add(m40g2);
+            m40.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m40.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m40.Overview = "In John Carpenter's horror classic, a psychotic murderer, institutionalized since childhood for the murder of his sister, escapes and stalks a bookish teenage girl and her friends while his doctor chases him through the streets.";
             m40.ReleaseDate = new DateTime(1978, 10, 25);
             m40.Revenue = 70000000;
@@ -1006,18 +939,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m41 = new Movie();
             m41.Title = "Alien";
-            Genre m41g1 = new Genre("Horror");
-            Genre m41g2 = new Genre("Action");
-            Genre m41g3 = new Genre("Thriller");
-            Genre m41g4 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m41g1);
-            db.Genres.AddOrUpdate(g => g.Name, m41g2);
-            db.Genres.AddOrUpdate(g => g.Name, m41g3);
-            db.Genres.AddOrUpdate(g => g.Name, m41g4);
-            m41.Genres.Add(m41g1);
-            m41.Genres.Add(m41g2);
-            m41.Genres.Add(m41g3);
-            m41.Genres.Add(m41g4);
+            m41.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m41.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m41.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            m41.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m41.Overview = "During its return to the earth, commercial spaceship Nostromo intercepts a distress signal from a distant planet. When a three-member team of the crew discovers a chamber containing thousands of eggs on the planet, a creature inside one of the eggs attacks an explorer. The entire crew is unaware of the impending nightmare set to descend upon them when the alien parasite planted inside its unfortunate host is birthed.";
             m41.ReleaseDate = new DateTime(1979, 5, 25);
             m41.Revenue = 104931801;
@@ -1035,15 +964,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m42 = new Movie();
             m42.Title = "The Muppet Movie";
-            Genre m42g1 = new Genre("Adventure");
-            Genre m42g2 = new Genre("Comedy");
-            Genre m42g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m42g1);
-            db.Genres.AddOrUpdate(g => g.Name, m42g2);
-            db.Genres.AddOrUpdate(g => g.Name, m42g3);
-            m42.Genres.Add(m42g1);
-            m42.Genres.Add(m42g2);
-            m42.Genres.Add(m42g3);
+            m42.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m42.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m42.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m42.Overview = "Kermit the Frog is persuaded by agent Dom DeLuise to pursue a career in Hollywood. Along the way, Kermit picks up Fozzie Bear, Miss Piggy, Gonzo, and a motley crew of other Muppets with similar aspirations. Meanwhile, Kermit must elude the grasp of a frog-leg restaurant magnate.";
             m42.ReleaseDate = new DateTime(1979, 5, 31);
             m42.Revenue = 76657000;
@@ -1061,13 +987,11 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m43 = new Movie();
             m43.Title = "Apocalypse Now";
-            Genre m43g1 = new Genre("Drama");
-            Genre m43g2 = new Genre("War");
-            db.Genres.AddOrUpdate(g => g.Name, m43g1);
-            db.Genres.AddOrUpdate(g => g.Name, m43g2);
-            m43.Genres.Add(m43g1);
-            m43.Genres.Add(m43g2);
-            m43.Overview = "At the height of the Vietnam war, Captain Benjamin Willard is sent on a dangerous mission that, officially, does not exist, nor will it ever exist.His goal is to locate - and eliminate - a mysterious Green Beret Colonel named Walter Kurtz, who has been leading his personal army on illegal guerrilla missions into enemy territory.";
+            m43.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m43.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
+            m43.Overview = "At the height of the Vietnam war, Captain Benjamin Willard is sent on a dangerous mission that, officially, \"does not exist, nor will it ever exist.\" His goal is to locate - and eliminate - a mysterious Green Beret Colonel named Walter Kurtz, who has been leading his personal army on illegal guerrilla missions into enemy territory.";
             m43.ReleaseDate = new DateTime(1979, 8, 15);
             m43.Revenue = 89460381;
             m43.Runtime = 153;
@@ -1084,15 +1008,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m44 = new Movie();
             m44.Title = "The Empire Strikes Back";
-            Genre m44g1 = new Genre("Adventure");
-            Genre m44g2 = new Genre("Action");
-            Genre m44g3 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m44g1);
-            db.Genres.AddOrUpdate(g => g.Name, m44g2);
-            db.Genres.AddOrUpdate(g => g.Name, m44g3);
-            m44.Genres.Add(m44g1);
-            m44.Genres.Add(m44g2);
-            m44.Genres.Add(m44g3);
+            m44.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m44.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m44.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m44.Overview = "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.";
             m44.ReleaseDate = new DateTime(1980, 5, 17);
             m44.Revenue = 538400000;
@@ -1110,12 +1031,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m45 = new Movie();
             m45.Title = "The Shining";
-            Genre m45g1 = new Genre("Horror");
-            Genre m45g2 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m45g1);
-            db.Genres.AddOrUpdate(g => g.Name, m45g2);
-            m45.Genres.Add(m45g1);
-            m45.Genres.Add(m45g2);
+            m45.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m45.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m45.Overview = "Jack Torrance accepts a caretaker job at the Overlook Hotel, where he, along with his wife Wendy and their son Danny, must live isolated from the rest of the world for the winter. But they aren't prepared for the madness that lurks within.";
             m45.ReleaseDate = new DateTime(1980, 5, 22);
             m45.Revenue = 44017374;
@@ -1133,9 +1052,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m46 = new Movie();
             m46.Title = "Airplane!";
-            Genre m46g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m46g1);
-            m46.Genres.Add(m46g1);
+            m46.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m46.Overview = "Alcoholic pilot, Ted Striker has developed a fear of flying due to wartime trauma, but nevertheless boards a passenger jet in an attempt to woo back his stewardess girlfriend. Food poisoning decimates the passengers and crew, leaving it up to Striker to land the plane with the help of a glue-sniffing air traffic controller and Striker's vengeful former Air Force captain, who must both talk him down.";
             m46.ReleaseDate = new DateTime(1980, 7, 2);
             m46.Revenue = 83453539;
@@ -1153,9 +1071,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m47 = new Movie();
             m47.Title = "Caddyshack";
-            Genre m47g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m47g1);
-            m47.Genres.Add(m47g1);
+            m47.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m47.Overview = "At an exclusive country club, an ambitious young caddy, Danny Noonan, eagerly pursues a caddy scholarship in hopes of attending college and, in turn, avoiding a job at the lumber yard. In order to succeed, he must first win the favour of the elitist Judge Smails, and then the caddy golf tournament which Smails sponsors.";
             m47.ReleaseDate = new DateTime(1980, 7, 25);
             m47.Revenue = 39846344;
@@ -1173,14 +1090,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m48 = new Movie();
             m48.Title = "Raging Bull";
-            Genre m48g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m48g1);
-            m48.Genres.Add(m48g1);
+            m48.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m48.Overview = "When Jake LaMotta steps into a boxing ring and obliterates his opponent, he's a prizefighter. But when he treats his family and friends the same way, he's a ticking time bomb, ready to go off at any moment. Though LaMotta wants his family's love, something always seems to come between them. Perhaps it's his violent bouts of paranoia and jealousy. This kind of rage helped make him a champ, but in real life, he winds up in the ring alone.";
             m48.ReleaseDate = new DateTime(1980, 11, 14);
             m48.Revenue = 23000000;
             m48.Runtime = 129;
-            m48.Tagline = null;
+            m48.Tagline = "";
             m48.MPAARating = MPAARating.R;
             m48.Actors.Add("Robert De Niro");
             m48.Actors.Add("Joe Pesci");
@@ -1193,12 +1109,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m49 = new Movie();
             m49.Title = "Raiders of the Lost Ark";
-            Genre m49g1 = new Genre("Adventure");
-            Genre m49g2 = new Genre("Action");
-            db.Genres.AddOrUpdate(g => g.Name, m49g1);
-            db.Genres.AddOrUpdate(g => g.Name, m49g2);
-            m49.Genres.Add(m49g1);
-            m49.Genres.Add(m49g2);
+            m49.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m49.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
             m49.Overview = "When Dr. Indiana Jones â€“ the tweed-suited professor who just happens to be a celebrated archaeologist â€“ is hired by the government to locate the legendary Ark of the Covenant, he finds himself up against the entire Nazi regime.";
             m49.ReleaseDate = new DateTime(1981, 6, 12);
             m49.Revenue = 389925971;
@@ -1216,18 +1130,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m50 = new Movie();
             m50.Title = "E.T. the Extra-Terrestrial";
-            Genre m50g1 = new Genre("Science Fiction");
-            Genre m50g2 = new Genre("Adventure");
-            Genre m50g3 = new Genre("Family");
-            Genre m50g4 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m50g1);
-            db.Genres.AddOrUpdate(g => g.Name, m50g2);
-            db.Genres.AddOrUpdate(g => g.Name, m50g3);
-            db.Genres.AddOrUpdate(g => g.Name, m50g4);
-            m50.Genres.Add(m50g1);
-            m50.Genres.Add(m50g2);
-            m50.Genres.Add(m50g3);
-            m50.Genres.Add(m50g4);
+            m50.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m50.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m50.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m50.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m50.Overview = "After a gentle alien becomes stranded on Earth, the being is discovered and befriended by a young boy named Elliott. Bringing the extraterrestrial into his suburban California house, Elliott introduces E.T., as the alien is dubbed, to his brother and his little sister, Gertie, and the children decide to keep its existence a secret. Soon, however, E.T. falls ill, resulting in government intervention and a dire situation for both Elliott and the alien.";
             m50.ReleaseDate = new DateTime(1982, 4, 3);
             m50.Revenue = 792910554;
@@ -1245,9 +1155,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m51 = new Movie();
             m51.Title = "Fast Times at Ridgemont High";
-            Genre m51g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m51g1);
-            m51.Genres.Add(m51g1);
+            m51.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m51.Overview = "Follows a group of high school students growing up in southern California, based on the real-life adventures chronicled by Cameron Crowe. Stacy Hamilton and Mark Ratner are looking for a love interest, and are helped along by their older classmates, Linda Barrett and Mike Damone, respectively. The center of the film is held by Jeff Spicoli, a perpetually stoned surfer dude who faces off with the resolute Mr. Hand, who is convinced that everyone is on dope.";
             m51.ReleaseDate = new DateTime(1982, 8, 13);
             m51.Revenue = 27092880;
@@ -1265,15 +1174,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m52 = new Movie();
             m52.Title = "Return of the Jedi";
-            Genre m52g1 = new Genre("Adventure");
-            Genre m52g2 = new Genre("Action");
-            Genre m52g3 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m52g1);
-            db.Genres.AddOrUpdate(g => g.Name, m52g2);
-            db.Genres.AddOrUpdate(g => g.Name, m52g3);
-            m52.Genres.Add(m52g1);
-            m52.Genres.Add(m52g2);
-            m52.Genres.Add(m52g3);
+            m52.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m52.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m52.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m52.Overview = "As Rebel leaders map their strategy for an all-out attack on the Emperor's newer, bigger Death Star. Han Solo remains frozen in the cavernous desert fortress of Jabba the Hutt, the most loathsome outlaw in the universe, who is also keeping Princess Leia as a slave girl. Now a master of the Force, Luke Skywalker rescues his friends, but he cannot become a true Jedi Knight until he wages his own crucial battle against Darth Vader, who has sworn to win Luke over to the dark side of the Force.";
             m52.ReleaseDate = new DateTime(1983, 5, 23);
             m52.Revenue = 572700000;
@@ -1291,12 +1197,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m53 = new Movie();
             m53.Title = "WarGames";
-            Genre m53g1 = new Genre("Thriller");
-            Genre m53g2 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m53g1);
-            db.Genres.AddOrUpdate(g => g.Name, m53g2);
-            m53.Genres.Add(m53g1);
-            m53.Genres.Add(m53g2);
+            m53.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            m53.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m53.Overview = "High School student David Lightman (Matthew Broderick) has a talent for hacking. But while trying to hack into a computer system to play unreleased video games, he unwittingly taps into the Defense Department's war computer and initiates a confrontation of global proportions! Together with his girlfriend (Ally Sheedy) and a wizardly computer genius (John Wood), David must race against time to outwit his opponent...and prevent a nuclear Armageddon.";
             m53.ReleaseDate = new DateTime(1983, 6, 3);
             m53.Revenue = 79567667;
@@ -1314,9 +1218,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m54 = new Movie();
             m54.Title = "Trading Places";
-            Genre m54g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m54g1);
-            m54.Genres.Add(m54g1);
+            m54.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m54.Overview = "A snobbish investor and a wily street con-artist find their positions reversed as part of a bet by two callous millionaires.";
             m54.ReleaseDate = new DateTime(1983, 6, 7);
             m54.Revenue = 90400000;
@@ -1334,12 +1237,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m55 = new Movie();
             m55.Title = "A Christmas Story";
-            Genre m55g1 = new Genre("Comedy");
-            Genre m55g2 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m55g1);
-            db.Genres.AddOrUpdate(g => g.Name, m55g2);
-            m55.Genres.Add(m55g1);
-            m55.Genres.Add(m55g2);
+            m55.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m55.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m55.Overview = "The comic mishaps and adventures of a young boy named Ralph, trying to convince his parents, teachers, and Santa that a Red Ryder B.B. gun really is the perfect Christmas gift for the 1940s.";
             m55.ReleaseDate = new DateTime(1983, 11, 18);
             m55.Revenue = 19294144;
@@ -1357,18 +1258,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m56 = new Movie();
             m56.Title = "Footloose";
-            Genre m56g1 = new Genre("Drama");
-            Genre m56g2 = new Genre("Family");
-            Genre m56g3 = new Genre("Musical");
-            Genre m56g4 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m56g1);
-            db.Genres.AddOrUpdate(g => g.Name, m56g2);
-            db.Genres.AddOrUpdate(g => g.Name, m56g3);
-            db.Genres.AddOrUpdate(g => g.Name, m56g4);
-            m56.Genres.Add(m56g1);
-            m56.Genres.Add(m56g2);
-            m56.Genres.Add(m56g3);
-            m56.Genres.Add(m56g4);
+            m56.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m56.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m56.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m56.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m56.Overview = "When teenager Ren and his family move from big-city Chicago to a small town in the West, he's in for a real case of culture shock.";
             m56.ReleaseDate = new DateTime(1984, 2, 17);
             m56.Revenue = 80035402;
@@ -1386,18 +1283,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m57 = new Movie();
             m57.Title = "Back to the Future";
-            Genre m57g1 = new Genre("Adventure");
-            Genre m57g2 = new Genre("Comedy");
-            Genre m57g3 = new Genre("Science Fiction");
-            Genre m57g4 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m57g1);
-            db.Genres.AddOrUpdate(g => g.Name, m57g2);
-            db.Genres.AddOrUpdate(g => g.Name, m57g3);
-            db.Genres.AddOrUpdate(g => g.Name, m57g4);
-            m57.Genres.Add(m57g1);
-            m57.Genres.Add(m57g2);
-            m57.Genres.Add(m57g3);
-            m57.Genres.Add(m57g4);
+            m57.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m57.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m57.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m57.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m57.Overview = "Eighties teenager Marty McFly is accidentally sent back in time to 1955, inadvertently disrupting his parents' first meeting and attracting his mother's romantic interest. Marty must repair the damage to history by rekindling his parents' romance and - with the help of his eccentric inventor friend Doc Brown - return to 1985.";
             m57.ReleaseDate = new DateTime(1985, 7, 3);
             m57.Revenue = 381109762;
@@ -1415,10 +1308,9 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m58 = new Movie();
             m58.Title = "The Color Purple";
-            Genre m58g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m58g1);
-            m58.Genres.Add(m58g1);
-            m58.Overview = "An epic tale spanning forty years in the life of Celie (Whoopi Goldberg), an African-American woman living in the South who survives incredible abuse and bigotry.  After Celie's abusive father marries her off to the equally debasing Mister Albert Johnson (Danny Glover), things go from bad to worse, leaving Celie to find companionship anywhere she can.  She perseveres, holding on to her dream of one day being reunited with her sister in Africa.  Based on the novel by Alice Walker.";
+            m58.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            m58.Overview = "An epic tale spanning forty years in the life of Celie (Whoopi Goldberg), an African-American woman living in the South who survives incredible abuse and bigotry.  After Celie's abusive father marries her off to the equally debasing \"Mister\" Albert Johnson (Danny Glover), things go from bad to worse, leaving Celie to find companionship anywhere she can.  She perseveres, holding on to her dream of one day being reunited with her sister in Africa.  Based on the novel by Alice Walker.";
             m58.ReleaseDate = new DateTime(1985, 12, 18);
             m58.Revenue = 146292009;
             m58.Runtime = 154;
@@ -1435,15 +1327,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m59 = new Movie();
             m59.Title = "Top Gun";
-            Genre m59g1 = new Genre("Action");
-            Genre m59g2 = new Genre("Romance");
-            Genre m59g3 = new Genre("War");
-            db.Genres.AddOrUpdate(g => g.Name, m59g1);
-            db.Genres.AddOrUpdate(g => g.Name, m59g2);
-            db.Genres.AddOrUpdate(g => g.Name, m59g3);
-            m59.Genres.Add(m59g1);
-            m59.Genres.Add(m59g2);
-            m59.Genres.Add(m59g3);
+            m59.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m59.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m59.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
             m59.Overview = "For Lieutenant Pete 'Maverick' Mitchell and his friend and Co-Pilot Nick 'Goose' Bradshaw being accepted into an elite training school for fighter pilots is a dream come true.  A tragedy, as well as personal demons, threaten Pete's dreams of becoming an Ace pilot.";
             m59.ReleaseDate = new DateTime(1986, 5, 16);
             m59.Revenue = 356830601;
@@ -1461,15 +1350,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m60 = new Movie();
             m60.Title = "Little Shop of Horrors";
-            Genre m60g1 = new Genre("Horror");
-            Genre m60g2 = new Genre("Musical");
-            Genre m60g3 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m60g1);
-            db.Genres.AddOrUpdate(g => g.Name, m60g2);
-            db.Genres.AddOrUpdate(g => g.Name, m60g3);
-            m60.Genres.Add(m60g1);
-            m60.Genres.Add(m60g2);
-            m60.Genres.Add(m60g3);
+            m60.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Horror"));
+            m60.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m60.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Horror.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Horror"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m60.Overview = "Seymour Krelborn is a nerdy orphan working at Mushnik's, a flower shop in urban Skid Row. He harbors a crush on fellow co-worker Audrey Fulquard, and is berated by Mr. Mushnik daily. One day as Seymour is seeking a new mysterious plant, he finds a very mysterious unidentified plant which he calls Audrey II. The plant seems to have a craving for blood and soon begins to sing for his supper.";
             m60.ReleaseDate = new DateTime(1986, 12, 19);
             m60.Revenue = 38748395;
@@ -1487,13 +1373,11 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m61 = new Movie();
             m61.Title = "Spaceballs";
-            Genre m61g1 = new Genre("Comedy");
-            Genre m61g2 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m61g1);
-            db.Genres.AddOrUpdate(g => g.Name, m61g2);
-            m61.Genres.Add(m61g1);
-            m61.Genres.Add(m61g2);
-            m61.Overview = "When the nefarious Dark Helmet hatches a plan to snatch Princess Vespa and steal her planet's air, space-bum-for-hire Lone Starr and his clueless sidekick fly to the rescue. Along the way, they meet Yogurt, who puts Lone Starr wise to the power of The Schwartz.Can he master it in time to save the day?";
+            m61.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m61.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            m61.Overview = "When the nefarious Dark Helmet hatches a plan to snatch Princess Vespa and steal her planet's air, space-bum-for-hire Lone Starr and his clueless sidekick fly to the rescue. Along the way, they meet Yogurt, who puts Lone Starr wise to the power of \"The Schwartz.\" Can he master it in time to save the day?";
             m61.ReleaseDate = new DateTime(1987, 6, 24);
             m61.Revenue = 38119483;
             m61.Runtime = 96;
@@ -1510,21 +1394,16 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m62 = new Movie();
             m62.Title = "The Princess Bride";
-            Genre m62g1 = new Genre("Adventure");
-            Genre m62g2 = new Genre("Family");
-            Genre m62g3 = new Genre("Fantasy");
-            Genre m62g4 = new Genre("Comedy");
-            Genre m62g5 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m62g1);
-            db.Genres.AddOrUpdate(g => g.Name, m62g2);
-            db.Genres.AddOrUpdate(g => g.Name, m62g3);
-            db.Genres.AddOrUpdate(g => g.Name, m62g4);
-            db.Genres.AddOrUpdate(g => g.Name, m62g5);
-            m62.Genres.Add(m62g1);
-            m62.Genres.Add(m62g2);
-            m62.Genres.Add(m62g3);
-            m62.Genres.Add(m62g4);
-            m62.Genres.Add(m62g5);
+            m62.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m62.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m62.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m62.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m62.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m62.Overview = "In this enchantingly cracked fairy tale, the beautiful Princess Buttercup and the dashing Westley must overcome staggering odds to find happiness amid six-fingered swordsmen, murderous princes, Sicilians and rodents of unusual size. But even death can't stop these true lovebirds from triumphing.";
             m62.ReleaseDate = new DateTime(1987, 9, 18);
             m62.Revenue = 30857814;
@@ -1542,21 +1421,16 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m63 = new Movie();
             m63.Title = "Big";
-            Genre m63g1 = new Genre("Fantasy");
-            Genre m63g2 = new Genre("Drama");
-            Genre m63g3 = new Genre("Comedy");
-            Genre m63g4 = new Genre("Romance");
-            Genre m63g5 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m63g1);
-            db.Genres.AddOrUpdate(g => g.Name, m63g2);
-            db.Genres.AddOrUpdate(g => g.Name, m63g3);
-            db.Genres.AddOrUpdate(g => g.Name, m63g4);
-            db.Genres.AddOrUpdate(g => g.Name, m63g5);
-            m63.Genres.Add(m63g1);
-            m63.Genres.Add(m63g2);
-            m63.Genres.Add(m63g3);
-            m63.Genres.Add(m63g4);
-            m63.Genres.Add(m63g5);
+            m63.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m63.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m63.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m63.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m63.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m63.Overview = "A young boy, Josh Baskin makes a wish at a carnival machine to be big. He wakes up the following morning to find that it has been granted and his body has grown older overnight. But he is still the same 13-year-old boy inside. Now he must learn how to cope with the unfamiliar world of grown-ups including getting a job and having his first romantic encounter with a woman. What will he find out about this strange world?";
             m63.ReleaseDate = new DateTime(1988, 6, 3);
             m63.Revenue = 151668774;
@@ -1574,15 +1448,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m64 = new Movie();
             m64.Title = "The Land Before Time";
-            Genre m64g1 = new Genre("Animation");
-            Genre m64g2 = new Genre("Adventure");
-            Genre m64g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m64g1);
-            db.Genres.AddOrUpdate(g => g.Name, m64g2);
-            db.Genres.AddOrUpdate(g => g.Name, m64g3);
-            m64.Genres.Add(m64g1);
-            m64.Genres.Add(m64g2);
-            m64.Genres.Add(m64g3);
+            m64.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m64.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m64.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m64.Overview = "An orphaned brontosaurus named Littlefoot sets off in search of the legendary Great Valley. A land of lush vegetation where the dinosaurs can thrive and live in peace. Along the way he meets four other young dinosaurs, each one a different species, and they encounter several obstacles as they learn to work together in order to survive.";
             m64.ReleaseDate = new DateTime(1988, 11, 18);
             m64.Revenue = 84460846;
@@ -1600,9 +1471,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m65 = new Movie();
             m65.Title = "Rain Man";
-            Genre m65g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m65g1);
-            m65.Genres.Add(m65g1);
+            m65.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m65.Overview = "Selfish yuppie Charlie Babbitt's father left a fortune to his savant brother Raymond and a pittance to Charlie; they travel cross-country.";
             m65.ReleaseDate = new DateTime(1988, 12, 11);
             m65.Revenue = 412800000;
@@ -1620,16 +1490,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m66 = new Movie();
             m66.Title = "Bill & Ted's Excellent Adventure";
-            Genre m66g1 = new Genre("Adventure");
-            Genre m66g2 = new Genre("Comedy");
-            Genre m66g3 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m66g1);
-            db.Genres.AddOrUpdate(g => g.Name, m66g2);
-            db.Genres.AddOrUpdate(g => g.Name, m66g3);
-            m66.Genres.Add(m66g1);
-            m66.Genres.Add(m66g2);
-            m66.Genres.Add(m66g3);
-            m66.Overview = "In the small town of San Dimas, a few miles away from Los Angeles, there are two nearly brain dead teenage boys going by the names of Bill S, Preston ESQ. and Ted Theodore Logan, they have a dream together of starting their own rock and roll band called the Wyld Stallyns. Unfortunately, they are still in high school and on the verge of failing out of their school as well, and if they do not pass their upcoming history report, they will be separated as a result of Ted's father sending him to military school. But, what Bill and Ted do not know is that they must stay together to save the future. So, a man from the future named Rufus came to help them pass their report. So, both Bill and Ted decided to gather up historical figures which they need for their report. They are hoping that this will help them pass their report so they can stay together.";
+            m66.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m66.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m66.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            m66.Overview = "In the small town of San Dimas, a few miles away from Los Angeles, there are two nearly brain dead teenage boys going by the names of Bill S, Preston ESQ. and Ted Theodore Logan, they have a dream together of starting their own rock and roll band called the \"Wyld Stallyns\". Unfortunately, they are still in high school and on the verge of failing out of their school as well, and if they do not pass their upcoming history report, they will be separated as a result of Ted's father sending him to military school. But, what Bill and Ted do not know is that they must stay together to save the future. So, a man from the future named Rufus came to help them pass their report. So, both Bill and Ted decided to gather up historical figures which they need for their report. They are hoping that this will help them pass their report so they can stay together.";
             m66.ReleaseDate = new DateTime(1989, 2, 17);
             m66.Revenue = 40485039;
             m66.Runtime = 90;
@@ -1646,9 +1513,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m67 = new Movie();
             m67.Title = "Dead Poets Society";
-            Genre m67g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m67g1);
-            m67.Genres.Add(m67g1);
+            m67.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m67.Overview = "At an elite, old-fashioned boarding school in New England, a passionate English teacher inspires his students to rebel against convention and seize the potential of every day, courting the disdain of the stern headmaster.";
             m67.ReleaseDate = new DateTime(1989, 6, 2);
             m67.Revenue = 235860116;
@@ -1666,15 +1532,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m68 = new Movie();
             m68.Title = "When Harry Met Sally...";
-            Genre m68g1 = new Genre("Comedy");
-            Genre m68g2 = new Genre("Romance");
-            Genre m68g3 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m68g1);
-            db.Genres.AddOrUpdate(g => g.Name, m68g2);
-            db.Genres.AddOrUpdate(g => g.Name, m68g3);
-            m68.Genres.Add(m68g1);
-            m68.Genres.Add(m68g2);
-            m68.Genres.Add(m68g3);
+            m68.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m68.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m68.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m68.Overview = "During their travels from Chicago to New York, Harry and Sally Will debate whether or not sex ruins a perfect relationship between a man and a woman. Eleven years and later, they're still no closer to finding the answer.";
             m68.ReleaseDate = new DateTime(1989, 7, 21);
             m68.Revenue = 92823546;
@@ -1692,18 +1555,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m69 = new Movie();
             m69.Title = "Back to the Future Part II";
-            Genre m69g1 = new Genre("Adventure");
-            Genre m69g2 = new Genre("Comedy");
-            Genre m69g3 = new Genre("Family");
-            Genre m69g4 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m69g1);
-            db.Genres.AddOrUpdate(g => g.Name, m69g2);
-            db.Genres.AddOrUpdate(g => g.Name, m69g3);
-            db.Genres.AddOrUpdate(g => g.Name, m69g4);
-            m69.Genres.Add(m69g1);
-            m69.Genres.Add(m69g2);
-            m69.Genres.Add(m69g3);
-            m69.Genres.Add(m69g4);
+            m69.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m69.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m69.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m69.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m69.Overview = "Marty and Doc are at it again in this wacky sequel to the 1985 blockbuster as the time-traveling duo head to 2015 to nip some McFly family woes in the bud. But things go awry thanks to bully Biff Tannen and a pesky sports almanac. In a last-ditch attempt to set things straight, Marty finds himself bound for 1955 and face to face with his teenage parents -- again.";
             m69.ReleaseDate = new DateTime(1989, 11, 20);
             m69.Revenue = 332000000;
@@ -1721,18 +1580,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m70 = new Movie();
             m70.Title = "Back to the Future Part III";
-            Genre m70g1 = new Genre("Adventure");
-            Genre m70g2 = new Genre("Comedy");
-            Genre m70g3 = new Genre("Family");
-            Genre m70g4 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m70g1);
-            db.Genres.AddOrUpdate(g => g.Name, m70g2);
-            db.Genres.AddOrUpdate(g => g.Name, m70g3);
-            db.Genres.AddOrUpdate(g => g.Name, m70g4);
-            m70.Genres.Add(m70g1);
-            m70.Genres.Add(m70g2);
-            m70.Genres.Add(m70g3);
-            m70.Genres.Add(m70g4);
+            m70.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m70.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m70.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m70.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m70.Overview = "The final installment of the Back to the Future trilogy finds Marty digging the trusty DeLorean out of a mineshaft and looking up Doc in the Wild West of 1885. But when their time machine breaks down, the travelers are stranded in a land of spurs. More problems arise when Doc falls for pretty schoolteacher Clara Clayton, and Marty tangles with Buford Tannen.";
             m70.ReleaseDate = new DateTime(1990, 5, 25);
             m70.Revenue = 244527583;
@@ -1750,9 +1605,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m71 = new Movie();
             m71.Title = "Robin Hood: Prince of Thieves";
-            Genre m71g1 = new Genre("Adventure");
-            db.Genres.AddOrUpdate(g => g.Name, m71g1);
-            m71.Genres.Add(m71g1);
+            m71.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
             m71.Overview = "When the dastardly Sheriff of Nottingham murders Robin's father, the legendary archer vows vengeance. To accomplish his mission, Robin joins forces with a band of exiled villagers (and comely Maid Marian), and together they battle to end the evil sheriff's reign of terror.";
             m71.ReleaseDate = new DateTime(1991, 6, 14);
             m71.Revenue = 390493908;
@@ -1770,9 +1624,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m72 = new Movie();
             m72.Title = "Wayne's World";
-            Genre m72g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m72g1);
-            m72.Genres.Add(m72g1);
+            m72.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m72.Overview = "When a sleazy TV exec offers Wayne and Garth a fat contract to tape their late-night public access show at his network, they can't believe their good fortune. But they soon discover the road from basement to big-time is a gnarly one, fraught with danger, temptation and ragin' party opportunities.";
             m72.ReleaseDate = new DateTime(1992, 2, 14);
             m72.Revenue = 121697323;
@@ -1790,9 +1643,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m73 = new Movie();
             m73.Title = "A League of Their Own";
-            Genre m73g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m73g1);
-            m73.Genres.Add(m73g1);
+            m73.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m73.Overview = "Small-town sisters Dottie and Kit join an all-female baseball league formed after World War II brings pro baseball to a standstill. When their team hits the road with its drunken coach, the siblings find troubles and triumphs on and off the field.";
             m73.ReleaseDate = new DateTime(1992, 7, 1);
             m73.Revenue = 107458785;
@@ -1810,24 +1662,18 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m74 = new Movie();
             m74.Title = "The Last of the Mohicans";
-            Genre m74g1 = new Genre("Action");
-            Genre m74g2 = new Genre("Adventure");
-            Genre m74g3 = new Genre("Drama");
-            Genre m74g4 = new Genre("History");
-            Genre m74g5 = new Genre("Romance");
-            Genre m74g6 = new Genre("War");
-            db.Genres.AddOrUpdate(g => g.Name, m74g1);
-            db.Genres.AddOrUpdate(g => g.Name, m74g2);
-            db.Genres.AddOrUpdate(g => g.Name, m74g3);
-            db.Genres.AddOrUpdate(g => g.Name, m74g4);
-            db.Genres.AddOrUpdate(g => g.Name, m74g5);
-            db.Genres.AddOrUpdate(g => g.Name, m74g6);
-            m74.Genres.Add(m74g1);
-            m74.Genres.Add(m74g2);
-            m74.Genres.Add(m74g3);
-            m74.Genres.Add(m74g4);
-            m74.Genres.Add(m74g5);
-            m74.Genres.Add(m74g6);
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "History"));
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m74.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "War"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            History.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "History"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            War.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "War"));
             m74.Overview = "As the English and French soldiers battle for control of the American colonies in the 18th century, the settlers and native Americans are forced to take sides. Cora and her sister Alice unwittingly walk into trouble but are reluctantly saved by Hawkeye, an orphaned settler adopted by the last of the Mohicans.";
             m74.ReleaseDate = new DateTime(1992, 9, 25);
             m74.Revenue = 75505856;
@@ -1845,24 +1691,18 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m75 = new Movie();
             m75.Title = "Aladdin";
-            Genre m75g1 = new Genre("Animation");
-            Genre m75g2 = new Genre("Family");
-            Genre m75g3 = new Genre("Comedy");
-            Genre m75g4 = new Genre("Adventure");
-            Genre m75g5 = new Genre("Fantasy");
-            Genre m75g6 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m75g1);
-            db.Genres.AddOrUpdate(g => g.Name, m75g2);
-            db.Genres.AddOrUpdate(g => g.Name, m75g3);
-            db.Genres.AddOrUpdate(g => g.Name, m75g4);
-            db.Genres.AddOrUpdate(g => g.Name, m75g5);
-            db.Genres.AddOrUpdate(g => g.Name, m75g6);
-            m75.Genres.Add(m75g1);
-            m75.Genres.Add(m75g2);
-            m75.Genres.Add(m75g3);
-            m75.Genres.Add(m75g4);
-            m75.Genres.Add(m75g5);
-            m75.Genres.Add(m75g6);
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m75.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m75.Overview = "Princess Jasmine grows tired of being forced to remain in the palace and she sneaks out into the marketplace  in disguise where she meets street-urchin Aladdin and the two fall in love, although she may only marry a prince. After being thrown in jail, Aladdin and becomes embroiled in a plot to find a mysterious lamp with which the evil Jafar hopes to rule the land.";
             m75.ReleaseDate = new DateTime(1992, 11, 25);
             m75.Revenue = 504050219;
@@ -1880,23 +1720,19 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m76 = new Movie();
             m76.Title = "The Muppet Christmas Carol";
-            Genre m76g1 = new Genre("Comedy");
-            Genre m76g2 = new Genre("Family");
-            Genre m76g3 = new Genre("Fantasy");
-            Genre m76g4 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m76g1);
-            db.Genres.AddOrUpdate(g => g.Name, m76g2);
-            db.Genres.AddOrUpdate(g => g.Name, m76g3);
-            db.Genres.AddOrUpdate(g => g.Name, m76g4);
-            m76.Genres.Add(m76g1);
-            m76.Genres.Add(m76g2);
-            m76.Genres.Add(m76g3);
-            m76.Genres.Add(m76g4);
+            m76.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m76.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m76.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m76.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m76.Overview = "A retelling of the classic Dickens tale of Ebenezer Scrooge, miser extraordinaire. He is held accountable for his dastardly ways during night-time visitations by the Ghosts of Christmas Past, Present, and future.";
             m76.ReleaseDate = new DateTime(1992, 12, 10);
             m76.Revenue = 27281507;
             m76.Runtime = 85;
-            m76.Tagline = null;
+            m76.Tagline = "";
             m76.MPAARating = MPAARating.G;
             m76.Actors.Add("Michael Caine");
             m76.Actors.Add("Don Austen");
@@ -1909,9 +1745,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m77 = new Movie();
             m77.Title = "A Few Good Men";
-            Genre m77g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m77g1);
-            m77.Genres.Add(m77g1);
+            m77.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m77.Overview = "When cocky military lawyer Lt. Daniel Kaffee and his co-counsel, Lt. Cmdr. JoAnne Galloway, are assigned to a murder case, they uncover a hazing ritual that could implicate high-ranking officials such as shady Col. Nathan Jessep.";
             m77.ReleaseDate = new DateTime(1992, 12, 11);
             m77.Revenue = 243240178;
@@ -1929,12 +1764,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m78 = new Movie();
             m78.Title = "Jurassic Park";
-            Genre m78g1 = new Genre("Adventure");
-            Genre m78g2 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m78g1);
-            db.Genres.AddOrUpdate(g => g.Name, m78g2);
-            m78.Genres.Add(m78g1);
-            m78.Genres.Add(m78g2);
+            m78.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m78.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m78.Overview = "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.";
             m78.ReleaseDate = new DateTime(1993, 6, 11);
             m78.Revenue = 920100000;
@@ -1952,15 +1785,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m79 = new Movie();
             m79.Title = "Hocus Pocus";
-            Genre m79g1 = new Genre("Comedy");
-            Genre m79g2 = new Genre("Family");
-            Genre m79g3 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m79g1);
-            db.Genres.AddOrUpdate(g => g.Name, m79g2);
-            db.Genres.AddOrUpdate(g => g.Name, m79g3);
-            m79.Genres.Add(m79g1);
-            m79.Genres.Add(m79g2);
-            m79.Genres.Add(m79g3);
+            m79.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m79.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m79.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m79.Overview = "After 300 years of slumber, three sister witches are accidentally resurrected in Salem on Halloween night, and it us up to three kids and their newfound feline friend to put an end to the witches' reign of terror once and for all.";
             m79.ReleaseDate = new DateTime(1993, 7, 16);
             m79.Revenue = 39514713;
@@ -1978,13 +1808,11 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m80 = new Movie();
             m80.Title = "Dazed and Confused";
-            Genre m80g1 = new Genre("Comedy");
-            Genre m80g2 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m80g1);
-            db.Genres.AddOrUpdate(g => g.Name, m80g2);
-            m80.Genres.Add(m80g1);
-            m80.Genres.Add(m80g2);
-            m80.Overview = "The adventures of a group of Texas teens on their last day of school in 1976, centering on student Randall Floyd, who moves easily among stoners, jocks and geeks. Floyd is a star athlete, but he also likes smoking weed, which presents a conundrum when his football coach demands he sign a no drugs pledge.";
+            m80.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m80.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            m80.Overview = "The adventures of a group of Texas teens on their last day of school in 1976, centering on student Randall Floyd, who moves easily among stoners, jocks and geeks. Floyd is a star athlete, but he also likes smoking weed, which presents a conundrum when his football coach demands he sign a \"no drugs\" pledge.";
             m80.ReleaseDate = new DateTime(1993, 9, 24);
             m80.Revenue = 7993039;
             m80.Runtime = 102;
@@ -2001,15 +1829,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m81 = new Movie();
             m81.Title = "Four Weddings and a Funeral";
-            Genre m81g1 = new Genre("Comedy");
-            Genre m81g2 = new Genre("Drama");
-            Genre m81g3 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m81g1);
-            db.Genres.AddOrUpdate(g => g.Name, m81g2);
-            db.Genres.AddOrUpdate(g => g.Name, m81g3);
-            m81.Genres.Add(m81g1);
-            m81.Genres.Add(m81g2);
-            m81.Genres.Add(m81g3);
+            m81.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m81.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m81.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m81.Overview = "Four Weddings And A Funeral is a British comedy about a British Man named Charles and an American Woman named Carrie who go through numerous weddings before they determine if they are right for one another.";
             m81.ReleaseDate = new DateTime(1994, 3, 9);
             m81.Revenue = 254700832;
@@ -2027,15 +1852,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m82 = new Movie();
             m82.Title = "The Lion King";
-            Genre m82g1 = new Genre("Family");
-            Genre m82g2 = new Genre("Animation");
-            Genre m82g3 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m82g1);
-            db.Genres.AddOrUpdate(g => g.Name, m82g2);
-            db.Genres.AddOrUpdate(g => g.Name, m82g3);
-            m82.Genres.Add(m82g1);
-            m82.Genres.Add(m82g2);
-            m82.Genres.Add(m82g3);
+            m82.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m82.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m82.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m82.Overview = "A young lion cub named Simba can't wait to be king. But his uncle craves the title for himself and will stop at nothing to get it.";
             m82.ReleaseDate = new DateTime(1994, 6, 23);
             m82.Revenue = 788241776;
@@ -2053,15 +1875,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m83 = new Movie();
             m83.Title = "Forrest Gump";
-            Genre m83g1 = new Genre("Comedy");
-            Genre m83g2 = new Genre("Drama");
-            Genre m83g3 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m83g1);
-            db.Genres.AddOrUpdate(g => g.Name, m83g2);
-            db.Genres.AddOrUpdate(g => g.Name, m83g3);
-            m83.Genres.Add(m83g1);
-            m83.Genres.Add(m83g2);
-            m83.Genres.Add(m83g3);
+            m83.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m83.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m83.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m83.Overview = "A man with a low IQ has accomplished great things in his life and been present during significant historic events - in each case, far exceeding what anyone imagined he could do. Yet, despite all the things he has attained, his one true love eludes him. 'Forrest Gump' is the story of a man who rose above his challenges, and who proved that determination, courage, and love are more important than ability.";
             m83.ReleaseDate = new DateTime(1994, 7, 6);
             m83.Revenue = 677945399;
@@ -2079,12 +1898,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m84 = new Movie();
             m84.Title = "The Shawshank Redemption";
-            Genre m84g1 = new Genre("Drama");
-            Genre m84g2 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m84g1);
-            db.Genres.AddOrUpdate(g => g.Name, m84g2);
-            m84.Genres.Add(m84g1);
-            m84.Genres.Add(m84g2);
+            m84.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m84.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m84.Overview = "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.";
             m84.ReleaseDate = new DateTime(1994, 9, 23);
             m84.Revenue = 28341469;
@@ -2102,12 +1919,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m85 = new Movie();
             m85.Title = "Pulp Fiction";
-            Genre m85g1 = new Genre("Thriller");
-            Genre m85g2 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m85g1);
-            db.Genres.AddOrUpdate(g => g.Name, m85g2);
-            m85.Genres.Add(m85g1);
-            m85.Genres.Add(m85g2);
+            m85.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            m85.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m85.Overview = "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.";
             m85.ReleaseDate = new DateTime(1994, 10, 8);
             m85.Revenue = 213928762;
@@ -2125,15 +1940,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m86 = new Movie();
             m86.Title = "The Usual Suspects";
-            Genre m86g1 = new Genre("Drama");
-            Genre m86g2 = new Genre("Crime");
-            Genre m86g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m86g1);
-            db.Genres.AddOrUpdate(g => g.Name, m86g2);
-            db.Genres.AddOrUpdate(g => g.Name, m86g3);
-            m86.Genres.Add(m86g1);
-            m86.Genres.Add(m86g2);
-            m86.Genres.Add(m86g3);
+            m86.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m86.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m86.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m86.Overview = "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor â€“ leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.";
             m86.ReleaseDate = new DateTime(1995, 7, 19);
             m86.Revenue = 23341568;
@@ -2151,15 +1963,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m87 = new Movie();
             m87.Title = "Toy Story";
-            Genre m87g1 = new Genre("Animation");
-            Genre m87g2 = new Genre("Comedy");
-            Genre m87g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m87g1);
-            db.Genres.AddOrUpdate(g => g.Name, m87g2);
-            db.Genres.AddOrUpdate(g => g.Name, m87g3);
-            m87.Genres.Add(m87g1);
-            m87.Genres.Add(m87g2);
-            m87.Genres.Add(m87g3);
+            m87.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m87.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m87.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m87.Overview = "Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences.";
             m87.ReleaseDate = new DateTime(1995, 10, 30);
             m87.Revenue = 373554033;
@@ -2177,12 +1986,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m88 = new Movie();
             m88.Title = "Sense and Sensibility";
-            Genre m88g1 = new Genre("Drama");
-            Genre m88g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m88g1);
-            db.Genres.AddOrUpdate(g => g.Name, m88g2);
-            m88.Genres.Add(m88g1);
-            m88.Genres.Add(m88g2);
+            m88.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m88.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m88.Overview = "Rich Mr. Dashwood dies, leaving his second wife and her daughters poor by the rules of inheritance. Two daughters are the titular opposites.";
             m88.ReleaseDate = new DateTime(1995, 12, 13);
             m88.Revenue = 135000000;
@@ -2200,15 +2007,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m89 = new Movie();
             m89.Title = "Mission: Impossible";
-            Genre m89g1 = new Genre("Adventure");
-            Genre m89g2 = new Genre("Action");
-            Genre m89g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m89g1);
-            db.Genres.AddOrUpdate(g => g.Name, m89g2);
-            db.Genres.AddOrUpdate(g => g.Name, m89g3);
-            m89.Genres.Add(m89g1);
-            m89.Genres.Add(m89g2);
-            m89.Genres.Add(m89g3);
+            m89.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m89.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m89.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m89.Overview = "When Ethan Hunt, the leader of a crack espionage team whose perilous operation has gone awry with no explanation, discovers that a mole has penetrated the CIA, he's surprised to learn that he's the No. 1 suspect. To clear his name, Hunt now must ferret out the real double agent and, in the process, even the score.";
             m89.ReleaseDate = new DateTime(1996, 5, 22);
             m89.Revenue = 457696359;
@@ -2226,15 +2030,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m90 = new Movie();
             m90.Title = "Independence Day";
-            Genre m90g1 = new Genre("Action");
-            Genre m90g2 = new Genre("Adventure");
-            Genre m90g3 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m90g1);
-            db.Genres.AddOrUpdate(g => g.Name, m90g2);
-            db.Genres.AddOrUpdate(g => g.Name, m90g3);
-            m90.Genres.Add(m90g1);
-            m90.Genres.Add(m90g2);
-            m90.Genres.Add(m90g3);
+            m90.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m90.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m90.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m90.Overview = "On July 2, a giant alien mothership enters orbit around Earth and deploys several dozen saucer-shaped 'destroyer' spacecraft that quickly lay waste to major cities around the planet. On July 3, the United States conducts a coordinated counterattack that fails. On July 4, a plan is devised to gain access to the interior of the alien mothership in space, in order to plant a nuclear missile.";
             m90.ReleaseDate = new DateTime(1996, 6, 25);
             m90.Revenue = 816969268;
@@ -2252,15 +2053,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m91 = new Movie();
             m91.Title = "Austin Powers: International Man of Mystery";
-            Genre m91g1 = new Genre("Science Fiction");
-            Genre m91g2 = new Genre("Comedy");
-            Genre m91g3 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m91g1);
-            db.Genres.AddOrUpdate(g => g.Name, m91g2);
-            db.Genres.AddOrUpdate(g => g.Name, m91g3);
-            m91.Genres.Add(m91g1);
-            m91.Genres.Add(m91g2);
-            m91.Genres.Add(m91g3);
+            m91.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m91.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m91.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m91.Overview = "As a swingin' fashion photographer by day and a groovy British superagent by night, Austin Powers is the '60s' most shagadelic spy, baby! But can he stop megalomaniac Dr. Evil after the bald villain freezes himself and unthaws in the '90s? With the help of sexy sidekick Vanessa Kensington, he just might.";
             m91.ReleaseDate = new DateTime(1997, 5, 2);
             m91.Revenue = 67683989;
@@ -2278,18 +2076,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m92 = new Movie();
             m92.Title = "Men in Black";
-            Genre m92g1 = new Genre("Action");
-            Genre m92g2 = new Genre("Adventure");
-            Genre m92g3 = new Genre("Comedy");
-            Genre m92g4 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m92g1);
-            db.Genres.AddOrUpdate(g => g.Name, m92g2);
-            db.Genres.AddOrUpdate(g => g.Name, m92g3);
-            db.Genres.AddOrUpdate(g => g.Name, m92g4);
-            m92.Genres.Add(m92g1);
-            m92.Genres.Add(m92g2);
-            m92.Genres.Add(m92g3);
-            m92.Genres.Add(m92g4);
+            m92.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m92.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m92.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m92.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m92.Overview = "Men in Black follows the exploits of agents Kay and Jay, members of a top-secret organization established to monitor and police alien activity on Earth. The two Men in Black find themselves in the middle of the deadly plot by an intergalactic terrorist who has arrived on Earth to assassinate two ambassadors from opposing galaxies. In order to prevent worlds from colliding, the MiB must track down the terrorist and prevent the destruction of Earth. It's just another typical day for the Men in Black.";
             m92.ReleaseDate = new DateTime(1997, 7, 2);
             m92.Revenue = 589390539;
@@ -2307,15 +2101,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m93 = new Movie();
             m93.Title = "Titanic";
-            Genre m93g1 = new Genre("Drama");
-            Genre m93g2 = new Genre("Romance");
-            Genre m93g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m93g1);
-            db.Genres.AddOrUpdate(g => g.Name, m93g2);
-            db.Genres.AddOrUpdate(g => g.Name, m93g3);
-            m93.Genres.Add(m93g1);
-            m93.Genres.Add(m93g2);
-            m93.Genres.Add(m93g3);
+            m93.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m93.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m93.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m93.Overview = "84 years later, a 101-year-old woman named Rose DeWitt Bukater tells the story to her granddaughter Lizzy Calvert, Brock Lovett, Lewis Bodine, Bobby Buell and Anatoly Mikailavich on the Keldysh about her life set in April 10th 1912, on a ship called Titanic when young Rose boards the departing ship with the upper-class passengers and her mother, Ruth DeWitt Bukater, and her fiancÃ©, Caledon Hockley. Meanwhile, a drifter and artist named Jack Dawson and his best friend Fabrizio De Rossi win third-class tickets to the ship in a game. And she explains the whole story from departure until the death of Titanic on its first and last voyage April 15th, 1912 at 2:20 in the morning.";
             m93.ReleaseDate = new DateTime(1997, 11, 18);
             m93.Revenue = 1845034188;
@@ -2333,13 +2124,11 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m94 = new Movie();
             m94.Title = "The Big Lebowski";
-            Genre m94g1 = new Genre("Comedy");
-            Genre m94g2 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m94g1);
-            db.Genres.AddOrUpdate(g => g.Name, m94g2);
-            m94.Genres.Add(m94g1);
-            m94.Genres.Add(m94g2);
-            m94.Overview = "Jeffrey The DudeLebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.";
+            m94.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m94.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            m94.Overview = "Jeffrey \"The Dude\" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.";
             m94.ReleaseDate = new DateTime(1998, 3, 6);
             m94.Revenue = 46189568;
             m94.Runtime = 117;
@@ -2356,14 +2145,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m95 = new Movie();
             m95.Title = "Shakespeare in Love";
-            Genre m95g1 = new Genre("Romance");
-            Genre m95g2 = new Genre("History");
-            db.Genres.AddOrUpdate(g => g.Name, m95g1);
-            db.Genres.AddOrUpdate(g => g.Name, m95g2);
-            m95.Genres.Add(m95g1);
-            m95.Genres.Add(m95g2);
-            m95.Overview = "Young Shakespeare is forced to stage his latest comedy, Romeo and Ethel, the Pirate's Daughter, before it's even written.When a lovely noblewoman auditions for a role, they fall into forbidden love-- and his play finds a new life(and title).As their relationship progresses, Shakespeare's comedy soon transforms into tragedy.";
-           m95.ReleaseDate = new DateTime(1998, 12, 11);
+            m95.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m95.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "History"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            History.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "History"));
+            m95.Overview = "Young Shakespeare is forced to stage his latest comedy, \"Romeo and Ethel, the Pirate's Daughter,\" before it's even written. When a lovely noblewoman auditions for a role, they fall into forbidden love -- and his play finds a new life (and title). As their relationship progresses, Shakespeare's comedy soon transforms into tragedy.";
+            m95.ReleaseDate = new DateTime(1998, 12, 11);
             m95.Revenue = 289317794;
             m95.Runtime = 122;
             m95.Tagline = "Love is the only inspiration.";
@@ -2379,12 +2166,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m96 = new Movie();
             m96.Title = "You've Got Mail";
-            Genre m96g1 = new Genre("Comedy");
-            Genre m96g2 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m96g1);
-            db.Genres.AddOrUpdate(g => g.Name, m96g2);
-            m96.Genres.Add(m96g1);
-            m96.Genres.Add(m96g2);
+            m96.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m96.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m96.Overview = "Book superstore magnate, Joe Fox and independent book shop owner, Kathleen Kelly fall in love in the anonymity of the Internet â€“ both blissfully unaware that he's putting her out of business.";
             m96.ReleaseDate = new DateTime(1998, 12, 17);
             m96.Revenue = 250821495;
@@ -2402,12 +2187,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m97 = new Movie();
             m97.Title = "Office Space";
-            Genre m97g1 = new Genre("Comedy");
-            Genre m97g2 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m97g1);
-            db.Genres.AddOrUpdate(g => g.Name, m97g2);
-            m97.Genres.Add(m97g1);
-            m97.Genres.Add(m97g2);
+            m97.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m97.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m97.Overview = "Three office workers strike back at their evil employers by hatching a hapless attempt to embezzle money.";
             m97.ReleaseDate = new DateTime(1999, 2, 19);
             m97.Revenue = 12827813;
@@ -2425,15 +2208,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m98 = new Movie();
             m98.Title = "Notting Hill";
-            Genre m98g1 = new Genre("Romance");
-            Genre m98g2 = new Genre("Comedy");
-            Genre m98g3 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m98g1);
-            db.Genres.AddOrUpdate(g => g.Name, m98g2);
-            db.Genres.AddOrUpdate(g => g.Name, m98g3);
-            m98.Genres.Add(m98g1);
-            m98.Genres.Add(m98g2);
-            m98.Genres.Add(m98g3);
+            m98.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m98.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m98.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m98.Overview = "The British comedy from director Roger Michell tells the love story between a famous actress and a simple book seller from London. A look into the attempt for famous people to have a personal and private life and the ramifications that follow. Nominated for three Golden Globes in 2000.";
             m98.ReleaseDate = new DateTime(1999, 5, 13);
             m98.Revenue = 363889678;
@@ -2451,15 +2231,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m99 = new Movie();
             m99.Title = "Toy Story 2";
-            Genre m99g1 = new Genre("Animation");
-            Genre m99g2 = new Genre("Comedy");
-            Genre m99g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m99g1);
-            db.Genres.AddOrUpdate(g => g.Name, m99g2);
-            db.Genres.AddOrUpdate(g => g.Name, m99g3);
-            m99.Genres.Add(m99g1);
-            m99.Genres.Add(m99g2);
-            m99.Genres.Add(m99g3);
+            m99.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m99.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m99.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m99.Overview = "Andy heads off to Cowboy Camp, leaving his toys to their own devices. Things shift into high gear when an obsessive toy collector named Al McWhiggen, owner of Al's Toy Barn kidnaps Woody. Andy's toys mount a daring rescue mission, Buzz Lightyear meets his match and Woody has to decide where he and his heart truly belong.";
             m99.ReleaseDate = new DateTime(1999, 10, 30);
             m99.Revenue = 497366869;
@@ -2477,15 +2254,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m100 = new Movie();
             m100.Title = "Gladiator";
-            Genre m100g1 = new Genre("Action");
-            Genre m100g2 = new Genre("Drama");
-            Genre m100g3 = new Genre("Adventure");
-            db.Genres.AddOrUpdate(g => g.Name, m100g1);
-            db.Genres.AddOrUpdate(g => g.Name, m100g2);
-            db.Genres.AddOrUpdate(g => g.Name, m100g3);
-            m100.Genres.Add(m100g1);
-            m100.Genres.Add(m100g2);
-            m100.Genres.Add(m100g3);
+            m100.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m100.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m100.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
             m100.Overview = "In the year 180, the death of emperor Marcus Aurelius throws the Roman Empire into chaos. Maximus is one of the Roman army's most capable and trusted generals and a key advisor to the emperor. As Marcus' devious son Commodus ascends to the throne, Maximus is set to be executed. He escapes, but is captured by slave traders. Renamed Spaniard and forced to become a gladiator, Maximus must battle to the death with other men for the amusement of paying audiences. His battle skills serve him well, and he becomes one of the most famous and admired men to fight in the Colosseum. Determined to avenge himself against the man who took away his freedom and laid waste to his family, Maximus believes that he can use his fame and skill in the ring to avenge the loss of his family and former glory. As the gladiator begins to challenge his rule, Commodus decides to put his own fighting mettle to the test by squaring off with Maximus in a battle to the death.";
             m100.ReleaseDate = new DateTime(2000, 5, 1);
             m100.Revenue = 457640427;
@@ -2503,16 +2277,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m101 = new Movie();
             m101.Title = "Gone in Sixty Seconds";
-            Genre m101g1 = new Genre("Action");
-            Genre m101g2 = new Genre("Crime");
-            Genre m101g3 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m101g1);
-            db.Genres.AddOrUpdate(g => g.Name, m101g2);
-            db.Genres.AddOrUpdate(g => g.Name, m101g3);
-            m101.Genres.Add(m101g1);
-            m101.Genres.Add(m101g2);
-            m101.Genres.Add(m101g3);
-            m101.Overview = "Upon learning that he has to come out of retirement to steal 50 cars in one night to save his brother Kip's life, former car thief Randall Memphis Raines enlists help from a few boost happy pals to accomplish a seemingly impossible feat. From countless car chases to relentless cops, the high-octane excitement builds as Randall swerves around more than a few roadblocks to keep Kip alive.";
+            m101.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m101.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m101.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            m101.Overview = "Upon learning that he has to come out of retirement to steal 50 cars in one night to save his brother Kip's life, former car thief Randall \"Memphis\" Raines enlists help from a few \"boost happy\" pals to accomplish a seemingly impossible feat. From countless car chases to relentless cops, the high-octane excitement builds as Randall swerves around more than a few roadblocks to keep Kip alive.";
             m101.ReleaseDate = new DateTime(2000, 6, 9);
             m101.Revenue = 237202299;
             m101.Runtime = 118;
@@ -2529,15 +2300,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m102 = new Movie();
             m102.Title = "X-Men";
-            Genre m102g1 = new Genre("Adventure");
-            Genre m102g2 = new Genre("Action");
-            Genre m102g3 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m102g1);
-            db.Genres.AddOrUpdate(g => g.Name, m102g2);
-            db.Genres.AddOrUpdate(g => g.Name, m102g3);
-            m102.Genres.Add(m102g1);
-            m102.Genres.Add(m102g2);
-            m102.Genres.Add(m102g3);
+            m102.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m102.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m102.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m102.Overview = "Two mutants, Rogue and Wolverine, come to a private academy for their kind whose resident superhero team, the X-Men, must oppose a terrorist organization with similar powers.";
             m102.ReleaseDate = new DateTime(2000, 7, 13);
             m102.Revenue = 296339527;
@@ -2555,15 +2323,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m103 = new Movie();
             m103.Title = "Miss Congeniality";
-            Genre m103g1 = new Genre("Comedy");
-            Genre m103g2 = new Genre("Crime");
-            Genre m103g3 = new Genre("Action");
-            db.Genres.AddOrUpdate(g => g.Name, m103g1);
-            db.Genres.AddOrUpdate(g => g.Name, m103g2);
-            db.Genres.AddOrUpdate(g => g.Name, m103g3);
-            m103.Genres.Add(m103g1);
-            m103.Genres.Add(m103g2);
-            m103.Genres.Add(m103g3);
+            m103.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m103.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m103.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
             m103.Overview = "When the local FBI office receives a letter from a terrorist known only as 'The Citizen', it's quickly determined that he's planning his next act at the Miss America beauty pageant. Because tough-as-nails Gracie Hart is the only female Agent at the office, she's chosen to go undercover as the contestant from New Jersey.";
             m103.ReleaseDate = new DateTime(2000, 12, 14);
             m103.Revenue = 212000000;
@@ -2581,15 +2346,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m104 = new Movie();
             m104.Title = "Bridget Jones's Diary";
-            Genre m104g1 = new Genre("Comedy");
-            Genre m104g2 = new Genre("Romance");
-            Genre m104g3 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m104g1);
-            db.Genres.AddOrUpdate(g => g.Name, m104g2);
-            db.Genres.AddOrUpdate(g => g.Name, m104g3);
-            m104.Genres.Add(m104g1);
-            m104.Genres.Add(m104g2);
-            m104.Genres.Add(m104g3);
+            m104.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m104.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m104.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m104.Overview = "A chaotic Bridget Jones meets a snobbish lawyer, and he soon enters her world of imperfections.";
             m104.ReleaseDate = new DateTime(2001, 4, 13);
             m104.Revenue = 281929795;
@@ -2607,9 +2369,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m105 = new Movie();
             m105.Title = "Legally Blonde";
-            Genre m105g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m105g1);
-            m105.Genres.Add(m105g1);
+            m105.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m105.Overview = "Elle Woods has it all. She's the president of her sorority, a Hawaiian Tropic girl, Miss June in her campus calendar, and, above all, a natural blonde. She dates the cutest fraternity boy on campus and wants nothing more than to be Mrs. Warner Huntington III. But, there's just one thing stopping Warner from popping the question: Elle is too blonde.";
             m105.ReleaseDate = new DateTime(2001, 7, 13);
             m105.Revenue = 141774679;
@@ -2627,15 +2388,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m106 = new Movie();
             m106.Title = "Monsters, Inc.";
-            Genre m106g1 = new Genre("Animation");
-            Genre m106g2 = new Genre("Comedy");
-            Genre m106g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m106g1);
-            db.Genres.AddOrUpdate(g => g.Name, m106g2);
-            db.Genres.AddOrUpdate(g => g.Name, m106g3);
-            m106.Genres.Add(m106g1);
-            m106.Genres.Add(m106g2);
-            m106.Genres.Add(m106g3);
+            m106.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m106.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m106.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m106.Overview = "James Sullivan and Mike Wazowski are monsters, they earn their living scaring children and are the best in the business... even though they're more afraid of the children than they are of them. When a child accidentally enters their world, James and Mike suddenly find that kids are not to be afraid of and they uncover a conspiracy that could threaten all children across the world.";
             m106.ReleaseDate = new DateTime(2001, 11, 1);
             m106.Revenue = 562816256;
@@ -2653,15 +2411,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m107 = new Movie();
             m107.Title = "Harry Potter and the Philosopher's Stone";
-            Genre m107g1 = new Genre("Adventure");
-            Genre m107g2 = new Genre("Fantasy");
-            Genre m107g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m107g1);
-            db.Genres.AddOrUpdate(g => g.Name, m107g2);
-            db.Genres.AddOrUpdate(g => g.Name, m107g3);
-            m107.Genres.Add(m107g1);
-            m107.Genres.Add(m107g2);
-            m107.Genres.Add(m107g3);
+            m107.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m107.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m107.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m107.Overview = "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard -- with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths -- and about the villain who's to blame.";
             m107.ReleaseDate = new DateTime(2001, 11, 16);
             m107.Revenue = 976475550;
@@ -2679,12 +2434,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m108 = new Movie();
             m108.Title = "Ocean's Eleven";
-            Genre m108g1 = new Genre("Thriller");
-            Genre m108g2 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m108g1);
-            db.Genres.AddOrUpdate(g => g.Name, m108g2);
-            m108.Genres.Add(m108g1);
-            m108.Genres.Add(m108g2);
+            m108.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            m108.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m108.Overview = "Less than 24 hours into his parole, charismatic thief Danny Ocean is already rolling out his next plan: In one night, Danny's hand-picked crew of specialists will attempt to steal more than $150 million from three Las Vegas casinos. But to score the cash, Danny risks his chances of reconciling with ex-wife, Tess.";
             m108.ReleaseDate = new DateTime(2001, 12, 7);
             m108.Revenue = 450717150;
@@ -2702,15 +2455,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m109 = new Movie();
             m109.Title = "Harry Potter and the Chamber of Secrets";
-            Genre m109g1 = new Genre("Adventure");
-            Genre m109g2 = new Genre("Fantasy");
-            Genre m109g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m109g1);
-            db.Genres.AddOrUpdate(g => g.Name, m109g2);
-            db.Genres.AddOrUpdate(g => g.Name, m109g3);
-            m109.Genres.Add(m109g1);
-            m109.Genres.Add(m109g2);
-            m109.Genres.Add(m109g3);
+            m109.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m109.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m109.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m109.Overview = "Ignoring threats to his life, Harry returns to Hogwarts to investigate â€“ aided by Ron and Hermione â€“ a mysterious series of attacks.";
             m109.ReleaseDate = new DateTime(2002, 11, 13);
             m109.Revenue = 876688482;
@@ -2728,12 +2478,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m110 = new Movie();
             m110.Title = "Finding Nemo";
-            Genre m110g1 = new Genre("Animation");
-            Genre m110g2 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m110g1);
-            db.Genres.AddOrUpdate(g => g.Name, m110g2);
-            m110.Genres.Add(m110g1);
-            m110.Genres.Add(m110g2);
+            m110.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m110.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m110.Overview = "Nemo, an adventurous young clownfish, is unexpectedly taken from his Great Barrier Reef home to a dentist's office aquarium. It's up to his worrisome father Marlin and a friendly but forgetful fish Dory to bring Nemo home -- meeting vegetarian sharks, surfer dude turtles, hypnotic jellyfish, hungry seagulls, and more along the way.";
             m110.ReleaseDate = new DateTime(2003, 5, 30);
             m110.Revenue = 940335536;
@@ -2751,15 +2499,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m111 = new Movie();
             m111.Title = "Love Actually";
-            Genre m111g1 = new Genre("Comedy");
-            Genre m111g2 = new Genre("Romance");
-            Genre m111g3 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m111g1);
-            db.Genres.AddOrUpdate(g => g.Name, m111g2);
-            db.Genres.AddOrUpdate(g => g.Name, m111g3);
-            m111.Genres.Add(m111g1);
-            m111.Genres.Add(m111g2);
-            m111.Genres.Add(m111g3);
+            m111.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m111.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m111.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m111.Overview = "Follows seemingly unrelated people as their lives begin to intertwine while they fall in â€“ and out â€“ of love. Affections languish and develop as Christmas draws near.";
             m111.ReleaseDate = new DateTime(2003, 9, 7);
             m111.Revenue = 244931766;
@@ -2777,15 +2522,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m112 = new Movie();
             m112.Title = "Elf";
-            Genre m112g1 = new Genre("Comedy");
-            Genre m112g2 = new Genre("Family");
-            Genre m112g3 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m112g1);
-            db.Genres.AddOrUpdate(g => g.Name, m112g2);
-            db.Genres.AddOrUpdate(g => g.Name, m112g3);
-            m112.Genres.Add(m112g1);
-            m112.Genres.Add(m112g2);
-            m112.Genres.Add(m112g3);
+            m112.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m112.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m112.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m112.Overview = "When young Buddy falls into Santa's gift sack on Christmas Eve, he's transported back to the North Pole and raised as a toy-making elf by Santa's helpers. But as he grows into adulthood, he can't shake the nagging feeling that he doesn't belong. Buddy vows to visit Manhattan and find his real dad, a workaholic publisher.";
             m112.ReleaseDate = new DateTime(2003, 10, 9);
             m112.Revenue = 173398518;
@@ -2803,9 +2545,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m113 = new Movie();
             m113.Title = "Mean Girls";
-            Genre m113g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m113g1);
-            m113.Genres.Add(m113g1);
+            m113.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m113.Overview = "Cady Heron is a hit with The Plastics, the A-list girl clique at her new school, until she makes the mistake of falling for Aaron Samuels, the ex-boyfriend of alpha Plastic Regina George.";
             m113.ReleaseDate = new DateTime(2004, 4, 30);
             m113.Revenue = 129042871;
@@ -2823,15 +2564,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m114 = new Movie();
             m114.Title = "Harry Potter and the Prisoner of Azkaban";
-            Genre m114g1 = new Genre("Adventure");
-            Genre m114g2 = new Genre("Fantasy");
-            Genre m114g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m114g1);
-            db.Genres.AddOrUpdate(g => g.Name, m114g2);
-            db.Genres.AddOrUpdate(g => g.Name, m114g3);
-            m114.Genres.Add(m114g1);
-            m114.Genres.Add(m114g2);
-            m114.Genres.Add(m114g3);
+            m114.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m114.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m114.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m114.Overview = "Harry, Ron and Hermione return to Hogwarts for another magic-filled year. Harry comes face to face with danger yet again, this time in the form of escaped convict, Sirius Black â€“ and turns to sympathetic Professor Lupin for help.";
             m114.ReleaseDate = new DateTime(2004, 5, 31);
             m114.Revenue = 789804554;
@@ -2849,15 +2587,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m115 = new Movie();
             m115.Title = "Harry Potter and the Goblet of Fire";
-            Genre m115g1 = new Genre("Adventure");
-            Genre m115g2 = new Genre("Fantasy");
-            Genre m115g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m115g1);
-            db.Genres.AddOrUpdate(g => g.Name, m115g2);
-            db.Genres.AddOrUpdate(g => g.Name, m115g3);
-            m115.Genres.Add(m115g1);
-            m115.Genres.Add(m115g2);
-            m115.Genres.Add(m115g3);
+            m115.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m115.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m115.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m115.Overview = "Harry starts his fourth year at Hogwarts, competes in the treacherous Triwizard Tournament and faces the evil Lord Voldemort. Ron and Hermione help Harry manage the pressure â€“ but Voldemort lurks, awaiting his chance to destroy Harry and all that he stands for.";
             m115.ReleaseDate = new DateTime(2005, 11, 5);
             m115.Revenue = 895921036;
@@ -2875,18 +2610,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m116 = new Movie();
             m116.Title = "Cars";
-            Genre m116g1 = new Genre("Animation");
-            Genre m116g2 = new Genre("Adventure");
-            Genre m116g3 = new Genre("Comedy");
-            Genre m116g4 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m116g1);
-            db.Genres.AddOrUpdate(g => g.Name, m116g2);
-            db.Genres.AddOrUpdate(g => g.Name, m116g3);
-            db.Genres.AddOrUpdate(g => g.Name, m116g4);
-            m116.Genres.Add(m116g1);
-            m116.Genres.Add(m116g2);
-            m116.Genres.Add(m116g3);
-            m116.Genres.Add(m116g4);
+            m116.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m116.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m116.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m116.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m116.Overview = "Lightning McQueen, a hotshot rookie race car driven to succeed, discovers that life is about the journey, not the finish line, when he finds himself unexpectedly detoured in the sleepy Route 66 town of Radiator Springs. On route across the country to the big Piston Cup Championship in California to compete against two seasoned pros, McQueen gets to know the town's offbeat characters.";
             m116.ReleaseDate = new DateTime(2006, 6, 8);
             m116.Revenue = 461983149;
@@ -2904,15 +2635,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m117 = new Movie();
             m117.Title = "The Departed";
-            Genre m117g1 = new Genre("Drama");
-            Genre m117g2 = new Genre("Thriller");
-            Genre m117g3 = new Genre("Crime");
-            db.Genres.AddOrUpdate(g => g.Name, m117g1);
-            db.Genres.AddOrUpdate(g => g.Name, m117g2);
-            db.Genres.AddOrUpdate(g => g.Name, m117g3);
-            m117.Genres.Add(m117g1);
-            m117.Genres.Add(m117g2);
-            m117.Genres.Add(m117g3);
+            m117.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m117.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            m117.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
             m117.Overview = "To take down South Boston's Irish Mafia, the police send in one of their own to infiltrate the underworld, not realizing the syndicate has done likewise. While an undercover cop curries favor with the mob kingpin, a career criminal rises through the police ranks. But both sides soon discover there's a mole among them.";
             m117.ReleaseDate = new DateTime(2006, 10, 5);
             m117.Revenue = 289847354;
@@ -2930,18 +2658,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m118 = new Movie();
             m118.Title = "Ratatouille";
-            Genre m118g1 = new Genre("Animation");
-            Genre m118g2 = new Genre("Comedy");
-            Genre m118g3 = new Genre("Family");
-            Genre m118g4 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m118g1);
-            db.Genres.AddOrUpdate(g => g.Name, m118g2);
-            db.Genres.AddOrUpdate(g => g.Name, m118g3);
-            db.Genres.AddOrUpdate(g => g.Name, m118g4);
-            m118.Genres.Add(m118g1);
-            m118.Genres.Add(m118g2);
-            m118.Genres.Add(m118g3);
-            m118.Genres.Add(m118g4);
+            m118.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m118.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m118.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m118.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m118.Overview = "A rat named Remy dreams of becoming a great French chef despite his family's wishes and the obvious problem of being a rat in a decidedly rodent-phobic profession. When fate places Remy in the sewers of Paris, he finds himself ideally situated beneath a restaurant made famous by his culinary hero, Auguste Gusteau. Despite the apparent dangers of being an unlikely - and certainly unwanted - visitor in the kitchen of a fine French restaurant, Remy's passion for cooking soon sets into motion a hilarious and exciting rat race that turns the culinary world of Paris upside down.";
             m118.ReleaseDate = new DateTime(2007, 6, 22);
             m118.Revenue = 623722818;
@@ -2959,15 +2683,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m119 = new Movie();
             m119.Title = "Transformers";
-            Genre m119g1 = new Genre("Adventure");
-            Genre m119g2 = new Genre("Science Fiction");
-            Genre m119g3 = new Genre("Action");
-            db.Genres.AddOrUpdate(g => g.Name, m119g1);
-            db.Genres.AddOrUpdate(g => g.Name, m119g2);
-            db.Genres.AddOrUpdate(g => g.Name, m119g3);
-            m119.Genres.Add(m119g1);
-            m119.Genres.Add(m119g2);
-            m119.Genres.Add(m119g3);
+            m119.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m119.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m119.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
             m119.Overview = "Young teenager, Sam Witwicky becomes involved in the ancient struggle between two extraterrestrial factions of transforming robots â€“ the heroic Autobots and the evil Decepticons. Sam holds the clue to unimaginable power and the Decepticons will stop at nothing to retrieve it.";
             m119.ReleaseDate = new DateTime(2007, 6, 27);
             m119.Revenue = 709709780;
@@ -2985,18 +2706,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m120 = new Movie();
             m120.Title = "Harry Potter and the Order of the Phoenix";
-            Genre m120g1 = new Genre("Adventure");
-            Genre m120g2 = new Genre("Fantasy");
-            Genre m120g3 = new Genre("Family");
-            Genre m120g4 = new Genre("Mystery");
-            db.Genres.AddOrUpdate(g => g.Name, m120g1);
-            db.Genres.AddOrUpdate(g => g.Name, m120g2);
-            db.Genres.AddOrUpdate(g => g.Name, m120g3);
-            db.Genres.AddOrUpdate(g => g.Name, m120g4);
-            m120.Genres.Add(m120g1);
-            m120.Genres.Add(m120g2);
-            m120.Genres.Add(m120g3);
-            m120.Genres.Add(m120g4);
+            m120.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m120.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m120.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m120.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Mystery"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Mystery.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Mystery"));
             m120.Overview = "Returning for his fifth year of study at Hogwarts, Harry is stunned to find that his warnings about the return of Lord Voldemort have been ignored. Left with no choice, Harry takes matters into his own hands, training a small group of students â€“ dubbed 'Dumbledore's Army' â€“ to defend themselves against the dark arts.";
             m120.ReleaseDate = new DateTime(2007, 6, 28);
             m120.Revenue = 938212738;
@@ -3014,18 +2731,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m121 = new Movie();
             m121.Title = "The Dark Knight";
-            Genre m121g1 = new Genre("Drama");
-            Genre m121g2 = new Genre("Action");
-            Genre m121g3 = new Genre("Crime");
-            Genre m121g4 = new Genre("Thriller");
-            db.Genres.AddOrUpdate(g => g.Name, m121g1);
-            db.Genres.AddOrUpdate(g => g.Name, m121g2);
-            db.Genres.AddOrUpdate(g => g.Name, m121g3);
-            db.Genres.AddOrUpdate(g => g.Name, m121g4);
-            m121.Genres.Add(m121g1);
-            m121.Genres.Add(m121g2);
-            m121.Genres.Add(m121g3);
-            m121.Genres.Add(m121g4);
+            m121.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m121.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m121.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Crime"));
+            m121.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Thriller"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Crime.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Crime"));
+            Thriller.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Thriller"));
             m121.Overview = "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.";
             m121.ReleaseDate = new DateTime(2008, 7, 16);
             m121.Revenue = 1004558444;
@@ -3043,15 +2756,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m122 = new Movie();
             m122.Title = "Star Trek";
-            Genre m122g1 = new Genre("Science Fiction");
-            Genre m122g2 = new Genre("Action");
-            Genre m122g3 = new Genre("Adventure");
-            db.Genres.AddOrUpdate(g => g.Name, m122g1);
-            db.Genres.AddOrUpdate(g => g.Name, m122g2);
-            db.Genres.AddOrUpdate(g => g.Name, m122g3);
-            m122.Genres.Add(m122g1);
-            m122.Genres.Add(m122g2);
-            m122.Genres.Add(m122g3);
+            m122.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m122.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m122.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
             m122.Overview = "The fate of the galaxy rests in the hands of bitter rivals. One, James Kirk, is a delinquent, thrill-seeking Iowa farm boy. The other, Spock, a Vulcan, was raised in a logic-based society that rejects all emotion. As fiery instinct clashes with calm reason, their unlikely but powerful partnership is the only thing capable of leading their crew through unimaginable danger, boldly going where no one has gone before. The human adventure has begun again.";
             m122.ReleaseDate = new DateTime(2009, 5, 6);
             m122.Revenue = 385680446;
@@ -3069,18 +2779,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m123 = new Movie();
             m123.Title = "Up";
-            Genre m123g1 = new Genre("Animation");
-            Genre m123g2 = new Genre("Comedy");
-            Genre m123g3 = new Genre("Family");
-            Genre m123g4 = new Genre("Adventure");
-            db.Genres.AddOrUpdate(g => g.Name, m123g1);
-            db.Genres.AddOrUpdate(g => g.Name, m123g2);
-            db.Genres.AddOrUpdate(g => g.Name, m123g3);
-            db.Genres.AddOrUpdate(g => g.Name, m123g4);
-            m123.Genres.Add(m123g1);
-            m123.Genres.Add(m123g2);
-            m123.Genres.Add(m123g3);
-            m123.Genres.Add(m123g4);
+            m123.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m123.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m123.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m123.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
             m123.Overview = "Carl Fredricksen spent his entire life dreaming of exploring the globe and experiencing life to its fullest. But at age 78, life seems to have passed him by, until a twist of fate (and a persistent 8-year old Wilderness Explorer named Russell) gives him a new lease on life.";
             m123.ReleaseDate = new DateTime(2009, 5, 13);
             m123.Revenue = 735099082;
@@ -3098,15 +2804,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m124 = new Movie();
             m124.Title = "Harry Potter and the Half-Blood Prince";
-            Genre m124g1 = new Genre("Adventure");
-            Genre m124g2 = new Genre("Fantasy");
-            Genre m124g3 = new Genre("Family");
-            db.Genres.AddOrUpdate(g => g.Name, m124g1);
-            db.Genres.AddOrUpdate(g => g.Name, m124g2);
-            db.Genres.AddOrUpdate(g => g.Name, m124g3);
-            m124.Genres.Add(m124g1);
-            m124.Genres.Add(m124g2);
-            m124.Genres.Add(m124g3);
+            m124.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m124.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m124.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
             m124.Overview = "As Harry begins his sixth year at Hogwarts, he discovers an old book marked as 'Property of the Half-Blood Prince', and begins to learn more about Lord Voldemort's dark past.";
             m124.ReleaseDate = new DateTime(2009, 7, 7);
             m124.Revenue = 933959197;
@@ -3124,18 +2827,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m125 = new Movie();
             m125.Title = "The Princess and the Frog";
-            Genre m125g1 = new Genre("Romance");
-            Genre m125g2 = new Genre("Family");
-            Genre m125g3 = new Genre("Animation");
-            Genre m125g4 = new Genre("Musical");
-            db.Genres.AddOrUpdate(g => g.Name, m125g1);
-            db.Genres.AddOrUpdate(g => g.Name, m125g2);
-            db.Genres.AddOrUpdate(g => g.Name, m125g3);
-            db.Genres.AddOrUpdate(g => g.Name, m125g4);
-            m125.Genres.Add(m125g1);
-            m125.Genres.Add(m125g2);
-            m125.Genres.Add(m125g3);
-            m125.Genres.Add(m125g4);
+            m125.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            m125.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m125.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m125.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
             m125.Overview = "A waitress, desperate to fulfill her dreams as a restaurant owner, is set on a journey to turn a frog prince back into a human being, but she has to do face the same problem after she kisses him.";
             m125.ReleaseDate = new DateTime(2009, 12, 8);
             m125.Revenue = 267045765;
@@ -3153,18 +2852,14 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m126 = new Movie();
             m126.Title = "Avatar";
-            Genre m126g1 = new Genre("Action");
-            Genre m126g2 = new Genre("Adventure");
-            Genre m126g3 = new Genre("Fantasy");
-            Genre m126g4 = new Genre("Science Fiction");
-            db.Genres.AddOrUpdate(g => g.Name, m126g1);
-            db.Genres.AddOrUpdate(g => g.Name, m126g2);
-            db.Genres.AddOrUpdate(g => g.Name, m126g3);
-            db.Genres.AddOrUpdate(g => g.Name, m126g4);
-            m126.Genres.Add(m126g1);
-            m126.Genres.Add(m126g2);
-            m126.Genres.Add(m126g3);
-            m126.Genres.Add(m126g4);
+            m126.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m126.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m126.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            m126.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
             m126.Overview = "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.";
             m126.ReleaseDate = new DateTime(2009, 12, 10);
             m126.Revenue = 2787965087;
@@ -3182,15 +2877,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m127 = new Movie();
             m127.Title = "Toy Story 3";
-            Genre m127g1 = new Genre("Animation");
-            Genre m127g2 = new Genre("Family");
-            Genre m127g3 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m127g1);
-            db.Genres.AddOrUpdate(g => g.Name, m127g2);
-            db.Genres.AddOrUpdate(g => g.Name, m127g3);
-            m127.Genres.Add(m127g1);
-            m127.Genres.Add(m127g2);
-            m127.Genres.Add(m127g3);
+            m127.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m127.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m127.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m127.Overview = "Woody, Buzz, and the rest of Andy's toys haven't been played with in years. With Andy about to go to college, the gang find themselves accidentally left at a nefarious day care center. The toys must band together to escape and return home to Andy.";
             m127.ReleaseDate = new DateTime(2010, 6, 16);
             m127.Revenue = 1066969703;
@@ -3208,12 +2900,10 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m128 = new Movie();
             m128.Title = "The King's Speech";
-            Genre m128g1 = new Genre("Drama");
-            Genre m128g2 = new Genre("History");
-            db.Genres.AddOrUpdate(g => g.Name, m128g1);
-            db.Genres.AddOrUpdate(g => g.Name, m128g2);
-            m128.Genres.Add(m128g1);
-            m128.Genres.Add(m128g2);
+            m128.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            m128.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "History"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
+            History.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "History"));
             m128.Overview = "The King's Speech tells the story of the man who became King George VI, the father of Queen Elizabeth II. After his brother abdicates, George ('Bertie') reluctantly assumes the throne. Plagued by a dreaded stutter and considered unfit to be king, Bertie engages the help of an unorthodox speech therapist named Lionel Logue. Through a set of unexpected techniques, and as a result of an unlikely friendship, Bertie is able to find his voice and boldly lead the country into war.";
             m128.ReleaseDate = new DateTime(2010, 9, 6);
             m128.Revenue = 414211549;
@@ -3231,9 +2921,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m129 = new Movie();
             m129.Title = "Moneyball";
-            Genre m129g1 = new Genre("Drama");
-            db.Genres.AddOrUpdate(g => g.Name, m129g1);
-            m129.Genres.Add(m129g1);
+            m129.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Drama"));
+            Drama.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Drama"));
             m129.Overview = "The story of Oakland Athletics general manager Billy Beane's successful attempt to put together a baseball team on a budget, by employing computer-generated analysis to draft his players.";
             m129.ReleaseDate = new DateTime(2011, 9, 22);
             m129.Revenue = 110206216;
@@ -3251,24 +2940,18 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m130 = new Movie();
             m130.Title = "Brave";
-            Genre m130g1 = new Genre("Animation");
-            Genre m130g2 = new Genre("Adventure");
-            Genre m130g3 = new Genre("Comedy");
-            Genre m130g4 = new Genre("Family");
-            Genre m130g5 = new Genre("Action");
-            Genre m130g6 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m130g1);
-            db.Genres.AddOrUpdate(g => g.Name, m130g2);
-            db.Genres.AddOrUpdate(g => g.Name, m130g3);
-            db.Genres.AddOrUpdate(g => g.Name, m130g4);
-            db.Genres.AddOrUpdate(g => g.Name, m130g5);
-            db.Genres.AddOrUpdate(g => g.Name, m130g6);
-            m130.Genres.Add(m130g1);
-            m130.Genres.Add(m130g2);
-            m130.Genres.Add(m130g3);
-            m130.Genres.Add(m130g4);
-            m130.Genres.Add(m130g5);
-            m130.Genres.Add(m130g6);
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m130.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m130.Overview = "Brave is set in the mystical Scottish Highlands, where MÃ©rida is the princess of a kingdom ruled by King Fergus and Queen Elinor. An unruly daughter and an accomplished archer, MÃ©rida one day defies a sacred custom of the land and inadvertently brings turmoil to the kingdom. In an attempt to set things right, MÃ©rida seeks out an eccentric old Wise Woman and is granted an ill-fated wish. Also figuring into MÃ©ridaâ€™s quest â€” and serving as comic relief â€” are the kingdomâ€™s three lords: the enormous Lord MacGuffin, the surly Lord Macintosh, and the disagreeable Lord Dingwall.";
             m130.ReleaseDate = new DateTime(2012, 6, 21);
             m130.Revenue = 538983207;
@@ -3286,15 +2969,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m131 = new Movie();
             m131.Title = "Pitch Perfect";
-            Genre m131g1 = new Genre("Comedy");
-            Genre m131g2 = new Genre("Musical");
-            Genre m131g3 = new Genre("Romance");
-            db.Genres.AddOrUpdate(g => g.Name, m131g1);
-            db.Genres.AddOrUpdate(g => g.Name, m131g2);
-            db.Genres.AddOrUpdate(g => g.Name, m131g3);
-            m131.Genres.Add(m131g1);
-            m131.Genres.Add(m131g2);
-            m131.Genres.Add(m131g3);
+            m131.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m131.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Musical"));
+            m131.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Romance"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Musical.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Musical"));
+            Romance.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Romance"));
             m131.Overview = "College student Beca knows she does not want to be part of a clique, but that's exactly where she finds herself after arriving at her new school. Thrust in among mean gals, nice gals and just plain weird gals, Beca finds that the only thing they have in common is how well they sing together. She takes the women of the group out of their comfort zone of traditional arrangements and into a world of amazing harmonic combinations in a fight to the top of college music competitions.";
             m131.ReleaseDate = new DateTime(2012, 9, 28);
             m131.Revenue = 115350426;
@@ -3312,21 +2992,16 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m132 = new Movie();
             m132.Title = "The Lego Movie";
-            Genre m132g1 = new Genre("Adventure");
-            Genre m132g2 = new Genre("Animation");
-            Genre m132g3 = new Genre("Comedy");
-            Genre m132g4 = new Genre("Family");
-            Genre m132g5 = new Genre("Fantasy");
-            db.Genres.AddOrUpdate(g => g.Name, m132g1);
-            db.Genres.AddOrUpdate(g => g.Name, m132g2);
-            db.Genres.AddOrUpdate(g => g.Name, m132g3);
-            db.Genres.AddOrUpdate(g => g.Name, m132g4);
-            db.Genres.AddOrUpdate(g => g.Name, m132g5);
-            m132.Genres.Add(m132g1);
-            m132.Genres.Add(m132g2);
-            m132.Genres.Add(m132g3);
-            m132.Genres.Add(m132g4);
-            m132.Genres.Add(m132g5);
+            m132.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            m132.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Animation"));
+            m132.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            m132.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Family"));
+            m132.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Fantasy"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
+            Animation.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Animation"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
+            Family.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Family"));
+            Fantasy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Fantasy"));
             m132.Overview = "An ordinary Lego mini-figure, mistakenly thought to be the extraordinary MasterBuilder, is recruited to join a quest to stop an evil Lego tyrant from gluing the universe together.";
             m132.ReleaseDate = new DateTime(2014, 2, 6);
             m132.Revenue = 469160692;
@@ -3344,15 +3019,12 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m133 = new Movie();
             m133.Title = "Guardians of the Galaxy";
-            Genre m133g1 = new Genre("Action");
-            Genre m133g2 = new Genre("Science Fiction");
-            Genre m133g3 = new Genre("Adventure");
-            db.Genres.AddOrUpdate(g => g.Name, m133g1);
-            db.Genres.AddOrUpdate(g => g.Name, m133g2);
-            db.Genres.AddOrUpdate(g => g.Name, m133g3);
-            m133.Genres.Add(m133g1);
-            m133.Genres.Add(m133g2);
-            m133.Genres.Add(m133g3);
+            m133.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Action"));
+            m133.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Science Fiction"));
+            m133.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Adventure"));
+            Action.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Action"));
+            ScienceFiction.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Science Fiction"));
+            Adventure.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Adventure"));
             m133.Overview = "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.";
             m133.ReleaseDate = new DateTime(2014, 7, 30);
             m133.Revenue = 773328629;
@@ -3370,9 +3042,8 @@ namespace LonghornCinemaFinalProject.Migrations
 
             Movie m134 = new Movie();
             m134.Title = "Bad Moms";
-            Genre m134g1 = new Genre("Comedy");
-            db.Genres.AddOrUpdate(g => g.Name, m134g1);
-            m134.Genres.Add(m134g1);
+            m134.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == "Comedy"));
+            Comedy.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "Comedy"));
             m134.Overview = "When three overworked and under-appreciated moms are pushed beyond their limits, they ditch their conventional responsibilities for a jolt of long overdue freedom, fun, and comedic self-indulgence.";
             m134.ReleaseDate = new DateTime(2016, 7, 28);
             m134.Revenue = 183936074;
@@ -3387,6 +3058,14 @@ namespace LonghornCinemaFinalProject.Migrations
             m134.Actors.Add("Annie Mumolo");
             db.Movies.AddOrUpdate(m => m.Title, m134);
             db.SaveChanges();
+
+
+
+
+
+
+
+
 
 
 

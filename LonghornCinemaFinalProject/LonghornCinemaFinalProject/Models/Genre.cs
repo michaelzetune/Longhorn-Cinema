@@ -16,6 +16,11 @@ namespace LonghornCinemaFinalProject.Models
         public Genre(String TheName)
         {
             Name = TheName;
+            if (Movies == null)
+            {
+                Movies = new List<Movie>();
+            }
+
         }
 
         public Genre()

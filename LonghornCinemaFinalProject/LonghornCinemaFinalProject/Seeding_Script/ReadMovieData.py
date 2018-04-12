@@ -9,11 +9,11 @@ def main():
   title_list = title.split('\t')
 
   #fix up title_list
-  title_list[4] = 'ReleaseYear'
+  title_list[4] = 'ReleaseDate'
   title_list[5] = 'Revenue'
   title_list[6] = 'Runtime'
   title_list[7] = 'Tagline'
-  title_list[8] = 'MPAArating'
+  title_list[8] = 'MPAARating'
   
 
   #read rest of data into list
@@ -43,22 +43,36 @@ def main():
     genrename = temp_array[2].split(',')
     datename = temp_array[4].split('/')
     actorname = temp_array[9].split(',')
+    actorname[0] = "q" + actorname[0]
+
+    for x in genrename:
+      x = x.replace('"', '')
+      x = x.replace(' ', '')
+
     s = ''
     s += "Movie m" + str(ticker) + ' = new Movie();\n'
     #m1.Title
-    s += 'm' + str(ticker) + '.' + str(title_list[1]) + " = " + "#" + str(temp_array[1]) + "#" + ';\n'
+    s += 'm' + str(ticker) + '.' + str(title_list[1]) + " = " + "\"" + str(temp_array[1]) + "\"" + ';\n'
     #m1.Genres
     ticker2 = 1
-    for x in genrename:
-      x.replace("\"", "")
-      x.replace(" ", "")
-      s += 'm' + str(ticker)+ '.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == \"' + str(x) + '\"));\n'
+    for i in range(len(genrename)):
+      genrename[i] = genrename[i].replace('"', '')
+      genrename[i] = genrename[i].replace(" ", "")
+      s += 'm' + str(ticker)+ '.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == \"' + genrename[i] + '\"));\n'
       ticker2 += 1
+    for i in range(len(actorname)):
+    	actorname[i] = actorname[i].replace('"', '')
+    	actorname[i] = actorname[i][1:]
     #db.Genres.AddOrUpdate
     for y in genrename:
-      s += '&'+ str(y) + '.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "'+ str(y) + ');\n'
+      s += str(y) + '.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "'+ str(y) + '"));\n'
     #m1.overview
-    s += 'm' + str(ticker) + '.' + str(title_list[3]) + " = " + "#" + str(temp_array[3]) + "#" + ';\n'
+    overview = temp_array[3]
+    overview = overview.replace('""', '\\"')
+    if overview[0] != "\"":
+    	overview = "\"" + overview + "\""
+    print("!!overview: " + "@" + overview + "@")
+    s += 'm' + str(ticker) + '.' + str(title_list[3]) + " = " + overview + ';\n'
     # year, month, day
     #current month day year
     #m1.RevenueDate
@@ -68,13 +82,16 @@ def main():
     #m1.Runtime
     s += 'm' + str(ticker) + '.' + str(title_list[6]) + " = " + str(temp_array[6]) + ';\n'
     #m1.Tagline
-    s += 'm' + str(ticker) + '.' + str(title_list[7]) + " = " + "#" + str(temp_array[7])+ "#" + ';\n'
+    tagline = str(temp_array[7])
+    if (tagline[0:1] != '"'):
+    	tagline = '"' + tagline + '"'
+    s += 'm' + str(ticker) + '.' + str(title_list[7]) + " = " + tagline + ';\n'
     #m1.MPAARating = MPAARating.Info;
     s += 'm' + str(ticker) + '.' + str(title_list[8]) + " = MPAARating." + str(temp_array[8]) + ';\n'
     #m1.Actors.Add("info");
     for x in actorname:
-      s += 'm' + str(ticker) + '.' + str(title_list[9]) + ".Add(#" + str(x) + '#);\n'
-    s += 'db.Movies.AddorUpdate(m => m.Title, m' + (str(ticker)) + ');\n'
+      s += 'm' + str(ticker) + '.' + str(title_list[9]) + ".Add(\"" + str(x) + '");\n'
+    s += 'db.Movies.AddOrUpdate(m => m.Title, m' + (str(ticker)) + ');\n'
     s += 'db.SaveChanges();\n'
     s += '\n'
     out_file.write(s)
