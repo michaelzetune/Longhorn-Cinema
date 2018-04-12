@@ -27,7 +27,7 @@ namespace LonghornCinemaFinalProject.Models
         public DateTime ReleaseDate { get; set; }
 
         // Revenue
-        public Int32 Revenue { get; set; }
+        public Int64 Revenue { get; set; }
 
         // Runtime (in minutes)
         public Int32 Runtime { get; set; }
