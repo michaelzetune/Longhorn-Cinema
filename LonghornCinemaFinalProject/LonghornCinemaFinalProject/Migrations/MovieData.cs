@@ -21,7 +21,6 @@ namespace LonghornCinemaFinalProject.Migrations
             db.Genres.AddOrUpdate(g => g.Name, m1g2);
             db.Genres.AddOrUpdate(g => g.Name, m1g3);
             m1.Genres.Add(m1g1);
-            // add other genres
             m1.Genres.Add(m1g2);
             m1.Genres.Add(m1g3);
             m1.Overview = "A producer puts on what may be his last Broadway show, and at the last moment a chorus girl has to replace the star.";
