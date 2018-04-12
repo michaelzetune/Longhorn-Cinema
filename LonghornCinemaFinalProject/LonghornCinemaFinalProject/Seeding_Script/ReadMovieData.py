@@ -32,30 +32,49 @@ def main():
 
   #iterate through every record and assign it into
   ticker = 1
-  for x in master_array:
-    temp_array = x.split('\t')
-    genrename = temp_array[2].split(,)
-    datename = temp_array[4].split(/)
-    
-    s = ''
-    s += "Movie m" + str(ticker) + ' = new Movie();\n' 
-    s += 'm' + str(ticker) + '.' + str(title_list[1]) + " = " + "#" + str(temp_array[1]) + "#" + ';\n'
-    
-    for x in genrename:
-      s += 'Genre m' + str(ticker)+ 'g' + str(ticker) = ' new Genre(' +str(x) + "'"');'
-    s += 'm' + str(ticker) +'Genres.Add(m' + str(ticker) + 'g' + str(ticker) + ');'
 
-    
+  for x in master_array:  
+    temp_array = x.split('\t')
+      
+
+    temp_array[2].lstrip('"')
+    if '"' in temp_array[9]:
+      temp_array[9].strip('"')
+    genrename = temp_array[2].split(',')
+    datename = temp_array[4].split('/')
+    actorname = temp_array[9].split(',')
+    s = ''
+    s += "Movie m" + str(ticker) + ' = new Movie();\n'
+    #m1.Title
+    s += 'm' + str(ticker) + '.' + str(title_list[1]) + " = " + "#" + str(temp_array[1]) + "#" + ';\n'
+    #m1.Genres
+    ticker2 = 1
+    for x in genrename:
+      x.replace("\"", "")
+      x.replace(" ", "")
+      s += 'm' + str(ticker)+ '.Genres.Add(db.Genres.FirstOrDefault(x => x.Name == \"' + str(x) + '\"));\n'
+      ticker2 += 1
+    #db.Genres.AddOrUpdate
+    for y in genrename:
+      s += '&'+ str(y) + '.Movies.Add(db.Movies.FirstOrDefault(x => x.Title == "'+ str(y) + ');\n'
+    #m1.overview
     s += 'm' + str(ticker) + '.' + str(title_list[3]) + " = " + "#" + str(temp_array[3]) + "#" + ';\n'
     # year, month, day
     #current month day year
-    s += 'm' + str(ticker) + '.' + str(title_list[4]) + " = new DateTime(" + str(datename[2]) + ','+ str(datename[0]) + ',' + str(datename[1])')' + ';\n'
+    #m1.RevenueDate
+    s += 'm' + str(ticker) + '.' + str(title_list[4]) + " = new DateTime(" + str(datename[2]) + ','+ str(datename[0]) + ',' + str(datename[1]) + ')' + ';\n'
+    #m1.Revenue
     s += 'm' + str(ticker) + '.' + str(title_list[5]) + " = " + str(temp_array[5]) + ';\n'
+    #m1.Runtime
     s += 'm' + str(ticker) + '.' + str(title_list[6]) + " = " + str(temp_array[6]) + ';\n'
+    #m1.Tagline
     s += 'm' + str(ticker) + '.' + str(title_list[7]) + " = " + "#" + str(temp_array[7])+ "#" + ';\n'
-    s += 'm' + str(ticker) + '.' + str(title_list[8]) + " = " + str(temp_array[8]) + ';\n'
-    s += 'm' + str(ticker) + '.' + str(title_list[9]) + " = " + str(temp_array[9]) + ';\n'
-    s += 'db.Repositories.AddorUpdate(m => m.Title, m' + (str(ticker)) + ');\n'
+    #m1.MPAARating = MPAARating.Info;
+    s += 'm' + str(ticker) + '.' + str(title_list[8]) + " = MPAARating." + str(temp_array[8]) + ';\n'
+    #m1.Actors.Add("info");
+    for x in actorname:
+      s += 'm' + str(ticker) + '.' + str(title_list[9]) + ".Add(#" + str(x) + '#);\n'
+    s += 'db.Movies.AddorUpdate(m => m.Title, m' + (str(ticker)) + ');\n'
     s += 'db.SaveChanges();\n'
     s += '\n'
     out_file.write(s)
