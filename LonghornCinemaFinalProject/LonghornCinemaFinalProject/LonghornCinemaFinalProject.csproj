@@ -174,8 +174,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -218,13 +222,17 @@
       <DependentUpon>201804122109086_AllMovieData5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\CreditCard.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\IdentityRoles.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MoviePrice.cs" />
     <Compile Include="Models\MovieReview.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
@@ -268,6 +276,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Search\DetailedSearch.cshtml" />
+    <Content Include="Views\Accounts\ChangePassword.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\RoleAdmin\Create.cshtml" />
+    <Content Include="Views\RoleAdmin\Edit.cshtml" />
+    <Content Include="Views\RoleAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,32 @@
+﻿@model LonghornCinemaFinalProject.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>User Name:</dt>
+        <dd>@Model.UserName</dd>
+
+        <dt>Email:</dt>
+        <dd>@Model.Email</dd>
+
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            ]
+        
+        </dd>
+    </dl>
+
+   
+</div>
+<hr />
