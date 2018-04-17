@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201804122109086_AllMovieData5.Designer.cs">
       <DependentUpon>201804122109086_AllMovieData5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804172204152_Update1.cs" />
+    <Compile Include="Migrations\201804172204152_Update1.Designer.cs">
+      <DependentUpon>201804172204152_Update1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804122109086_AllMovieData5.resx">
       <DependentUpon>201804122109086_AllMovieData5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804172204152_Update1.resx">
+      <DependentUpon>201804172204152_Update1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

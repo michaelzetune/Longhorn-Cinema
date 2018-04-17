@@ -4,13 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using LonghornCinemaFinalProject.DAL;
+using LonghornCinemaFinalProject.Models;
+
 namespace LonghornCinemaFinalProject.Controllers
 {
     public class HomeController : Controller
     {
+        private AppDbContext db = new AppDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            //ViewBag.TotalMovieCount = db.Movies.Count();
+
+            List<Movie> AllMovies = new List<Movie>();
+
+            var query = from r in db.Movies select r;
+
+            AllMovies = query.ToList();
+
+            return View(AllMovies.OrderByDescending(r => r.Title));
         }
 
         public ActionResult About()

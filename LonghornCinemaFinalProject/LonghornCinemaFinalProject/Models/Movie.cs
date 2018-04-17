@@ -48,7 +48,10 @@ namespace LonghornCinemaFinalProject.Models
             {
                 // replaced iterating through List of MovieReviews to find average rating
                 // with this instead:
-                return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
+                if (db.Movies.Find(MovieID).MovieReviews.Count() == 0)
+                    return 0;
+                else
+                    return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
             }
         }
 
