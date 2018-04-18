@@ -55,6 +55,19 @@ namespace LonghornCinemaFinalProject.Models
             }
         }
 
+        public String GenresString
+        {
+            get
+            {
+                String ret = "";
+                foreach(Genre g in Genres)
+                {
+                    ret += g.Name + ", ";
+                }
+                return ret.Substring(0,ret.Length-2); // removes ending comma and space
+            }
+        }
+
 
         // Navigation Properties
         // MovieReviews
