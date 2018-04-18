@@ -887,7 +887,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m38.Revenue = 181813770;
             m38.Runtime = 110;
             m38.Tagline = "Grease is the word";
-            m38.MPAARating = MPAARating.PG - 13;
+            m38.MPAARating = MPAARating.PG;
             m38.Actors.Add("John Travolta");
             m38.Actors.Add("Olivia Newton-John");
             m38.Actors.Add("Stockard Channing");
@@ -1315,7 +1315,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m58.Revenue = 146292009;
             m58.Runtime = 154;
             m58.Tagline = "It's about life. It's about love. It's about us.";
-            m58.MPAARating = MPAARating.PG - 13;
+            m58.MPAARating = MPAARating.PG;
             m58.Actors.Add("Whoopi Goldberg");
             m58.Actors.Add("Margaret Avery");
             m58.Actors.Add("Danny Glover");
@@ -1361,7 +1361,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m60.Revenue = 38748395;
             m60.Runtime = 94;
             m60.Tagline = "Don't feed the plants.";
-            m60.MPAARating = MPAARating.PG - 13;
+            m60.MPAARating = MPAARating.PG;
             m60.Actors.Add("Rick Moranis");
             m60.Actors.Add("Ellen Greene");
             m60.Actors.Add("Vincent Gardenia");
@@ -1612,7 +1612,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m71.Revenue = 390493908;
             m71.Runtime = 143;
             m71.Tagline = "For the good of all men, and the love of one woman, he fought to uphold justice by breaking the law.";
-            m71.MPAARating = MPAARating.PG - 13;
+            m71.MPAARating = MPAARating.PG;
             m71.Actors.Add("Kevin Costner");
             m71.Actors.Add("Morgan Freeman");
             m71.Actors.Add("Christian Slater");
@@ -1631,7 +1631,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m72.Revenue = 121697323;
             m72.Runtime = 94;
             m72.Tagline = "You'll laugh. You'll cry. You'll hurl.";
-            m72.MPAARating = MPAARating.PG - 13;
+            m72.MPAARating = MPAARating.PG;
             m72.Actors.Add("Mike Myers");
             m72.Actors.Add("Dana Carvey");
             m72.Actors.Add("Rob Lowe");
@@ -1773,7 +1773,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m78.Revenue = 920100000;
             m78.Runtime = 127;
             m78.Tagline = "An adventure 65 million years in the making.";
-            m78.MPAARating = MPAARating.PG - 13;
+            m78.MPAARating = MPAARating.PG;
             m78.Actors.Add("Sam Neill");
             m78.Actors.Add("Laura Dern");
             m78.Actors.Add("Jeff Goldblum");
@@ -1886,7 +1886,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m83.Revenue = 677945399;
             m83.Runtime = 142;
             m83.Tagline = "The world will never be the same, once you've seen it through the eyes of Forrest Gump.";
-            m83.MPAARating = MPAARating.PG - 13;
+            m83.MPAARating = MPAARating.PG;
             m83.Actors.Add("Tom Hanks");
             m83.Actors.Add("Robin Wright");
             m83.Actors.Add("Gary Sinise");
@@ -2018,7 +2018,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m89.Revenue = 457696359;
             m89.Runtime = 110;
             m89.Tagline = "Expect the Impossible.";
-            m89.MPAARating = MPAARating.PG - 13;
+            m89.MPAARating = MPAARating.PG;
             m89.Actors.Add("Tom Cruise");
             m89.Actors.Add("Jon Voight");
             m89.Actors.Add("Emmanuelle Beart");
@@ -2041,7 +2041,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m90.Revenue = 816969268;
             m90.Runtime = 145;
             m90.Tagline = "Earth. Take a good look. It might be your last.";
-            m90.MPAARating = MPAARating.PG - 13;
+            m90.MPAARating = MPAARating.PG;
             m90.Actors.Add("Will Smith");
             m90.Actors.Add("Bill Pullman");
             m90.Actors.Add("Jeff Goldblum");
@@ -2064,7 +2064,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m91.Revenue = 67683989;
             m91.Runtime = 94;
             m91.Tagline = "If he were any cooler, he'd still be frozen, baby!";
-            m91.MPAARating = MPAARating.PG - 13;
+            m91.MPAARating = MPAARating.PG;
             m91.Actors.Add("Mike Myers");
             m91.Actors.Add("Elizabeth Hurley");
             m91.Actors.Add("Michael York");
@@ -2089,7 +2089,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m92.Revenue = 589390539;
             m92.Runtime = 98;
             m92.Tagline = "Protecting the Earth from the scum of the universe.";
-            m92.MPAARating = MPAARating.PG - 13;
+            m92.MPAARating = MPAARating.PG;
             m92.Actors.Add("Tommy Lee Jones");
             m92.Actors.Add("Will Smith");
             m92.Actors.Add("Linda Fiorentino");
@@ -2112,7 +2112,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m93.Revenue = 1845034188;
             m93.Runtime = 194;
             m93.Tagline = "Nothing on Earth could come between them.";
-            m93.MPAARating = MPAARating.PG - 13;
+            m93.MPAARating = MPAARating.PG;
             m93.Actors.Add("Kate Winslet");
             m93.Actors.Add("Leonardo DiCaprio");
             m93.Actors.Add("Frances Fisher");
@@ -2219,7 +2219,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m98.Revenue = 363889678;
             m98.Runtime = 124;
             m98.Tagline = "Can the most famous film star in the world fall for the man on the street?";
-            m98.MPAARating = MPAARating.PG - 13;
+            m98.MPAARating = MPAARating.PG;
             m98.Actors.Add("Julia Roberts");
             m98.Actors.Add("Hugh Grant");
             m98.Actors.Add("Gina McKee");
@@ -2288,7 +2288,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m101.Revenue = 237202299;
             m101.Runtime = 118;
             m101.Tagline = "Ice Cold, Hot Wired.";
-            m101.MPAARating = MPAARating.PG - 13;
+            m101.MPAARating = MPAARating.PG;
             m101.Actors.Add("Nicolas Cage");
             m101.Actors.Add("Angelina Jolie");
             m101.Actors.Add("Giovanni Ribisi");
@@ -2311,7 +2311,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m102.Revenue = 296339527;
             m102.Runtime = 104;
             m102.Tagline = "Evolution Begins";
-            m102.MPAARating = MPAARating.PG - 13;
+            m102.MPAARating = MPAARating.PG;
             m102.Actors.Add("Patrick Stewart");
             m102.Actors.Add("Hugh Jackman");
             m102.Actors.Add("Ian McKellen");
@@ -2334,7 +2334,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m103.Revenue = 212000000;
             m103.Runtime = 111;
             m103.Tagline = "Never Mess With An Agent In A Dress.";
-            m103.MPAARating = MPAARating.PG - 13;
+            m103.MPAARating = MPAARating.PG;
             m103.Actors.Add("Sandra Bullock");
             m103.Actors.Add("Benjamin Bratt");
             m103.Actors.Add("Michael Caine");
@@ -2376,7 +2376,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m105.Revenue = 141774679;
             m105.Runtime = 96;
             m105.Tagline = "Don't judge a book by its hair color!";
-            m105.MPAARating = MPAARating.PG - 13;
+            m105.MPAARating = MPAARating.PG;
             m105.Actors.Add("Reese Witherspoon");
             m105.Actors.Add("Luke Wilson");
             m105.Actors.Add("Selma Blair");
@@ -2443,7 +2443,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m108.Revenue = 450717150;
             m108.Runtime = 116;
             m108.Tagline = "Are you in or out?";
-            m108.MPAARating = MPAARating.PG - 13;
+            m108.MPAARating = MPAARating.PG;
             m108.Actors.Add("George Clooney");
             m108.Actors.Add("Brad Pitt");
             m108.Actors.Add("Matt Damon");
@@ -2552,7 +2552,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m113.Revenue = 129042871;
             m113.Runtime = 97;
             m113.Tagline = "Welcome to girl world.";
-            m113.MPAARating = MPAARating.PG - 13;
+            m113.MPAARating = MPAARating.PG;
             m113.Actors.Add("Lindsay Lohan");
             m113.Actors.Add("Rachel McAdams");
             m113.Actors.Add("Tim Meadows");
@@ -2575,7 +2575,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m114.Revenue = 789804554;
             m114.Runtime = 141;
             m114.Tagline = "Something wicked this way comes.";
-            m114.MPAARating = MPAARating.PG - 13;
+            m114.MPAARating = MPAARating.PG;
             m114.Actors.Add("Daniel Radcliffe");
             m114.Actors.Add("Rupert Grint");
             m114.Actors.Add("Emma Watson");
@@ -2598,7 +2598,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m115.Revenue = 895921036;
             m115.Runtime = 157;
             m115.Tagline = "Dark And Difficult Times Lie Ahead.";
-            m115.MPAARating = MPAARating.PG - 13;
+            m115.MPAARating = MPAARating.PG;
             m115.Actors.Add("Daniel Radcliffe");
             m115.Actors.Add("Rupert Grint");
             m115.Actors.Add("Emma Watson");
@@ -2694,7 +2694,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m119.Revenue = 709709780;
             m119.Runtime = 144;
             m119.Tagline = "Their war. Our world.";
-            m119.MPAARating = MPAARating.PG - 13;
+            m119.MPAARating = MPAARating.PG;
             m119.Actors.Add("Shia LaBeouf");
             m119.Actors.Add("Josh Duhamel");
             m119.Actors.Add("Megan Fox");
@@ -2719,7 +2719,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m120.Revenue = 938212738;
             m120.Runtime = 138;
             m120.Tagline = "Evil Must Be Confronted.";
-            m120.MPAARating = MPAARating.PG - 13;
+            m120.MPAARating = MPAARating.PG;
             m120.Actors.Add("Daniel Radcliffe");
             m120.Actors.Add("Rupert Grint");
             m120.Actors.Add("Emma Watson");
@@ -2744,7 +2744,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m121.Revenue = 1004558444;
             m121.Runtime = 152;
             m121.Tagline = "Why So Serious?";
-            m121.MPAARating = MPAARating.PG - 13;
+            m121.MPAARating = MPAARating.PG;
             m121.Actors.Add("Christian Bale");
             m121.Actors.Add("Heath Ledger");
             m121.Actors.Add("Aaron Eckhart");
@@ -2767,7 +2767,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m122.Revenue = 385680446;
             m122.Runtime = 127;
             m122.Tagline = "The future begins.";
-            m122.MPAARating = MPAARating.PG - 13;
+            m122.MPAARating = MPAARating.PG;
             m122.Actors.Add("Chris Pine");
             m122.Actors.Add("Zachary Quinto");
             m122.Actors.Add("Leonard Nimoy");
@@ -2865,7 +2865,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m126.Revenue = 2787965087;
             m126.Runtime = 162;
             m126.Tagline = "Enter the World of Pandora.";
-            m126.MPAARating = MPAARating.PG - 13;
+            m126.MPAARating = MPAARating.PG;
             m126.Actors.Add("Sam Worthington");
             m126.Actors.Add("Zoe Saldana");
             m126.Actors.Add("Sigourney Weaver");
@@ -2928,7 +2928,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m129.Revenue = 110206216;
             m129.Runtime = 133;
             m129.Tagline = "What are you really worth?";
-            m129.MPAARating = MPAARating.PG - 13;
+            m129.MPAARating = MPAARating.PG;
             m129.Actors.Add("Brad Pitt");
             m129.Actors.Add("Jonah Hill");
             m129.Actors.Add("Philip Seymour Hoffman");
@@ -2980,7 +2980,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m131.Revenue = 115350426;
             m131.Runtime = 112;
             m131.Tagline = "Get pitch slapped.";
-            m131.MPAARating = MPAARating.PG - 13;
+            m131.MPAARating = MPAARating.PG;
             m131.Actors.Add("Anna Kendrick");
             m131.Actors.Add("Skylar Astin");
             m131.Actors.Add("Brittany Snow");
@@ -3030,7 +3030,7 @@ namespace LonghornCinemaFinalProject.Migrations
             m133.Revenue = 773328629;
             m133.Runtime = 121;
             m133.Tagline = "All heroes start somewhere.";
-            m133.MPAARating = MPAARating.PG - 13;
+            m133.MPAARating = MPAARating.PG;
             m133.Actors.Add("Chris Pratt");
             m133.Actors.Add("Zoe Saldana");
             m133.Actors.Add("Dave Bautista");

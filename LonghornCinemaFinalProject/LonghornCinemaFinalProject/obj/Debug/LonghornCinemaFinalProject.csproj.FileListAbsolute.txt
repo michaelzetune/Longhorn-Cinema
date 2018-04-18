@@ -231,3 +231,4 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.Owin.Security.Cookies.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.Owin.Security.OAuth.xml
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Update1.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixMPAARating.resources
