@@ -11,7 +11,7 @@
     <p class="form-group">
         Search (don't touch yet!): @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
         <input type="submit" value="Search" class="btn btn-default" />
-        @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Detailed Search", "DetailedSearch", "Search",null, new { @class = "btn btn-default" })
         @Html.ActionLink("Show All", "Index", null, new { @class = "btn btn-default" })
     </p>
 }
@@ -36,7 +36,7 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             @Html.DisplayNameFor(model => model.RatingAverage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Runtime)
+            @Html.DisplayNameFor(model => model.Runtime) (minutes)
         </th>
         <th>
             Showtimes (add later...)
@@ -66,7 +66,7 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
                 @Html.DisplayFor(modelItem => item.Runtime)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.MovieID })
+                @Html.ActionLink("Showtimes", "Details", new { id = item.MovieID })
             </td>
         </tr>
     }

@@ -38,7 +38,7 @@ namespace LonghornCinemaFinalProject.Controllers
             return View();
         }
         
-        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Genre SearchGenre, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor)
+        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Genre SearchGenre, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, List<String> SearchActors)
         { // Update Actors and other fields to be multiselectable
             var query = from m in db.Movies
                         select m;
@@ -62,11 +62,17 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             // SearchYear for Movie year release
-            if (SearchYear != null)
+            if (SearchYear != null && SearchYear != "")
             {
-                DateTime YearInDateTime = DateTime.Parse(SearchYear);
-                
-                query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
+                try
+                {
+                    DateTime YearInDateTime = DateTime.Parse(SearchYear);
+                    query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
+                }
+                catch (Exception e)
+                { Console.WriteLine("Exception with SearchYear"); }
+
+
             }           
               
             //code for MPAA Rating selection
@@ -76,7 +82,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
           
             //code for customer rating text box
-            if (SearchStars != null)
+            if (SearchStars != null && SearchStars != "")
             {
                 Decimal decCustomerRating;
                 try
@@ -88,6 +94,8 @@ namespace LonghornCinemaFinalProject.Controllers
                     ViewBag.Message = SearchStars + " is not a valid number. Please try again";
 
                     ViewBag.AllGenres = GetAllGenres();
+                    ViewBag.AllMPAARatings = GetAllMPAARatings();
+                    ViewBag.AllActors = GetAllActors();
 
                     return View("DetailedSearch");
                 }
@@ -103,11 +111,14 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
             }
 
-            //SearchActors for Movie Actors
-            if (SearchActor != "")
-            {
-                query = query.Where(m => m.Actors.Contains(SearchActor));
-            }
+            // SearchActors for Movie Actors
+            if (SearchActors != null)
+                {
+                    foreach (String a in SearchActors) // TODO: change from AND to OR style search
+                    {
+                        query = query.Where(m => m.Actors.Contains(a));
+                    }
+                }
 
             List<Movie> MoviesToDisplay = query.ToList();
 
@@ -116,7 +127,7 @@ namespace LonghornCinemaFinalProject.Controllers
             ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
             ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
 
-            return View("Index", MoviesToDisplay);
+            return View("~/Views/Home/Index.cshtml", MoviesToDisplay);
         }
 
         public SelectList GetAllGenres()
