@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201804182152538_FixMPAARating.Designer.cs">
       <DependentUpon>201804182152538_FixMPAARating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804192219345_UpdateShowing.cs" />
+    <Compile Include="Migrations\201804192219345_UpdateShowing.Designer.cs">
+      <DependentUpon>201804192219345_UpdateShowing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -342,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804182152538_FixMPAARating.resx">
       <DependentUpon>201804182152538_FixMPAARating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804192219345_UpdateShowing.resx">
+      <DependentUpon>201804192219345_UpdateShowing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

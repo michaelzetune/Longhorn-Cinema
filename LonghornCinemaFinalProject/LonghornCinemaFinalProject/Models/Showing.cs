@@ -14,10 +14,15 @@ namespace LonghornCinemaFinalProject.Models
         // ShowingID
         public Int32 ShowingID { get; set; }
 
-        // Time
-        [Display(Name = "Registration Date")]
+        // Start Time
+        [Display(Name = "Start Time")]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
-        public DateTime ShowingTime { get; set; }
+        public DateTime StartTime { get; set; }
+
+        //end time get should be based on length of movie and need of time between movies
+        [Display(Name = "End Time")]
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        public DateTime EndTime { get; set; }
 
         // SpecialEvent
         public SpecialEvent SpecialEvent { get; set; }
