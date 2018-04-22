@@ -27,14 +27,14 @@ namespace LonghornCinemaFinalProject.Models
         public DateTime EndTime { get; set; }
 
         // SpecialEvent
-        public SpecialEvent SpecialEvent { get; set; }
+        public SpecialEvent SpecialEventStatus { get; set; }
 
         // ThetreNum (enum)
         public Theatre TheatreNum { get; set; }
 
         // SeatList
-        //not sure if this is correct -Ben
-        public List<int>[] SeatList { get; set; }
+        // Changed this to String list because seats are labeled "A1", "A2" etc, not by number
+        public List<String> SeatList { get; set; }
 
         // Navigation Properties
         // Movie
@@ -49,6 +49,10 @@ namespace LonghornCinemaFinalProject.Models
             if (Tickets == null)
             {
                 Tickets = new List<Ticket>();
+            }
+            if (SeatList == null)
+            {
+                SeatList = new List<String>();
             }
         }
     }
