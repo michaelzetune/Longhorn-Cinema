@@ -10,41 +10,42 @@ namespace LonghornCinemaFinalProject.Migrations
     {
         public void SeedMovies(AppDbContext db)
         {
-            Genre Musical = new Genre("Musical");
-            Genre Comedy = new Genre("Comedy");
-            Genre Romance = new Genre("Romance");
             Genre Action = new Genre("Action");
             Genre Adventure = new Genre("Adventure");
             Genre Animation = new Genre("Animation");
+            Genre Comedy = new Genre("Comedy");
             Genre Crime = new Genre("Crime");
             Genre Drama = new Genre("Drama");
-            Genre Family = new Genre("Comedy");
+            Genre Family = new Genre("Family");
             Genre Fantasy = new Genre("Fantasy");
             Genre History = new Genre("History");
             Genre Horror = new Genre("Horror");
+            Genre Musical = new Genre("Musical");
+            Genre Mystery = new Genre("Mystery");
+            Genre Romance = new Genre("Romance");
             Genre ScienceFiction = new Genre("Science Fiction");
             Genre Thriller = new Genre("Thriller");
             Genre War = new Genre("War");
             Genre Western = new Genre("Western");
-            Genre Mystery = new Genre("Mystery");
 
-            db.Genres.AddOrUpdate(g => g.Name, Musical);
-            db.Genres.AddOrUpdate(g => g.Name, Comedy);
-            db.Genres.AddOrUpdate(g => g.Name, Romance);
+
             db.Genres.AddOrUpdate(g => g.Name, Action);
             db.Genres.AddOrUpdate(g => g.Name, Adventure);
             db.Genres.AddOrUpdate(g => g.Name, Animation);
+            db.Genres.AddOrUpdate(g => g.Name, Comedy);
             db.Genres.AddOrUpdate(g => g.Name, Crime);
-            db.Genres.AddOrUpdate(g => g.Name, Drama);
             db.Genres.AddOrUpdate(g => g.Name, Family);
             db.Genres.AddOrUpdate(g => g.Name, Fantasy);
             db.Genres.AddOrUpdate(g => g.Name, History);
             db.Genres.AddOrUpdate(g => g.Name, Horror);
+            db.Genres.AddOrUpdate(g => g.Name, Musical);
+            db.Genres.AddOrUpdate(g => g.Name, Mystery);
+            db.Genres.AddOrUpdate(g => g.Name, Romance);
             db.Genres.AddOrUpdate(g => g.Name, ScienceFiction);
             db.Genres.AddOrUpdate(g => g.Name, Thriller);
+            db.Genres.AddOrUpdate(g => g.Name, Thriller);
             db.Genres.AddOrUpdate(g => g.Name, War);
-            db.Genres.AddOrUpdate(g => g.Name, Western);
-            db.Genres.AddOrUpdate(g => g.Name, Mystery);
+            db.Genres.AddOrUpdate(g => g.Name, Western); 
             db.SaveChanges();
 
 

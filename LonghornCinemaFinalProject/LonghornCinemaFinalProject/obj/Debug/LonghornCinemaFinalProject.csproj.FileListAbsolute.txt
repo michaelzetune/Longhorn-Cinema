@@ -235,3 +235,5 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Update1.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixMPAARating.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing2.resources

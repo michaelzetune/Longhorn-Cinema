@@ -22,6 +22,9 @@ namespace LonghornCinemaFinalProject.Migrations
             MovieData AddMovies = new MovieData();
             AddMovies.SeedMovies(context);
 
+            ShowingData AddShowings = new ShowingData();
+            AddShowings.SeedShowings(context);
+
         }
     }
 }
