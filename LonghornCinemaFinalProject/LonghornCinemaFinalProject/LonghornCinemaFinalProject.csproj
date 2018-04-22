@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201804222131486_UpdateShowing2.Designer.cs">
       <DependentUpon>201804222131486_UpdateShowing2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804222203106_UpdateSomething.cs" />
+    <Compile Include="Migrations\201804222203106_UpdateSomething.Designer.cs">
+      <DependentUpon>201804222203106_UpdateSomething.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804222131486_UpdateShowing2.resx">
       <DependentUpon>201804222131486_UpdateShowing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804222203106_UpdateSomething.resx">
+      <DependentUpon>201804222203106_UpdateSomething.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

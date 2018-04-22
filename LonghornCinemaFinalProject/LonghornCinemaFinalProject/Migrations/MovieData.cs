@@ -34,6 +34,7 @@ namespace LonghornCinemaFinalProject.Migrations
             db.Genres.AddOrUpdate(g => g.Name, Animation);
             db.Genres.AddOrUpdate(g => g.Name, Comedy);
             db.Genres.AddOrUpdate(g => g.Name, Crime);
+            db.Genres.AddOrUpdate(g => g.Name, Drama);
             db.Genres.AddOrUpdate(g => g.Name, Family);
             db.Genres.AddOrUpdate(g => g.Name, Fantasy);
             db.Genres.AddOrUpdate(g => g.Name, History);
