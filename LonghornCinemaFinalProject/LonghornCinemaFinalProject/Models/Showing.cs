@@ -16,12 +16,14 @@ namespace LonghornCinemaFinalProject.Models
 
         // Start Time
         [Display(Name = "Start Time")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         public DateTime StartTime { get; set; }
 
         //end time get should be based on length of movie and need of time between movies
         [Display(Name = "End Time")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         public DateTime EndTime { get; set; }
 
         // SpecialEvent
@@ -32,7 +34,7 @@ namespace LonghornCinemaFinalProject.Models
 
         // SeatList
         //not sure if this is correct -Ben
-        public String SeatList { get; set; }
+        public List<int>[] SeatList { get; set; }
 
         // Navigation Properties
         // Movie
