@@ -18,6 +18,8 @@ namespace LonghornCinemaFinalProject.Migrations
             s1.SpecialEvent = NotSpecial;
             s1.TheatreNum = 1;
             s1.SeatList = new List<int>[] { 1, 2, 3, 4 };
+            db.Showings.AddOrUpdate(s => s.StartTime, s1);
+            db.SaveChanges();
 
 
         }
