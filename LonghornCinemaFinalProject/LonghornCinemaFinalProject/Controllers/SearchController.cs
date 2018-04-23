@@ -167,20 +167,20 @@ namespace LonghornCinemaFinalProject.Controllers
 
         public SelectList GetAllActors()
         {
-            List<String> Actors = new List<String>();
+            List<String> ActorsList = new List<String>();
 
             foreach (Movie m in db.Movies.ToList())
             {
                 foreach (String a in m.Actors)
                 {
-                    if (!Actors.Contains(a))
+                    if (!ActorsList.Contains(a))
                     {
-                        Actors.Add(a);
+                        ActorsList.Add(a);
                     }
                 }
             }
 
-            SelectList AllActors = new SelectList(Actors);
+            SelectList AllActors = new SelectList(ActorsList);
             return AllActors;
         }
     }
