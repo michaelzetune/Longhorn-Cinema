@@ -145,14 +145,14 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             List<MPAARating> MPAARatings = new List<MPAARating>();
 
+            MPAARating SelectNone = MPAARating.None; // TODO: need to check that this is a valid way to make selectnone
+            MPAARatings.Add(SelectNone);
+
             foreach (Movie m in db.Movies.ToList())
             {
                 if (!MPAARatings.Contains(m.MPAARating))
                     MPAARatings.Add(m.MPAARating);
             }
-
-            MPAARating SelectNone = MPAARating.None; // TODO: need to check that this is a valid way to make selectnone
-            MPAARatings.Add(SelectNone);
 
             SelectList AllRatings = new SelectList(MPAARatings);
             return AllRatings;

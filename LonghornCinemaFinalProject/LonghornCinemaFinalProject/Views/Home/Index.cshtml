@@ -9,9 +9,9 @@
 @using (Html.BeginForm())
 {
     <p class="form-group">
-        Search (don't touch yet!): @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+        Basic Search: @Html.TextBox("BasicSearchString", null, new { @class = "form-control" }) <br />
         <input type="submit" value="Search" class="btn btn-default" />
-        @Html.ActionLink("Detailed Search", "DetailedSearch", "Search",null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Detailed Search", "DetailedSearch", "Search", null, new { @class = "btn btn-default" })
         @Html.ActionLink("Show All", "Index", null, new { @class = "btn btn-default" })
     </p>
 }
