@@ -59,21 +59,19 @@ namespace LonghornCinemaFinalProject.Controllers
             if (SearchGenre != null)
             {
                 query = query.Where(m => m.Genres.Contains(SearchGenre));
-            }
+            } // TODO: fix not being able to filter by Genre
 
             // SearchYear for Movie year release
             if (SearchYear != null && SearchYear != "")
             {
                 try
                 {
-                    DateTime YearInDateTime = DateTime.Parse(SearchYear);
+                    DateTime YearInDateTime = DateTime.Parse("Jan 1, " + SearchYear);
                     query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
                 }
                 catch (Exception e)
                 { Console.WriteLine("Exception with SearchYear"); }
-
-
-            }           
+            }  
               
             //code for MPAA Rating selection
             if (SearchMPAARating != MPAARating.None)
@@ -103,13 +101,22 @@ namespace LonghornCinemaFinalProject.Controllers
                 //code for radio buttons
                 if (SearchStarFilter == StarFilter.Greater)
                 {
-                    query = query.Where(m => m.RatingAverage >= decCustomerRating);
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.RatingAverage < decCustomerRating)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
                 }
-                else if(SearchStarFilter == StarFilter.Less)
+                else if (SearchStarFilter == StarFilter.Less)
                 {
-                    query = query.Where(m => m.RatingAverage <= decCustomerRating);
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.RatingAverage > decCustomerRating)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
                 }
             }
+
 
             // SearchActors for Movie Actors
             if (SearchActors != null)
