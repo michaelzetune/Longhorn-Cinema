@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LonghornCinemaFinalProject.DAL;
+using LonghornCinemaFinalProject.Models;
 using System.Text;
 using System.Data.Objects;
 using System.Globalization;
@@ -17,7 +18,6 @@ namespace LonghornCinemaFinalProject.Utilities
         public static Decimal GetTicketPrice(DateTime ShowDate)
 
         {
-
             //we need a db context to connect to the database
 
             AppDbContext db = new AppDbContext();
@@ -65,10 +65,6 @@ namespace LonghornCinemaFinalProject.Utilities
             {
                 decTicketPrice == decMoviePriceWeek;
             }
-
-           
-
-
             //add one to the current max to find the next one
 
             intNextOrderNumber = intMaxOrderNumber + 1;
