@@ -5,11 +5,8 @@ using System.Web;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
 using System.Text;
-//using System.Data.Objects;
-using System.Globalization;
-//using System.Data.EntityClient;
 using System.Data.SqlClient;
-//using System.Data.Commo;
+
 
 namespace LonghornCinemaFinalProject.Utilities
 {
@@ -19,87 +16,79 @@ namespace LonghornCinemaFinalProject.Utilities
 
         {
             //we need a db context to connect to the database
-
             AppDbContext db = new AppDbContext();
 
             //Create return value 
-            //decimal decTicketPrice;
-            ////Create Max MoviePriceID to be able and filter the most recent update to movie price
-            //Int32 intMaxMoviePriceID;
-
+            decimal decTicketPrice;
+            
             ////Initiate bol values to figure out what day/time it is
-            //Boolean bolWeekday = false; //Variable to check whether the current day is a Weekday(M-F)
-            //Boolean bolMatinee = false; //Variable to check whether current time < 12:00pm
-            //Boolean bolFriday = false; //Variable to check whether current day is Friday, because half of friday is the weekend
-            //Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
-            //Boolean bolBefore5 = false; //Variable to check whether it is = or < 5pm
+            Boolean bolWeekend = false; //Variable to check whether the current day is a Weekday(M-F)
+            Boolean bolMatinee = false; //Variable to check whether current time < 12:00pm
+            Boolean bolFriday = false; //Variable to check whether current day is Friday, because half of friday is the weekend
+            Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
+            Boolean bolBefore5 = false; //Variable to check whether it is = or < 5pm
 
-            ////Convert date of showing to be able to compare and populate booleans
-            //intMaxMoviePriceID = from c in db.MoviePrice select c.MoviePriceID.max();
-            //var query = where(x => x.MoviePriceID == intMaxMoviePriceID);
+            //Create movieprice object that references the most recent record of the MoviePriceID
+            MoviePrice movieprice = db.MoviePrices.FirstOrDefault(x => x.MoviePriceID == 1);
 
-            ////Get values from the most recent record of the MoviePriceID
-            //Decimal decMoviePriceMat = query.decMatineePrice;
-            //Decimal decMoviePriceWeek = query.decWeekPrice;
-            //Decimal decMoviePriceWeeknd = query.decWeekendPrice;
-            //Decimal decMoviePriceTues = query.decTuesdayPrice;
+            ////Get prices of different showings to be able to compare and populate booleans
+            Decimal decMoviePriceMat = movieprice.decMatineePrice;
+            Decimal decMoviePriceWeek = movieprice.decWeekPrice;
+            Decimal decMoviePriceWeeknd = movieprice.decWeekendPrice;
+            Decimal decMoviePriceTues = movieprice.decTuesdayPrice;
 
             //Convert showtime date into a comparable type 
-            DateTime dttestdate = new DateTime(2018, 5, 4, 12, 0, 0);
-            String strday = dttestdate.DayOfWeek.ToString();
-            Int32 inthour = dttestdate.Hour.ToInt();
+            
+            String strday = ShowDate.DayOfWeek.ToString();
+            Int32 inthour = ShowDate.Hour;
 
             //Use Decisions statements to accurately populate booleans
             if (strday == "Friday")
             {
-                bolFriday == true;
+                bolFriday = true;
             }
 
             if ((strday == "Saturday") || (strday == "Sunday"))
             {
-                bolWeekend == true;
+                bolWeekend = true;
             }
 
             if (strday == "Tuesday")
             {
-                bolTuesday == true;
+                bolTuesday = true;
             }
 
             if (inthour < 12)
             {
-                bolMatinee == true;
+                bolMatinee = true;
             }
             else if (inthour < 17)
             {
-                bolBefore5 == true;
+                bolBefore5 = true;
             }
 
             ////Filter and process through booleans, Call data from Ticket Price, and assign appropriate values to decTicketPrice
-            //if ((bolTuesday) && (bolBefor5))  // Check if discount rate applies (Tuesday and before 5pm)
-            //{
-            //    decTicketPrice == decMoviePriceTues;
-            //}
-            //else if (!(bolWeekday) || (bolFriday && !(bolMatinee)))  //Check if it is a weekend (friday > 12pm through Sunday evening)
-            //{
-            //    decTicketPrice == decMoviePriceWeeknd;
-            //}
-            //else if (bolMatinee) //Checks if time is before 12pm and through process of elimination falls on a weekday
-            //{
-            //    decTicketPrice == decMoviePriceMat;
-            //}
-            //else //Handles all weekdays after 12pm
-            //{
-            //    decTicketPrice == decMoviePriceWeek;
-            //}
-            ////add one to the current max to find the next one
-
-            //intNextOrderNumber = intMaxOrderNumber + 1;
-
-
+            if ((bolTuesday) && (bolBefore5))  // Check if discount rate applies (Tuesday and before 5pm)
+            {
+                decTicketPrice = decMoviePriceTues;
+            }
+            else if ((bolWeekend) || (bolFriday && !(bolMatinee)))  //Check if it is a weekend (friday > 12pm through Sunday evening)
+            {
+                decTicketPrice = decMoviePriceWeeknd;
+            }
+            else if (bolMatinee) //Checks if time is before 12pm and through process of elimination falls on a weekday
+            {
+                decTicketPrice = decMoviePriceMat;
+            }
+            else //Handles all weekdays after 12pm
+            {
+                decTicketPrice = decMoviePriceWeek;
+            }
+            
 
             //return the value
 
-            return 1; // placeholder so the file will compile - Michael
+            return decTicketPrice; // placeholder so the file will compile - Michael
 
         }
     }
