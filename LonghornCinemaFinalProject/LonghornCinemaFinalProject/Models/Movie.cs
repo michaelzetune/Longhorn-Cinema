@@ -36,7 +36,7 @@ namespace LonghornCinemaFinalProject.Models
         public String Tagline { get; set; }
 
         // Actors
-        public List<String> Actors { get; set; }
+        public String Actors { get; set; }
 
         // MPAA rating
         public MPAARating MPAARating { get; set; }
@@ -82,11 +82,6 @@ namespace LonghornCinemaFinalProject.Models
             if (Genres == null)
             {
                 Genres = new List<Genre>();
-            }
-
-            if (Actors == null)
-            {
-                Actors = new List<String>();
             }
 
             if (MovieReviews == null)

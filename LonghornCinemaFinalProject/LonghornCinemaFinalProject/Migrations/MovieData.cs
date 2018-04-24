@@ -65,12 +65,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m1.Runtime = 89;
             m1.Tagline = "OK. Say, Jones and Barry are doin' a show! - That's great. Jones and Barry are doin' a show.";
             m1.MPAARating = MPAARating.Unrated;
-            m1.Actors.Add("Warner Baxter");
-            m1.Actors.Add("Bebe Daniels");
-            m1.Actors.Add("George Brent");
-            m1.Actors.Add("Ruby Keeler");
-            m1.Actors.Add("Guy Kibbee");
-            m1.Actors.Add("Una Merkel");
+            m1.Actors += ("Warner Baxter");
+            m1.Actors += ("Bebe Daniels");
+            m1.Actors += ("George Brent");
+            m1.Actors += ("Ruby Keeler");
+            m1.Actors += ("Guy Kibbee");
+            m1.Actors += ("Una Merkel");
             db.Movies.AddOrUpdate(m => m.Title, m1);
             db.SaveChanges();
 
@@ -86,12 +86,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m2.Runtime = 105;
             m2.Tagline = "TOGETHER... for the first time";
             m2.MPAARating = MPAARating.Unrated;
-            m2.Actors.Add("Clark Gable");
-            m2.Actors.Add("Claudette Colbert");
-            m2.Actors.Add("Walter Connolly");
-            m2.Actors.Add("Roscoe Karns");
-            m2.Actors.Add("Jameson Thomas");
-            m2.Actors.Add("Alan Hale");
+            m2.Actors += ("Clark Gable");
+            m2.Actors += ("Claudette Colbert");
+            m2.Actors += ("Walter Connolly");
+            m2.Actors += ("Roscoe Karns");
+            m2.Actors += ("Jameson Thomas");
+            m2.Actors += ("Alan Hale");
             db.Movies.AddOrUpdate(m => m.Title, m2);
             db.SaveChanges();
 
@@ -109,12 +109,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m3.Runtime = 83;
             m3.Tagline = "The Happiest, Dopiest, Grumpiest, Sneeziest movie of the year.";
             m3.MPAARating = MPAARating.G;
-            m3.Actors.Add("Adriana Caselotti");
-            m3.Actors.Add("Lucille La Verne");
-            m3.Actors.Add("Harry Stockwell");
-            m3.Actors.Add("Roy Atwell");
-            m3.Actors.Add("Pinto Colvig");
-            m3.Actors.Add("Otis Harlan");
+            m3.Actors += ("Adriana Caselotti");
+            m3.Actors += ("Lucille La Verne");
+            m3.Actors += ("Harry Stockwell");
+            m3.Actors += ("Roy Atwell");
+            m3.Actors += ("Pinto Colvig");
+            m3.Actors += ("Otis Harlan");
             db.Movies.AddOrUpdate(m => m.Title, m3);
             db.SaveChanges();
 
@@ -132,12 +132,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m4.Runtime = 102;
             m4.Tagline = "We're off to see the Wizard, the wonderful Wizard of Oz!";
             m4.MPAARating = MPAARating.PG;
-            m4.Actors.Add("Judy Garland");
-            m4.Actors.Add("Frank Morgan");
-            m4.Actors.Add("Ray Bolger");
-            m4.Actors.Add("Bert Lahr");
-            m4.Actors.Add("Jack Haley");
-            m4.Actors.Add("Billie Burke");
+            m4.Actors += ("Judy Garland");
+            m4.Actors += ("Frank Morgan");
+            m4.Actors += ("Ray Bolger");
+            m4.Actors += ("Bert Lahr");
+            m4.Actors += ("Jack Haley");
+            m4.Actors += ("Billie Burke");
             db.Movies.AddOrUpdate(m => m.Title, m4);
             db.SaveChanges();
 
@@ -155,12 +155,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m5.Runtime = 129;
             m5.Tagline = "Romance, drama, laughter and heartbreak... created out of the very heart and soil of America!";
             m5.MPAARating = MPAARating.Unrated;
-            m5.Actors.Add("James Stewart");
-            m5.Actors.Add("Jean Arthur");
-            m5.Actors.Add("Claude Rains");
-            m5.Actors.Add("Edward Arnold");
-            m5.Actors.Add("Guy Kibbee");
-            m5.Actors.Add("Thomas Mitchell");
+            m5.Actors += ("James Stewart");
+            m5.Actors += ("Jean Arthur");
+            m5.Actors += ("Claude Rains");
+            m5.Actors += ("Edward Arnold");
+            m5.Actors += ("Guy Kibbee");
+            m5.Actors += ("Thomas Mitchell");
             db.Movies.AddOrUpdate(m => m.Title, m5);
             db.SaveChanges();
 
@@ -176,12 +176,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m6.Runtime = 238;
             m6.Tagline = "The greatest romance of all time!";
             m6.MPAARating = MPAARating.G;
-            m6.Actors.Add("Vivien Leigh");
-            m6.Actors.Add("Clark Gable");
-            m6.Actors.Add("Olivia de Havilland");
-            m6.Actors.Add("Thomas Mitchell");
-            m6.Actors.Add("Leslie Howard");
-            m6.Actors.Add("Barbara O'Neil");
+            m6.Actors += ("Vivien Leigh");
+            m6.Actors += ("Clark Gable");
+            m6.Actors += ("Olivia de Havilland");
+            m6.Actors += ("Thomas Mitchell");
+            m6.Actors += ("Leslie Howard");
+            m6.Actors += ("Barbara O'Neil");
             db.Movies.AddOrUpdate(m => m.Title, m6);
             db.SaveChanges();
 
@@ -197,12 +197,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m7.Runtime = 102;
             m7.Tagline = "They had a date with fate in Casablanca!";
             m7.MPAARating = MPAARating.PG;
-            m7.Actors.Add("Humphrey Bogart");
-            m7.Actors.Add("Ingrid Bergman");
-            m7.Actors.Add("Paul Henreid");
-            m7.Actors.Add("Claude Rains");
-            m7.Actors.Add("Conrad Veidt");
-            m7.Actors.Add("Sydney Greenstreet");
+            m7.Actors += ("Humphrey Bogart");
+            m7.Actors += ("Ingrid Bergman");
+            m7.Actors += ("Paul Henreid");
+            m7.Actors += ("Claude Rains");
+            m7.Actors += ("Conrad Veidt");
+            m7.Actors += ("Sydney Greenstreet");
             db.Movies.AddOrUpdate(m => m.Title, m7);
             db.SaveChanges();
 
@@ -220,12 +220,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m8.Runtime = 130;
             m8.Tagline = "It's a wonderful laugh! It's a wonderful love!";
             m8.MPAARating = MPAARating.PG;
-            m8.Actors.Add("James Stewart");
-            m8.Actors.Add("Donna Reed");
-            m8.Actors.Add("Lionel Barrymore");
-            m8.Actors.Add("Thomas Mitchell");
-            m8.Actors.Add("Henry Travers");
-            m8.Actors.Add("Beulah Bondi");
+            m8.Actors += ("James Stewart");
+            m8.Actors += ("Donna Reed");
+            m8.Actors += ("Lionel Barrymore");
+            m8.Actors += ("Thomas Mitchell");
+            m8.Actors += ("Henry Travers");
+            m8.Actors += ("Beulah Bondi");
             db.Movies.AddOrUpdate(m => m.Title, m8);
             db.SaveChanges();
 
@@ -245,12 +245,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m9.Runtime = 107;
             m9.Tagline = "Biggest musical under the sun!";
             m9.MPAARating = MPAARating.Unrated;
-            m9.Actors.Add("Betty Hutton");
-            m9.Actors.Add("Howard Keel");
-            m9.Actors.Add("Louis Calhern");
-            m9.Actors.Add("J. Carrol Naish");
-            m9.Actors.Add("Edward Arnold");
-            m9.Actors.Add("Keenan Wynn");
+            m9.Actors += ("Betty Hutton");
+            m9.Actors += ("Howard Keel");
+            m9.Actors += ("Louis Calhern");
+            m9.Actors += ("J. Carrol Naish");
+            m9.Actors += ("Edward Arnold");
+            m9.Actors += ("Keenan Wynn");
             db.Movies.AddOrUpdate(m => m.Title, m9);
             db.SaveChanges();
 
@@ -264,12 +264,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m10.Runtime = 125;
             m10.Tagline = "...Blanche, who wanted so much to stay a lady...";
             m10.MPAARating = MPAARating.PG;
-            m10.Actors.Add("Vivien Leigh");
-            m10.Actors.Add("Marlon Brando");
-            m10.Actors.Add("Kim Hunter");
-            m10.Actors.Add("Karl Malden");
-            m10.Actors.Add("Rudy Bond");
-            m10.Actors.Add("Nick Dennis");
+            m10.Actors += ("Vivien Leigh");
+            m10.Actors += ("Marlon Brando");
+            m10.Actors += ("Kim Hunter");
+            m10.Actors += ("Karl Malden");
+            m10.Actors += ("Rudy Bond");
+            m10.Actors += ("Nick Dennis");
             db.Movies.AddOrUpdate(m => m.Title, m10);
             db.SaveChanges();
 
@@ -287,12 +287,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m11.Runtime = 103;
             m11.Tagline = "What a Glorious Feeling!";
             m11.MPAARating = MPAARating.G;
-            m11.Actors.Add("Gene Kelly");
-            m11.Actors.Add("Donald O'Connor");
-            m11.Actors.Add("Debbie Reynolds");
-            m11.Actors.Add("Jean Hagen");
-            m11.Actors.Add("Millard Mitchell");
-            m11.Actors.Add("Cyd Charisse");
+            m11.Actors += ("Gene Kelly");
+            m11.Actors += ("Donald O'Connor");
+            m11.Actors += ("Debbie Reynolds");
+            m11.Actors += ("Jean Hagen");
+            m11.Actors += ("Millard Mitchell");
+            m11.Actors += ("Cyd Charisse");
             db.Movies.AddOrUpdate(m => m.Title, m11);
             db.SaveChanges();
 
@@ -308,12 +308,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m12.Runtime = 108;
             m12.Tagline = "Just one pillow on her bed ... and just one desire in her heart!";
             m12.MPAARating = MPAARating.Unrated;
-            m12.Actors.Add("Elizabeth Taylor");
-            m12.Actors.Add("Paul Newman");
-            m12.Actors.Add("Burl Ives");
-            m12.Actors.Add("Judith Anderson");
-            m12.Actors.Add("Jack Carson");
-            m12.Actors.Add("Madeleine Sherwood");
+            m12.Actors += ("Elizabeth Taylor");
+            m12.Actors += ("Paul Newman");
+            m12.Actors += ("Burl Ives");
+            m12.Actors += ("Judith Anderson");
+            m12.Actors += ("Jack Carson");
+            m12.Actors += ("Madeleine Sherwood");
             db.Movies.AddOrUpdate(m => m.Title, m12);
             db.SaveChanges();
 
@@ -329,12 +329,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m13.Runtime = 122;
             m13.Tagline = "The movie too HOT for words!";
             m13.MPAARating = MPAARating.Unrated;
-            m13.Actors.Add("Marilyn Monroe");
-            m13.Actors.Add("Tony Curtis");
-            m13.Actors.Add("Jack Lemmon");
-            m13.Actors.Add("George Raft");
-            m13.Actors.Add("Pat O\u2019Brien");
-            m13.Actors.Add("Joe E. Brown");
+            m13.Actors += ("Marilyn Monroe");
+            m13.Actors += ("Tony Curtis");
+            m13.Actors += ("Jack Lemmon");
+            m13.Actors += ("George Raft");
+            m13.Actors += ("Pat O\u2019Brien");
+            m13.Actors += ("Joe E. Brown");
             db.Movies.AddOrUpdate(m => m.Title, m13);
             db.SaveChanges();
 
@@ -352,12 +352,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m14.Runtime = 109;
             m14.Tagline = "The master of suspense moves his cameras into the icy blackness of the unexplored!";
             m14.MPAARating = MPAARating.R;
-            m14.Actors.Add("Anthony Perkins");
-            m14.Actors.Add("Vera Miles");
-            m14.Actors.Add("John Gavin");
-            m14.Actors.Add("Janet Leigh");
-            m14.Actors.Add("Martin Balsam");
-            m14.Actors.Add("John McIntire");
+            m14.Actors += ("Anthony Perkins");
+            m14.Actors += ("Vera Miles");
+            m14.Actors += ("John Gavin");
+            m14.Actors += ("Janet Leigh");
+            m14.Actors += ("Martin Balsam");
+            m14.Actors += ("John McIntire");
             db.Movies.AddOrUpdate(m => m.Title, m14);
             db.SaveChanges();
 
@@ -375,12 +375,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m15.Runtime = 152;
             m15.Tagline = "The screen achieves one of the great entertainments in the history of motion pictures";
             m15.MPAARating = MPAARating.Unrated;
-            m15.Actors.Add("Natalie Wood");
-            m15.Actors.Add("Richard Beymer");
-            m15.Actors.Add("Russ Tamblyn");
-            m15.Actors.Add("Rita Moreno");
-            m15.Actors.Add("George Chakiris");
-            m15.Actors.Add("Simon Oakland");
+            m15.Actors += ("Natalie Wood");
+            m15.Actors += ("Richard Beymer");
+            m15.Actors += ("Russ Tamblyn");
+            m15.Actors += ("Rita Moreno");
+            m15.Actors += ("George Chakiris");
+            m15.Actors += ("Simon Oakland");
             db.Movies.AddOrUpdate(m => m.Title, m15);
             db.SaveChanges();
 
@@ -394,12 +394,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m16.Runtime = 123;
             m16.Tagline = "Together For The First Time - James Stewart - John Wayne - in the masterpiece of four-time Academy Award winner John Ford";
             m16.MPAARating = MPAARating.Unrated;
-            m16.Actors.Add("John Wayne");
-            m16.Actors.Add("James Stewart");
-            m16.Actors.Add("Vera Miles");
-            m16.Actors.Add("Lee Marvin");
-            m16.Actors.Add("Edmond O'Brien");
-            m16.Actors.Add("Ken Murray");
+            m16.Actors += ("John Wayne");
+            m16.Actors += ("James Stewart");
+            m16.Actors += ("Vera Miles");
+            m16.Actors += ("Lee Marvin");
+            m16.Actors += ("Edmond O'Brien");
+            m16.Actors += ("Ken Murray");
             db.Movies.AddOrUpdate(m => m.Title, m16);
             db.SaveChanges();
 
@@ -417,12 +417,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m17.Runtime = 110;
             m17.Tagline = "NOW meet the most extraordinary gentleman spy in all fiction!";
             m17.MPAARating = MPAARating.PG;
-            m17.Actors.Add("Sean Connery");
-            m17.Actors.Add("Ursula Andress");
-            m17.Actors.Add("Joseph Wiseman");
-            m17.Actors.Add("Jack Lord");
-            m17.Actors.Add("Bernard Lee");
-            m17.Actors.Add("Anthony Dawson");
+            m17.Actors += ("Sean Connery");
+            m17.Actors += ("Ursula Andress");
+            m17.Actors += ("Joseph Wiseman");
+            m17.Actors += ("Jack Lord");
+            m17.Actors += ("Bernard Lee");
+            m17.Actors += ("Anthony Dawson");
             db.Movies.AddOrUpdate(m => m.Title, m17);
             db.SaveChanges();
 
@@ -442,12 +442,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m18.Runtime = 216;
             m18.Tagline = "A Mighty Motion Picture Of Action And Adventure!";
             m18.MPAARating = MPAARating.PG;
-            m18.Actors.Add("Peter O'Toole");
-            m18.Actors.Add("Alec Guinness");
-            m18.Actors.Add("Anthony Quinn");
-            m18.Actors.Add("Jack Hawkins");
-            m18.Actors.Add("Omar Sharif");
-            m18.Actors.Add("Claude Rains");
+            m18.Actors += ("Peter O'Toole");
+            m18.Actors += ("Alec Guinness");
+            m18.Actors += ("Anthony Quinn");
+            m18.Actors += ("Jack Hawkins");
+            m18.Actors += ("Omar Sharif");
+            m18.Actors += ("Claude Rains");
             db.Movies.AddOrUpdate(m => m.Title, m18);
             db.SaveChanges();
 
@@ -463,12 +463,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m19.Runtime = 129;
             m19.Tagline = "The most beloved Pulitzer Prize book now comes vividly alive on the screen! ";
             m19.MPAARating = MPAARating.Unrated;
-            m19.Actors.Add("Gregory Peck");
-            m19.Actors.Add("Brock Peters");
-            m19.Actors.Add("James Anderson");
-            m19.Actors.Add("Mary Badham");
-            m19.Actors.Add("Phillip Alford");
-            m19.Actors.Add("John Megna");
+            m19.Actors += ("Gregory Peck");
+            m19.Actors += ("Brock Peters");
+            m19.Actors += ("James Anderson");
+            m19.Actors += ("Mary Badham");
+            m19.Actors += ("Phillip Alford");
+            m19.Actors += ("John Megna");
             db.Movies.AddOrUpdate(m => m.Title, m19);
             db.SaveChanges();
 
@@ -484,12 +484,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m20.Runtime = 88;
             m20.Tagline = "The Beatles, starring in their first full-length, hilarious, action-packed film!";
             m20.MPAARating = MPAARating.G;
-            m20.Actors.Add("John Lennon");
-            m20.Actors.Add("Paul McCartney");
-            m20.Actors.Add("George Harrison");
-            m20.Actors.Add("Ringo Starr");
-            m20.Actors.Add("Wilfrid Brambell");
-            m20.Actors.Add("Norman Rossington");
+            m20.Actors += ("John Lennon");
+            m20.Actors += ("Paul McCartney");
+            m20.Actors += ("George Harrison");
+            m20.Actors += ("Ringo Starr");
+            m20.Actors += ("Wilfrid Brambell");
+            m20.Actors += ("Norman Rossington");
             db.Movies.AddOrUpdate(m => m.Title, m20);
             db.SaveChanges();
 
@@ -507,12 +507,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m21.Runtime = 139;
             m21.Tagline = "It's supercalifragilisticexpialidocious!";
             m21.MPAARating = MPAARating.G;
-            m21.Actors.Add("Julie Andrews");
-            m21.Actors.Add("Dick Van Dyke");
-            m21.Actors.Add("David Tomlinson");
-            m21.Actors.Add("Glynis Johns");
-            m21.Actors.Add("Hermione Baddeley");
-            m21.Actors.Add("Reta Shaw");
+            m21.Actors += ("Julie Andrews");
+            m21.Actors += ("Dick Van Dyke");
+            m21.Actors += ("David Tomlinson");
+            m21.Actors += ("Glynis Johns");
+            m21.Actors += ("Hermione Baddeley");
+            m21.Actors += ("Reta Shaw");
             db.Movies.AddOrUpdate(m => m.Title, m21);
             db.SaveChanges();
 
@@ -532,12 +532,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m22.Runtime = 170;
             m22.Tagline = "The loverliest motion picture of them all!";
             m22.MPAARating = MPAARating.G;
-            m22.Actors.Add("Audrey Hepburn");
-            m22.Actors.Add("Rex Harrison");
-            m22.Actors.Add("Stanley Holloway");
-            m22.Actors.Add("Wilfrid Hyde-White");
-            m22.Actors.Add("Gladys Cooper");
-            m22.Actors.Add("Jeremy Brett");
+            m22.Actors += ("Audrey Hepburn");
+            m22.Actors += ("Rex Harrison");
+            m22.Actors += ("Stanley Holloway");
+            m22.Actors += ("Wilfrid Hyde-White");
+            m22.Actors += ("Gladys Cooper");
+            m22.Actors += ("Jeremy Brett");
             db.Movies.AddOrUpdate(m => m.Title, m22);
             db.SaveChanges();
 
@@ -557,12 +557,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m23.Runtime = 174;
             m23.Tagline = "The happiest sound in all the world!";
             m23.MPAARating = MPAARating.G;
-            m23.Actors.Add("Julie Andrews");
-            m23.Actors.Add("Christopher Plummer");
-            m23.Actors.Add("Eleanor Parker");
-            m23.Actors.Add("Richard Haydn");
-            m23.Actors.Add("Peggy Wood");
-            m23.Actors.Add("Charmian Carr");
+            m23.Actors += ("Julie Andrews");
+            m23.Actors += ("Christopher Plummer");
+            m23.Actors += ("Eleanor Parker");
+            m23.Actors += ("Richard Haydn");
+            m23.Actors += ("Peggy Wood");
+            m23.Actors += ("Charmian Carr");
             db.Movies.AddOrUpdate(m => m.Title, m23);
             db.SaveChanges();
 
@@ -582,12 +582,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m24.Runtime = 110;
             m24.Tagline = "Not that it matters, but most of it is true.";
             m24.MPAARating = MPAARating.PG;
-            m24.Actors.Add("Paul Newman");
-            m24.Actors.Add("Robert Redford");
-            m24.Actors.Add("Katharine Ross");
-            m24.Actors.Add("Strother Martin");
-            m24.Actors.Add("Henry Jones");
-            m24.Actors.Add("Jeff Corey");
+            m24.Actors += ("Paul Newman");
+            m24.Actors += ("Robert Redford");
+            m24.Actors += ("Katharine Ross");
+            m24.Actors += ("Strother Martin");
+            m24.Actors += ("Henry Jones");
+            m24.Actors += ("Jeff Corey");
             db.Movies.AddOrUpdate(m => m.Title, m24);
             db.SaveChanges();
 
@@ -605,12 +605,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m25.Runtime = 121;
             m25.Tagline = "The anti-war satire of epic proportions.";
             m25.MPAARating = MPAARating.R;
-            m25.Actors.Add("Martin Balsam");
-            m25.Actors.Add("Richard Benjamin");
-            m25.Actors.Add("Art Garfunkel");
-            m25.Actors.Add("Jack Gilford");
-            m25.Actors.Add("Buck Henry");
-            m25.Actors.Add("Bob Newhart");
+            m25.Actors += ("Martin Balsam");
+            m25.Actors += ("Richard Benjamin");
+            m25.Actors += ("Art Garfunkel");
+            m25.Actors += ("Jack Gilford");
+            m25.Actors += ("Buck Henry");
+            m25.Actors += ("Bob Newhart");
             db.Movies.AddOrUpdate(m => m.Title, m25);
             db.SaveChanges();
 
@@ -626,12 +626,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m26.Runtime = 100;
             m26.Tagline = "It's Scrumdiddlyumptious!";
             m26.MPAARating = MPAARating.G;
-            m26.Actors.Add("Gene Wilder");
-            m26.Actors.Add("Jack Albertson");
-            m26.Actors.Add("Peter Ostrum");
-            m26.Actors.Add("Roy Kinnear");
-            m26.Actors.Add("Denise Nickerson");
-            m26.Actors.Add("Leonard Stone");
+            m26.Actors += ("Gene Wilder");
+            m26.Actors += ("Jack Albertson");
+            m26.Actors += ("Peter Ostrum");
+            m26.Actors += ("Roy Kinnear");
+            m26.Actors += ("Denise Nickerson");
+            m26.Actors += ("Leonard Stone");
             db.Movies.AddOrUpdate(m => m.Title, m26);
             db.SaveChanges();
 
@@ -647,12 +647,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m27.Runtime = 181;
             m27.Tagline = "To Life!";
             m27.MPAARating = MPAARating.G;
-            m27.Actors.Add("Chaim Topol");
-            m27.Actors.Add("Norma Crane");
-            m27.Actors.Add("Leonard Frey");
-            m27.Actors.Add("Molly Picon");
-            m27.Actors.Add("Paul Mann");
-            m27.Actors.Add("Rosalind Harris");
+            m27.Actors += ("Chaim Topol");
+            m27.Actors += ("Norma Crane");
+            m27.Actors += ("Leonard Frey");
+            m27.Actors += ("Molly Picon");
+            m27.Actors += ("Paul Mann");
+            m27.Actors += ("Rosalind Harris");
             db.Movies.AddOrUpdate(m => m.Title, m27);
             db.SaveChanges();
 
@@ -670,12 +670,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m28.Runtime = 120;
             m28.Tagline = "The man who made 007 a household number";
             m28.MPAARating = MPAARating.PG;
-            m28.Actors.Add("Sean Connery");
-            m28.Actors.Add("Jill St. John");
-            m28.Actors.Add("Charles Gray");
-            m28.Actors.Add("Lana Wood");
-            m28.Actors.Add("Jimmy Dean");
-            m28.Actors.Add("Bruce Cabot");
+            m28.Actors += ("Sean Connery");
+            m28.Actors += ("Jill St. John");
+            m28.Actors += ("Charles Gray");
+            m28.Actors += ("Lana Wood");
+            m28.Actors += ("Jimmy Dean");
+            m28.Actors += ("Bruce Cabot");
             db.Movies.AddOrUpdate(m => m.Title, m28);
             db.SaveChanges();
 
@@ -691,12 +691,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m29.Runtime = 110;
             m29.Tagline = "Where were you in '62?";
             m29.MPAARating = MPAARating.PG;
-            m29.Actors.Add("Richard Dreyfuss");
-            m29.Actors.Add("Ron Howard");
-            m29.Actors.Add("Paul Le Mat");
-            m29.Actors.Add("Charles Martin Smith");
-            m29.Actors.Add("Cindy Williams");
-            m29.Actors.Add("Candy Clark");
+            m29.Actors += ("Richard Dreyfuss");
+            m29.Actors += ("Ron Howard");
+            m29.Actors += ("Paul Le Mat");
+            m29.Actors += ("Charles Martin Smith");
+            m29.Actors += ("Cindy Williams");
+            m29.Actors += ("Candy Clark");
             db.Movies.AddOrUpdate(m => m.Title, m29);
             db.SaveChanges();
 
@@ -714,12 +714,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m30.Runtime = 129;
             m30.Tagline = "...all it takes is a little confidence.";
             m30.MPAARating = MPAARating.PG;
-            m30.Actors.Add("Paul Newman");
-            m30.Actors.Add("Robert Redford");
-            m30.Actors.Add("Robert Shaw");
-            m30.Actors.Add("Charles Durning");
-            m30.Actors.Add("Ray Walston");
-            m30.Actors.Add("Eileen Brennan");
+            m30.Actors += ("Paul Newman");
+            m30.Actors += ("Robert Redford");
+            m30.Actors += ("Robert Shaw");
+            m30.Actors += ("Charles Durning");
+            m30.Actors += ("Ray Walston");
+            m30.Actors += ("Eileen Brennan");
             db.Movies.AddOrUpdate(m => m.Title, m30);
             db.SaveChanges();
 
@@ -737,12 +737,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m31.Runtime = 122;
             m31.Tagline = "Something almost beyond comprehension is happening to a girl on this street, in this house... and a man has been sent for as a last resort. This man is The Exorcist.";
             m31.MPAARating = MPAARating.R;
-            m31.Actors.Add("Linda Blair");
-            m31.Actors.Add("Max von Sydow");
-            m31.Actors.Add("Ellen Burstyn");
-            m31.Actors.Add("Jason Miller");
-            m31.Actors.Add("Lee J. Cobb");
-            m31.Actors.Add("Kitty Winn");
+            m31.Actors += ("Linda Blair");
+            m31.Actors += ("Max von Sydow");
+            m31.Actors += ("Ellen Burstyn");
+            m31.Actors += ("Jason Miller");
+            m31.Actors += ("Lee J. Cobb");
+            m31.Actors += ("Kitty Winn");
             db.Movies.AddOrUpdate(m => m.Title, m31);
             db.SaveChanges();
 
@@ -758,12 +758,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m32.Runtime = 93;
             m32.Tagline = "Never give a saga an even break!";
             m32.MPAARating = MPAARating.R;
-            m32.Actors.Add("Cleavon Little");
-            m32.Actors.Add("Gene Wilder");
-            m32.Actors.Add("Harvey Korman");
-            m32.Actors.Add("Slim Pickens");
-            m32.Actors.Add("Madeline Kahn");
-            m32.Actors.Add("Mel Brooks");
+            m32.Actors += ("Cleavon Little");
+            m32.Actors += ("Gene Wilder");
+            m32.Actors += ("Harvey Korman");
+            m32.Actors += ("Slim Pickens");
+            m32.Actors += ("Madeline Kahn");
+            m32.Actors += ("Mel Brooks");
             db.Movies.AddOrUpdate(m => m.Title, m32);
             db.SaveChanges();
 
@@ -781,12 +781,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m33.Runtime = 91;
             m33.Tagline = "And now! At Last! Another film completely different from some of the other films which aren't quite the same as this one is.";
             m33.MPAARating = MPAARating.PG;
-            m33.Actors.Add("Graham Chapman");
-            m33.Actors.Add("John Cleese");
-            m33.Actors.Add("Terry Gilliam");
-            m33.Actors.Add("Eric Idle");
-            m33.Actors.Add("Terry Jones");
-            m33.Actors.Add("Michael Palin");
+            m33.Actors += ("Graham Chapman");
+            m33.Actors += ("John Cleese");
+            m33.Actors += ("Terry Gilliam");
+            m33.Actors += ("Eric Idle");
+            m33.Actors += ("Terry Jones");
+            m33.Actors += ("Michael Palin");
             db.Movies.AddOrUpdate(m => m.Title, m33);
             db.SaveChanges();
 
@@ -804,12 +804,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m34.Runtime = 124;
             m34.Tagline = "Don't go in the water.";
             m34.MPAARating = MPAARating.PG;
-            m34.Actors.Add("Roy Scheider");
-            m34.Actors.Add("Robert Shaw");
-            m34.Actors.Add("Richard Dreyfuss");
-            m34.Actors.Add("Lorraine Gary");
-            m34.Actors.Add("Murray Hamilton");
-            m34.Actors.Add("Carl Gottlieb");
+            m34.Actors += ("Roy Scheider");
+            m34.Actors += ("Robert Shaw");
+            m34.Actors += ("Richard Dreyfuss");
+            m34.Actors += ("Lorraine Gary");
+            m34.Actors += ("Murray Hamilton");
+            m34.Actors += ("Carl Gottlieb");
             db.Movies.AddOrUpdate(m => m.Title, m34);
             db.SaveChanges();
 
@@ -827,12 +827,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m35.Runtime = 121;
             m35.Tagline = "A long time ago in a galaxy far, far away...";
             m35.MPAARating = MPAARating.PG;
-            m35.Actors.Add("Mark Hamill");
-            m35.Actors.Add("Harrison Ford");
-            m35.Actors.Add("Carrie Fisher");
-            m35.Actors.Add("Peter Cushing");
-            m35.Actors.Add("Alec Guinness");
-            m35.Actors.Add("Anthony Daniels");
+            m35.Actors += ("Mark Hamill");
+            m35.Actors += ("Harrison Ford");
+            m35.Actors += ("Carrie Fisher");
+            m35.Actors += ("Peter Cushing");
+            m35.Actors += ("Alec Guinness");
+            m35.Actors += ("Anthony Daniels");
             db.Movies.AddOrUpdate(m => m.Title, m35);
             db.SaveChanges();
 
@@ -850,12 +850,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m36.Runtime = 125;
             m36.Tagline = "It's the BIGGEST. It's the BEST. It's BOND. And B-E-Y-O-N-D.";
             m36.MPAARating = MPAARating.PG;
-            m36.Actors.Add("Roger Moore");
-            m36.Actors.Add("Barbara Bach");
-            m36.Actors.Add("Curd Joergens");
-            m36.Actors.Add("Richard Kiel");
-            m36.Actors.Add("Caroline Munro");
-            m36.Actors.Add("Walter Gotell");
+            m36.Actors += ("Roger Moore");
+            m36.Actors += ("Barbara Bach");
+            m36.Actors += ("Curd Joergens");
+            m36.Actors += ("Richard Kiel");
+            m36.Actors += ("Caroline Munro");
+            m36.Actors += ("Walter Gotell");
             db.Movies.AddOrUpdate(m => m.Title, m36);
             db.SaveChanges();
 
@@ -871,12 +871,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m37.Runtime = 135;
             m37.Tagline = "We are not alone.";
             m37.MPAARating = MPAARating.PG;
-            m37.Actors.Add("Richard Dreyfuss");
-            m37.Actors.Add("Francois Truffaut");
-            m37.Actors.Add("Teri Garr");
-            m37.Actors.Add("Melinda Dillon");
-            m37.Actors.Add("Bob Balaban");
-            m37.Actors.Add("J. Patrick McNamara");
+            m37.Actors += ("Richard Dreyfuss");
+            m37.Actors += ("Francois Truffaut");
+            m37.Actors += ("Teri Garr");
+            m37.Actors += ("Melinda Dillon");
+            m37.Actors += ("Bob Balaban");
+            m37.Actors += ("J. Patrick McNamara");
             db.Movies.AddOrUpdate(m => m.Title, m37);
             db.SaveChanges();
 
@@ -890,12 +890,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m38.Runtime = 110;
             m38.Tagline = "Grease is the word";
             m38.MPAARating = MPAARating.PG;
-            m38.Actors.Add("John Travolta");
-            m38.Actors.Add("Olivia Newton-John");
-            m38.Actors.Add("Stockard Channing");
-            m38.Actors.Add("Jeff Conaway");
-            m38.Actors.Add("Didi Conn");
-            m38.Actors.Add("Barry Pearl");
+            m38.Actors += ("John Travolta");
+            m38.Actors += ("Olivia Newton-John");
+            m38.Actors += ("Stockard Channing");
+            m38.Actors += ("Jeff Conaway");
+            m38.Actors += ("Didi Conn");
+            m38.Actors += ("Barry Pearl");
             db.Movies.AddOrUpdate(m => m.Title, m38);
             db.SaveChanges();
 
@@ -909,12 +909,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m39.Runtime = 109;
             m39.Tagline = "It was the Deltas against the rules... the rules lost!";
             m39.MPAARating = MPAARating.R;
-            m39.Actors.Add("John Belushi");
-            m39.Actors.Add("Tim Matheson");
-            m39.Actors.Add("John Vernon");
-            m39.Actors.Add("Verna Bloom");
-            m39.Actors.Add("Tom Hulce");
-            m39.Actors.Add("Cesare Danova");
+            m39.Actors += ("John Belushi");
+            m39.Actors += ("Tim Matheson");
+            m39.Actors += ("John Vernon");
+            m39.Actors += ("Verna Bloom");
+            m39.Actors += ("Tom Hulce");
+            m39.Actors += ("Cesare Danova");
             db.Movies.AddOrUpdate(m => m.Title, m39);
             db.SaveChanges();
 
@@ -930,12 +930,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m40.Runtime = 91;
             m40.Tagline = "The Night He Came Home";
             m40.MPAARating = MPAARating.R;
-            m40.Actors.Add("Donald Pleasence");
-            m40.Actors.Add("Jamie Lee Curtis");
-            m40.Actors.Add("P.J. Soles");
-            m40.Actors.Add("Nancy Kyes");
-            m40.Actors.Add("Nick Castle");
-            m40.Actors.Add("Tony Moran");
+            m40.Actors += ("Donald Pleasence");
+            m40.Actors += ("Jamie Lee Curtis");
+            m40.Actors += ("P.J. Soles");
+            m40.Actors += ("Nancy Kyes");
+            m40.Actors += ("Nick Castle");
+            m40.Actors += ("Tony Moran");
             db.Movies.AddOrUpdate(m => m.Title, m40);
             db.SaveChanges();
 
@@ -955,12 +955,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m41.Runtime = 117;
             m41.Tagline = "In space no one can hear you scream.";
             m41.MPAARating = MPAARating.R;
-            m41.Actors.Add("Tom Skerritt");
-            m41.Actors.Add("Sigourney Weaver");
-            m41.Actors.Add("Veronica Cartwright");
-            m41.Actors.Add("Harry Dean Stanton");
-            m41.Actors.Add("John Hurt");
-            m41.Actors.Add("Ian Holm");
+            m41.Actors += ("Tom Skerritt");
+            m41.Actors += ("Sigourney Weaver");
+            m41.Actors += ("Veronica Cartwright");
+            m41.Actors += ("Harry Dean Stanton");
+            m41.Actors += ("John Hurt");
+            m41.Actors += ("Ian Holm");
             db.Movies.AddOrUpdate(m => m.Title, m41);
             db.SaveChanges();
 
@@ -978,12 +978,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m42.Runtime = 97;
             m42.Tagline = "More entertaining than humanly possible.";
             m42.MPAARating = MPAARating.G;
-            m42.Actors.Add("Jim Henson");
-            m42.Actors.Add("Frank Oz");
-            m42.Actors.Add("Jerry Nelson");
-            m42.Actors.Add("Richard Hunt");
-            m42.Actors.Add("Dave Goelz");
-            m42.Actors.Add("Charles Durning");
+            m42.Actors += ("Jim Henson");
+            m42.Actors += ("Frank Oz");
+            m42.Actors += ("Jerry Nelson");
+            m42.Actors += ("Richard Hunt");
+            m42.Actors += ("Dave Goelz");
+            m42.Actors += ("Charles Durning");
             db.Movies.AddOrUpdate(m => m.Title, m42);
             db.SaveChanges();
 
@@ -999,12 +999,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m43.Runtime = 153;
             m43.Tagline = "This is the end...";
             m43.MPAARating = MPAARating.R;
-            m43.Actors.Add("Martin Sheen");
-            m43.Actors.Add("Marlon Brando");
-            m43.Actors.Add("Robert Duvall");
-            m43.Actors.Add("Frederic Forrest");
-            m43.Actors.Add("Sam Bottoms");
-            m43.Actors.Add("Laurence Fishburne");
+            m43.Actors += ("Martin Sheen");
+            m43.Actors += ("Marlon Brando");
+            m43.Actors += ("Robert Duvall");
+            m43.Actors += ("Frederic Forrest");
+            m43.Actors += ("Sam Bottoms");
+            m43.Actors += ("Laurence Fishburne");
             db.Movies.AddOrUpdate(m => m.Title, m43);
             db.SaveChanges();
 
@@ -1022,12 +1022,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m44.Runtime = 124;
             m44.Tagline = "The Adventure Continues...";
             m44.MPAARating = MPAARating.PG;
-            m44.Actors.Add("Mark Hamill");
-            m44.Actors.Add("Harrison Ford");
-            m44.Actors.Add("Carrie Fisher");
-            m44.Actors.Add("Billy Dee Williams");
-            m44.Actors.Add("Anthony Daniels");
-            m44.Actors.Add("David Prowse");
+            m44.Actors += ("Mark Hamill");
+            m44.Actors += ("Harrison Ford");
+            m44.Actors += ("Carrie Fisher");
+            m44.Actors += ("Billy Dee Williams");
+            m44.Actors += ("Anthony Daniels");
+            m44.Actors += ("David Prowse");
             db.Movies.AddOrUpdate(m => m.Title, m44);
             db.SaveChanges();
 
@@ -1043,12 +1043,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m45.Runtime = 144;
             m45.Tagline = "A masterpiece of modern horror.";
             m45.MPAARating = MPAARating.R;
-            m45.Actors.Add("Jack Nicholson");
-            m45.Actors.Add("Shelley Duvall");
-            m45.Actors.Add("Danny Lloyd");
-            m45.Actors.Add("Scatman Crothers");
-            m45.Actors.Add("Barry Nelson");
-            m45.Actors.Add("Philip Stone");
+            m45.Actors += ("Jack Nicholson");
+            m45.Actors += ("Shelley Duvall");
+            m45.Actors += ("Danny Lloyd");
+            m45.Actors += ("Scatman Crothers");
+            m45.Actors += ("Barry Nelson");
+            m45.Actors += ("Philip Stone");
             db.Movies.AddOrUpdate(m => m.Title, m45);
             db.SaveChanges();
 
@@ -1062,12 +1062,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m46.Runtime = 88;
             m46.Tagline = "What's slower than a speeding bullet, and able to hit tall buildings at a single bound?";
             m46.MPAARating = MPAARating.PG;
-            m46.Actors.Add("Robert Hays");
-            m46.Actors.Add("Julie Hagerty");
-            m46.Actors.Add("Kareem Abdul-Jabbar");
-            m46.Actors.Add("Lloyd Bridges");
-            m46.Actors.Add("Peter Graves");
-            m46.Actors.Add("Leslie Nielsen");
+            m46.Actors += ("Robert Hays");
+            m46.Actors += ("Julie Hagerty");
+            m46.Actors += ("Kareem Abdul-Jabbar");
+            m46.Actors += ("Lloyd Bridges");
+            m46.Actors += ("Peter Graves");
+            m46.Actors += ("Leslie Nielsen");
             db.Movies.AddOrUpdate(m => m.Title, m46);
             db.SaveChanges();
 
@@ -1081,12 +1081,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m47.Runtime = 98;
             m47.Tagline = "The snobs against the slobs!";
             m47.MPAARating = MPAARating.R;
-            m47.Actors.Add("Chevy Chase");
-            m47.Actors.Add("Rodney Dangerfield");
-            m47.Actors.Add("Ted Knight");
-            m47.Actors.Add("Michael O'Keefe");
-            m47.Actors.Add("Bill Murray");
-            m47.Actors.Add("Sarah Holcomb");
+            m47.Actors += ("Chevy Chase");
+            m47.Actors += ("Rodney Dangerfield");
+            m47.Actors += ("Ted Knight");
+            m47.Actors += ("Michael O'Keefe");
+            m47.Actors += ("Bill Murray");
+            m47.Actors += ("Sarah Holcomb");
             db.Movies.AddOrUpdate(m => m.Title, m47);
             db.SaveChanges();
 
@@ -1100,12 +1100,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m48.Runtime = 129;
             m48.Tagline = "";
             m48.MPAARating = MPAARating.R;
-            m48.Actors.Add("Robert De Niro");
-            m48.Actors.Add("Joe Pesci");
-            m48.Actors.Add("Cathy Moriarty");
-            m48.Actors.Add("Frank Vincent");
-            m48.Actors.Add("Nicholas Colasanto");
-            m48.Actors.Add("Theresa Saldana");
+            m48.Actors += ("Robert De Niro");
+            m48.Actors += ("Joe Pesci");
+            m48.Actors += ("Cathy Moriarty");
+            m48.Actors += ("Frank Vincent");
+            m48.Actors += ("Nicholas Colasanto");
+            m48.Actors += ("Theresa Saldana");
             db.Movies.AddOrUpdate(m => m.Title, m48);
             db.SaveChanges();
 
@@ -1121,12 +1121,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m49.Runtime = 115;
             m49.Tagline = "Indiana Jones - the new hero from the creators of JAWS and STAR WARS.";
             m49.MPAARating = MPAARating.PG;
-            m49.Actors.Add("Harrison Ford");
-            m49.Actors.Add("Karen Allen");
-            m49.Actors.Add("Paul Freeman");
-            m49.Actors.Add("Ronald Lacey");
-            m49.Actors.Add("John Rhys-Davies");
-            m49.Actors.Add("Denholm Elliott");
+            m49.Actors += ("Harrison Ford");
+            m49.Actors += ("Karen Allen");
+            m49.Actors += ("Paul Freeman");
+            m49.Actors += ("Ronald Lacey");
+            m49.Actors += ("John Rhys-Davies");
+            m49.Actors += ("Denholm Elliott");
             db.Movies.AddOrUpdate(m => m.Title, m49);
             db.SaveChanges();
 
@@ -1146,12 +1146,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m50.Runtime = 115;
             m50.Tagline = "He is afraid. He is alone. He is three million light years from home.";
             m50.MPAARating = MPAARating.PG;
-            m50.Actors.Add("Henry Thomas");
-            m50.Actors.Add("Drew Barrymore");
-            m50.Actors.Add("Robert MacNaughton");
-            m50.Actors.Add("Dee Wallace");
-            m50.Actors.Add("Peter Coyote");
-            m50.Actors.Add("Erika Eleniak");
+            m50.Actors += ("Henry Thomas");
+            m50.Actors += ("Drew Barrymore");
+            m50.Actors += ("Robert MacNaughton");
+            m50.Actors += ("Dee Wallace");
+            m50.Actors += ("Peter Coyote");
+            m50.Actors += ("Erika Eleniak");
             db.Movies.AddOrUpdate(m => m.Title, m50);
             db.SaveChanges();
 
@@ -1165,12 +1165,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m51.Runtime = 90;
             m51.Tagline = "Fast Cars, Fast Girls, Fast Carrots...Fast Carrots?";
             m51.MPAARating = MPAARating.R;
-            m51.Actors.Add("Sean Penn");
-            m51.Actors.Add("Jennifer Jason Leigh");
-            m51.Actors.Add("Judge Reinhold");
-            m51.Actors.Add("Phoebe Cates");
-            m51.Actors.Add("Brian Backer");
-            m51.Actors.Add("Robert Romanus");
+            m51.Actors += ("Sean Penn");
+            m51.Actors += ("Jennifer Jason Leigh");
+            m51.Actors += ("Judge Reinhold");
+            m51.Actors += ("Phoebe Cates");
+            m51.Actors += ("Brian Backer");
+            m51.Actors += ("Robert Romanus");
             db.Movies.AddOrUpdate(m => m.Title, m51);
             db.SaveChanges();
 
@@ -1188,12 +1188,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m52.Runtime = 135;
             m52.Tagline = "The Empire Falls...";
             m52.MPAARating = MPAARating.PG;
-            m52.Actors.Add("Mark Hamill");
-            m52.Actors.Add("Harrison Ford");
-            m52.Actors.Add("Carrie Fisher");
-            m52.Actors.Add("Billy Dee Williams");
-            m52.Actors.Add("Anthony Daniels");
-            m52.Actors.Add("David Prowse");
+            m52.Actors += ("Mark Hamill");
+            m52.Actors += ("Harrison Ford");
+            m52.Actors += ("Carrie Fisher");
+            m52.Actors += ("Billy Dee Williams");
+            m52.Actors += ("Anthony Daniels");
+            m52.Actors += ("David Prowse");
             db.Movies.AddOrUpdate(m => m.Title, m52);
             db.SaveChanges();
 
@@ -1209,12 +1209,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m53.Runtime = 114;
             m53.Tagline = "Is it a game, or is it real?";
             m53.MPAARating = MPAARating.PG;
-            m53.Actors.Add("Matthew Broderick");
-            m53.Actors.Add("Dabney Coleman");
-            m53.Actors.Add("Ally Sheedy");
-            m53.Actors.Add("John Wood");
-            m53.Actors.Add("Barry Corbin");
-            m53.Actors.Add("Juanin Clay");
+            m53.Actors += ("Matthew Broderick");
+            m53.Actors += ("Dabney Coleman");
+            m53.Actors += ("Ally Sheedy");
+            m53.Actors += ("John Wood");
+            m53.Actors += ("Barry Corbin");
+            m53.Actors += ("Juanin Clay");
             db.Movies.AddOrUpdate(m => m.Title, m53);
             db.SaveChanges();
 
@@ -1228,12 +1228,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m54.Runtime = 116;
             m54.Tagline = "Some very funny business.";
             m54.MPAARating = MPAARating.R;
-            m54.Actors.Add("Eddie Murphy");
-            m54.Actors.Add("Dan Aykroyd");
-            m54.Actors.Add("Jamie Lee Curtis");
-            m54.Actors.Add("Jim Belushi");
-            m54.Actors.Add("Denholm Elliott");
-            m54.Actors.Add("Ralph Bellamy");
+            m54.Actors += ("Eddie Murphy");
+            m54.Actors += ("Dan Aykroyd");
+            m54.Actors += ("Jamie Lee Curtis");
+            m54.Actors += ("Jim Belushi");
+            m54.Actors += ("Denholm Elliott");
+            m54.Actors += ("Ralph Bellamy");
             db.Movies.AddOrUpdate(m => m.Title, m54);
             db.SaveChanges();
 
@@ -1249,12 +1249,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m55.Runtime = 94;
             m55.Tagline = "Peace, Harmony, Comfort and Joy... Maybe Next Year.";
             m55.MPAARating = MPAARating.PG;
-            m55.Actors.Add("Melinda Dillon");
-            m55.Actors.Add("Darren McGavin");
-            m55.Actors.Add("Peter Billingsley");
-            m55.Actors.Add("Jean Shepherd");
-            m55.Actors.Add("Ian Petrella");
-            m55.Actors.Add("Scott Schwartz");
+            m55.Actors += ("Melinda Dillon");
+            m55.Actors += ("Darren McGavin");
+            m55.Actors += ("Peter Billingsley");
+            m55.Actors += ("Jean Shepherd");
+            m55.Actors += ("Ian Petrella");
+            m55.Actors += ("Scott Schwartz");
             db.Movies.AddOrUpdate(m => m.Title, m55);
             db.SaveChanges();
 
@@ -1274,12 +1274,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m56.Runtime = 107;
             m56.Tagline = "He's a big-city kid in a small town. They said he'd never win. He knew he had to.";
             m56.MPAARating = MPAARating.PG;
-            m56.Actors.Add("Kevin Bacon");
-            m56.Actors.Add("John Lithgow");
-            m56.Actors.Add("Dianne Wiest");
-            m56.Actors.Add("Chris Penn");
-            m56.Actors.Add("Lori Singer");
-            m56.Actors.Add("Sarah Jessica Parker");
+            m56.Actors += ("Kevin Bacon");
+            m56.Actors += ("John Lithgow");
+            m56.Actors += ("Dianne Wiest");
+            m56.Actors += ("Chris Penn");
+            m56.Actors += ("Lori Singer");
+            m56.Actors += ("Sarah Jessica Parker");
             db.Movies.AddOrUpdate(m => m.Title, m56);
             db.SaveChanges();
 
@@ -1299,12 +1299,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m57.Runtime = 116;
             m57.Tagline = "He's the only kid ever to get into trouble before he was born.";
             m57.MPAARating = MPAARating.PG;
-            m57.Actors.Add("Michael J. Fox");
-            m57.Actors.Add("Christopher Lloyd");
-            m57.Actors.Add("Lea Thompson");
-            m57.Actors.Add("Crispin Glover");
-            m57.Actors.Add("Thomas F. Wilson");
-            m57.Actors.Add("Claudia Wells");
+            m57.Actors += ("Michael J. Fox");
+            m57.Actors += ("Christopher Lloyd");
+            m57.Actors += ("Lea Thompson");
+            m57.Actors += ("Crispin Glover");
+            m57.Actors += ("Thomas F. Wilson");
+            m57.Actors += ("Claudia Wells");
             db.Movies.AddOrUpdate(m => m.Title, m57);
             db.SaveChanges();
 
@@ -1318,12 +1318,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m58.Runtime = 154;
             m58.Tagline = "It's about life. It's about love. It's about us.";
             m58.MPAARating = MPAARating.PG;
-            m58.Actors.Add("Whoopi Goldberg");
-            m58.Actors.Add("Margaret Avery");
-            m58.Actors.Add("Danny Glover");
-            m58.Actors.Add("Akosua Busia");
-            m58.Actors.Add("Oprah Winfrey");
-            m58.Actors.Add("Willard E. Pugh");
+            m58.Actors += ("Whoopi Goldberg");
+            m58.Actors += ("Margaret Avery");
+            m58.Actors += ("Danny Glover");
+            m58.Actors += ("Akosua Busia");
+            m58.Actors += ("Oprah Winfrey");
+            m58.Actors += ("Willard E. Pugh");
             db.Movies.AddOrUpdate(m => m.Title, m58);
             db.SaveChanges();
 
@@ -1341,12 +1341,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m59.Runtime = 110;
             m59.Tagline = "Up there with the best of the best.";
             m59.MPAARating = MPAARating.PG;
-            m59.Actors.Add("Tom Cruise");
-            m59.Actors.Add("Kelly McGillis");
-            m59.Actors.Add("Val Kilmer");
-            m59.Actors.Add("Anthony Edwards");
-            m59.Actors.Add("Tom Skerritt");
-            m59.Actors.Add("Michael Ironside");
+            m59.Actors += ("Tom Cruise");
+            m59.Actors += ("Kelly McGillis");
+            m59.Actors += ("Val Kilmer");
+            m59.Actors += ("Anthony Edwards");
+            m59.Actors += ("Tom Skerritt");
+            m59.Actors += ("Michael Ironside");
             db.Movies.AddOrUpdate(m => m.Title, m59);
             db.SaveChanges();
 
@@ -1364,12 +1364,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m60.Runtime = 94;
             m60.Tagline = "Don't feed the plants.";
             m60.MPAARating = MPAARating.PG;
-            m60.Actors.Add("Rick Moranis");
-            m60.Actors.Add("Ellen Greene");
-            m60.Actors.Add("Vincent Gardenia");
-            m60.Actors.Add("Steve Martin");
-            m60.Actors.Add("Tisha Campbell-Martin");
-            m60.Actors.Add("John Candy");
+            m60.Actors += ("Rick Moranis");
+            m60.Actors += ("Ellen Greene");
+            m60.Actors += ("Vincent Gardenia");
+            m60.Actors += ("Steve Martin");
+            m60.Actors += ("Tisha Campbell-Martin");
+            m60.Actors += ("John Candy");
             db.Movies.AddOrUpdate(m => m.Title, m60);
             db.SaveChanges();
 
@@ -1385,12 +1385,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m61.Runtime = 96;
             m61.Tagline = "May the schwartz be with you";
             m61.MPAARating = MPAARating.PG;
-            m61.Actors.Add("Mel Brooks");
-            m61.Actors.Add("Rick Moranis");
-            m61.Actors.Add("Bill Pullman");
-            m61.Actors.Add("Daphne Zuniga");
-            m61.Actors.Add("John Candy");
-            m61.Actors.Add("George Wyner");
+            m61.Actors += ("Mel Brooks");
+            m61.Actors += ("Rick Moranis");
+            m61.Actors += ("Bill Pullman");
+            m61.Actors += ("Daphne Zuniga");
+            m61.Actors += ("John Candy");
+            m61.Actors += ("George Wyner");
             db.Movies.AddOrUpdate(m => m.Title, m61);
             db.SaveChanges();
 
@@ -1412,12 +1412,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m62.Runtime = 98;
             m62.Tagline = "It's as real as the feelings you feel.";
             m62.MPAARating = MPAARating.PG;
-            m62.Actors.Add("Cary Elwes");
-            m62.Actors.Add("Robin Wright");
-            m62.Actors.Add("Mandy Patinkin");
-            m62.Actors.Add("Andre the Giant");
-            m62.Actors.Add("Chris Sarandon");
-            m62.Actors.Add("Christopher Guest");
+            m62.Actors += ("Cary Elwes");
+            m62.Actors += ("Robin Wright");
+            m62.Actors += ("Mandy Patinkin");
+            m62.Actors += ("Andre the Giant");
+            m62.Actors += ("Chris Sarandon");
+            m62.Actors += ("Christopher Guest");
             db.Movies.AddOrUpdate(m => m.Title, m62);
             db.SaveChanges();
 
@@ -1439,12 +1439,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m63.Runtime = 104;
             m63.Tagline = "You're Only Young Once But For Josh It Might Just Last A Lifetime.";
             m63.MPAARating = MPAARating.PG;
-            m63.Actors.Add("Tom Hanks");
-            m63.Actors.Add("Elizabeth Perkins");
-            m63.Actors.Add("Robert Loggia");
-            m63.Actors.Add("John Heard");
-            m63.Actors.Add("Jared Rushton");
-            m63.Actors.Add("David Moscow");
+            m63.Actors += ("Tom Hanks");
+            m63.Actors += ("Elizabeth Perkins");
+            m63.Actors += ("Robert Loggia");
+            m63.Actors += ("John Heard");
+            m63.Actors += ("Jared Rushton");
+            m63.Actors += ("David Moscow");
             db.Movies.AddOrUpdate(m => m.Title, m63);
             db.SaveChanges();
 
@@ -1462,12 +1462,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m64.Runtime = 69;
             m64.Tagline = "A new adventure is born.";
             m64.MPAARating = MPAARating.G;
-            m64.Actors.Add("Gabriel Damon");
-            m64.Actors.Add("Candace Hutson");
-            m64.Actors.Add("Judith Barsi");
-            m64.Actors.Add("Will Ryan");
-            m64.Actors.Add("Pat Hingle");
-            m64.Actors.Add("Helen Shaver");
+            m64.Actors += ("Gabriel Damon");
+            m64.Actors += ("Candace Hutson");
+            m64.Actors += ("Judith Barsi");
+            m64.Actors += ("Will Ryan");
+            m64.Actors += ("Pat Hingle");
+            m64.Actors += ("Helen Shaver");
             db.Movies.AddOrUpdate(m => m.Title, m64);
             db.SaveChanges();
 
@@ -1481,12 +1481,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m65.Runtime = 133;
             m65.Tagline = "A journey through understanding and fellowship.";
             m65.MPAARating = MPAARating.R;
-            m65.Actors.Add("Dustin Hoffman");
-            m65.Actors.Add("Tom Cruise");
-            m65.Actors.Add("Valeria Golino");
-            m65.Actors.Add("Gerald R. Molen");
-            m65.Actors.Add("Jack Murdock");
-            m65.Actors.Add("Michael D. Roberts");
+            m65.Actors += ("Dustin Hoffman");
+            m65.Actors += ("Tom Cruise");
+            m65.Actors += ("Valeria Golino");
+            m65.Actors += ("Gerald R. Molen");
+            m65.Actors += ("Jack Murdock");
+            m65.Actors += ("Michael D. Roberts");
             db.Movies.AddOrUpdate(m => m.Title, m65);
             db.SaveChanges();
 
@@ -1504,12 +1504,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m66.Runtime = 90;
             m66.Tagline = "History is about to be rewritten by two guys who can't spell.";
             m66.MPAARating = MPAARating.PG;
-            m66.Actors.Add("Keanu Reeves");
-            m66.Actors.Add("Alex Winter");
-            m66.Actors.Add("George Carlin");
-            m66.Actors.Add("Dan Shor");
-            m66.Actors.Add("Hal Landon Jr.");
-            m66.Actors.Add("Amy Stock-Poynton");
+            m66.Actors += ("Keanu Reeves");
+            m66.Actors += ("Alex Winter");
+            m66.Actors += ("George Carlin");
+            m66.Actors += ("Dan Shor");
+            m66.Actors += ("Hal Landon Jr.");
+            m66.Actors += ("Amy Stock-Poynton");
             db.Movies.AddOrUpdate(m => m.Title, m66);
             db.SaveChanges();
 
@@ -1523,12 +1523,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m67.Runtime = 129;
             m67.Tagline = "He was their inspiration. He made their lives extraordinary.";
             m67.MPAARating = MPAARating.PG;
-            m67.Actors.Add("Robin Williams");
-            m67.Actors.Add("Ethan Hawke");
-            m67.Actors.Add("Robert Sean Leonard");
-            m67.Actors.Add("Gale Hansen");
-            m67.Actors.Add("Josh Charles");
-            m67.Actors.Add("Dylan Kussman");
+            m67.Actors += ("Robin Williams");
+            m67.Actors += ("Ethan Hawke");
+            m67.Actors += ("Robert Sean Leonard");
+            m67.Actors += ("Gale Hansen");
+            m67.Actors += ("Josh Charles");
+            m67.Actors += ("Dylan Kussman");
             db.Movies.AddOrUpdate(m => m.Title, m67);
             db.SaveChanges();
 
@@ -1546,12 +1546,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m68.Runtime = 96;
             m68.Tagline = "Can two friends sleep together and still love each other in the morning?";
             m68.MPAARating = MPAARating.R;
-            m68.Actors.Add("Meg Ryan");
-            m68.Actors.Add("Billy Crystal");
-            m68.Actors.Add("Carrie Fisher");
-            m68.Actors.Add("Bruno Kirby");
-            m68.Actors.Add("Steven Ford");
-            m68.Actors.Add("Lisa Jane Persky");
+            m68.Actors += ("Meg Ryan");
+            m68.Actors += ("Billy Crystal");
+            m68.Actors += ("Carrie Fisher");
+            m68.Actors += ("Bruno Kirby");
+            m68.Actors += ("Steven Ford");
+            m68.Actors += ("Lisa Jane Persky");
             db.Movies.AddOrUpdate(m => m.Title, m68);
             db.SaveChanges();
 
@@ -1571,12 +1571,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m69.Runtime = 108;
             m69.Tagline = "Roads? Where we're going, we don't need roads!";
             m69.MPAARating = MPAARating.PG;
-            m69.Actors.Add("Michael J. Fox");
-            m69.Actors.Add("Christopher Lloyd");
-            m69.Actors.Add("Lea Thompson");
-            m69.Actors.Add("Elisabeth Shue");
-            m69.Actors.Add("James Tolkan");
-            m69.Actors.Add("Jeffrey Weissman");
+            m69.Actors += ("Michael J. Fox");
+            m69.Actors += ("Christopher Lloyd");
+            m69.Actors += ("Lea Thompson");
+            m69.Actors += ("Elisabeth Shue");
+            m69.Actors += ("James Tolkan");
+            m69.Actors += ("Jeffrey Weissman");
             db.Movies.AddOrUpdate(m => m.Title, m69);
             db.SaveChanges();
 
@@ -1596,12 +1596,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m70.Runtime = 118;
             m70.Tagline = "They've saved the best trip for last... But this time they may have gone too far.";
             m70.MPAARating = MPAARating.PG;
-            m70.Actors.Add("Michael J. Fox");
-            m70.Actors.Add("Christopher Lloyd");
-            m70.Actors.Add("Mary Steenburgen");
-            m70.Actors.Add("Thomas F. Wilson");
-            m70.Actors.Add("Lea Thompson");
-            m70.Actors.Add("Elisabeth Shue");
+            m70.Actors += ("Michael J. Fox");
+            m70.Actors += ("Christopher Lloyd");
+            m70.Actors += ("Mary Steenburgen");
+            m70.Actors += ("Thomas F. Wilson");
+            m70.Actors += ("Lea Thompson");
+            m70.Actors += ("Elisabeth Shue");
             db.Movies.AddOrUpdate(m => m.Title, m70);
             db.SaveChanges();
 
@@ -1615,12 +1615,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m71.Runtime = 143;
             m71.Tagline = "For the good of all men, and the love of one woman, he fought to uphold justice by breaking the law.";
             m71.MPAARating = MPAARating.PG;
-            m71.Actors.Add("Kevin Costner");
-            m71.Actors.Add("Morgan Freeman");
-            m71.Actors.Add("Christian Slater");
-            m71.Actors.Add("Mary Elizabeth Mastrantonio");
-            m71.Actors.Add("Alan Rickman");
-            m71.Actors.Add("Geraldine McEwan");
+            m71.Actors += ("Kevin Costner");
+            m71.Actors += ("Morgan Freeman");
+            m71.Actors += ("Christian Slater");
+            m71.Actors += ("Mary Elizabeth Mastrantonio");
+            m71.Actors += ("Alan Rickman");
+            m71.Actors += ("Geraldine McEwan");
             db.Movies.AddOrUpdate(m => m.Title, m71);
             db.SaveChanges();
 
@@ -1634,12 +1634,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m72.Runtime = 94;
             m72.Tagline = "You'll laugh. You'll cry. You'll hurl.";
             m72.MPAARating = MPAARating.PG;
-            m72.Actors.Add("Mike Myers");
-            m72.Actors.Add("Dana Carvey");
-            m72.Actors.Add("Rob Lowe");
-            m72.Actors.Add("Tia Carrere");
-            m72.Actors.Add("Lara Flynn Boyle");
-            m72.Actors.Add("Chris Farley");
+            m72.Actors += ("Mike Myers");
+            m72.Actors += ("Dana Carvey");
+            m72.Actors += ("Rob Lowe");
+            m72.Actors += ("Tia Carrere");
+            m72.Actors += ("Lara Flynn Boyle");
+            m72.Actors += ("Chris Farley");
             db.Movies.AddOrUpdate(m => m.Title, m72);
             db.SaveChanges();
 
@@ -1653,12 +1653,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m73.Runtime = 128;
             m73.Tagline = "To achieve the incredible, you have to attempt the impossible.";
             m73.MPAARating = MPAARating.PG;
-            m73.Actors.Add("Tom Hanks");
-            m73.Actors.Add("Geena Davis");
-            m73.Actors.Add("Madonna");
-            m73.Actors.Add("Lori Petty");
-            m73.Actors.Add("Jon Lovitz");
-            m73.Actors.Add("David Strathairn");
+            m73.Actors += ("Tom Hanks");
+            m73.Actors += ("Geena Davis");
+            m73.Actors += ("Madonna");
+            m73.Actors += ("Lori Petty");
+            m73.Actors += ("Jon Lovitz");
+            m73.Actors += ("David Strathairn");
             db.Movies.AddOrUpdate(m => m.Title, m73);
             db.SaveChanges();
 
@@ -1682,12 +1682,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m74.Runtime = 112;
             m74.Tagline = "The first American hero.";
             m74.MPAARating = MPAARating.R;
-            m74.Actors.Add("Daniel Day-Lewis");
-            m74.Actors.Add("Madeleine Stowe");
-            m74.Actors.Add("Russell Means");
-            m74.Actors.Add("Eric Schweig");
-            m74.Actors.Add("Jodhi May");
-            m74.Actors.Add("Steven Waddington");
+            m74.Actors += ("Daniel Day-Lewis");
+            m74.Actors += ("Madeleine Stowe");
+            m74.Actors += ("Russell Means");
+            m74.Actors += ("Eric Schweig");
+            m74.Actors += ("Jodhi May");
+            m74.Actors += ("Steven Waddington");
             db.Movies.AddOrUpdate(m => m.Title, m74);
             db.SaveChanges();
 
@@ -1711,12 +1711,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m75.Runtime = 90;
             m75.Tagline = "Wish granted!";
             m75.MPAARating = MPAARating.G;
-            m75.Actors.Add("Scott Weinger");
-            m75.Actors.Add("Robin Williams");
-            m75.Actors.Add("Linda Larkin");
-            m75.Actors.Add("Jonathan Freeman");
-            m75.Actors.Add("Frank Welker");
-            m75.Actors.Add("Gilbert Gottfried");
+            m75.Actors += ("Scott Weinger");
+            m75.Actors += ("Robin Williams");
+            m75.Actors += ("Linda Larkin");
+            m75.Actors += ("Jonathan Freeman");
+            m75.Actors += ("Frank Welker");
+            m75.Actors += ("Gilbert Gottfried");
             db.Movies.AddOrUpdate(m => m.Title, m75);
             db.SaveChanges();
 
@@ -1736,12 +1736,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m76.Runtime = 85;
             m76.Tagline = "";
             m76.MPAARating = MPAARating.G;
-            m76.Actors.Add("Michael Caine");
-            m76.Actors.Add("Don Austen");
-            m76.Actors.Add("Meredith Braun");
-            m76.Actors.Add("Don Austen");
-            m76.Actors.Add("Ed Sanders");
-            m76.Actors.Add("Dave Goelz");
+            m76.Actors += ("Michael Caine");
+            m76.Actors += ("Don Austen");
+            m76.Actors += ("Meredith Braun");
+            m76.Actors += ("Don Austen");
+            m76.Actors += ("Ed Sanders");
+            m76.Actors += ("Dave Goelz");
             db.Movies.AddOrUpdate(m => m.Title, m76);
             db.SaveChanges();
 
@@ -1755,12 +1755,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m77.Runtime = 138;
             m77.Tagline = "You can't handle the truth!";
             m77.MPAARating = MPAARating.R;
-            m77.Actors.Add("Tom Cruise");
-            m77.Actors.Add("Jack Nicholson");
-            m77.Actors.Add("Demi Moore");
-            m77.Actors.Add("Kevin Bacon");
-            m77.Actors.Add("Kevin Pollak");
-            m77.Actors.Add("James Marshall");
+            m77.Actors += ("Tom Cruise");
+            m77.Actors += ("Jack Nicholson");
+            m77.Actors += ("Demi Moore");
+            m77.Actors += ("Kevin Bacon");
+            m77.Actors += ("Kevin Pollak");
+            m77.Actors += ("James Marshall");
             db.Movies.AddOrUpdate(m => m.Title, m77);
             db.SaveChanges();
 
@@ -1776,12 +1776,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m78.Runtime = 127;
             m78.Tagline = "An adventure 65 million years in the making.";
             m78.MPAARating = MPAARating.PG;
-            m78.Actors.Add("Sam Neill");
-            m78.Actors.Add("Laura Dern");
-            m78.Actors.Add("Jeff Goldblum");
-            m78.Actors.Add("Richard Attenborough");
-            m78.Actors.Add("Bob Peck");
-            m78.Actors.Add("Martin Ferrero");
+            m78.Actors += ("Sam Neill");
+            m78.Actors += ("Laura Dern");
+            m78.Actors += ("Jeff Goldblum");
+            m78.Actors += ("Richard Attenborough");
+            m78.Actors += ("Bob Peck");
+            m78.Actors += ("Martin Ferrero");
             db.Movies.AddOrUpdate(m => m.Title, m78);
             db.SaveChanges();
 
@@ -1799,12 +1799,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m79.Runtime = 96;
             m79.Tagline = "It's just a bunch of Hocus Pocus.";
             m79.MPAARating = MPAARating.PG;
-            m79.Actors.Add("Bette Midler");
-            m79.Actors.Add("Sarah Jessica Parker");
-            m79.Actors.Add("Kathy Najimy");
-            m79.Actors.Add("Omri Katz");
-            m79.Actors.Add("Thora Birch");
-            m79.Actors.Add("Vinessa Shaw");
+            m79.Actors += ("Bette Midler");
+            m79.Actors += ("Sarah Jessica Parker");
+            m79.Actors += ("Kathy Najimy");
+            m79.Actors += ("Omri Katz");
+            m79.Actors += ("Thora Birch");
+            m79.Actors += ("Vinessa Shaw");
             db.Movies.AddOrUpdate(m => m.Title, m79);
             db.SaveChanges();
 
@@ -1820,12 +1820,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m80.Runtime = 102;
             m80.Tagline = "See it with a bud.";
             m80.MPAARating = MPAARating.R;
-            m80.Actors.Add("Jason London");
-            m80.Actors.Add("Rory Cochrane");
-            m80.Actors.Add("Wiley Wiggins");
-            m80.Actors.Add("Sasha Jenson");
-            m80.Actors.Add("Michelle Burke");
-            m80.Actors.Add("Adam Goldberg");
+            m80.Actors += ("Jason London");
+            m80.Actors += ("Rory Cochrane");
+            m80.Actors += ("Wiley Wiggins");
+            m80.Actors += ("Sasha Jenson");
+            m80.Actors += ("Michelle Burke");
+            m80.Actors += ("Adam Goldberg");
             db.Movies.AddOrUpdate(m => m.Title, m80);
             db.SaveChanges();
 
@@ -1843,12 +1843,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m81.Runtime = 117;
             m81.Tagline = "Five good reasons to stay single.";
             m81.MPAARating = MPAARating.R;
-            m81.Actors.Add("Hugh Grant");
-            m81.Actors.Add("Andie MacDowell");
-            m81.Actors.Add("James Fleet");
-            m81.Actors.Add("Simon Callow");
-            m81.Actors.Add("John Hannah");
-            m81.Actors.Add("Kristin Scott Thomas");
+            m81.Actors += ("Hugh Grant");
+            m81.Actors += ("Andie MacDowell");
+            m81.Actors += ("James Fleet");
+            m81.Actors += ("Simon Callow");
+            m81.Actors += ("John Hannah");
+            m81.Actors += ("Kristin Scott Thomas");
             db.Movies.AddOrUpdate(m => m.Title, m81);
             db.SaveChanges();
 
@@ -1866,12 +1866,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m82.Runtime = 89;
             m82.Tagline = "Life's greatest adventure is finding your place in the Circle of Life.";
             m82.MPAARating = MPAARating.G;
-            m82.Actors.Add("Jonathan Taylor Thomas");
-            m82.Actors.Add("Matthew Broderick");
-            m82.Actors.Add("James Earl Jones");
-            m82.Actors.Add("Jeremy Irons");
-            m82.Actors.Add("Moira Kelly");
-            m82.Actors.Add("Niketa Calame");
+            m82.Actors += ("Jonathan Taylor Thomas");
+            m82.Actors += ("Matthew Broderick");
+            m82.Actors += ("James Earl Jones");
+            m82.Actors += ("Jeremy Irons");
+            m82.Actors += ("Moira Kelly");
+            m82.Actors += ("Niketa Calame");
             db.Movies.AddOrUpdate(m => m.Title, m82);
             db.SaveChanges();
 
@@ -1889,12 +1889,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m83.Runtime = 142;
             m83.Tagline = "The world will never be the same, once you've seen it through the eyes of Forrest Gump.";
             m83.MPAARating = MPAARating.PG;
-            m83.Actors.Add("Tom Hanks");
-            m83.Actors.Add("Robin Wright");
-            m83.Actors.Add("Gary Sinise");
-            m83.Actors.Add("Mykelti Williamson");
-            m83.Actors.Add("Sally Field");
-            m83.Actors.Add("Michael Conner Humphreys");
+            m83.Actors += ("Tom Hanks");
+            m83.Actors += ("Robin Wright");
+            m83.Actors += ("Gary Sinise");
+            m83.Actors += ("Mykelti Williamson");
+            m83.Actors += ("Sally Field");
+            m83.Actors += ("Michael Conner Humphreys");
             db.Movies.AddOrUpdate(m => m.Title, m83);
             db.SaveChanges();
 
@@ -1910,12 +1910,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m84.Runtime = 142;
             m84.Tagline = "Fear can hold you prisoner. Hope can set you free.";
             m84.MPAARating = MPAARating.R;
-            m84.Actors.Add("Tim Robbins");
-            m84.Actors.Add("Morgan Freeman");
-            m84.Actors.Add("Bob Gunton");
-            m84.Actors.Add("Clancy Brown");
-            m84.Actors.Add("Mark Rolston");
-            m84.Actors.Add("James Whitmore");
+            m84.Actors += ("Tim Robbins");
+            m84.Actors += ("Morgan Freeman");
+            m84.Actors += ("Bob Gunton");
+            m84.Actors += ("Clancy Brown");
+            m84.Actors += ("Mark Rolston");
+            m84.Actors += ("James Whitmore");
             db.Movies.AddOrUpdate(m => m.Title, m84);
             db.SaveChanges();
 
@@ -1931,12 +1931,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m85.Runtime = 154;
             m85.Tagline = "Just because you are a character doesn't mean you have character.";
             m85.MPAARating = MPAARating.R;
-            m85.Actors.Add("John Travolta");
-            m85.Actors.Add("Samuel L. Jackson");
-            m85.Actors.Add("Uma Thurman");
-            m85.Actors.Add("Bruce Willis");
-            m85.Actors.Add("Ving Rhames");
-            m85.Actors.Add("Harvey Keitel");
+            m85.Actors += ("John Travolta");
+            m85.Actors += ("Samuel L. Jackson");
+            m85.Actors += ("Uma Thurman");
+            m85.Actors += ("Bruce Willis");
+            m85.Actors += ("Ving Rhames");
+            m85.Actors += ("Harvey Keitel");
             db.Movies.AddOrUpdate(m => m.Title, m85);
             db.SaveChanges();
 
@@ -1954,12 +1954,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m86.Runtime = 106;
             m86.Tagline = "Five Criminals. One Line Up. No Coincidence.";
             m86.MPAARating = MPAARating.R;
-            m86.Actors.Add("Stephen Baldwin");
-            m86.Actors.Add("Gabriel Byrne");
-            m86.Actors.Add("Chazz Palminteri");
-            m86.Actors.Add("Kevin Pollak");
-            m86.Actors.Add("Pete Postlethwaite");
-            m86.Actors.Add("Kevin Spacey");
+            m86.Actors += ("Stephen Baldwin");
+            m86.Actors += ("Gabriel Byrne");
+            m86.Actors += ("Chazz Palminteri");
+            m86.Actors += ("Kevin Pollak");
+            m86.Actors += ("Pete Postlethwaite");
+            m86.Actors += ("Kevin Spacey");
             db.Movies.AddOrUpdate(m => m.Title, m86);
             db.SaveChanges();
 
@@ -1977,12 +1977,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m87.Runtime = 81;
             m87.Tagline = "Hang on for the comedy that goes to infinity and beyond!";
             m87.MPAARating = MPAARating.G;
-            m87.Actors.Add("Tom Hanks");
-            m87.Actors.Add("Tim Allen");
-            m87.Actors.Add("Don Rickles");
-            m87.Actors.Add("Jim Varney");
-            m87.Actors.Add("Wallace Shawn");
-            m87.Actors.Add("John Ratzenberger");
+            m87.Actors += ("Tom Hanks");
+            m87.Actors += ("Tim Allen");
+            m87.Actors += ("Don Rickles");
+            m87.Actors += ("Jim Varney");
+            m87.Actors += ("Wallace Shawn");
+            m87.Actors += ("John Ratzenberger");
             db.Movies.AddOrUpdate(m => m.Title, m87);
             db.SaveChanges();
 
@@ -1998,12 +1998,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m88.Runtime = 136;
             m88.Tagline = "Lose your heart and come to your senses.";
             m88.MPAARating = MPAARating.PG;
-            m88.Actors.Add("Kate Winslet");
-            m88.Actors.Add("Emma Thompson");
-            m88.Actors.Add("Hugh Grant");
-            m88.Actors.Add("Tom Wilkinson");
-            m88.Actors.Add("Alan Rickman");
-            m88.Actors.Add("Imogen Stubbs");
+            m88.Actors += ("Kate Winslet");
+            m88.Actors += ("Emma Thompson");
+            m88.Actors += ("Hugh Grant");
+            m88.Actors += ("Tom Wilkinson");
+            m88.Actors += ("Alan Rickman");
+            m88.Actors += ("Imogen Stubbs");
             db.Movies.AddOrUpdate(m => m.Title, m88);
             db.SaveChanges();
 
@@ -2021,12 +2021,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m89.Runtime = 110;
             m89.Tagline = "Expect the Impossible.";
             m89.MPAARating = MPAARating.PG;
-            m89.Actors.Add("Tom Cruise");
-            m89.Actors.Add("Jon Voight");
-            m89.Actors.Add("Emmanuelle Beart");
-            m89.Actors.Add("Henry Czerny");
-            m89.Actors.Add("Jean Reno");
-            m89.Actors.Add("Ving Rhames");
+            m89.Actors += ("Tom Cruise");
+            m89.Actors += ("Jon Voight");
+            m89.Actors += ("Emmanuelle Beart");
+            m89.Actors += ("Henry Czerny");
+            m89.Actors += ("Jean Reno");
+            m89.Actors += ("Ving Rhames");
             db.Movies.AddOrUpdate(m => m.Title, m89);
             db.SaveChanges();
 
@@ -2044,12 +2044,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m90.Runtime = 145;
             m90.Tagline = "Earth. Take a good look. It might be your last.";
             m90.MPAARating = MPAARating.PG;
-            m90.Actors.Add("Will Smith");
-            m90.Actors.Add("Bill Pullman");
-            m90.Actors.Add("Jeff Goldblum");
-            m90.Actors.Add("Mary McDonnell");
-            m90.Actors.Add("Judd Hirsch");
-            m90.Actors.Add("Robert Loggia");
+            m90.Actors += ("Will Smith");
+            m90.Actors += ("Bill Pullman");
+            m90.Actors += ("Jeff Goldblum");
+            m90.Actors += ("Mary McDonnell");
+            m90.Actors += ("Judd Hirsch");
+            m90.Actors += ("Robert Loggia");
             db.Movies.AddOrUpdate(m => m.Title, m90);
             db.SaveChanges();
 
@@ -2067,12 +2067,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m91.Runtime = 94;
             m91.Tagline = "If he were any cooler, he'd still be frozen, baby!";
             m91.MPAARating = MPAARating.PG;
-            m91.Actors.Add("Mike Myers");
-            m91.Actors.Add("Elizabeth Hurley");
-            m91.Actors.Add("Michael York");
-            m91.Actors.Add("Mimi Rogers");
-            m91.Actors.Add("Seth Green");
-            m91.Actors.Add("Fabiana Udenio");
+            m91.Actors += ("Mike Myers");
+            m91.Actors += ("Elizabeth Hurley");
+            m91.Actors += ("Michael York");
+            m91.Actors += ("Mimi Rogers");
+            m91.Actors += ("Seth Green");
+            m91.Actors += ("Fabiana Udenio");
             db.Movies.AddOrUpdate(m => m.Title, m91);
             db.SaveChanges();
 
@@ -2092,12 +2092,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m92.Runtime = 98;
             m92.Tagline = "Protecting the Earth from the scum of the universe.";
             m92.MPAARating = MPAARating.PG;
-            m92.Actors.Add("Tommy Lee Jones");
-            m92.Actors.Add("Will Smith");
-            m92.Actors.Add("Linda Fiorentino");
-            m92.Actors.Add("Vincent D'Onofrio");
-            m92.Actors.Add("Rip Torn");
-            m92.Actors.Add("Tony Shalhoub");
+            m92.Actors += ("Tommy Lee Jones");
+            m92.Actors += ("Will Smith");
+            m92.Actors += ("Linda Fiorentino");
+            m92.Actors += ("Vincent D'Onofrio");
+            m92.Actors += ("Rip Torn");
+            m92.Actors += ("Tony Shalhoub");
             db.Movies.AddOrUpdate(m => m.Title, m92);
             db.SaveChanges();
 
@@ -2115,12 +2115,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m93.Runtime = 194;
             m93.Tagline = "Nothing on Earth could come between them.";
             m93.MPAARating = MPAARating.PG;
-            m93.Actors.Add("Kate Winslet");
-            m93.Actors.Add("Leonardo DiCaprio");
-            m93.Actors.Add("Frances Fisher");
-            m93.Actors.Add("Billy Zane");
-            m93.Actors.Add("Kathy Bates");
-            m93.Actors.Add("Gloria Stuart");
+            m93.Actors += ("Kate Winslet");
+            m93.Actors += ("Leonardo DiCaprio");
+            m93.Actors += ("Frances Fisher");
+            m93.Actors += ("Billy Zane");
+            m93.Actors += ("Kathy Bates");
+            m93.Actors += ("Gloria Stuart");
             db.Movies.AddOrUpdate(m => m.Title, m93);
             db.SaveChanges();
 
@@ -2136,12 +2136,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m94.Runtime = 117;
             m94.Tagline = "Times like these call for a Big Lebowski.";
             m94.MPAARating = MPAARating.R;
-            m94.Actors.Add("Jeff Bridges");
-            m94.Actors.Add("John Goodman");
-            m94.Actors.Add("Julianne Moore");
-            m94.Actors.Add("Steve Buscemi");
-            m94.Actors.Add("Philip Seymour Hoffman");
-            m94.Actors.Add("David Huddleston");
+            m94.Actors += ("Jeff Bridges");
+            m94.Actors += ("John Goodman");
+            m94.Actors += ("Julianne Moore");
+            m94.Actors += ("Steve Buscemi");
+            m94.Actors += ("Philip Seymour Hoffman");
+            m94.Actors += ("David Huddleston");
             db.Movies.AddOrUpdate(m => m.Title, m94);
             db.SaveChanges();
 
@@ -2157,12 +2157,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m95.Runtime = 122;
             m95.Tagline = "Love is the only inspiration.";
             m95.MPAARating = MPAARating.R;
-            m95.Actors.Add("Joseph Fiennes");
-            m95.Actors.Add("Gwyneth Paltrow");
-            m95.Actors.Add("Geoffrey Rush");
-            m95.Actors.Add("Tom Wilkinson");
-            m95.Actors.Add("Judi Dench");
-            m95.Actors.Add("Imelda Staunton");
+            m95.Actors += ("Joseph Fiennes");
+            m95.Actors += ("Gwyneth Paltrow");
+            m95.Actors += ("Geoffrey Rush");
+            m95.Actors += ("Tom Wilkinson");
+            m95.Actors += ("Judi Dench");
+            m95.Actors += ("Imelda Staunton");
             db.Movies.AddOrUpdate(m => m.Title, m95);
             db.SaveChanges();
 
@@ -2178,12 +2178,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m96.Runtime = 119;
             m96.Tagline = "Someone you pass on the street may already be the love of your life.";
             m96.MPAARating = MPAARating.PG;
-            m96.Actors.Add("Tom Hanks");
-            m96.Actors.Add("Meg Ryan");
-            m96.Actors.Add("Katie Sagona");
-            m96.Actors.Add("Greg Kinnear");
-            m96.Actors.Add("Parker Posey");
-            m96.Actors.Add("Jean Stapleton");
+            m96.Actors += ("Tom Hanks");
+            m96.Actors += ("Meg Ryan");
+            m96.Actors += ("Katie Sagona");
+            m96.Actors += ("Greg Kinnear");
+            m96.Actors += ("Parker Posey");
+            m96.Actors += ("Jean Stapleton");
             db.Movies.AddOrUpdate(m => m.Title, m96);
             db.SaveChanges();
 
@@ -2199,12 +2199,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m97.Runtime = 89;
             m97.Tagline = "Work sucks.";
             m97.MPAARating = MPAARating.R;
-            m97.Actors.Add("Ron Livingston");
-            m97.Actors.Add("Jennifer Aniston");
-            m97.Actors.Add("David Herman");
-            m97.Actors.Add("Ajay Naidu");
-            m97.Actors.Add("Diedrich Bader");
-            m97.Actors.Add("Stephen Root");
+            m97.Actors += ("Ron Livingston");
+            m97.Actors += ("Jennifer Aniston");
+            m97.Actors += ("David Herman");
+            m97.Actors += ("Ajay Naidu");
+            m97.Actors += ("Diedrich Bader");
+            m97.Actors += ("Stephen Root");
             db.Movies.AddOrUpdate(m => m.Title, m97);
             db.SaveChanges();
 
@@ -2222,12 +2222,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m98.Runtime = 124;
             m98.Tagline = "Can the most famous film star in the world fall for the man on the street?";
             m98.MPAARating = MPAARating.PG;
-            m98.Actors.Add("Julia Roberts");
-            m98.Actors.Add("Hugh Grant");
-            m98.Actors.Add("Gina McKee");
-            m98.Actors.Add("Tim McInnerny");
-            m98.Actors.Add("Rhys Ifans");
-            m98.Actors.Add("Emma Chambers");
+            m98.Actors += ("Julia Roberts");
+            m98.Actors += ("Hugh Grant");
+            m98.Actors += ("Gina McKee");
+            m98.Actors += ("Tim McInnerny");
+            m98.Actors += ("Rhys Ifans");
+            m98.Actors += ("Emma Chambers");
             db.Movies.AddOrUpdate(m => m.Title, m98);
             db.SaveChanges();
 
@@ -2245,12 +2245,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m99.Runtime = 92;
             m99.Tagline = "The toys are back!";
             m99.MPAARating = MPAARating.G;
-            m99.Actors.Add("Tom Hanks");
-            m99.Actors.Add("Tim Allen");
-            m99.Actors.Add("Joan Cusack");
-            m99.Actors.Add("Kelsey Grammer");
-            m99.Actors.Add("Don Rickles");
-            m99.Actors.Add("Jim Varney");
+            m99.Actors += ("Tom Hanks");
+            m99.Actors += ("Tim Allen");
+            m99.Actors += ("Joan Cusack");
+            m99.Actors += ("Kelsey Grammer");
+            m99.Actors += ("Don Rickles");
+            m99.Actors += ("Jim Varney");
             db.Movies.AddOrUpdate(m => m.Title, m99);
             db.SaveChanges();
 
@@ -2268,12 +2268,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m100.Runtime = 155;
             m100.Tagline = "A Hero Will Rise.";
             m100.MPAARating = MPAARating.R;
-            m100.Actors.Add("Russell Crowe");
-            m100.Actors.Add("Joaquin Phoenix");
-            m100.Actors.Add("Connie Nielsen");
-            m100.Actors.Add("Oliver Reed");
-            m100.Actors.Add("Richard Harris");
-            m100.Actors.Add("Derek Jacobi");
+            m100.Actors += ("Russell Crowe");
+            m100.Actors += ("Joaquin Phoenix");
+            m100.Actors += ("Connie Nielsen");
+            m100.Actors += ("Oliver Reed");
+            m100.Actors += ("Richard Harris");
+            m100.Actors += ("Derek Jacobi");
             db.Movies.AddOrUpdate(m => m.Title, m100);
             db.SaveChanges();
 
@@ -2291,12 +2291,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m101.Runtime = 118;
             m101.Tagline = "Ice Cold, Hot Wired.";
             m101.MPAARating = MPAARating.PG;
-            m101.Actors.Add("Nicolas Cage");
-            m101.Actors.Add("Angelina Jolie");
-            m101.Actors.Add("Giovanni Ribisi");
-            m101.Actors.Add("Delroy Lindo");
-            m101.Actors.Add("Will Patton");
-            m101.Actors.Add("Christopher Eccleston");
+            m101.Actors += ("Nicolas Cage");
+            m101.Actors += ("Angelina Jolie");
+            m101.Actors += ("Giovanni Ribisi");
+            m101.Actors += ("Delroy Lindo");
+            m101.Actors += ("Will Patton");
+            m101.Actors += ("Christopher Eccleston");
             db.Movies.AddOrUpdate(m => m.Title, m101);
             db.SaveChanges();
 
@@ -2314,12 +2314,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m102.Runtime = 104;
             m102.Tagline = "Evolution Begins";
             m102.MPAARating = MPAARating.PG;
-            m102.Actors.Add("Patrick Stewart");
-            m102.Actors.Add("Hugh Jackman");
-            m102.Actors.Add("Ian McKellen");
-            m102.Actors.Add("Halle Berry");
-            m102.Actors.Add("Famke Janssen");
-            m102.Actors.Add("James Marsden");
+            m102.Actors += ("Patrick Stewart");
+            m102.Actors += ("Hugh Jackman");
+            m102.Actors += ("Ian McKellen");
+            m102.Actors += ("Halle Berry");
+            m102.Actors += ("Famke Janssen");
+            m102.Actors += ("James Marsden");
             db.Movies.AddOrUpdate(m => m.Title, m102);
             db.SaveChanges();
 
@@ -2337,12 +2337,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m103.Runtime = 111;
             m103.Tagline = "Never Mess With An Agent In A Dress.";
             m103.MPAARating = MPAARating.PG;
-            m103.Actors.Add("Sandra Bullock");
-            m103.Actors.Add("Benjamin Bratt");
-            m103.Actors.Add("Michael Caine");
-            m103.Actors.Add("Candice Bergen");
-            m103.Actors.Add("William Shatner");
-            m103.Actors.Add("Ernie Hudson");
+            m103.Actors += ("Sandra Bullock");
+            m103.Actors += ("Benjamin Bratt");
+            m103.Actors += ("Michael Caine");
+            m103.Actors += ("Candice Bergen");
+            m103.Actors += ("William Shatner");
+            m103.Actors += ("Ernie Hudson");
             db.Movies.AddOrUpdate(m => m.Title, m103);
             db.SaveChanges();
 
@@ -2360,12 +2360,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m104.Runtime = 97;
             m104.Tagline = "Health Warning: Adopting Bridget's lifestyle could seriously damage your health.";
             m104.MPAARating = MPAARating.R;
-            m104.Actors.Add("Renee Zellweger");
-            m104.Actors.Add("Colin Firth");
-            m104.Actors.Add("Hugh Grant");
-            m104.Actors.Add("Gemma Jones");
-            m104.Actors.Add("Jim Broadbent");
-            m104.Actors.Add("James Callis");
+            m104.Actors += ("Renee Zellweger");
+            m104.Actors += ("Colin Firth");
+            m104.Actors += ("Hugh Grant");
+            m104.Actors += ("Gemma Jones");
+            m104.Actors += ("Jim Broadbent");
+            m104.Actors += ("James Callis");
             db.Movies.AddOrUpdate(m => m.Title, m104);
             db.SaveChanges();
 
@@ -2379,12 +2379,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m105.Runtime = 96;
             m105.Tagline = "Don't judge a book by its hair color!";
             m105.MPAARating = MPAARating.PG;
-            m105.Actors.Add("Reese Witherspoon");
-            m105.Actors.Add("Luke Wilson");
-            m105.Actors.Add("Selma Blair");
-            m105.Actors.Add("Matthew Davis");
-            m105.Actors.Add("Victor Garber");
-            m105.Actors.Add("Jennifer Coolidge");
+            m105.Actors += ("Reese Witherspoon");
+            m105.Actors += ("Luke Wilson");
+            m105.Actors += ("Selma Blair");
+            m105.Actors += ("Matthew Davis");
+            m105.Actors += ("Victor Garber");
+            m105.Actors += ("Jennifer Coolidge");
             db.Movies.AddOrUpdate(m => m.Title, m105);
             db.SaveChanges();
 
@@ -2402,12 +2402,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m106.Runtime = 92;
             m106.Tagline = "We Scare Because We Care.";
             m106.MPAARating = MPAARating.G;
-            m106.Actors.Add("John Goodman");
-            m106.Actors.Add("Billy Crystal");
-            m106.Actors.Add("Mary Gibbs");
-            m106.Actors.Add("Steve Buscemi");
-            m106.Actors.Add("James Coburn");
-            m106.Actors.Add("Jennifer Tilly");
+            m106.Actors += ("John Goodman");
+            m106.Actors += ("Billy Crystal");
+            m106.Actors += ("Mary Gibbs");
+            m106.Actors += ("Steve Buscemi");
+            m106.Actors += ("James Coburn");
+            m106.Actors += ("Jennifer Tilly");
             db.Movies.AddOrUpdate(m => m.Title, m106);
             db.SaveChanges();
 
@@ -2425,12 +2425,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m107.Runtime = 152;
             m107.Tagline = "Let the Magic Begin.";
             m107.MPAARating = MPAARating.PG;
-            m107.Actors.Add("Daniel Radcliffe");
-            m107.Actors.Add("Rupert Grint");
-            m107.Actors.Add("Emma Watson");
-            m107.Actors.Add("Richard Harris");
-            m107.Actors.Add("Tom Felton");
-            m107.Actors.Add("Robbie Coltrane");
+            m107.Actors += ("Daniel Radcliffe");
+            m107.Actors += ("Rupert Grint");
+            m107.Actors += ("Emma Watson");
+            m107.Actors += ("Richard Harris");
+            m107.Actors += ("Tom Felton");
+            m107.Actors += ("Robbie Coltrane");
             db.Movies.AddOrUpdate(m => m.Title, m107);
             db.SaveChanges();
 
@@ -2446,12 +2446,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m108.Runtime = 116;
             m108.Tagline = "Are you in or out?";
             m108.MPAARating = MPAARating.PG;
-            m108.Actors.Add("George Clooney");
-            m108.Actors.Add("Brad Pitt");
-            m108.Actors.Add("Matt Damon");
-            m108.Actors.Add("Andy Garcia");
-            m108.Actors.Add("Julia Roberts");
-            m108.Actors.Add("Casey Affleck");
+            m108.Actors += ("George Clooney");
+            m108.Actors += ("Brad Pitt");
+            m108.Actors += ("Matt Damon");
+            m108.Actors += ("Andy Garcia");
+            m108.Actors += ("Julia Roberts");
+            m108.Actors += ("Casey Affleck");
             db.Movies.AddOrUpdate(m => m.Title, m108);
             db.SaveChanges();
 
@@ -2469,12 +2469,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m109.Runtime = 161;
             m109.Tagline = "Hogwarts is back in session.";
             m109.MPAARating = MPAARating.PG;
-            m109.Actors.Add("Daniel Radcliffe");
-            m109.Actors.Add("Rupert Grint");
-            m109.Actors.Add("Emma Watson");
-            m109.Actors.Add("Richard Harris");
-            m109.Actors.Add("Alan Rickman");
-            m109.Actors.Add("Tom Felton");
+            m109.Actors += ("Daniel Radcliffe");
+            m109.Actors += ("Rupert Grint");
+            m109.Actors += ("Emma Watson");
+            m109.Actors += ("Richard Harris");
+            m109.Actors += ("Alan Rickman");
+            m109.Actors += ("Tom Felton");
             db.Movies.AddOrUpdate(m => m.Title, m109);
             db.SaveChanges();
 
@@ -2490,12 +2490,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m110.Runtime = 100;
             m110.Tagline = "There are 3.7 trillion fish in the ocean, they're looking for one.";
             m110.MPAARating = MPAARating.G;
-            m110.Actors.Add("Albert Brooks");
-            m110.Actors.Add("Ellen DeGeneres");
-            m110.Actors.Add("Alexander Gould");
-            m110.Actors.Add("Willem Dafoe");
-            m110.Actors.Add("Brad Garrett");
-            m110.Actors.Add("Allison Janney");
+            m110.Actors += ("Albert Brooks");
+            m110.Actors += ("Ellen DeGeneres");
+            m110.Actors += ("Alexander Gould");
+            m110.Actors += ("Willem Dafoe");
+            m110.Actors += ("Brad Garrett");
+            m110.Actors += ("Allison Janney");
             db.Movies.AddOrUpdate(m => m.Title, m110);
             db.SaveChanges();
 
@@ -2513,12 +2513,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m111.Runtime = 135;
             m111.Tagline = "The ultimate romantic comedy.";
             m111.MPAARating = MPAARating.R;
-            m111.Actors.Add("Keira Knightley");
-            m111.Actors.Add("Heike Makatsch");
-            m111.Actors.Add("Emma Thompson");
-            m111.Actors.Add("Laura Linney");
-            m111.Actors.Add("Hugh Grant");
-            m111.Actors.Add("January Jones");
+            m111.Actors += ("Keira Knightley");
+            m111.Actors += ("Heike Makatsch");
+            m111.Actors += ("Emma Thompson");
+            m111.Actors += ("Laura Linney");
+            m111.Actors += ("Hugh Grant");
+            m111.Actors += ("January Jones");
             db.Movies.AddOrUpdate(m => m.Title, m111);
             db.SaveChanges();
 
@@ -2536,12 +2536,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m112.Runtime = 97;
             m112.Tagline = "This holiday, discover your inner elf.";
             m112.MPAARating = MPAARating.PG;
-            m112.Actors.Add("Will Ferrell");
-            m112.Actors.Add("James Caan");
-            m112.Actors.Add("Zooey Deschanel");
-            m112.Actors.Add("Mary Steenburgen");
-            m112.Actors.Add("Daniel Tay");
-            m112.Actors.Add("Ed Asner");
+            m112.Actors += ("Will Ferrell");
+            m112.Actors += ("James Caan");
+            m112.Actors += ("Zooey Deschanel");
+            m112.Actors += ("Mary Steenburgen");
+            m112.Actors += ("Daniel Tay");
+            m112.Actors += ("Ed Asner");
             db.Movies.AddOrUpdate(m => m.Title, m112);
             db.SaveChanges();
 
@@ -2555,12 +2555,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m113.Runtime = 97;
             m113.Tagline = "Welcome to girl world.";
             m113.MPAARating = MPAARating.PG;
-            m113.Actors.Add("Lindsay Lohan");
-            m113.Actors.Add("Rachel McAdams");
-            m113.Actors.Add("Tim Meadows");
-            m113.Actors.Add("Ana Gasteyer");
-            m113.Actors.Add("Amy Poehler");
-            m113.Actors.Add("Tina Fey");
+            m113.Actors += ("Lindsay Lohan");
+            m113.Actors += ("Rachel McAdams");
+            m113.Actors += ("Tim Meadows");
+            m113.Actors += ("Ana Gasteyer");
+            m113.Actors += ("Amy Poehler");
+            m113.Actors += ("Tina Fey");
             db.Movies.AddOrUpdate(m => m.Title, m113);
             db.SaveChanges();
 
@@ -2578,12 +2578,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m114.Runtime = 141;
             m114.Tagline = "Something wicked this way comes.";
             m114.MPAARating = MPAARating.PG;
-            m114.Actors.Add("Daniel Radcliffe");
-            m114.Actors.Add("Rupert Grint");
-            m114.Actors.Add("Emma Watson");
-            m114.Actors.Add("Gary Oldman");
-            m114.Actors.Add("David Thewlis");
-            m114.Actors.Add("Alan Rickman");
+            m114.Actors += ("Daniel Radcliffe");
+            m114.Actors += ("Rupert Grint");
+            m114.Actors += ("Emma Watson");
+            m114.Actors += ("Gary Oldman");
+            m114.Actors += ("David Thewlis");
+            m114.Actors += ("Alan Rickman");
             db.Movies.AddOrUpdate(m => m.Title, m114);
             db.SaveChanges();
 
@@ -2601,12 +2601,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m115.Runtime = 157;
             m115.Tagline = "Dark And Difficult Times Lie Ahead.";
             m115.MPAARating = MPAARating.PG;
-            m115.Actors.Add("Daniel Radcliffe");
-            m115.Actors.Add("Rupert Grint");
-            m115.Actors.Add("Emma Watson");
-            m115.Actors.Add("Ralph Fiennes");
-            m115.Actors.Add("Michael Gambon");
-            m115.Actors.Add("Alan Rickman");
+            m115.Actors += ("Daniel Radcliffe");
+            m115.Actors += ("Rupert Grint");
+            m115.Actors += ("Emma Watson");
+            m115.Actors += ("Ralph Fiennes");
+            m115.Actors += ("Michael Gambon");
+            m115.Actors += ("Alan Rickman");
             db.Movies.AddOrUpdate(m => m.Title, m115);
             db.SaveChanges();
 
@@ -2626,12 +2626,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m116.Runtime = 117;
             m116.Tagline = "Ahhh... it's got that new movie smell.";
             m116.MPAARating = MPAARating.G;
-            m116.Actors.Add("Owen Wilson");
-            m116.Actors.Add("Paul Newman");
-            m116.Actors.Add("Bonnie Hunt");
-            m116.Actors.Add("Larry the Cable Guy");
-            m116.Actors.Add("Tony Shalhoub");
-            m116.Actors.Add("Cheech Marin");
+            m116.Actors += ("Owen Wilson");
+            m116.Actors += ("Paul Newman");
+            m116.Actors += ("Bonnie Hunt");
+            m116.Actors += ("Larry the Cable Guy");
+            m116.Actors += ("Tony Shalhoub");
+            m116.Actors += ("Cheech Marin");
             db.Movies.AddOrUpdate(m => m.Title, m116);
             db.SaveChanges();
 
@@ -2649,12 +2649,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m117.Runtime = 151;
             m117.Tagline = "Lies. Betrayal. Sacrifice. How far will you take it?";
             m117.MPAARating = MPAARating.R;
-            m117.Actors.Add("Jack Nicholson");
-            m117.Actors.Add("Matt Damon");
-            m117.Actors.Add("Jack Nicholson");
-            m117.Actors.Add("Mark Wahlberg");
-            m117.Actors.Add("Martin Sheen");
-            m117.Actors.Add("Ray Winstone");
+            m117.Actors += ("Jack Nicholson");
+            m117.Actors += ("Matt Damon");
+            m117.Actors += ("Jack Nicholson");
+            m117.Actors += ("Mark Wahlberg");
+            m117.Actors += ("Martin Sheen");
+            m117.Actors += ("Ray Winstone");
             db.Movies.AddOrUpdate(m => m.Title, m117);
             db.SaveChanges();
 
@@ -2674,12 +2674,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m118.Runtime = 111;
             m118.Tagline = "He's dying to become a chef.";
             m118.MPAARating = MPAARating.G;
-            m118.Actors.Add("Patton Oswalt");
-            m118.Actors.Add("Ian Holm");
-            m118.Actors.Add("Lou Romano");
-            m118.Actors.Add("Brian Dennehy");
-            m118.Actors.Add("Peter Sohn");
-            m118.Actors.Add("Peter O'Toole");
+            m118.Actors += ("Patton Oswalt");
+            m118.Actors += ("Ian Holm");
+            m118.Actors += ("Lou Romano");
+            m118.Actors += ("Brian Dennehy");
+            m118.Actors += ("Peter Sohn");
+            m118.Actors += ("Peter O'Toole");
             db.Movies.AddOrUpdate(m => m.Title, m118);
             db.SaveChanges();
 
@@ -2697,12 +2697,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m119.Runtime = 144;
             m119.Tagline = "Their war. Our world.";
             m119.MPAARating = MPAARating.PG;
-            m119.Actors.Add("Shia LaBeouf");
-            m119.Actors.Add("Josh Duhamel");
-            m119.Actors.Add("Megan Fox");
-            m119.Actors.Add("Rachael Taylor");
-            m119.Actors.Add("Tyrese Gibson");
-            m119.Actors.Add("Jon Voight");
+            m119.Actors += ("Shia LaBeouf");
+            m119.Actors += ("Josh Duhamel");
+            m119.Actors += ("Megan Fox");
+            m119.Actors += ("Rachael Taylor");
+            m119.Actors += ("Tyrese Gibson");
+            m119.Actors += ("Jon Voight");
             db.Movies.AddOrUpdate(m => m.Title, m119);
             db.SaveChanges();
 
@@ -2722,12 +2722,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m120.Runtime = 138;
             m120.Tagline = "Evil Must Be Confronted.";
             m120.MPAARating = MPAARating.PG;
-            m120.Actors.Add("Daniel Radcliffe");
-            m120.Actors.Add("Rupert Grint");
-            m120.Actors.Add("Emma Watson");
-            m120.Actors.Add("Michael Gambon");
-            m120.Actors.Add("Ralph Fiennes");
-            m120.Actors.Add("Tom Felton");
+            m120.Actors += ("Daniel Radcliffe");
+            m120.Actors += ("Rupert Grint");
+            m120.Actors += ("Emma Watson");
+            m120.Actors += ("Michael Gambon");
+            m120.Actors += ("Ralph Fiennes");
+            m120.Actors += ("Tom Felton");
             db.Movies.AddOrUpdate(m => m.Title, m120);
             db.SaveChanges();
 
@@ -2747,12 +2747,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m121.Runtime = 152;
             m121.Tagline = "Why So Serious?";
             m121.MPAARating = MPAARating.PG;
-            m121.Actors.Add("Christian Bale");
-            m121.Actors.Add("Heath Ledger");
-            m121.Actors.Add("Aaron Eckhart");
-            m121.Actors.Add("Michael Caine");
-            m121.Actors.Add("Maggie Gyllenhaal");
-            m121.Actors.Add("Gary Oldman");
+            m121.Actors += ("Christian Bale");
+            m121.Actors += ("Heath Ledger");
+            m121.Actors += ("Aaron Eckhart");
+            m121.Actors += ("Michael Caine");
+            m121.Actors += ("Maggie Gyllenhaal");
+            m121.Actors += ("Gary Oldman");
             db.Movies.AddOrUpdate(m => m.Title, m121);
             db.SaveChanges();
 
@@ -2770,12 +2770,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m122.Runtime = 127;
             m122.Tagline = "The future begins.";
             m122.MPAARating = MPAARating.PG;
-            m122.Actors.Add("Chris Pine");
-            m122.Actors.Add("Zachary Quinto");
-            m122.Actors.Add("Leonard Nimoy");
-            m122.Actors.Add("Eric Bana");
-            m122.Actors.Add("Bruce Greenwood");
-            m122.Actors.Add("Karl Urban");
+            m122.Actors += ("Chris Pine");
+            m122.Actors += ("Zachary Quinto");
+            m122.Actors += ("Leonard Nimoy");
+            m122.Actors += ("Eric Bana");
+            m122.Actors += ("Bruce Greenwood");
+            m122.Actors += ("Karl Urban");
             db.Movies.AddOrUpdate(m => m.Title, m122);
             db.SaveChanges();
 
@@ -2795,12 +2795,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m123.Runtime = 96;
             m123.Tagline = "Fly Up to Venezuela";
             m123.MPAARating = MPAARating.PG;
-            m123.Actors.Add("Ed Asner");
-            m123.Actors.Add("Christopher Plummer");
-            m123.Actors.Add("Jordan Nagai");
-            m123.Actors.Add("Bob Peterson");
-            m123.Actors.Add("Delroy Lindo");
-            m123.Actors.Add("Jerome Ranft");
+            m123.Actors += ("Ed Asner");
+            m123.Actors += ("Christopher Plummer");
+            m123.Actors += ("Jordan Nagai");
+            m123.Actors += ("Bob Peterson");
+            m123.Actors += ("Delroy Lindo");
+            m123.Actors += ("Jerome Ranft");
             db.Movies.AddOrUpdate(m => m.Title, m123);
             db.SaveChanges();
 
@@ -2818,12 +2818,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m124.Runtime = 153;
             m124.Tagline = "Dark Secrets Revealed";
             m124.MPAARating = MPAARating.PG;
-            m124.Actors.Add("Daniel Radcliffe");
-            m124.Actors.Add("Rupert Grint");
-            m124.Actors.Add("Emma Watson");
-            m124.Actors.Add("Tom Felton");
-            m124.Actors.Add("Michael Gambon");
-            m124.Actors.Add("Jim Broadbent");
+            m124.Actors += ("Daniel Radcliffe");
+            m124.Actors += ("Rupert Grint");
+            m124.Actors += ("Emma Watson");
+            m124.Actors += ("Tom Felton");
+            m124.Actors += ("Michael Gambon");
+            m124.Actors += ("Jim Broadbent");
             db.Movies.AddOrUpdate(m => m.Title, m124);
             db.SaveChanges();
 
@@ -2843,12 +2843,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m125.Runtime = 97;
             m125.Tagline = "Every Love Story Begins With a Kiss...";
             m125.MPAARating = MPAARating.G;
-            m125.Actors.Add("Anika Noni Rose");
-            m125.Actors.Add("Bruno Campos");
-            m125.Actors.Add("Keith David");
-            m125.Actors.Add("Michael-Leon Wooley");
-            m125.Actors.Add("Jennifer Cody");
-            m125.Actors.Add("Jim Cummings");
+            m125.Actors += ("Anika Noni Rose");
+            m125.Actors += ("Bruno Campos");
+            m125.Actors += ("Keith David");
+            m125.Actors += ("Michael-Leon Wooley");
+            m125.Actors += ("Jennifer Cody");
+            m125.Actors += ("Jim Cummings");
             db.Movies.AddOrUpdate(m => m.Title, m125);
             db.SaveChanges();
 
@@ -2868,12 +2868,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m126.Runtime = 162;
             m126.Tagline = "Enter the World of Pandora.";
             m126.MPAARating = MPAARating.PG;
-            m126.Actors.Add("Sam Worthington");
-            m126.Actors.Add("Zoe Saldana");
-            m126.Actors.Add("Sigourney Weaver");
-            m126.Actors.Add("Stephen Lang");
-            m126.Actors.Add("Michelle Rodriguez");
-            m126.Actors.Add("Giovanni Ribisi");
+            m126.Actors += ("Sam Worthington");
+            m126.Actors += ("Zoe Saldana");
+            m126.Actors += ("Sigourney Weaver");
+            m126.Actors += ("Stephen Lang");
+            m126.Actors += ("Michelle Rodriguez");
+            m126.Actors += ("Giovanni Ribisi");
             db.Movies.AddOrUpdate(m => m.Title, m126);
             db.SaveChanges();
 
@@ -2891,12 +2891,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m127.Runtime = 103;
             m127.Tagline = "No toy gets left behind.";
             m127.MPAARating = MPAARating.G;
-            m127.Actors.Add("Tom Hanks");
-            m127.Actors.Add("Tim Allen");
-            m127.Actors.Add("Ned Beatty");
-            m127.Actors.Add("Joan Cusack");
-            m127.Actors.Add("Michael Keaton");
-            m127.Actors.Add("Whoopi Goldberg");
+            m127.Actors += ("Tom Hanks");
+            m127.Actors += ("Tim Allen");
+            m127.Actors += ("Ned Beatty");
+            m127.Actors += ("Joan Cusack");
+            m127.Actors += ("Michael Keaton");
+            m127.Actors += ("Whoopi Goldberg");
             db.Movies.AddOrUpdate(m => m.Title, m127);
             db.SaveChanges();
 
@@ -2912,12 +2912,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m128.Runtime = 118;
             m128.Tagline = "Find your voice.";
             m128.MPAARating = MPAARating.R;
-            m128.Actors.Add("Colin Firth");
-            m128.Actors.Add("Geoffrey Rush");
-            m128.Actors.Add("Helena Bonham Carter");
-            m128.Actors.Add("Guy Pearce");
-            m128.Actors.Add("Timothy Spall");
-            m128.Actors.Add("Michael Gambon");
+            m128.Actors += ("Colin Firth");
+            m128.Actors += ("Geoffrey Rush");
+            m128.Actors += ("Helena Bonham Carter");
+            m128.Actors += ("Guy Pearce");
+            m128.Actors += ("Timothy Spall");
+            m128.Actors += ("Michael Gambon");
             db.Movies.AddOrUpdate(m => m.Title, m128);
             db.SaveChanges();
 
@@ -2931,12 +2931,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m129.Runtime = 133;
             m129.Tagline = "What are you really worth?";
             m129.MPAARating = MPAARating.PG;
-            m129.Actors.Add("Brad Pitt");
-            m129.Actors.Add("Jonah Hill");
-            m129.Actors.Add("Philip Seymour Hoffman");
-            m129.Actors.Add("Robin Wright");
-            m129.Actors.Add("Chris Pratt");
-            m129.Actors.Add("Stephen Bishop");
+            m129.Actors += ("Brad Pitt");
+            m129.Actors += ("Jonah Hill");
+            m129.Actors += ("Philip Seymour Hoffman");
+            m129.Actors += ("Robin Wright");
+            m129.Actors += ("Chris Pratt");
+            m129.Actors += ("Stephen Bishop");
             db.Movies.AddOrUpdate(m => m.Title, m129);
             db.SaveChanges();
 
@@ -2960,12 +2960,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m130.Runtime = 93;
             m130.Tagline = "Change your fate.";
             m130.MPAARating = MPAARating.PG;
-            m130.Actors.Add("Kelly Macdonald");
-            m130.Actors.Add("Julie Walters");
-            m130.Actors.Add("Billy Connolly");
-            m130.Actors.Add("Emma Thompson");
-            m130.Actors.Add("Kevin McKidd");
-            m130.Actors.Add("Craig Ferguson");
+            m130.Actors += ("Kelly Macdonald");
+            m130.Actors += ("Julie Walters");
+            m130.Actors += ("Billy Connolly");
+            m130.Actors += ("Emma Thompson");
+            m130.Actors += ("Kevin McKidd");
+            m130.Actors += ("Craig Ferguson");
             db.Movies.AddOrUpdate(m => m.Title, m130);
             db.SaveChanges();
 
@@ -2983,12 +2983,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m131.Runtime = 112;
             m131.Tagline = "Get pitch slapped.";
             m131.MPAARating = MPAARating.PG;
-            m131.Actors.Add("Anna Kendrick");
-            m131.Actors.Add("Skylar Astin");
-            m131.Actors.Add("Brittany Snow");
-            m131.Actors.Add("Anna Camp");
-            m131.Actors.Add("Rebel Wilson");
-            m131.Actors.Add("Ben Platt");
+            m131.Actors += ("Anna Kendrick");
+            m131.Actors += ("Skylar Astin");
+            m131.Actors += ("Brittany Snow");
+            m131.Actors += ("Anna Camp");
+            m131.Actors += ("Rebel Wilson");
+            m131.Actors += ("Ben Platt");
             db.Movies.AddOrUpdate(m => m.Title, m131);
             db.SaveChanges();
 
@@ -3010,12 +3010,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m132.Runtime = 100;
             m132.Tagline = "The story of a nobody who saved everybody.";
             m132.MPAARating = MPAARating.PG;
-            m132.Actors.Add("Chris Pratt");
-            m132.Actors.Add("Will Ferrell");
-            m132.Actors.Add("Elizabeth Banks");
-            m132.Actors.Add("Will Arnett");
-            m132.Actors.Add("Nick Offerman");
-            m132.Actors.Add("Alison Brie");
+            m132.Actors += ("Chris Pratt");
+            m132.Actors += ("Will Ferrell");
+            m132.Actors += ("Elizabeth Banks");
+            m132.Actors += ("Will Arnett");
+            m132.Actors += ("Nick Offerman");
+            m132.Actors += ("Alison Brie");
             db.Movies.AddOrUpdate(m => m.Title, m132);
             db.SaveChanges();
 
@@ -3033,12 +3033,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m133.Runtime = 121;
             m133.Tagline = "All heroes start somewhere.";
             m133.MPAARating = MPAARating.PG;
-            m133.Actors.Add("Chris Pratt");
-            m133.Actors.Add("Zoe Saldana");
-            m133.Actors.Add("Dave Bautista");
-            m133.Actors.Add("Vin Diesel");
-            m133.Actors.Add("Bradley Cooper");
-            m133.Actors.Add("Lee Pace");
+            m133.Actors += ("Chris Pratt");
+            m133.Actors += ("Zoe Saldana");
+            m133.Actors += ("Dave Bautista");
+            m133.Actors += ("Vin Diesel");
+            m133.Actors += ("Bradley Cooper");
+            m133.Actors += ("Lee Pace");
             db.Movies.AddOrUpdate(m => m.Title, m133);
             db.SaveChanges();
 
@@ -3052,12 +3052,12 @@ namespace LonghornCinemaFinalProject.Migrations
             m134.Runtime = 100;
             m134.Tagline = "Party like a mother.";
             m134.MPAARating = MPAARating.R;
-            m134.Actors.Add("Mila Kunis");
-            m134.Actors.Add("Kristen Bell");
-            m134.Actors.Add("Kathryn Hahn");
-            m134.Actors.Add("Christina Applegate");
-            m134.Actors.Add("Jada Pinkett Smith");
-            m134.Actors.Add("Annie Mumolo");
+            m134.Actors += ("Mila Kunis");
+            m134.Actors += ("Kristen Bell");
+            m134.Actors += ("Kathryn Hahn");
+            m134.Actors += ("Christina Applegate");
+            m134.Actors += ("Jada Pinkett Smith");
+            m134.Actors += ("Annie Mumolo");
             db.Movies.AddOrUpdate(m => m.Title, m134);
             db.SaveChanges();
 

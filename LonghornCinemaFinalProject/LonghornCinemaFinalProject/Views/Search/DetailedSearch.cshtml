@@ -30,8 +30,7 @@
         <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Less)Less than</label> @ViewBag.Message
     </div>
 
-    Actors:
-    @Html.ListBox("SearchActors", (MultiSelectList)ViewBag.AllActors, new { @class = "form-control" })
+    Actors: @Html.TextBox("SearchActor", null, new { @class = "form-control" })
 
     <input type="submit" value="Search" class="=" btn btn-default" />
 </p>

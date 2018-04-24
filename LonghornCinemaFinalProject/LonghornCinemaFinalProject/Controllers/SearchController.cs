@@ -34,11 +34,10 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             ViewBag.AllGenres = GetAllGenres();
             ViewBag.AllMPAARatings = GetAllMPAARatings();
-            ViewBag.AllActors = GetAllActors();
             return View();
         }
         
-        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Int32 SearchGenreID, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, List<String> SearchActors)
+        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Int32 SearchGenreID, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor)
         { // Update Actors and other fields to be multiselectable
             var query = from m in db.Movies
                         select m;
@@ -96,7 +95,6 @@ namespace LonghornCinemaFinalProject.Controllers
 
                     ViewBag.AllGenres = GetAllGenres();
                     ViewBag.AllMPAARatings = GetAllMPAARatings();
-                    ViewBag.AllActors = GetAllActors();
 
                     return View("DetailedSearch");
                 }
@@ -122,13 +120,10 @@ namespace LonghornCinemaFinalProject.Controllers
 
 
             // SearchActors for Movie Actors
-            if (SearchActors != null)
-                {
-                    foreach (String a in SearchActors) // TODO: change from AND to OR style search
-                    {
-                        query = query.Where(m => m.Actors.Contains(a));
-                    }
-                }
+            if (SearchActor != null)
+            {
+                query = query.Where(m => m.Actors.Contains(SearchActor));
+            }
 
             List<Movie> MoviesToDisplay = query.ToList();
 
@@ -168,24 +163,5 @@ namespace LonghornCinemaFinalProject.Controllers
             return AllRatings;
         }
 
-        public SelectList GetAllActors()
-        {
-            List<String> ActorsList = new List<String>();
-
-            //List<Movie> MovieList = db.Movies.Include("Actors").ToList();
-
-            //foreach (Movie m in MovieList)
-            //{
-            //    foreach (String a in m.Actors)
-            //    {
-            //        if (!ActorsList.Contains(a))
-            //        {
-            //            ActorsList.Add(a);
-            //        }
-            //    }
-            //}
-            SelectList AllActors = new SelectList(ActorsList);
-            return AllActors;
-        }
     }
 }
