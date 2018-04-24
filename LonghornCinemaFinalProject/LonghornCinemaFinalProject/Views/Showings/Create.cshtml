@@ -32,10 +32,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SpecialEvent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SpecialEventStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.SpecialEvent, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SpecialEvent, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.SpecialEventStatus, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SpecialEventStatus, "", new { @class = "text-danger" })
             </div>
         </div>
 

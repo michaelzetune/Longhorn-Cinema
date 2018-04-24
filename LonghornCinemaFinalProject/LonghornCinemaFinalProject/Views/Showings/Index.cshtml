@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<LonghornCinemaFinalProject.Models.Showing>
+@using LonghornCinemaFinalProject.Models
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Showings";
 }
 
 <h2>Index</h2>
@@ -12,19 +13,19 @@
 <table class="table">
     <tr>
         <th>
+            Movie
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EndTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SpecialEvent)
+            @Html.DisplayNameFor(model => model.SpecialEventStatus)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TheatreNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeatList)
         </th>
         <th></th>
     </tr>
@@ -32,19 +33,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Movie.Title)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.StartTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EndTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SpecialEvent)
+            @Html.DisplayFor(modelItem => item.SpecialEventStatus)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TheatreNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeatList)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ShowingID }) |
