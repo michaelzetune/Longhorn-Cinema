@@ -8,7 +8,7 @@ namespace LonghornCinemaFinalProject.Utilities
 {
     public class GenerateTicketPrice
     {
-        public static Decimal GetTicketPrice()
+        public static Decimal GetTicketPrice(DateTime ShowDate)
 
         {
 
@@ -20,12 +20,13 @@ namespace LonghornCinemaFinalProject.Utilities
             decimal decTicketPrice;
 
             //Initiate bol values to figure out what day/time it is
-            Boolean bolWeekday; //Variable to check whether the current day is a Weekday(M-F)
-            Boolean bolMatinee; //Variable to check whether current time < 12:00pm
-            Boolean bolFriday; //Variable to check whether current day is Friday, because half of friday is the weekend
-            Boolean bolTuesday; //Variable to check whether it is a discount day or not
+            Boolean bolWeekday = false; //Variable to check whether the current day is a Weekday(M-F)
+            Boolean bolMatinee = false; //Variable to check whether current time < 12:00pm
+            Boolean bolFriday = false; //Variable to check whether current day is Friday, because half of friday is the weekend
+            Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
 
             //Convert date of showing to be able to compare and populate booleans
+            
 
             //Filter and process through booleans, Call data from Ticket Price, and assign appropriate values to decTicketPrice
 
