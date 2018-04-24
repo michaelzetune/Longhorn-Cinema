@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LonghornCinemaFinalProject.DAL;
+using System.Text;
+using System.Data.Objects;
+using System.Globalization;
+using System.Data.EntityClient;
+using System.Data.SqlClient;
+using System.Data.Commo;
 
 namespace LonghornCinemaFinalProject.Utilities
 {
@@ -18,6 +24,8 @@ namespace LonghornCinemaFinalProject.Utilities
 
             //Create return value 
             decimal decTicketPrice;
+            //Create Max MoviePriceID to be able and filter the most recent update to movie price
+            Int32 intMaxMoviePriceID;
 
             //Initiate bol values to figure out what day/time it is
             Boolean bolWeekday = false; //Variable to check whether the current day is a Weekday(M-F)
@@ -26,11 +34,22 @@ namespace LonghornCinemaFinalProject.Utilities
             Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
 
             //Convert date of showing to be able to compare and populate booleans
-            
+            intMaxMoviePriceID = from c in db.MoviePrice select c.MoviePriceID.max;
+            var query = where(x => x.MoviePriceID == intMaxMoviePriceID);
+
+            //Get values from the most recent record of the MoviePriceID
+            Decimal decMoviePriceMat = query.decMatineePrice;
+            Decimal decMoviePriceWeek = query.decWeekPrice;
+            Decimal decMoviePriceWeeknd = query.decWeekendPrice;
+            Decimal decMoviePriceTues = query.decTuesdayPrice;
 
             //Filter and process through booleans, Call data from Ticket Price, and assign appropriate values to decTicketPrice
 
-            db.Tickets.StartTime
+            if (bolTuesday)
+            {
+                //decTicketPrice == discountday
+            }
+
 
             if (db.Orders.Count() == 0) //there are no registrations in the database yet
 
