@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Gutierrez_Samuel_HW7.DAL;
-using Gutierrez_Samuel_HW7.Models;
+using LonghornCinemaFinalProject.DAL;
+using LonghornCinemaFinalProject.Models;
 
-namespace Gutierrez_Samuel_HW7.Utilities
+namespace LonghornCinemaFinalProject.Utilities
 {
     public class GenerateSKUNumber
     {

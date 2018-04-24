@@ -69,7 +69,7 @@ namespace LonghornCinemaFinalProject.Controllers
                     DateTime YearInDateTime = DateTime.Parse("Jan 1, " + SearchYear);
                     query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
                 }
-                catch (Exception e)
+                catch (Exception)
                 { Console.WriteLine("Exception with SearchYear"); }
             }  
               
@@ -169,7 +169,9 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             List<String> ActorsList = new List<String>();
 
-            foreach (Movie m in db.Movies.ToList())
+            List<Movie> MovieList = db.Movies.Include("Actors").ToList();
+
+            foreach (Movie m in MovieList)
             {
                 foreach (String a in m.Actors)
                 {
@@ -179,7 +181,6 @@ namespace LonghornCinemaFinalProject.Controllers
                     }
                 }
             }
-
             SelectList AllActors = new SelectList(ActorsList);
             return AllActors;
         }
