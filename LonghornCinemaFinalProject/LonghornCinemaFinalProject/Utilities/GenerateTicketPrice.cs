@@ -32,9 +32,10 @@ namespace LonghornCinemaFinalProject.Utilities
             Boolean bolMatinee = false; //Variable to check whether current time < 12:00pm
             Boolean bolFriday = false; //Variable to check whether current day is Friday, because half of friday is the weekend
             Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
+            Boolean bolBefore5 = false; //Variable to check whether it is = or < 5pm
 
             //Convert date of showing to be able to compare and populate booleans
-            intMaxMoviePriceID = from c in db.MoviePrice select c.MoviePriceID.max;
+            intMaxMoviePriceID = from c in db.MoviePrice select c.MoviePriceID.max();
             var query = where(x => x.MoviePriceID == intMaxMoviePriceID);
 
             //Get values from the most recent record of the MoviePriceID
@@ -43,30 +44,29 @@ namespace LonghornCinemaFinalProject.Utilities
             Decimal decMoviePriceWeeknd = query.decWeekendPrice;
             Decimal decMoviePriceTues = query.decTuesdayPrice;
 
+            //Convert showtime date into a comparable type 
+
+            //Use Decisions statements to accurately populate booleans
+
             //Filter and process through booleans, Call data from Ticket Price, and assign appropriate values to decTicketPrice
-
-            if (bolTuesday)
+            if ((bolTuesday) && (bolBefor5))  // Check if discount rate applies (Tuesday and before 5pm)
             {
-                //decTicketPrice == discountday
+                decTicketPrice == decMoviePriceTues;
+            }
+            else if (!(bolWeekday) || (bolFriday && !(bolMatinee)))  //Check if it is a weekend (friday > 12pm through Sunday evening)
+            {
+                decTicketPrice == decMoviePriceWeeknd;
+            }
+            else if (bolMatinee) //Checks if time is before 12pm and through process of elimination falls on a weekday
+            {
+                decTicketPrice == decMoviePriceMat;
+            }
+            else //Handles all weekdays after 12pm
+            {
+                decTicketPrice == decMoviePriceWeek;
             }
 
-
-            if (db.Orders.Count() == 0) //there are no registrations in the database yet
-
-            {
-
-                intMaxOrderNumber = 5000; //registration numbers start at 101
-
-            }
-
-            else
-
-            {
-
-                intMaxOrderNumber = db.Orders.Max(c => c.OrderNumber); //this is the highest number in the database right now
-
-            }
-
+           
 
 
             //add one to the current max to find the next one
