@@ -5,7 +5,7 @@
     ViewBag.Title = "Showings";
 }
 
-<h2>Index</h2>
+<h2>Showings</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -42,10 +42,16 @@
             @Html.DisplayFor(modelItem => item.EndTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SpecialEventStatus)
+            @if(item.SpecialEventStatus == SpecialEvent.NotSpecial)
+            { <p>No</p>}
+            @if(item.SpecialEventStatus == SpecialEvent.Special)
+            { <p>Yes</p>}
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TheatreNum)
+            @if(item.TheatreNum == Theatre.TheatreOne)
+            { <p>1</p>}
+            @if(item.TheatreNum == Theatre.TheatreTwo)
+            { <p>2</p>}
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ShowingID }) |

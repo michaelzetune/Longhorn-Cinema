@@ -39,6 +39,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: Showings/Create
         public ActionResult Create()
         {
+            ViewBag.AllMoviesList = GetAllMovies();
             return View();
         }
 
@@ -47,10 +48,13 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShowingID,StartTime,EndTime,SpecialEvent,TheatreNum,SeatList")] Showing showing)
+        public ActionResult Create([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList,MovieID")] Showing showing, Int32 SearchMovieID)
         {
             if (ModelState.IsValid)
             {
+                Movie m = db.Movies.FirstOrDefault(x => x.MovieID == SearchMovieID);
+                showing.EndTime = showing.StartTime.AddMinutes(m.Runtime);
+                showing.Movie = m;
                 db.Showings.Add(showing);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,6 +75,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AllMoviesList = GetAllMovies();
             return View(showing);
         }
 
@@ -115,7 +120,13 @@ namespace LonghornCinemaFinalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public SelectList GetAllMovies()
+        {
+            List<Movie> Movies = db.Movies.ToList();
 
+            SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.Title), "MovieID", "Title");
+            return AllMovies;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
