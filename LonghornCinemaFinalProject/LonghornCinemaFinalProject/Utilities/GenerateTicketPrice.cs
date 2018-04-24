@@ -16,14 +16,11 @@ namespace LonghornCinemaFinalProject.Utilities
 
         {
             //we need a db context to connect to the database
-
             AppDbContext db = new AppDbContext();
 
             //Create return value 
             decimal decTicketPrice;
-            //Create Max MoviePriceID to be able and filter the most recent update to movie price
             
-
             ////Initiate bol values to figure out what day/time it is
             Boolean bolWeekend = false; //Variable to check whether the current day is a Weekday(M-F)
             Boolean bolMatinee = false; //Variable to check whether current time < 12:00pm
@@ -31,20 +28,19 @@ namespace LonghornCinemaFinalProject.Utilities
             Boolean bolTuesday = false; //Variable to check whether it is a discount day or not
             Boolean bolBefore5 = false; //Variable to check whether it is = or < 5pm
 
-            ////Convert date of showing to be able to compare and populate booleans
-            
+            //Create movieprice object that references the most recent record of the MoviePriceID
             MoviePrice movieprice = db.MoviePrices.FirstOrDefault(x => x.MoviePriceID == 1);
 
-            //Get values from the most recent record of the MoviePriceID
+            ////Get prices of different showings to be able to compare and populate booleans
             Decimal decMoviePriceMat = movieprice.decMatineePrice;
             Decimal decMoviePriceWeek = movieprice.decWeekPrice;
             Decimal decMoviePriceWeeknd = movieprice.decWeekendPrice;
             Decimal decMoviePriceTues = movieprice.decTuesdayPrice;
 
             //Convert showtime date into a comparable type 
-            DateTime dttestdate = new DateTime(2018, 5, 4, 12, 0, 0);
-            String strday = dttestdate.DayOfWeek.ToString();
-            Int32 inthour = dttestdate.Hour;
+            
+            String strday = ShowDate.DayOfWeek.ToString();
+            Int32 inthour = ShowDate.Hour;
 
             //Use Decisions statements to accurately populate booleans
             if (strday == "Friday")
