@@ -54,10 +54,11 @@
             { <p>2</p>}
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ShowingID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ShowingID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ShowingID }) |
-            @Html.ActionLink("Buy Ticket", "Create", "Order", new { id = item.ShowingID})
+            @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ShowingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+
+            @Html.ActionLink("Buy Ticket", "Create", "Tickets", new { @class = "btn btn-primary" })
         </td>
     </tr>
 }
