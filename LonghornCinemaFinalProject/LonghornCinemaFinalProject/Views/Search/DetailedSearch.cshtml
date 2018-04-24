@@ -15,7 +15,7 @@
 
     Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
 
-    Genre: @Html.DropDownList("SearchGenre", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+    Genre: @Html.DropDownList("SearchGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
 
     Year: @Html.TextBox("SearchYear", null, new { @class = "form-control" })
 
