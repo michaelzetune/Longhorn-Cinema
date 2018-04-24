@@ -44,9 +44,35 @@ namespace LonghornCinemaFinalProject.Utilities
             //Decimal decMoviePriceWeeknd = query.decWeekendPrice;
             //Decimal decMoviePriceTues = query.decTuesdayPrice;
 
-            ////Convert showtime date into a comparable type 
+            //Convert showtime date into a comparable type 
+            DateTime dttestdate = new DateTime(2018, 5, 4, 12, 0, 0);
+            String strday = dttestdate.DayOfWeek.ToString();
+            Int32 inthour = dttestdate.Hour.ToInt();
 
-            ////Use Decisions statements to accurately populate booleans
+            //Use Decisions statements to accurately populate booleans
+            if (strday == "Friday")
+            {
+                bolFriday == true;
+            }
+
+            if ((strday == "Saturday") || (strday == "Sunday"))
+            {
+                bolWeekend == true;
+            }
+
+            if (strday == "Tuesday")
+            {
+                bolTuesday == true;
+            }
+
+            if (inthour < 12)
+            {
+                bolMatinee == true;
+            }
+            else if (inthour < 17)
+            {
+                bolBefore5 == true;
+            }
 
             ////Filter and process through booleans, Call data from Ticket Price, and assign appropriate values to decTicketPrice
             //if ((bolTuesday) && (bolBefor5))  // Check if discount rate applies (Tuesday and before 5pm)
