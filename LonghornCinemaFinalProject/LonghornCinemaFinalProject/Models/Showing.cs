@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations;
 namespace LonghornCinemaFinalProject.Models
 {
     public enum SpecialEvent { NotSpecial, Special };
-    public enum Theatre { TheatreOne, TheatreTwo };
+
+    public enum Theatre {TheatreOne, TheatreTwo};
     public class Showing
     {
         // Properties
@@ -15,21 +16,27 @@ namespace LonghornCinemaFinalProject.Models
         public Int32 ShowingID { get; set; }
 
         // Start Time
+        [Required]
         [Display(Name = "Start Time")]
         [DataType(DataType.DateTime)]
-        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DisplayFormat(DataFormatString = "{0:M/d/yyyy h\\:mm tt}")]
         public DateTime StartTime { get; set; }
 
-        //end time get should be based on length of movie and need of time between movies
+        //end time get should be based on length of movie and need of time between movies --> put this logic in controller
+        [Required]
         [Display(Name = "End Time")]
         [DataType(DataType.DateTime)]
-        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DisplayFormat(DataFormatString = "{0:M/d/yyyy h\\:mm tt}")]
         public DateTime EndTime { get; set; }
 
         // SpecialEvent
+        [Required]
+        [Display(Name = "Special Event?")]
         public SpecialEvent SpecialEventStatus { get; set; }
 
         // ThetreNum (enum)
+        [Required]
+        [Display(Name = "Theatre")]
         public Theatre TheatreNum { get; set; }
 
         // SeatList

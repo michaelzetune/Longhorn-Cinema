@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using LonghornCinemaFinalProject.DAL;
+using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
@@ -18,12 +19,14 @@ namespace LonghornCinemaFinalProject.Models
         public Int32 MovieID { get; set; }
 
         // Title
+        [Display(Name = "Movie Title")]
         public String Title { get; set; }
 
         // Overview
         public String Overview { get; set; }
 
         // ReleaseDate
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         // Revenue
@@ -39,6 +42,7 @@ namespace LonghornCinemaFinalProject.Models
         public String Actors { get; set; }
 
         // MPAA rating
+        [Display(Name = "MPAA Rating")]
         public MPAARating MPAARating { get; set; }
 
         // Customer Rating Average

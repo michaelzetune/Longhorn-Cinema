@@ -5,33 +5,30 @@
     ViewBag.Title = "DetailedSearch";
 }
 
-<h2>Detailed Search</h2>
+<h2>Detailed Movie Search</h2>
 
 
 @using (Html.BeginForm("DisplaySearchResults", "Search", FormMethod.Get))
 {
 <p class="form-group">
-    Name: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
+    Movie Title: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
 
     Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
 
     Genre: @Html.DropDownList("SearchGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
-
+    <br />
     Year: @Html.TextBox("SearchYear", null, new { @class = "form-control" })
-
+    <br />
     MPAA Rating: @Html.DropDownList("SearchMPAARating", (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
 
     <div class="form-group">
-        Number of stars:
-        <br />
-            @Html.TextBox("SearchStars", null, new { @class = "form-control" }) 
-        <br />
+        Number of Stars: @Html.TextBox("SearchStars", null, new { @class = "form-control" }) 
         <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Greater, true)Greater than</label>
         <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Less)Less than</label> @ViewBag.Message
     </div>
 
     Actors: @Html.TextBox("SearchActor", null, new { @class = "form-control" })
-
+    <br />
     <input type="submit" value="Search" class="=" btn btn-default" />
 </p>
 }
