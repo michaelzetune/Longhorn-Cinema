@@ -234,7 +234,28 @@
     <Compile Include="Migrations\201804192219345_UpdateShowing.Designer.cs">
       <DependentUpon>201804192219345_UpdateShowing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804222131486_UpdateShowing2.cs" />
+    <Compile Include="Migrations\201804222131486_UpdateShowing2.Designer.cs">
+      <DependentUpon>201804222131486_UpdateShowing2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804222203106_UpdateSomething.cs" />
+    <Compile Include="Migrations\201804222203106_UpdateSomething.Designer.cs">
+      <DependentUpon>201804222203106_UpdateSomething.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804231832117_UpdateShowing3.cs" />
+    <Compile Include="Migrations\201804231832117_UpdateShowing3.Designer.cs">
+      <DependentUpon>201804231832117_UpdateShowing3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241737133_update2.cs" />
+    <Compile Include="Migrations\201804241737133_update2.Designer.cs">
+      <DependentUpon>201804241737133_update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241831054_ChangeActorsToSingleString.cs" />
+    <Compile Include="Migrations\201804241831054_ChangeActorsToSingleString.Designer.cs">
+      <DependentUpon>201804241831054_ChangeActorsToSingleString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ShowingData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\CreditCard.cs" />
@@ -252,6 +273,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Migrations\MovieData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\GenerateTicketPrice.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -357,6 +379,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804192219345_UpdateShowing.resx">
       <DependentUpon>201804192219345_UpdateShowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804222131486_UpdateShowing2.resx">
+      <DependentUpon>201804222131486_UpdateShowing2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804222203106_UpdateSomething.resx">
+      <DependentUpon>201804222203106_UpdateSomething.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804231832117_UpdateShowing3.resx">
+      <DependentUpon>201804231832117_UpdateShowing3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241737133_update2.resx">
+      <DependentUpon>201804241737133_update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241831054_ChangeActorsToSingleString.resx">
+      <DependentUpon>201804241831054_ChangeActorsToSingleString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

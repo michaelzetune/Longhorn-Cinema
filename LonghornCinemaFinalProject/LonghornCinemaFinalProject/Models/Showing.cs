@@ -16,23 +16,25 @@ namespace LonghornCinemaFinalProject.Models
 
         // Start Time
         [Display(Name = "Start Time")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         public DateTime StartTime { get; set; }
 
         //end time get should be based on length of movie and need of time between movies
         [Display(Name = "End Time")]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(DataFormatString = "{0:hh\\:mm}")]
         public DateTime EndTime { get; set; }
 
         // SpecialEvent
-        public SpecialEvent SpecialEvent { get; set; }
+        public SpecialEvent SpecialEventStatus { get; set; }
 
         // ThetreNum (enum)
         public Theatre TheatreNum { get; set; }
 
         // SeatList
-        //not sure if this is correct -Ben
-        public String SeatList { get; set; }
+        // Changed this to String list because seats are labeled "A1", "A2" etc, not by number
+        public List<String> SeatList { get; set; }
 
         // Navigation Properties
         // Movie
@@ -47,6 +49,10 @@ namespace LonghornCinemaFinalProject.Models
             if (Tickets == null)
             {
                 Tickets = new List<Ticket>();
+            }
+            if (SeatList == null)
+            {
+                SeatList = new List<String>( new String[] { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"});
             }
         }
     }

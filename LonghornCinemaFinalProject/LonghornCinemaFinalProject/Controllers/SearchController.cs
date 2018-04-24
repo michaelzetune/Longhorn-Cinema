@@ -34,11 +34,10 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             ViewBag.AllGenres = GetAllGenres();
             ViewBag.AllMPAARatings = GetAllMPAARatings();
-            ViewBag.AllActors = GetAllActors();
             return View();
         }
         
-        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Genre SearchGenre, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, List<String> SearchActors)
+        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Int32 SearchGenreID, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor)
         { // Update Actors and other fields to be multiselectable
             var query = from m in db.Movies
                         select m;
@@ -55,25 +54,26 @@ namespace LonghornCinemaFinalProject.Controllers
                 query = query.Where(m => m.Tagline.Contains(SearchTagline));
             }
 
-            // SearchGenre for Movie Genre
-            if (SearchGenre != null)
+            // SearchGenreID for Movie Genre
+            if (SearchGenreID != 0)
             {
-                query = query.Where(m => m.Genres.Contains(SearchGenre));
-            }
+                //Genre ThisGenre = db.Genres.FirstOrDefault(g => g.GenreID == SearchGenreID);
+                query = query.Where(m => m.Genres.Any(g => g.GenreID == SearchGenreID));
+
+
+            } // TODO: fix not being able to filter by Genre
 
             // SearchYear for Movie year release
             if (SearchYear != null && SearchYear != "")
             {
                 try
                 {
-                    DateTime YearInDateTime = DateTime.Parse(SearchYear);
+                    DateTime YearInDateTime = DateTime.Parse("Jan 1, " + SearchYear);
                     query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
                 }
-                catch (Exception e)
+                catch (Exception)
                 { Console.WriteLine("Exception with SearchYear"); }
-
-
-            }           
+            }  
               
             //code for MPAA Rating selection
             if (SearchMPAARating != MPAARating.None)
@@ -95,7 +95,6 @@ namespace LonghornCinemaFinalProject.Controllers
 
                     ViewBag.AllGenres = GetAllGenres();
                     ViewBag.AllMPAARatings = GetAllMPAARatings();
-                    ViewBag.AllActors = GetAllActors();
 
                     return View("DetailedSearch");
                 }
@@ -103,22 +102,28 @@ namespace LonghornCinemaFinalProject.Controllers
                 //code for radio buttons
                 if (SearchStarFilter == StarFilter.Greater)
                 {
-                    query = query.Where(m => m.RatingAverage >= decCustomerRating);
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.RatingAverage < decCustomerRating)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
                 }
-                else if(SearchStarFilter == StarFilter.Less)
+                else if (SearchStarFilter == StarFilter.Less)
                 {
-                    query = query.Where(m => m.RatingAverage <= decCustomerRating);
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.RatingAverage > decCustomerRating)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
                 }
             }
 
+
             // SearchActors for Movie Actors
-            if (SearchActors != null)
-                {
-                    foreach (String a in SearchActors) // TODO: change from AND to OR style search
-                    {
-                        query = query.Where(m => m.Actors.Contains(a));
-                    }
-                }
+            if (SearchActor != null)
+            {
+                query = query.Where(m => m.Actors.Contains(SearchActor));
+            }
 
             List<Movie> MoviesToDisplay = query.ToList();
 
@@ -145,36 +150,18 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             List<MPAARating> MPAARatings = new List<MPAARating>();
 
+            MPAARating SelectNone = MPAARating.None; // TODO: need to check that this is a valid way to make selectnone
+            MPAARatings.Add(SelectNone);
+
             foreach (Movie m in db.Movies.ToList())
             {
                 if (!MPAARatings.Contains(m.MPAARating))
                     MPAARatings.Add(m.MPAARating);
             }
 
-            MPAARating SelectNone = MPAARating.None; // TODO: need to check that this is a valid way to make selectnone
-            MPAARatings.Add(SelectNone);
-
             SelectList AllRatings = new SelectList(MPAARatings);
             return AllRatings;
         }
 
-        public SelectList GetAllActors()
-        {
-            List<String> Actors = new List<String>();
-
-            foreach (Movie m in db.Movies.ToList())
-            {
-                foreach (String a in m.Actors)
-                {
-                    if (!Actors.Contains(a))
-                    {
-                        Actors.Add(a);
-                    }
-                }
-            }
-
-            SelectList AllActors = new SelectList(Actors);
-            return AllActors;
-        }
     }
 }

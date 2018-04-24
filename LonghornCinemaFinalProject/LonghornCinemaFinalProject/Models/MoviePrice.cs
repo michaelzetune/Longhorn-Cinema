@@ -13,8 +13,9 @@ namespace LonghornCinemaFinalProject.Models
         // Properties
         // MoviePriceID
         // Talked to Katie and she explained how this class is just like a copy type of deal
-        public Decimal Price { get; set; }
-        public String SpecialEvent {get;set;}
-        public Time TimeDay { get; set; }
+        public Decimal decMatineePrice { get; set; }
+        public Decimal decTuesdayPrice { get; set; }
+        public Decimal decWeekendPrice { get; set; }
+        public Decimal decWeekPrice { get; set; }
     }
 }

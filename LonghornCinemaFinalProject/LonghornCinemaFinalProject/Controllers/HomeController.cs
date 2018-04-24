@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
 using System.Web.Mvc;
 
 using LonghornCinemaFinalProject.DAL;
@@ -13,31 +14,21 @@ namespace LonghornCinemaFinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-        public ActionResult Index()
+        public ActionResult Index(String BasicSearchString)
         {
-            //ViewBag.TotalMovieCount = db.Movies.Count();
-
-            List<Movie> AllMovies = new List<Movie>();
+            List<Movie> MoviesToDisplay = new List<Movie>();
 
             var query = from r in db.Movies select r;
+            if (BasicSearchString != null)
+            {
+                query = query.Where(r => r.Title.Contains(BasicSearchString) || r.Tagline.Contains(BasicSearchString));
+            }
+            MoviesToDisplay = query.ToList();
 
-            AllMovies = query.ToList();
+            ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
+            ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
 
-            return View(AllMovies.OrderByDescending(r => r.Title));
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(MoviesToDisplay.OrderBy(r => r.Title));
         }
     }
 }
