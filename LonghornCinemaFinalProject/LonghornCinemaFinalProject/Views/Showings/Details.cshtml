@@ -1,0 +1,58 @@
+﻿@model LonghornCinemaFinalProject.Models.Showing
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Showing</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheatreNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheatreNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatList)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShowingID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
