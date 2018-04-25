@@ -1,0 +1,29 @@
+LastName	FirstName	Initial	PSW	Birthday	SSN	EmpType	Address	City	State	Zip	Phone	Email
+Jacobs	Todd	L	society	4/25/1958	341553365	Employee	4564 Elm St.	Georgetown	TX	78628	9074653365	t.jacobs@longhorncinema.com
+Rice	Eryn	M	ricearoni	7/2/1959	454776657	Manager	3405 Rio Grande	Austin	TX	78746	9073876657	e.rice@longhorncinema.com
+Ingram	Brad	S	ingram45	8/25/1962	797348821	Employee	6548 La Posada Ct.	Austin	TX	78705	9074678821	b.ingram@longhorncinema.com
+Taylor	Allison	R	nostalgic	9/2/1964	934778452	Employee	467 Nueces St.	Austin	TX	78727	9074748452	a.taylor@longhorncinema.com
+Martinez	Gregory	R	fungus	3/30/1992	463566718	Employee	8295 Sunset Blvd.	Austin	TX	78712	9078746718	g.martinez@longhorncinema.com
+Sheffield	Martin	J	longhorns	12/29/1996	223449167	Employee	3886 Avenue A	San Marcos	TX	78666	9075479167	m.sheffield@longhorncinema.com
+MacLeod	Jennifer	D	smitty	6/10/1997	775908138	Employee	2504 Far West Blvd.	Austin	TX	78705	9074748138	j.macleod@longhorncinema.com
+Tanner	Jeremy	S	tanman	8/12/1970	904440929	Employee	4347 Almstead	Austin	TX	78712	9074590929	j.tanner@longhorncinema.com
+Rhodes	Megan	C	countryrhodes	12/18/1970	353904746	Employee	4587 Enfield Rd.	Austin	TX	78729	9073744746	m.rhodes@longhorncinema.com
+Stuart	Eric	F	stewboy	3/11/1971	363998335	Employee	5576 Toro Ring	Austin	TX	78758	9078178335	e.stuart@longhorncinema.com
+Miller	Charles	R	squirrel	7/20/1972	353308615	Employee	8962 Main St.	Austin	TX	78709	9077458615	c.miller@longhorncinema.com
+Taylor	Rachel	O	swansong	12/20/1972	393412631	Manager	345 Longview Dr.	Austin	TX	78746	9074512631	r.taylor@longhorncinema.com
+Lawrence	Victoria	Y	lottery	4/28/1973	770097399	Employee	6639 Butterfly Ln.	Austin	TX	78712	9079457399	v.lawrence@longhorncinema.com
+Rogers	Allen	H	evanescent	6/21/1978	700002943	Manager	4965 Oak Hill	Austin	TX	78705	9078752943	a.rogers@longhorncinema.com
+Markham	Elizabeth	K	monty3	5/21/1990	101529845	Employee	7861 Chevy Chase	Austin	TX	78785	9074579845	e.markham@longhorncinema.com
+Baker	Christopher	E	hecktour	3/16/1993	401661146	Employee	1245 Lake Anchorage Blvd.	Cedar Park	TX	78613	9075571146	c.baker@longhorncinema.com
+Saunders	Sarah	M	rankmary	1/5/1997	500987810	Employee	332 Avenue C	Austin	TX	78733	9073497810	s.saunders@longhorncinema.com
+Sewell	William	G	walkamile	5/25/1986	500830084	Manager	2365 51st St.	Austin	TX	78755	9074510084	w.sewell@longhorncinema.com
+Mason	Jack	L	changalang	6/6/1986	1112223232	Employee	444 45th St	Austin	TX	78701	9018833432	j.mason@longhorncinema.com
+Jackson	Jack	J	offbeat	10/16/1986	8889993434	Employee	222 Main	Austin	TX	78760	9075554545	j.jackson@longhorncinema.com
+Nguyen	Mary	J	landus	4/5/1988	7776665555	Employee	465 N. Bear Cub	Austin	TX	78734	9075524141	m.nguyen@longhorncinema.com
+Barnes	Susan	M	rhythm	2/22/1993	1112221212	Employee	888 S. Main	Kyle	TX	78640	9556662323	s.barnes@longhorncinema.com
+Jones	Lester	L	kindly	6/29/1996	9099099999	Employee	999 LeBlat	Austin	TX	78747	9886662222	l.jones@longhorncinema.com
+Garcia	Hector	W	instrument	5/13/1997	4445554343	Employee	777 PBR Drive	Austin	TX	78712	9221114444	h.garcia@longhorncinema.com
+Silva	Cindy	S	arched	12/29/1997	7776661111	Employee	900 4th St	Austin	TX	78758	9221113333	c.silva@longhorncinema.com
+Lopez	Marshall	T	median	11/4/1996	2223332222	Employee	90 SW North St	Austin	TX	78729	9234442222	m.lopez@longhorncinema.com
+Larson	Bill	B	approval	11/14/1999	5554443333	Employee	1212 N. First Ave	Round Rock	TX	78665	9795554444	b.larson@longhorncinema.com
+Rankin	Suzie	R	decorate	12/17/1999	1911919111	Employee	23 Polar Bear Road	Austin	TX	78712	9893336666	s.rankin@longhorncinema.com
