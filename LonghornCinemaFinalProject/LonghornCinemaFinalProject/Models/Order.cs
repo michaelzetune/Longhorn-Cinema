@@ -11,6 +11,10 @@ namespace LonghornCinemaFinalProject.Models
         // OrderID
         public Int32 OrderID { get; set; }
 
+        //TODO: implement get for transaction ID/add utility class
+        public Int32 TransactionID { get; set; }
+
+        public Boolean Complete { get; set; }
 
         // Navigation Properties
         // User
