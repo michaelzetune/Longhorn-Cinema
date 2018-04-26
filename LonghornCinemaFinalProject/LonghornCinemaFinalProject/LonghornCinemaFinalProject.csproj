@@ -284,6 +284,10 @@
     <Compile Include="Migrations\201804262035374_TestUsers.Designer.cs">
       <DependentUpon>201804262035374_TestUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804262140333_AddAppUserNavProperty.cs" />
+    <Compile Include="Migrations\201804262140333_AddAppUserNavProperty.Designer.cs">
+      <DependentUpon>201804262140333_AddAppUserNavProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -297,7 +301,6 @@
     <Compile Include="Models\MoviePrice.cs" />
     <Compile Include="Models\MovieReview.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
@@ -367,6 +370,7 @@
     <Content Include="Views\Tickets\Details.cshtml" />
     <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Orders\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -456,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804262035374_TestUsers.resx">
       <DependentUpon>201804262035374_TestUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804262140333_AddAppUserNavProperty.resx">
+      <DependentUpon>201804262140333_AddAppUserNavProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
