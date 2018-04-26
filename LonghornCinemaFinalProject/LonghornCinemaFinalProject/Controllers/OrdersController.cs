@@ -49,6 +49,20 @@ namespace LonghornCinemaFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderID")] Order order)
         {
+            // find next order number
+            //AppUser user = db.Users.Find(User.Identity.GetUserId());
+            order.TicketPrice = Utilities.GenerateTicketPrice.GetNextOrderNumber();
+
+            //Record date of order
+            order.OrderDate = DateTime.Today;
+
+
+            if (ModelState.IsValid)
+            {
+                db.Orders.Add(order);
+                db.SaveChanges();
+                return RedirectToAction("AddToOrder", new { OrderID = order.OrderID });
+            }
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);

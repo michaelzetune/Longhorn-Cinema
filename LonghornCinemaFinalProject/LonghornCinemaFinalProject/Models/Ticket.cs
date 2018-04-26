@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
@@ -11,10 +12,17 @@ namespace LonghornCinemaFinalProject.Models
         // TicketID
         public Int32 TicketID { get; set; }
         // Seat
+        [Required(ErrorMessage = "Seat is required.")]
         public String Seat { get; set; }
 
+        [Required(ErrorMessage = "Quantity is required.")]
+        public Int32 Quantity { get; set; }
+
+        [Required(ErrorMessage = "ExtendedPrice is required.")]
+        public Int32 ExtendedPrice { get; set; }
         // Commenting this out because I think TicketPrice and MoviePrice would be the same value (-Michael) :
         // Price
+        [Required(ErrorMessage = "TicketPrice is required.")]
         public Decimal TicketPrice { get; set; }        
 
         // Navigation Properties

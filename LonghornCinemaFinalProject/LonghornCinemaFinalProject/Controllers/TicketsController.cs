@@ -54,6 +54,11 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                // find next order number
+                
+                //AppUser user = db.Users.Find(User.Identity.GetUserId());
+                ticket.TicketPrice = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber();
+
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
                 return RedirectToAction("Index");
