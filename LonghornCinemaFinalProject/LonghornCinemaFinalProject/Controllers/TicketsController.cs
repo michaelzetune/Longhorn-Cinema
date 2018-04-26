@@ -57,7 +57,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 // find next order number
                 
                 //AppUser user = db.Users.Find(User.Identity.GetUserId());
-                ticket.TicketPrice = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber();
+                //ticket.TicketPrice = 
 
                 db.Tickets.Add(ticket);
                 db.SaveChanges();
