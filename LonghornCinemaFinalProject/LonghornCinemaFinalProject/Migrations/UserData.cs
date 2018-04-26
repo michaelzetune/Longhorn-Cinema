@@ -11,28 +11,31 @@ namespace LonghornCinemaFinalProject.Migrations
 {
     public class UserData
     {
-        public void SeedAppUsers(AppDbContext db)
+        public void SeedUsers(AppDbContext db)
         {
             //create a user manager and a role manager to use for this method
             AppUserManager UserManager = new AppUserManager(new UserStore<AppUser>(db));
 
-            AppUser c1 = new AppUser();
-            c1.LastName = "Baker";
-            c1.FirstName = "Christopher";
-            c1.Email = "cbaker@example.com";
-            //c1.Password = "hello1";
-            c1.Birthday = new DateTime(1949, 11, 23);
-            c1.StreetAddress = "1245 Lake Anchorage Blvd.";
-            c1.City = "Austin";
-            c1.State = "TX";
-            c1.ZipCode = 78705;
-            c1.PhoneNumber = "5125550180";
-            c1.PopcornPointsBalance = 110;
-            //db.AppUsers.AddOrUpdate(c => c.LastName, c1);
-            var result = UserManager.Create(c1, "Abc123!");
-            db.SaveChanges();
-            c1 = db.Users.First(u => u.UserName == "cbaker@example.com");
-            //make sure user is in role
+            AppUser c1 = db.Users.FirstOrDefault(u => u.Email == "cbaker@example.com");
+            if (c1 == null)
+            {
+                c1 = new AppUser();
+                c1.UserName = "cbaker@example.com";
+                c1.LastName = "Baker";
+                c1.FirstName = "Christopher";
+                c1.Email = "cbaker@example.com";
+                //c1.Password = "hello1";
+                c1.Birthday = new DateTime(1949, 11, 23);
+                c1.StreetAddress = "1245 Lake Anchorage Blvd.";
+                c1.City = "Austin";
+                c1.State = "TX";
+                c1.ZipCode = 78705;
+                c1.PhoneNumber = "5125550180";
+                c1.PopcornPointsBalance = 110;
+                var result = UserManager.Create(c1, "Abc123!");
+                db.SaveChanges();
+                c1 = db.Users.First(u => u.UserName == "cbaker@example.com");
+            }
             if (UserManager.IsInRole(c1.Id, "Customer") == false)
             {
                 UserManager.AddToRole(c1.Id, "Customer");
@@ -53,7 +56,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c2.ZipCode = 78712;
             c2.PhoneNumber = "5125550183";
             c2.PopcornPointsBalance = 40;
-            // db.AppUsers.AddOrUpdate(c => c.LastName, c2);
+            // db.Users.AddOrUpdate(c => c.LastName, c2);
             if (RoleManager.RoleExists("Customer") == false)
             {
                 RoleManager.Create(new AppRole("Customer"));
@@ -75,7 +78,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c3.ZipCode = 78704;
             c3.PhoneNumber = "5125550128";
             c3.PopcornPointsBalance = 30;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c3);
+            db.Users.AddOrUpdate(c => c.LastName, c3);
             db.SaveChanges();
 
             User c4 = new User();
@@ -90,7 +93,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c4.ZipCode = 78681;
             c4.PhoneNumber = "5125550133";
             c4.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c4);
+            db.Users.AddOrUpdate(c => c.LastName, c4);
             db.SaveChanges();
 
             User c5 = new User();
@@ -105,7 +108,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c5.ZipCode = 78705;
             c5.PhoneNumber = "5125550102";
             c5.PopcornPointsBalance = 40;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c5);
+            db.Users.AddOrUpdate(c => c.LastName, c5);
             db.SaveChanges();
 
             User c6 = new User();
@@ -120,7 +123,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c6.ZipCode = 78712;
             c6.PhoneNumber = "5125550146";
             c6.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c6);
+            db.Users.AddOrUpdate(c => c.LastName, c6);
             db.SaveChanges();
 
             User c7 = new User();
@@ -135,7 +138,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c7.ZipCode = 78628;
             c7.PhoneNumber = "5125550170";
             c7.PopcornPointsBalance = 50;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c7);
+            db.Users.AddOrUpdate(c => c.LastName, c7);
             db.SaveChanges();
 
             User c8 = new User();
@@ -150,7 +153,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c8.ZipCode = 78746;
             c8.PhoneNumber = "5125550105";
             c8.PopcornPointsBalance = 170;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c8);
+            db.Users.AddOrUpdate(c => c.LastName, c8);
             db.SaveChanges();
 
             User c9 = new User();
@@ -165,7 +168,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c9.ZipCode = 78657;
             c9.PhoneNumber = "5125550114";
             c9.PopcornPointsBalance = 160;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c9);
+            db.Users.AddOrUpdate(c => c.LastName, c9);
             db.SaveChanges();
 
             User c10 = new User();
@@ -180,7 +183,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c10.ZipCode = 78727;
             c10.PhoneNumber = "5125550155";
             c10.PopcornPointsBalance = 10;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c10);
+            db.Users.AddOrUpdate(c => c.LastName, c10);
             db.SaveChanges();
 
             User c11 = new User();
@@ -195,7 +198,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c11.ZipCode = 78712;
             c11.PhoneNumber = "5125550116";
             c11.PopcornPointsBalance = 40;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c11);
+            db.Users.AddOrUpdate(c => c.LastName, c11);
             db.SaveChanges();
 
             User c12 = new User();
@@ -210,7 +213,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c12.ZipCode = 78666;
             c12.PhoneNumber = "5125550150";
             c12.PopcornPointsBalance = 150;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c12);
+            db.Users.AddOrUpdate(c => c.LastName, c12);
             db.SaveChanges();
 
             User c13 = new User();
@@ -225,7 +228,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c13.ZipCode = 78705;
             c13.PhoneNumber = "5125550196";
             c13.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c13);
+            db.Users.AddOrUpdate(c => c.LastName, c13);
             db.SaveChanges();
 
             User c14 = new User();
@@ -240,7 +243,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c14.ZipCode = 78712;
             c14.PhoneNumber = "5125550188";
             c14.PopcornPointsBalance = 60;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c14);
+            db.Users.AddOrUpdate(c => c.LastName, c14);
             db.SaveChanges();
 
             User c15 = new User();
@@ -255,7 +258,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c15.ZipCode = 10101;
             c15.PhoneNumber = "5125550116";
             c15.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c15);
+            db.Users.AddOrUpdate(c => c.LastName, c15);
             db.SaveChanges();
 
             User c16 = new User();
@@ -270,7 +273,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c16.ZipCode = 78729;
             c16.PhoneNumber = "5125550166";
             c16.PopcornPointsBalance = 170;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c16);
+            db.Users.AddOrUpdate(c => c.LastName, c16);
             db.SaveChanges();
 
             User c17 = new User();
@@ -285,7 +288,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c17.ZipCode = 90210;
             c17.PhoneNumber = "5125550173";
             c17.PopcornPointsBalance = 130;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c17);
+            db.Users.AddOrUpdate(c => c.LastName, c17);
             db.SaveChanges();
 
             User c18 = new User();
@@ -300,7 +303,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c18.ZipCode = 78758;
             c18.PhoneNumber = "5125550167";
             c18.PopcornPointsBalance = 60;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c18);
+            db.Users.AddOrUpdate(c => c.LastName, c18);
             db.SaveChanges();
 
             User c19 = new User();
@@ -315,7 +318,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c19.ZipCode = 78130;
             c19.PhoneNumber = "5125550187";
             c19.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c19);
+            db.Users.AddOrUpdate(c => c.LastName, c19);
             db.SaveChanges();
 
             User c20 = new User();
@@ -330,7 +333,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c20.ZipCode = 79013;
             c20.PhoneNumber = "5125550141";
             c20.PopcornPointsBalance = 180;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c20);
+            db.Users.AddOrUpdate(c => c.LastName, c20);
             db.SaveChanges();
 
             User c21 = new User();
@@ -345,7 +348,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c21.ZipCode = 78654;
             c21.PhoneNumber = "5125550185";
             c21.PopcornPointsBalance = 170;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c21);
+            db.Users.AddOrUpdate(c => c.LastName, c21);
             db.SaveChanges();
 
             User c22 = new User();
@@ -360,7 +363,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c22.ZipCode = 34741;
             c22.PhoneNumber = "5125550134";
             c22.PopcornPointsBalance = 100;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c22);
+            db.Users.AddOrUpdate(c => c.LastName, c22);
             db.SaveChanges();
 
             User c23 = new User();
@@ -375,7 +378,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c23.ZipCode = 78709;
             c23.PhoneNumber = "5125550151";
             c23.PopcornPointsBalance = 130;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c23);
+            db.Users.AddOrUpdate(c => c.LastName, c23);
             db.SaveChanges();
 
             User c24 = new User();
@@ -390,7 +393,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c24.ZipCode = 78662;
             c24.PhoneNumber = "5125550120";
             c24.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c24);
+            db.Users.AddOrUpdate(c => c.LastName, c24);
             db.SaveChanges();
 
             User c25 = new User();
@@ -405,7 +408,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c25.ZipCode = 78597;
             c25.PhoneNumber = "5125550198";
             c25.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c25);
+            db.Users.AddOrUpdate(c => c.LastName, c25);
             db.SaveChanges();
 
             User c26 = new User();
@@ -420,7 +423,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c26.ZipCode = 74340;
             c26.PhoneNumber = "5125550177";
             c26.PopcornPointsBalance = 110;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c26);
+            db.Users.AddOrUpdate(c => c.LastName, c26);
             db.SaveChanges();
 
             User c27 = new User();
@@ -435,7 +438,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c27.ZipCode = 78841;
             c27.PhoneNumber = "5125550174";
             c27.PopcornPointsBalance = 150;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c27);
+            db.Users.AddOrUpdate(c => c.LastName, c27);
             db.SaveChanges();
 
             User c28 = new User();
@@ -450,7 +453,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c28.ZipCode = 78746;
             c28.PhoneNumber = "5125550167";
             c28.PopcornPointsBalance = 190;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c28);
+            db.Users.AddOrUpdate(c => c.LastName, c28);
             db.SaveChanges();
 
             User c29 = new User();
@@ -465,7 +468,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c29.ZipCode = 78712;
             c29.PhoneNumber = "5125550151";
             c29.PopcornPointsBalance = 120;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c29);
+            db.Users.AddOrUpdate(c => c.LastName, c29);
             db.SaveChanges();
 
             User c30 = new User();
@@ -480,7 +483,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c30.ZipCode = 78705;
             c30.PhoneNumber = "5125550133";
             c30.PopcornPointsBalance = 190;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c30);
+            db.Users.AddOrUpdate(c => c.LastName, c30);
             db.SaveChanges();
 
             User c31 = new User();
@@ -495,7 +498,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c31.ZipCode = 78785;
             c31.PhoneNumber = "5125550196";
             c31.PopcornPointsBalance = 190;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c31);
+            db.Users.AddOrUpdate(c => c.LastName, c31);
             db.SaveChanges();
 
             User c32 = new User();
@@ -510,7 +513,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c32.ZipCode = 79339;
             c32.PhoneNumber = "5125550141";
             c32.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c32);
+            db.Users.AddOrUpdate(c => c.LastName, c32);
             db.SaveChanges();
 
             User c33 = new User();
@@ -525,7 +528,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c33.ZipCode = 78733;
             c33.PhoneNumber = "5125550189";
             c33.PopcornPointsBalance = 100;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c33);
+            db.Users.AddOrUpdate(c => c.LastName, c33);
             db.SaveChanges();
 
             User c34 = new User();
@@ -540,7 +543,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c34.ZipCode = 78755;
             c34.PhoneNumber = "5125550152";
             c34.PopcornPointsBalance = 250;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c34);
+            db.Users.AddOrUpdate(c => c.LastName, c34);
             db.SaveChanges();
 
             User c35 = new User();
@@ -555,7 +558,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c35.ZipCode = 78701;
             c35.PhoneNumber = "5125550146";
             c35.PopcornPointsBalance = 40;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c35);
+            db.Users.AddOrUpdate(c => c.LastName, c35);
             db.SaveChanges();
 
             User c36 = new User();
@@ -570,7 +573,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c36.ZipCode = 79953;
             c36.PhoneNumber = "5125550192";
             c36.PopcornPointsBalance = 200;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c36);
+            db.Users.AddOrUpdate(c => c.LastName, c36);
             db.SaveChanges();
 
             User c37 = new User();
@@ -585,7 +588,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c37.ZipCode = 79718;
             c37.PhoneNumber = "5125550131";
             c37.PopcornPointsBalance = 130;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c37);
+            db.Users.AddOrUpdate(c => c.LastName, c37);
             db.SaveChanges();
 
             User c38 = new User();
@@ -600,7 +603,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c38.ZipCode = 78760;
             c38.PhoneNumber = "5125550190";
             c38.PopcornPointsBalance = 130;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c38);
+            db.Users.AddOrUpdate(c => c.LastName, c38);
             db.SaveChanges();
 
             User c39 = new User();
@@ -615,7 +618,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c39.ZipCode = 78734;
             c39.PhoneNumber = "5125550157";
             c39.PopcornPointsBalance = 90;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c39);
+            db.Users.AddOrUpdate(c => c.LastName, c39);
             db.SaveChanges();
 
             User c40 = new User();
@@ -630,7 +633,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c40.ZipCode = 78640;
             c40.PhoneNumber = "5125550191";
             c40.PopcornPointsBalance = 170;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c40);
+            db.Users.AddOrUpdate(c => c.LastName, c40);
             db.SaveChanges();
 
             User c41 = new User();
@@ -645,7 +648,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c41.ZipCode = 19123;
             c41.PhoneNumber = "5125550136";
             c41.PopcornPointsBalance = 50;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c41);
+            db.Users.AddOrUpdate(c => c.LastName, c41);
             db.SaveChanges();
 
             User c42 = new User();
@@ -660,7 +663,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c42.ZipCode = 78747;
             c42.PhoneNumber = "5125550170";
             c42.PopcornPointsBalance = 190;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c42);
+            db.Users.AddOrUpdate(c => c.LastName, c42);
             db.SaveChanges();
 
             User c43 = new User();
@@ -675,7 +678,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c43.ZipCode = 78712;
             c43.PhoneNumber = "5125550160";
             c43.PopcornPointsBalance = 110;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c43);
+            db.Users.AddOrUpdate(c => c.LastName, c43);
             db.SaveChanges();
 
             User c44 = new User();
@@ -690,7 +693,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c44.ZipCode = 78758;
             c44.PhoneNumber = "5125550127";
             c44.PopcornPointsBalance = 160;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c44);
+            db.Users.AddOrUpdate(c => c.LastName, c44);
             db.SaveChanges();
 
             User c45 = new User();
@@ -705,7 +708,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c45.ZipCode = 78729;
             c45.PhoneNumber = "5125550161";
             c45.PopcornPointsBalance = 70;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c45);
+            db.Users.AddOrUpdate(c => c.LastName, c45);
             db.SaveChanges();
 
             User c46 = new User();
@@ -720,7 +723,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c46.ZipCode = 78665;
             c46.PhoneNumber = "5125550106";
             c46.PopcornPointsBalance = 150;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c46);
+            db.Users.AddOrUpdate(c => c.LastName, c46);
             db.SaveChanges();
 
             User c47 = new User();
@@ -735,7 +738,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c47.ZipCode = 78613;
             c47.PhoneNumber = "5125550170";
             c47.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c47);
+            db.Users.AddOrUpdate(c => c.LastName, c47);
             db.SaveChanges();
 
             User c48 = new User();
@@ -750,7 +753,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c48.ZipCode = 78644;
             c48.PhoneNumber = "5125550128";
             c48.PopcornPointsBalance = 160;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c48);
+            db.Users.AddOrUpdate(c => c.LastName, c48);
             db.SaveChanges();
 
             User c49 = new User();
@@ -765,7 +768,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c49.ZipCode = 78705;
             c49.PhoneNumber = "2025550170";
             c49.PopcornPointsBalance = 70;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c49);
+            db.Users.AddOrUpdate(c => c.LastName, c49);
             db.SaveChanges();
 
             User c50 = new User();
@@ -780,7 +783,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c50.ZipCode = 78747;
             c50.PhoneNumber = "2025550141";
             c50.PopcornPointsBalance = 150;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c50);
+            db.Users.AddOrUpdate(c => c.LastName, c50);
             db.SaveChanges();
 
             User c51 = new User();
@@ -795,7 +798,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c51.ZipCode = 78753;
             c51.PhoneNumber = "2025550128";
             c51.PopcornPointsBalance = 20;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c51);
+            db.Users.AddOrUpdate(c => c.LastName, c51);
             db.SaveChanges();
 
             User e1 = new User();
@@ -810,7 +813,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e1.ZipCode = 78628;
             e1.PhoneNumber = "9074653365";
             e1.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e1);
+            db.Users.AddOrUpdate(e => e.LastName, e1);
             db.SaveChanges();
 
             User e2 = new User();
@@ -825,7 +828,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e2.ZipCode = 78746;
             e2.PhoneNumber = "9073876657";
             e2.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e2);
+            db.Users.AddOrUpdate(e => e.LastName, e2);
             db.SaveChanges();
 
             User e3 = new User();
@@ -840,7 +843,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e3.ZipCode = 78705;
             e3.PhoneNumber = "9074678821";
             e3.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e3);
+            db.Users.AddOrUpdate(e => e.LastName, e3);
             db.SaveChanges();
 
             User e4 = new User();
@@ -855,7 +858,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e4.ZipCode = 78727;
             e4.PhoneNumber = "9074748452";
             e4.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e4);
+            db.Users.AddOrUpdate(e => e.LastName, e4);
             db.SaveChanges();
 
             User e5 = new User();
@@ -870,7 +873,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e5.ZipCode = 78712;
             e5.PhoneNumber = "9078746718";
             e5.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e5);
+            db.Users.AddOrUpdate(e => e.LastName, e5);
             db.SaveChanges();
 
             User e6 = new User();
@@ -885,7 +888,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e6.ZipCode = 78666;
             e6.PhoneNumber = "9075479167";
             e6.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e6);
+            db.Users.AddOrUpdate(e => e.LastName, e6);
             db.SaveChanges();
 
             User e7 = new User();
@@ -900,7 +903,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e7.ZipCode = 78705;
             e7.PhoneNumber = "9074748138";
             e7.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e7);
+            db.Users.AddOrUpdate(e => e.LastName, e7);
             db.SaveChanges();
 
             User e8 = new User();
@@ -915,7 +918,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e8.ZipCode = 78712;
             e8.PhoneNumber = "9074590929";
             e8.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e8);
+            db.Users.AddOrUpdate(e => e.LastName, e8);
             db.SaveChanges();
 
             User e9 = new User();
@@ -930,7 +933,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e9.ZipCode = 78729;
             e9.PhoneNumber = "9073744746";
             e9.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e9);
+            db.Users.AddOrUpdate(e => e.LastName, e9);
             db.SaveChanges();
 
             User e10 = new User();
@@ -945,7 +948,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e10.ZipCode = 78758;
             e10.PhoneNumber = "9078178335";
             e10.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e10);
+            db.Users.AddOrUpdate(e => e.LastName, e10);
             db.SaveChanges();
 
             User e11 = new User();
@@ -960,7 +963,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e11.ZipCode = 78709;
             e11.PhoneNumber = "9077458615";
             e11.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e11);
+            db.Users.AddOrUpdate(e => e.LastName, e11);
             db.SaveChanges();
 
             User e12 = new User();
@@ -975,7 +978,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e12.ZipCode = 78746;
             e12.PhoneNumber = "9074512631";
             e12.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e12);
+            db.Users.AddOrUpdate(e => e.LastName, e12);
             db.SaveChanges();
 
             User e13 = new User();
@@ -990,7 +993,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e13.ZipCode = 78712;
             e13.PhoneNumber = "9079457399";
             e13.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e13);
+            db.Users.AddOrUpdate(e => e.LastName, e13);
             db.SaveChanges();
 
             User e14 = new User();
@@ -1005,7 +1008,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e14.ZipCode = 78705;
             e14.PhoneNumber = "9078752943";
             e14.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e14);
+            db.Users.AddOrUpdate(e => e.LastName, e14);
             db.SaveChanges();
 
             User e15 = new User();
@@ -1020,7 +1023,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e15.ZipCode = 78785;
             e15.PhoneNumber = "9074579845";
             e15.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e15);
+            db.Users.AddOrUpdate(e => e.LastName, e15);
             db.SaveChanges();
 
             User e16 = new User();
@@ -1035,7 +1038,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e16.ZipCode = 78613;
             e16.PhoneNumber = "9075571146";
             e16.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e16);
+            db.Users.AddOrUpdate(e => e.LastName, e16);
             db.SaveChanges();
 
             User e17 = new User();
@@ -1050,7 +1053,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e17.ZipCode = 78733;
             e17.PhoneNumber = "9073497810";
             e17.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e17);
+            db.Users.AddOrUpdate(e => e.LastName, e17);
             db.SaveChanges();
 
             User e18 = new User();
@@ -1065,7 +1068,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e18.ZipCode = 78755;
             e18.PhoneNumber = "9074510084";
             e18.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e18);
+            db.Users.AddOrUpdate(e => e.LastName, e18);
             db.SaveChanges();
 
             User e19 = new User();
@@ -1080,7 +1083,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e19.ZipCode = 78701;
             e19.PhoneNumber = "9018833432";
             e19.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e19);
+            db.Users.AddOrUpdate(e => e.LastName, e19);
             db.SaveChanges();
 
             User e20 = new User();
@@ -1095,7 +1098,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e20.ZipCode = 78760;
             e20.PhoneNumber = "9075554545";
             e20.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e20);
+            db.Users.AddOrUpdate(e => e.LastName, e20);
             db.SaveChanges();
 
             User e21 = new User();
@@ -1110,7 +1113,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e21.ZipCode = 78734;
             e21.PhoneNumber = "9075524141";
             e21.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e21);
+            db.Users.AddOrUpdate(e => e.LastName, e21);
             db.SaveChanges();
 
             User e22 = new User();
@@ -1125,7 +1128,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e22.ZipCode = 78640;
             e22.PhoneNumber = "9556662323";
             e22.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e22);
+            db.Users.AddOrUpdate(e => e.LastName, e22);
             db.SaveChanges();
 
             User e23 = new User();
@@ -1140,7 +1143,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e23.ZipCode = 78747;
             e23.PhoneNumber = "9886662222";
             e23.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e23);
+            db.Users.AddOrUpdate(e => e.LastName, e23);
             db.SaveChanges();
 
             User e24 = new User();
@@ -1155,7 +1158,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e24.ZipCode = 78712;
             e24.PhoneNumber = "9221114444";
             e24.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e24);
+            db.Users.AddOrUpdate(e => e.LastName, e24);
             db.SaveChanges();
 
             User e25 = new User();
@@ -1170,7 +1173,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e25.ZipCode = 78758;
             e25.PhoneNumber = "9221113333";
             e25.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e25);
+            db.Users.AddOrUpdate(e => e.LastName, e25);
             db.SaveChanges();
 
             User e26 = new User();
@@ -1185,7 +1188,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e26.ZipCode = 78729;
             e26.PhoneNumber = "9234442222";
             e26.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e26);
+            db.Users.AddOrUpdate(e => e.LastName, e26);
             db.SaveChanges();
 
             User e27 = new User();
@@ -1200,7 +1203,7 @@ namespace LonghornCinemaFinalProject.Migrations
             e27.ZipCode = 78665;
             e27.PhoneNumber = "9795554444";
             e27.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e27);
+            db.Users.AddOrUpdate(e => e.LastName, e27);
             db.SaveChanges();
 
             User e28 = new User();
@@ -1215,12 +1218,13 @@ namespace LonghornCinemaFinalProject.Migrations
             e28.ZipCode = 78712;
             e28.PhoneNumber = "9893336666";
             e28.PopcornPointsBalance = 0;
-            db.AppUsers.AddOrUpdate(e => e.LastName, e28);
+            db.Users.AddOrUpdate(e => e.LastName, e28);
             db.SaveChanges();
 
 
 
 
-       */ }
+       */
+        }
     }
 }

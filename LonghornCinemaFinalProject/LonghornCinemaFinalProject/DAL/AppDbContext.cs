@@ -30,9 +30,6 @@ namespace LonghornCinemaFinalProject.DAL
         public DbSet<Showing> Showings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
-        //may not need this because of Identity -Ben
-        //public DbSet<User> Users { get; set; }
-
         public DbSet<Genre> Genres { get; set; }
 
         //NOTE: This is a dbSet that you need to make roles work
