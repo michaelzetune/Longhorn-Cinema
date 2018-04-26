@@ -25,9 +25,11 @@ namespace LonghornCinemaFinalProject.Migrations
             ShowingData AddShowings = new ShowingData();
             AddShowings.SeedShowings(context);
 
+            SeedIdentity Seed = new SeedIdentity();
+            Seed.AddAdmin(context);
+
             UserData AddUsers = new UserData();
             AddUsers.SeedUsers(context);
-
         }
     }
 }
