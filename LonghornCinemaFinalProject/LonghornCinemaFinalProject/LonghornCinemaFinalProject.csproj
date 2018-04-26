@@ -280,6 +280,10 @@
     <Compile Include="Migrations\201804261651510_UpdateDataAnnotations.Designer.cs">
       <DependentUpon>201804261651510_UpdateDataAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804262035374_TestUsers.cs" />
+    <Compile Include="Migrations\201804262035374_TestUsers.Designer.cs">
+      <DependentUpon>201804262035374_TestUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -449,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804261651510_UpdateDataAnnotations.resx">
       <DependentUpon>201804261651510_UpdateDataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804262035374_TestUsers.resx">
+      <DependentUpon>201804262035374_TestUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -36,10 +36,12 @@ namespace LonghornCinemaFinalProject.Migrations
                 db.SaveChanges();
                 c1 = db.Users.First(u => u.UserName == "cbaker@example.com");
             }
+
             if (UserManager.IsInRole(c1.Id, "Customer") == false)
             {
                 UserManager.AddToRole(c1.Id, "Customer");
             }
+
             db.SaveChanges();
 
 

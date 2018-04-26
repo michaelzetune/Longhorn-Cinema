@@ -30,7 +30,7 @@ namespace LonghornCinemaFinalProject
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
 
-                //TODO:  This should point to wherever your login page is so that the app will redirect to login
+                //DONE:  This should point to wherever your login page is so that the app will redirect to login
                 LoginPath = new PathString("/Accounts/Login"),
                 Provider = new CookieAuthenticationProvider
                 {

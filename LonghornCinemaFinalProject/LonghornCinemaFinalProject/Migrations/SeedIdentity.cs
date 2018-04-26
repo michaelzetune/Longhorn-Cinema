@@ -34,7 +34,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 um1.LastName = "Istrator";
                 um1.Email = "admin@example.com";
                 um1.PhoneNumber = "(512)555-5555";
-                um1.Birthday = new DateTime(00, 1, 1);
+                um1.Birthday = new DateTime(2000, 1, 1);
                 um1.StreetAddress = "1234 Main Street";
                 um1.City = "Austin";
                 um1.State = "TX";
