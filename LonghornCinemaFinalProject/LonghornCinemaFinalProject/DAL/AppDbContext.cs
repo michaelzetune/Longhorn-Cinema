@@ -27,7 +27,6 @@ namespace LonghornCinemaFinalProject.DAL
         //may not need this because of Identity -Ben
         //public DbSet<Role> Roles { get; set; }
 
-        public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Showing> Showings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 

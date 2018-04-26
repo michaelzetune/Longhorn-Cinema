@@ -48,8 +48,6 @@ namespace LonghornCinemaFinalProject.Models
         public virtual Movie Movie { get; set; }
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
-        // Schedule
-        public virtual Schedule Schedule { get; set;}
 
         public Showing()
         {
