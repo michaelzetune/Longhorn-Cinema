@@ -17,6 +17,12 @@ namespace LonghornCinemaFinalProject.Models
         public Boolean Complete { get; set; }
 
         // Navigation Properties
+        public decimal Subtotal { get; set; }
+        public decimal TaxAmount { get; set; }
+        public decimal Total { get; set; }
+        public String CreditCardUsed {get; set;}
+        public DateTime OrderDate { get; set; }
+        public Int32 TransactionNumber { get; set; }
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card

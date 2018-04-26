@@ -268,6 +268,14 @@
     <Compile Include="Migrations\201804260210043_UpdateAppUserModelClass.Designer.cs">
       <DependentUpon>201804260210043_UpdateAppUserModelClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804261030527_Sam%27s Test.cs" />
+    <Compile Include="Migrations\201804261030527_Sam%27s Test.Designer.cs">
+      <DependentUpon>201804261030527_Sam%27s Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804261129028_Samtest2.cs" />
+    <Compile Include="Migrations\201804261129028_Samtest2.Designer.cs">
+      <DependentUpon>201804261129028_Samtest2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -283,7 +291,6 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
-    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Migrations\MovieData.cs" />
@@ -428,6 +435,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804260210043_UpdateAppUserModelClass.resx">
       <DependentUpon>201804260210043_UpdateAppUserModelClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804261030527_Sam%27s Test.resx">
+      <DependentUpon>201804261030527_Sam%27s Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804261129028_Samtest2.resx">
+      <DependentUpon>201804261129028_Samtest2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

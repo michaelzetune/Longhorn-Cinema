@@ -8,7 +8,7 @@ namespace LonghornCinemaFinalProject.Migrations
 {
     public class UserData
     {
-        public void SeedAppUsers(AppDbContext db)
+       /* public void SeedAppUsers(AppDbContext db)
         {
             User c1 = new User();
             c1.LastName = "Baker";
@@ -1198,6 +1198,6 @@ namespace LonghornCinemaFinalProject.Migrations
 
 
 
-        }
+        }*/
     }
 }
