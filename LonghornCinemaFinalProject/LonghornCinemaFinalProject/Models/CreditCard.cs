@@ -36,8 +36,6 @@ namespace LonghornCinemaFinalProject.Models
 
 
         // Navigation Properties
-        // User
-        public virtual User User { get; set; }
         // Orders
         public virtual List<Order> Orders { get; set; }
 

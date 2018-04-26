@@ -31,7 +31,31 @@ namespace LonghornCinemaFinalProject.Models
         [Display(Name = "First Name")]
         public String FirstName { get; set; }
 
-       
+        [Required(ErrorMessage = "Last name is required")]
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
+
+        [Required(ErrorMessage = "Birthday is required")]
+        [Display(Name = "Birthday")]
+        public DateTime Birthday { get; set; }
+
+        [Required(ErrorMessage = "Address is required")]
+        [Display(Name = "Street Address")]
+        public String StreetAddress { get; set; }
+
+        [Required(ErrorMessage = "City is required")]
+        [Display(Name = "City")]
+        public String City { get; set; }
+
+        [Required(ErrorMessage = "State is required")]
+        [Display(Name = "State")]
+        public String State { get; set; }
+
+        [Required(ErrorMessage = "Zip Code is required")]
+        [Display(Name = "Zip Code")]
+        public Int32 ZipCode { get; set; }
+
+        public Decimal PopcornPointsBalance { get; set; }
 
         //NOTE: Here is the property for email
         [Required]

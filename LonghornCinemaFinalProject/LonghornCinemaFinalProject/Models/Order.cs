@@ -17,8 +17,6 @@ namespace LonghornCinemaFinalProject.Models
         public Boolean Complete { get; set; }
 
         // Navigation Properties
-        // User
-        public virtual User User { get; set; }
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card
