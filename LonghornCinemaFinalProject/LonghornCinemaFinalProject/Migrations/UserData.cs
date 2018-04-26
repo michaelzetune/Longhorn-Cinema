@@ -211,7 +211,7 @@ namespace LonghornCinemaFinalProject.Migrations
             c14.Email = "ahick@yaho.com";
             c14.Password = "hickhickup";
             c14.Birthday = new DateTime(2004, 12, 8);
-            c14.StreetAddress = ""32 NE Garden Ln., Ste 910"";
+            c14.StreetAddress = "32 NE Garden Ln., Ste 910";
             c14.City = "Austin";
             c14.State = "TX";
             c14.ZipCode = 78712;

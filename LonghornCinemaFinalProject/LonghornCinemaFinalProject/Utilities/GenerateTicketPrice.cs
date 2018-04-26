@@ -88,7 +88,7 @@ namespace LonghornCinemaFinalProject.Utilities
 
             //return the value
 
-            return decTicketPrice; // placeholder so the file will compile - Michael
+            return decTicketPrice; 
 
         }
     }
