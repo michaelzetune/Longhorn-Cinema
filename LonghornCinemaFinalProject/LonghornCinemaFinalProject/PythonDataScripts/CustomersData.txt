@@ -1,0 +1,52 @@
+Customer #	Password	Last Name	First Name	Middle Initial	Birthday	Street	City	State	Zip	SSN	Phone Number	Email	PopcornPoints
+5001	hello1	Baker	Christopher	L.	11/23/1949	1245 Lake Anchorage Blvd.	Austin	TX	78705	9075571146	5125550180	cbaker@example.com	110
+5002	potato	Banks	Michelle		11/27/1962	1300 Tall Pine Lane	Austin	TX	78712	9042678873	5125550183	banker@longhorn.net	40
+5003	painting	Broccolo	Franco	V	10/11/1992	62 Browning Road	Austin	TX	78704	4155659699	5125550128	franco@example.com	30
+5004	texas1	Chang	Wendy	L	5/16/1997	202 Bellmont Hall	Round Rock	TX	78681	9075943222	5125550133	wchang@example.com	0
+5005	Anchorage	Chou	Lim		4/6/1970	1600 Teresa Lane	Austin	TX	78705	8137724599	5125550102	limchou@gogle.com	40
+5006	pepperoni	Dixon	Shan	D	1/12/1984	234 Holston Circle	Austin	TX	78712	2052643255	5125550146	shdixon@aoll.com	20
+5007	longhorns	Evans	Jim Bob		9/9/1959	506 Farrell Circle	Georgetown	TX	78628	2102565834	5125550170	j.b.evans@aheca.org	50
+5008	aggies	Feeley	Lou Ann	K	1/12/2001	600 S 8th Street W	Austin	TX	78746	4062556749	5125550105	feeley@penguin.org	170
+5009	raiders	Freeley	Tesa	P	2/4/1991	4448 Fairview Ave.	Horseshoe Bay	TX	78657	6123255687	5125550114	tfreeley@minnetonka.ci.us	160
+5010	mustangs	Garcia	Margaret	L	10/2/1991	594 Longview	Austin	TX	78727	4066593544	5125550155	mgarcia@gogle.com	10
+5011	onetime	Haley	Charles	E	7/10/1974	One Cowboy Pkwy	Austin	TX	78712	2148475583	5125550116	chaley@thug.com	40
+5012	hampton1	Hampton	Jeffrey	T.	3/10/2004	337 38th St.	San Marcos	TX	78666	9076978613	5125550150	jeffh@sonic.com	150
+5013	jhearn22	Hearn	John	B	8/5/1950	4225 North First	Austin	TX	78705	5208965621	5125550196	wjhearniii@umich.org	0
+5014	hickhickup	Hicks	Anthony	J	12/8/2004	"32 NE Garden Ln., Ste 910"	Austin	TX	78712	7355788965	5125550188	ahick@yaho.com	60
+5015	ingram2015	Ingram	Brad	S.	9/5/2001	6548 La Posada Ct.	New York	NY	10101	9074678821	5125550116	ingram@jack.com	20
+5016	toddy25	Jacobs	Todd	L.	1/20/1999	4564 Elm St.	Austin	TX	78729	9074653365	5125550166	toddj@yourmom.com	170
+5017	something	Lawrence	Victoria	M.	4/14/2000	6639 Butterfly Ln.	Beverly Hills	CA	90210	9079457399	5125550173	thequeen@aska.net	130
+5018	Password1	Lineback	Erik	W	12/2/2003	1300 Netherland St	Austin	TX	78758	3032449976	5125550167	linebacker@gogle.com	60
+5019	aclfest2017	Lowe	Ernest	S	12/7/1977	3201 Pine Drive	New Braunfels	TX	78130	7135344627	5125550187	elowe@netscare.net	20
+5020	nothinggood	Luce	Chuck	B	3/16/1949	2345 Rolling Clouds	Cactus	TX	79013	9546983548	5125550141	cluce@gogle.com	180
+5021	whatever	MacLeod	Jennifer	D.	2/21/1947	2504 Far West Blvd.	Marble Falls	TX	78654	9074748138	5125550185	mackcloud@george.com	170
+5022	whocares	Markham	Elizabeth	P.	3/20/1972	7861 Chevy Chase	Kissimmee	FL	34741	9074579845	5125550134	cmartin@beets.com	100
+5023	xcellent	Martin	Clarence	A	7/19/1992	87 Alcedo St.	Austin	TX	78709	9204955201	5125550151	clarence@yoho.com	130
+5024	snowsnow	Martinez	Gregory	R.	5/28/1947	8295 Sunset Blvd.	Red Rock	TX	78662	9078746718	5125550120	gregmartinez@drdre.com	20
+5025	mydogspot	Miller	Charles	R.	10/15/1990	8962 Main St.	South Padre Island	TX	78597	9077458615	5125550198	cmiller@bob.com	20
+5026	spotmydog	Nelson	Kelly	T	7/13/1971	2601 Red River	Disney	OK	74340	9072926966	5125550177	knelson@aoll.com	110
+5027	joejoejoe	Nguyen	Joe	C	3/17/1984	1249 4th SW St.	Del Rio	TX	78841	2023125897	5125550174	joewin@xfactor.com	150
+5028	billyboy	O'Reilly	Bill	T	7/8/1959	8800 Gringo Drive	Austin	TX	78746	3173450925	5125550167	orielly@foxnews.cnn	190
+5029	radgirl	Radkovich	Anka	L	5/19/1966	1300 Elliott Pl	Austin	TX	78712	3022345566	5125550151	ankaisrad@gogle.com	120
+5030	meganr34	Rhodes	Megan	C.	3/12/1965	4587 Enfield Rd.	Austin	TX	78705	9073744746	5125550133	megrhodes@freserve.co.uk	190
+5031	ricearoni	Rice	Eryn	M.	4/28/1975	3405 Rio Grande	Austin	TX	78785	9073876657	5125550196	erynrice@aoll.com	190
+5032	jrod2017	Rodriguez	Jorge		12/8/1953	6788 Cotter Street	Littlefield	TX	79339	4158904374	5125550141	jorge@noclue.com	20
+5033	rogerthat	Rogers	Allen	B.	4/22/1973	4965 Oak Hill	Austin	TX	78733	9078752943	5125550189	mrrogers@lovelyday.com	100
+5034	bunnyhop	Saint-Jean	Olivier	M	2/19/1995	255 Toncray Dr.	Austin	TX	78755	3434145678	5125550152	stjean@athome.com	250
+5035	penguin12	Saunders	Sarah	J.	2/19/1978	332 Avenue C	Austin	TX	78701	9073497810	5125550146	saunders@pen.com	40
+5036	alaskaboy	Sewell	William	T.	12/23/2004	2365 51st St.	El Paso	TX	79953	9074510084	5125550192	willsheff@email.com	200
+5037	martin1234	Sheffield	Martin	J.	5/8/1960	3886 Avenue A	Balmorhea	TX	79718	9075479167	5125550131	sheffiled@gogle.com	130
+5038	smitty444	Smith	John	A	6/25/1955	23 Hidden Forge Dr.	Austin	TX	78760	2838321888	5125550190	johnsmith187@aoll.com	130
+5039	dustydusty	Stroud	Dustin	P	7/26/1967	1212 Rita Rd	Austin	TX	78734	2172346667	5125550157	dustroud@mail.com	90
+5040	stewball	Stuart	Eric	D.	12/4/1947	5576 Toro Ring	Kyle	TX	78640	9078178335	5125550191	estuart@anchor.net	170
+5041	slowwind	Stump	Peter	L	7/10/1974	1300 Kellen Circle	Philadelphia	PA	19123	2084560903	5125550136	peterstump@noclue.com	50
+5042	tanner5454	Tanner	Jeremy	S.	1/11/1944	4347 Almstead	Austin	TX	78747	9074590929	5125550170	jtanner@mustang.net	190
+5043	allyrally	Taylor	Allison	R.	11/14/1990	467 Nueces St.	Austin	TX	78712	9074748452	5125550160	taylordjay@aoll.com	110
+5044	taylorbaylor	Taylor	Rachel	K.	1/18/1976	345 Longview Dr.	Austin	TX	78758	9074907631	5125550127	rtaylor@gogle.com	160
+5045	teeoff22	Tee	Frank	J	9/6/1998	5590 Lavell Dr	Austin	TX	78729	2138765543	5125550161	teefrank@noclue.com	70
+5046	tucksack1	Tucker	Clent	J	2/25/1943	312 Main St.	Round Rock	TX	78665	9038471154	5125550106	ctucker@alphabet.co.uk	150
+5047	meow88	Velasco	Allen	G	9/10/1985	679 W. 4th	Cedar Park	TX	78613	3103985638	5125550170	avelasco@yoho.com	0
+5048	vinovino	Vino	Janet	E	2/7/1985	189 Grape Road	Lockhart	TX	78644	8175643832	5125550128	vinovino@grapes.com	160
+5049	gowest	West	Jake	T	1/9/1976	RR 3287	Austin	TX	78705	5938475244	2025550170	westj@pioneer.net	70
+5050	louielouie	Winthorpe	Louis	L	4/19/1953	2500 Padre Blvd	Austin	TX	78747	2105650098	2025550141	winner@hootmail.com	150
+5051	woodyman1	Wood	Reagan	B.	12/28/2002	447 Westlake Dr.	Austin	TX	78753	9074545242	2025550128	rwood@voyager.net	20

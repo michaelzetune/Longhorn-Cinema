@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public class User
+    public class User: AppUser
     {
         // Properties
         // UserID
@@ -40,10 +40,6 @@ namespace LonghornCinemaFinalProject.Models
 
         // Phone Number
         public String PhoneNumber { get; set; }
-
-        // UserStatus
-        //not sure if this is correct -Ben
-        public String UserStatus { get; set; }
 
         // PopcornPointsBalance
         public Decimal PopcornPointsBalance { get; set; }
