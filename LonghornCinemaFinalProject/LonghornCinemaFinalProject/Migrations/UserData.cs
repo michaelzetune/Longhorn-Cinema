@@ -49,6 +49,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c2 == null)
             {
                 c2 = new AppUser();
+                c2.UserName = "banker@longhorn.net";
                 c2.LastName = "Banks";
                 c2.FirstName = "Michelle";
                 c2.Email = "banker@longhorn.net";
@@ -73,6 +74,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c3 == null)
             {
                 c3 = new AppUser();
+                c3.UserName = "franco@example.com";
                 c3.LastName = "Broccolo";
                 c3.FirstName = "Franco";
                 c3.Email = "franco@example.com";
@@ -97,6 +99,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c4 == null)
             {
                 c4 = new AppUser();
+                c4.UserName = "wchang@example.com";
                 c4.LastName = "Chang";
                 c4.FirstName = "Wendy";
                 c4.Email = "wchang@example.com";
@@ -121,6 +124,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c5 == null)
             {
                 c5 = new AppUser();
+                c5.UserName = "limchou@gogle.com";
                 c5.LastName = "Chou";
                 c5.FirstName = "Lim";
                 c5.Email = "limchou@gogle.com";
@@ -145,6 +149,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c6 == null)
             {
                 c6 = new AppUser();
+                c6.UserName = "shdixon@aoll.com";
                 c6.LastName = "Dixon";
                 c6.FirstName = "Shan";
                 c6.Email = "shdixon@aoll.com";
@@ -169,6 +174,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c7 == null)
             {
                 c7 = new AppUser();
+                c7.UserName = "j.b.evans@aheca.org";
                 c7.LastName = "Evans";
                 c7.FirstName = "Jim Bob";
                 c7.Email = "j.b.evans@aheca.org";
@@ -193,6 +199,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c8 == null)
             {
                 c8 = new AppUser();
+                c8.UserName = "feeley@penguin.org";
                 c8.LastName = "Feeley";
                 c8.FirstName = "Lou Ann";
                 c8.Email = "feeley@penguin.org";
@@ -217,6 +224,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c9 == null)
             {
                 c9 = new AppUser();
+                c9.UserName = "tfreeley@minnetonka.ci.us";
                 c9.LastName = "Freeley";
                 c9.FirstName = "Tesa";
                 c9.Email = "tfreeley@minnetonka.ci.us";
@@ -241,6 +249,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c10 == null)
             {
                 c10 = new AppUser();
+                c10.UserName = "mgarcia@gogle.com";
                 c10.LastName = "Garcia";
                 c10.FirstName = "Margaret";
                 c10.Email = "mgarcia@gogle.com";
@@ -265,6 +274,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c11 == null)
             {
                 c11 = new AppUser();
+                c11.UserName = "chaley@thug.com";
                 c11.LastName = "Haley";
                 c11.FirstName = "Charles";
                 c11.Email = "chaley@thug.com";
@@ -289,6 +299,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c12 == null)
             {
                 c12 = new AppUser();
+                c12.UserName = "jeffh@sonic.com";
                 c12.LastName = "Hampton";
                 c12.FirstName = "Jeffrey";
                 c12.Email = "jeffh@sonic.com";
@@ -313,6 +324,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c13 == null)
             {
                 c13 = new AppUser();
+                c13.UserName = "wjhearniii@umich.org";
                 c13.LastName = "Hearn";
                 c13.FirstName = "John";
                 c13.Email = "wjhearniii@umich.org";
@@ -337,6 +349,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c14 == null)
             {
                 c14 = new AppUser();
+                c14.UserName = "ahick@yaho.com";
                 c14.LastName = "Hicks";
                 c14.FirstName = "Anthony";
                 c14.Email = "ahick@yaho.com";
@@ -361,6 +374,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c15 == null)
             {
                 c15 = new AppUser();
+                c15.UserName = "ingram@jack.com";
                 c15.LastName = "Ingram";
                 c15.FirstName = "Brad";
                 c15.Email = "ingram@jack.com";
@@ -385,6 +399,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c16 == null)
             {
                 c16 = new AppUser();
+                c16.UserName = "toddj@yourmom.com";
                 c16.LastName = "Jacobs";
                 c16.FirstName = "Todd";
                 c16.Email = "toddj@yourmom.com";
@@ -409,6 +424,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c17 == null)
             {
                 c17 = new AppUser();
+                c17.UserName = "thequeen@aska.net";
                 c17.LastName = "Lawrence";
                 c17.FirstName = "Victoria";
                 c17.Email = "thequeen@aska.net";
@@ -433,6 +449,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c18 == null)
             {
                 c18 = new AppUser();
+                c18.UserName = "linebacker@gogle.com";
                 c18.LastName = "Lineback";
                 c18.FirstName = "Erik";
                 c18.Email = "linebacker@gogle.com";
@@ -457,6 +474,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c19 == null)
             {
                 c19 = new AppUser();
+                c19.UserName = "elowe@netscare.net";
                 c19.LastName = "Lowe";
                 c19.FirstName = "Ernest";
                 c19.Email = "elowe@netscare.net";
@@ -481,6 +499,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c20 == null)
             {
                 c20 = new AppUser();
+                c20.UserName = "cluce@gogle.com";
                 c20.LastName = "Luce";
                 c20.FirstName = "Chuck";
                 c20.Email = "cluce@gogle.com";
@@ -505,6 +524,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c21 == null)
             {
                 c21 = new AppUser();
+                c21.UserName = "mackcloud@george.com";
                 c21.LastName = "MacLeod";
                 c21.FirstName = "Jennifer";
                 c21.Email = "mackcloud@george.com";
@@ -529,6 +549,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c22 == null)
             {
                 c22 = new AppUser();
+                c22.UserName = "cmartin@beets.com";
                 c22.LastName = "Markham";
                 c22.FirstName = "Elizabeth";
                 c22.Email = "cmartin@beets.com";
@@ -553,6 +574,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c23 == null)
             {
                 c23 = new AppUser();
+                c23.UserName = "clarence@yoho.com";
                 c23.LastName = "Martin";
                 c23.FirstName = "Clarence";
                 c23.Email = "clarence@yoho.com";
@@ -577,6 +599,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c24 == null)
             {
                 c24 = new AppUser();
+                c24.UserName = "gregmartinez@drdre.com";
                 c24.LastName = "Martinez";
                 c24.FirstName = "Gregory";
                 c24.Email = "gregmartinez@drdre.com";
@@ -601,6 +624,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c25 == null)
             {
                 c25 = new AppUser();
+                c25.UserName = "cmiller@bob.com";
                 c25.LastName = "Miller";
                 c25.FirstName = "Charles";
                 c25.Email = "cmiller@bob.com";
@@ -625,6 +649,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c26 == null)
             {
                 c26 = new AppUser();
+                c26.UserName = "knelson@aoll.com";
                 c26.LastName = "Nelson";
                 c26.FirstName = "Kelly";
                 c26.Email = "knelson@aoll.com";
@@ -649,6 +674,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c27 == null)
             {
                 c27 = new AppUser();
+                c27.UserName = "joewin@xfactor.com";
                 c27.LastName = "Nguyen";
                 c27.FirstName = "Joe";
                 c27.Email = "joewin@xfactor.com";
@@ -673,6 +699,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c28 == null)
             {
                 c28 = new AppUser();
+                c28.UserName = "orielly@foxnews.cnn";
                 c28.LastName = "O'Reilly";
                 c28.FirstName = "Bill";
                 c28.Email = "orielly@foxnews.cnn";
@@ -697,6 +724,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c29 == null)
             {
                 c29 = new AppUser();
+                c29.UserName = "ankaisrad@gogle.com";
                 c29.LastName = "Radkovich";
                 c29.FirstName = "Anka";
                 c29.Email = "ankaisrad@gogle.com";
@@ -721,6 +749,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c30 == null)
             {
                 c30 = new AppUser();
+                c30.UserName = "megrhodes@freserve.co.uk";
                 c30.LastName = "Rhodes";
                 c30.FirstName = "Megan";
                 c30.Email = "megrhodes@freserve.co.uk";
@@ -745,6 +774,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c31 == null)
             {
                 c31 = new AppUser();
+                c31.UserName = "erynrice@aoll.com";
                 c31.LastName = "Rice";
                 c31.FirstName = "Eryn";
                 c31.Email = "erynrice@aoll.com";
@@ -769,6 +799,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c32 == null)
             {
                 c32 = new AppUser();
+                c32.UserName = "jorge@noclue.com";
                 c32.LastName = "Rodriguez";
                 c32.FirstName = "Jorge";
                 c32.Email = "jorge@noclue.com";
@@ -793,6 +824,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c33 == null)
             {
                 c33 = new AppUser();
+                c33.UserName = "mrrogers@lovelyday.com";
                 c33.LastName = "Rogers";
                 c33.FirstName = "Allen";
                 c33.Email = "mrrogers@lovelyday.com";
@@ -817,6 +849,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c34 == null)
             {
                 c34 = new AppUser();
+                c34.UserName = "stjean@athome.com";
                 c34.LastName = "Saint-Jean";
                 c34.FirstName = "Olivier";
                 c34.Email = "stjean@athome.com";
@@ -841,6 +874,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c35 == null)
             {
                 c35 = new AppUser();
+                c35.UserName = "saunders@pen.com";
                 c35.LastName = "Saunders";
                 c35.FirstName = "Sarah";
                 c35.Email = "saunders@pen.com";
@@ -865,6 +899,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c36 == null)
             {
                 c36 = new AppUser();
+                c36.UserName = "willsheff@email.com";
                 c36.LastName = "Sewell";
                 c36.FirstName = "William";
                 c36.Email = "willsheff@email.com";
@@ -889,6 +924,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c37 == null)
             {
                 c37 = new AppUser();
+                c37.UserName = "sheffiled@gogle.com";
                 c37.LastName = "Sheffield";
                 c37.FirstName = "Martin";
                 c37.Email = "sheffiled@gogle.com";
@@ -913,6 +949,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c38 == null)
             {
                 c38 = new AppUser();
+                c38.UserName = "johnsmith187@aoll.com";
                 c38.LastName = "Smith";
                 c38.FirstName = "John";
                 c38.Email = "johnsmith187@aoll.com";
@@ -937,6 +974,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c39 == null)
             {
                 c39 = new AppUser();
+                c39.UserName = "dustroud@mail.com";
                 c39.LastName = "Stroud";
                 c39.FirstName = "Dustin";
                 c39.Email = "dustroud@mail.com";
@@ -961,6 +999,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c40 == null)
             {
                 c40 = new AppUser();
+                c40.UserName = "estuart@anchor.net";
                 c40.LastName = "Stuart";
                 c40.FirstName = "Eric";
                 c40.Email = "estuart@anchor.net";
@@ -985,6 +1024,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c41 == null)
             {
                 c41 = new AppUser();
+                c41.UserName = "peterstump@noclue.com";
                 c41.LastName = "Stump";
                 c41.FirstName = "Peter";
                 c41.Email = "peterstump@noclue.com";
@@ -1009,6 +1049,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c42 == null)
             {
                 c42 = new AppUser();
+                c42.UserName = "jtanner@mustang.net";
                 c42.LastName = "Tanner";
                 c42.FirstName = "Jeremy";
                 c42.Email = "jtanner@mustang.net";
@@ -1033,6 +1074,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c43 == null)
             {
                 c43 = new AppUser();
+                c43.UserName = "taylordjay@aoll.com";
                 c43.LastName = "Taylor";
                 c43.FirstName = "Allison";
                 c43.Email = "taylordjay@aoll.com";
@@ -1057,6 +1099,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c44 == null)
             {
                 c44 = new AppUser();
+                c44.UserName = "rtaylor@gogle.com";
                 c44.LastName = "Taylor";
                 c44.FirstName = "Rachel";
                 c44.Email = "rtaylor@gogle.com";
@@ -1081,6 +1124,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c45 == null)
             {
                 c45 = new AppUser();
+                c45.UserName = "teefrank@noclue.com";
                 c45.LastName = "Tee";
                 c45.FirstName = "Frank";
                 c45.Email = "teefrank@noclue.com";
@@ -1105,6 +1149,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c46 == null)
             {
                 c46 = new AppUser();
+                c46.UserName = "ctucker@alphabet.co.uk";
                 c46.LastName = "Tucker";
                 c46.FirstName = "Clent";
                 c46.Email = "ctucker@alphabet.co.uk";
@@ -1129,6 +1174,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c47 == null)
             {
                 c47 = new AppUser();
+                c47.UserName = "avelasco@yoho.com";
                 c47.LastName = "Velasco";
                 c47.FirstName = "Allen";
                 c47.Email = "avelasco@yoho.com";
@@ -1153,6 +1199,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c48 == null)
             {
                 c48 = new AppUser();
+                c48.UserName = "vinovino@grapes.com";
                 c48.LastName = "Vino";
                 c48.FirstName = "Janet";
                 c48.Email = "vinovino@grapes.com";
@@ -1177,6 +1224,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c49 == null)
             {
                 c49 = new AppUser();
+                c49.UserName = "westj@pioneer.net";
                 c49.LastName = "West";
                 c49.FirstName = "Jake";
                 c49.Email = "westj@pioneer.net";
@@ -1201,6 +1249,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c50 == null)
             {
                 c50 = new AppUser();
+                c50.UserName = "winner@hootmail.com";
                 c50.LastName = "Winthorpe";
                 c50.FirstName = "Louis";
                 c50.Email = "winner@hootmail.com";
@@ -1225,6 +1274,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (c51 == null)
             {
                 c51 = new AppUser();
+                c51.UserName = "rwood@voyager.net";
                 c51.LastName = "Wood";
                 c51.FirstName = "Reagan";
                 c51.Email = "rwood@voyager.net";
@@ -1249,6 +1299,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e1 == null)
             {
                 e1 = new AppUser();
+                e1.UserName = "t.jacobs@longhorncinema.com";
                 e1.LastName = "Jacobs";
                 e1.FirstName = "Todd";
                 e1.Email = "t.jacobs@longhorncinema.com";
@@ -1273,6 +1324,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e2 == null)
             {
                 e2 = new AppUser();
+                e2.UserName = "e.rice@longhorncinema.com";
                 e2.LastName = "Rice";
                 e2.FirstName = "Eryn";
                 e2.Email = "e.rice@longhorncinema.com";
@@ -1297,6 +1349,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e3 == null)
             {
                 e3 = new AppUser();
+                e3.UserName = "b.ingram@longhorncinema.com";
                 e3.LastName = "Ingram";
                 e3.FirstName = "Brad";
                 e3.Email = "b.ingram@longhorncinema.com";
@@ -1321,6 +1374,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e4 == null)
             {
                 e4 = new AppUser();
+                e4.UserName = "a.taylor@longhorncinema.com";
                 e4.LastName = "Taylor";
                 e4.FirstName = "Allison";
                 e4.Email = "a.taylor@longhorncinema.com";
@@ -1345,6 +1399,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e5 == null)
             {
                 e5 = new AppUser();
+                e5.UserName = "g.martinez@longhorncinema.com";
                 e5.LastName = "Martinez";
                 e5.FirstName = "Gregory";
                 e5.Email = "g.martinez@longhorncinema.com";
@@ -1369,6 +1424,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e6 == null)
             {
                 e6 = new AppUser();
+                e6.UserName = "m.sheffield@longhorncinema.com";
                 e6.LastName = "Sheffield";
                 e6.FirstName = "Martin";
                 e6.Email = "m.sheffield@longhorncinema.com";
@@ -1393,6 +1449,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e7 == null)
             {
                 e7 = new AppUser();
+                e7.UserName = "j.macleod@longhorncinema.com";
                 e7.LastName = "MacLeod";
                 e7.FirstName = "Jennifer";
                 e7.Email = "j.macleod@longhorncinema.com";
@@ -1417,6 +1474,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e8 == null)
             {
                 e8 = new AppUser();
+                e8.UserName = "j.tanner@longhorncinema.com";
                 e8.LastName = "Tanner";
                 e8.FirstName = "Jeremy";
                 e8.Email = "j.tanner@longhorncinema.com";
@@ -1441,6 +1499,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e9 == null)
             {
                 e9 = new AppUser();
+                e9.UserName = "m.rhodes@longhorncinema.com";
                 e9.LastName = "Rhodes";
                 e9.FirstName = "Megan";
                 e9.Email = "m.rhodes@longhorncinema.com";
@@ -1465,6 +1524,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e10 == null)
             {
                 e10 = new AppUser();
+                e10.UserName = "e.stuart@longhorncinema.com";
                 e10.LastName = "Stuart";
                 e10.FirstName = "Eric";
                 e10.Email = "e.stuart@longhorncinema.com";
@@ -1489,6 +1549,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e11 == null)
             {
                 e11 = new AppUser();
+                e11.UserName = "c.miller@longhorncinema.com";
                 e11.LastName = "Miller";
                 e11.FirstName = "Charles";
                 e11.Email = "c.miller@longhorncinema.com";
@@ -1513,6 +1574,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e12 == null)
             {
                 e12 = new AppUser();
+                e12.UserName = "r.taylor@longhorncinema.com";
                 e12.LastName = "Taylor";
                 e12.FirstName = "Rachel";
                 e12.Email = "r.taylor@longhorncinema.com";
@@ -1537,6 +1599,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e13 == null)
             {
                 e13 = new AppUser();
+                e13.UserName = "v.lawrence@longhorncinema.com";
                 e13.LastName = "Lawrence";
                 e13.FirstName = "Victoria";
                 e13.Email = "v.lawrence@longhorncinema.com";
@@ -1561,6 +1624,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e14 == null)
             {
                 e14 = new AppUser();
+                e14.UserName = "a.rogers@longhorncinema.com";
                 e14.LastName = "Rogers";
                 e14.FirstName = "Allen";
                 e14.Email = "a.rogers@longhorncinema.com";
@@ -1585,6 +1649,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e15 == null)
             {
                 e15 = new AppUser();
+                e15.UserName = "e.markham@longhorncinema.com";
                 e15.LastName = "Markham";
                 e15.FirstName = "Elizabeth";
                 e15.Email = "e.markham@longhorncinema.com";
@@ -1609,6 +1674,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e16 == null)
             {
                 e16 = new AppUser();
+                e16.UserName = "c.baker@longhorncinema.com";
                 e16.LastName = "Baker";
                 e16.FirstName = "Christopher";
                 e16.Email = "c.baker@longhorncinema.com";
@@ -1633,6 +1699,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e17 == null)
             {
                 e17 = new AppUser();
+                e17.UserName = "s.saunders@longhorncinema.com";
                 e17.LastName = "Saunders";
                 e17.FirstName = "Sarah";
                 e17.Email = "s.saunders@longhorncinema.com";
@@ -1657,6 +1724,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e18 == null)
             {
                 e18 = new AppUser();
+                e18.UserName = "w.sewell@longhorncinema.com";
                 e18.LastName = "Sewell";
                 e18.FirstName = "William";
                 e18.Email = "w.sewell@longhorncinema.com";
@@ -1681,6 +1749,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e19 == null)
             {
                 e19 = new AppUser();
+                e19.UserName = "j.mason@longhorncinema.com";
                 e19.LastName = "Mason";
                 e19.FirstName = "Jack";
                 e19.Email = "j.mason@longhorncinema.com";
@@ -1705,6 +1774,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e20 == null)
             {
                 e20 = new AppUser();
+                e20.UserName = "j.jackson@longhorncinema.com";
                 e20.LastName = "Jackson";
                 e20.FirstName = "Jack";
                 e20.Email = "j.jackson@longhorncinema.com";
@@ -1729,6 +1799,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e21 == null)
             {
                 e21 = new AppUser();
+                e21.UserName = "m.nguyen@longhorncinema.com";
                 e21.LastName = "Nguyen";
                 e21.FirstName = "Mary";
                 e21.Email = "m.nguyen@longhorncinema.com";
@@ -1753,6 +1824,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e22 == null)
             {
                 e22 = new AppUser();
+                e22.UserName = "s.barnes@longhorncinema.com";
                 e22.LastName = "Barnes";
                 e22.FirstName = "Susan";
                 e22.Email = "s.barnes@longhorncinema.com";
@@ -1777,6 +1849,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e23 == null)
             {
                 e23 = new AppUser();
+                e23.UserName = "l.jones@longhorncinema.com";
                 e23.LastName = "Jones";
                 e23.FirstName = "Lester";
                 e23.Email = "l.jones@longhorncinema.com";
@@ -1801,6 +1874,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e24 == null)
             {
                 e24 = new AppUser();
+                e24.UserName = "h.garcia@longhorncinema.com";
                 e24.LastName = "Garcia";
                 e24.FirstName = "Hector";
                 e24.Email = "h.garcia@longhorncinema.com";
@@ -1825,6 +1899,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e25 == null)
             {
                 e25 = new AppUser();
+                e25.UserName = "c.silva@longhorncinema.com";
                 e25.LastName = "Silva";
                 e25.FirstName = "Cindy";
                 e25.Email = "c.silva@longhorncinema.com";
@@ -1849,6 +1924,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e26 == null)
             {
                 e26 = new AppUser();
+                e26.UserName = "m.lopez@longhorncinema.com";
                 e26.LastName = "Lopez";
                 e26.FirstName = "Marshall";
                 e26.Email = "m.lopez@longhorncinema.com";
@@ -1873,6 +1949,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e27 == null)
             {
                 e27 = new AppUser();
+                e27.UserName = "b.larson@longhorncinema.com";
                 e27.LastName = "Larson";
                 e27.FirstName = "Bill";
                 e27.Email = "b.larson@longhorncinema.com";
@@ -1897,6 +1974,7 @@ namespace LonghornCinemaFinalProject.Migrations
             if (e28 == null)
             {
                 e28 = new AppUser();
+                e28.UserName = "s.rankin@longhorncinema.com";
                 e28.LastName = "Rankin";
                 e28.FirstName = "Suzie";
                 e28.Email = "s.rankin@longhorncinema.com";
@@ -1924,7 +2002,13 @@ namespace LonghornCinemaFinalProject.Migrations
 
 
 
-       
+
+
+
+
+
+
+
         }
     }
 }
