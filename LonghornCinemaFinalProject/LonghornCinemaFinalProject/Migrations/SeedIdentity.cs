@@ -21,7 +21,6 @@ namespace LonghornCinemaFinalProject.Migrations
             //create a role manager
             AppRoleManager RoleManager = new AppRoleManager(new RoleStore<AppRole>(db));
 
-
             //check to see if the manager has been added
             AppUser manager = db.Users.FirstOrDefault(u => u.Email == "admin@example.com");
 

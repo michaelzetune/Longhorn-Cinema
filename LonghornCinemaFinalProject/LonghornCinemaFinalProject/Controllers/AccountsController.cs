@@ -114,12 +114,18 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                //TODO: Add fields to user here so they will be saved to do the database
+                //DONE: Add fields to user here so they will be saved to do the database
                 var user = new AppUser {
                     UserName = model.Email,
                     Email = model.Email,
                     //Firstname is an example - you will need to add the rest
                     FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Birthday = model.Birthday,
+                    StreetAddress = model.StreetAddress,
+                    City = model.City,
+                    State = model.State,
+                    ZipCode = model.ZipCode
                                  
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
