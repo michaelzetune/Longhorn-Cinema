@@ -22,22 +22,25 @@ namespace LonghornCinemaFinalProject.Migrations
             AppRoleManager RoleManager = new AppRoleManager(new RoleStore<AppRole>(db));
 
             //check to see if the manager has been added
-            AppUser manager = db.Users.FirstOrDefault(u => u.Email == "admin@example.com");
+            AppUser um1 = db.Users.FirstOrDefault(u => u.Email == "admin@example.com");
 
             //if manager hasn't been created, then add them
-            if (manager == null)
+            if (um1 == null)
             {
                 //TODO: Add any additional fields for user here
-                manager = new AppUser();
-                manager.UserName = "admin@example.com";
-                manager.FirstName = "Admin";
-                manager.PhoneNumber = "(512)555-5555";
+                um1 = new AppUser();
+                um1.UserName = "admin@example.com";
+                um1.FirstName = "Admin";
+                um1.PhoneNumber = "(512)555-5555";
+                um1.Birthday = new DateTime(00, 1, 1);
+                um1.StreetAddress = "1234 Main Street";
+                um1.City = "Austin";
+                um1.State = "TX";
+                um1.ZipCode = 78791;
 
-                //KATIE: Do I need to add Last Name, address, city, state, zip code, etc here? 
-
-                var result = UserManager.Create(manager, "Abc123!");
+                var result = UserManager.Create(um1, "Abc123!");
                 db.SaveChanges();
-                manager = db.Users.First(u => u.UserName == "admin@example.com");
+                um1 = db.Users.First(u => u.UserName == "admin@example.com");
             }
 
             //DONE: Add the needed roles
@@ -56,9 +59,9 @@ namespace LonghornCinemaFinalProject.Migrations
             }
 
             //make sure user is in role
-            if (UserManager.IsInRole(manager.Id, "Manager") == false)
+            if (UserManager.IsInRole(um1.Id, "Manager") == false)
             {
-                UserManager.AddToRole(manager.Id, "Manager");
+                UserManager.AddToRole(um1.Id, "Manager"); //do this every time
             }
 
             //save changes

@@ -281,9 +281,7 @@
     <Compile Include="Models\MoviePrice.cs" />
     <Compile Include="Models\MovieReview.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
-    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Migrations\MovieData.cs" />

@@ -48,7 +48,6 @@ namespace LonghornCinemaFinalProject.Models
         public Decimal PopcornPointsBalance { get; set; }
 
         //TODO: Add any navigational properties needed for your user
-        //Do we need a navigational property for Role?
 
         // Orders
         public virtual List<Order> Orders { get; set; }
