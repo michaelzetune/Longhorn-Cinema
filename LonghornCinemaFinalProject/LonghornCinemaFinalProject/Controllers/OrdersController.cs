@@ -61,13 +61,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("AddToOrder", new { OrderID = order.OrderID });
-            }
-            if (ModelState.IsValid)
-            {
-                db.Orders.Add(order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Checkout");
             }
 
             return View(order);

@@ -40,6 +40,9 @@ namespace LonghornCinemaFinalProject.Models
         // Credit Card
         public virtual CreditCard CreditCard { get; set; }
 
+        //AppUser
+        public virtual AppUser AppUser { get; set; }
+
         public Order()
         {
             if (Tickets == null)
