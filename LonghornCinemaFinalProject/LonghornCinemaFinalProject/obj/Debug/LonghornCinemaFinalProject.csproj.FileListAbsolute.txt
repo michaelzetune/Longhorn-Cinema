@@ -346,3 +346,4 @@ C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCi
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Samtest2.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateDataAnnotations.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.TestUsers.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AddAppUserNavProperty.resources
