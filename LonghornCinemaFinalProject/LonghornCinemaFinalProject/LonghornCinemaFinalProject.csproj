@@ -179,9 +179,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowingsController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +255,18 @@
     <Compile Include="Migrations\201804241831054_ChangeActorsToSingleString.cs" />
     <Compile Include="Migrations\201804241831054_ChangeActorsToSingleString.Designer.cs">
       <DependentUpon>201804241831054_ChangeActorsToSingleString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804242303536_AnotherMigration.cs" />
+    <Compile Include="Migrations\201804242303536_AnotherMigration.Designer.cs">
+      <DependentUpon>201804242303536_AnotherMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804250012595_Transaction.cs" />
+    <Compile Include="Migrations\201804250012595_Transaction.Designer.cs">
+      <DependentUpon>201804250012595_Transaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804260210043_UpdateAppUserModelClass.cs" />
+    <Compile Include="Migrations\201804260210043_UpdateAppUserModelClass.Designer.cs">
+      <DependentUpon>201804260210043_UpdateAppUserModelClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -326,6 +340,16 @@
     <Content Include="Views\Showings\Details.cshtml" />
     <Content Include="Views\Showings\Edit.cshtml" />
     <Content Include="Views\Showings\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\Delete.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -394,6 +418,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804241831054_ChangeActorsToSingleString.resx">
       <DependentUpon>201804241831054_ChangeActorsToSingleString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804242303536_AnotherMigration.resx">
+      <DependentUpon>201804242303536_AnotherMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250012595_Transaction.resx">
+      <DependentUpon>201804250012595_Transaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804260210043_UpdateAppUserModelClass.resx">
+      <DependentUpon>201804260210043_UpdateAppUserModelClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

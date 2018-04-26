@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
+using LonghornCinemaFinalProject.Utilities;
 
 namespace LonghornCinemaFinalProject.Controllers
 {
@@ -39,6 +40,8 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: Tickets/Create
         public ActionResult Create()
         {
+            //set this to day of week of the showing
+            //ViewBag.TicketPrice = GenerateTicketPrice.GetTicketPrice();
             return View();
         }
 

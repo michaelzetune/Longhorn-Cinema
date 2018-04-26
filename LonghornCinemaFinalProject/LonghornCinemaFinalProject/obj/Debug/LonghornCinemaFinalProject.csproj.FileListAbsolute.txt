@@ -241,3 +241,11 @@ V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFin
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing3.resources
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.update2.resources
 V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.ChangeActorsToSingleString.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing2.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateSomething.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateShowing3.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.update2.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.ChangeActorsToSingleString.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AnotherMigration.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Transaction.resources
+C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateAppUserModelClass.resources

@@ -21,13 +21,58 @@ namespace LonghornCinemaFinalProject.Models
         [Display(Name = "First Name")]
         public String FirstName { get; set; }
 
+        [Required(ErrorMessage = "Last name is required")]
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
 
+        [Required(ErrorMessage = "Birthday is required")]
+        [Display(Name = "Birthday")]
+        public DateTime Birthday { get; set; }
+
+        [Required(ErrorMessage = "Address is required")]
+        [Display(Name = "Street Address")]
+        public String StreetAddress { get; set; }
+
+        [Required(ErrorMessage = "City is required")]
+        [Display(Name = "City")]
+        public String City { get; set; }
+
+        [Required(ErrorMessage = "State is required")]
+        [Display(Name = "State")]
+        public String State { get; set; }
+
+        [Required(ErrorMessage = "Zip Code is required")]
+        [Display(Name = "Zip Code")]
+        public Int32 ZipCode { get; set; }
+
+        public Decimal PopcornPointsBalance { get; set; }
 
         //TODO: Add any navigational properties needed for your user
-        //Orders is here as an example
-        //public virtual List<Order> Orders { get; set; }
+        // Orders
+        public virtual List<Order> Orders { get; set; }
+        // MovieReviews
+        public virtual List<MovieReview> MovieReviews { get; set; }
+        // CreditCards
+        public virtual List<CreditCard> CreditCards { get; set; }
 
-                
+        public AppUser()
+        {
+            if (Orders == null)
+            {
+                Orders = new List<Order>();
+            }
+
+            if (MovieReviews == null)
+            {
+                MovieReviews = new List<MovieReview>();
+            }
+
+            if (CreditCards == null)
+            {
+                CreditCards = new List<CreditCard>();
+            }
+        }
+
         //This method allows you to create a new user
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)
         {
