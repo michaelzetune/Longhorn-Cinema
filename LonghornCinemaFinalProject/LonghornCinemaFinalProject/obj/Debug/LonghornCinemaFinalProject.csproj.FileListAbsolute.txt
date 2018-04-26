@@ -335,3 +335,4 @@ C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornC
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\bin\Microsoft.AI.Web.xml
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.SamsTest.resources
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Samtest2.resources
+C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateDataAnnotations.resources

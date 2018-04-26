@@ -51,7 +51,7 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             // find next order number
             //AppUser user = db.Users.Find(User.Identity.GetUserId());
-            order.TicketPrice = Utilities.GenerateTicketPrice.GetNextOrderNumber();
+            //order.TicketPrice = Utilities.GenerateTicketPrice.GetNextOrderNumber();
 
             //Record date of order
             order.OrderDate = DateTime.Today;

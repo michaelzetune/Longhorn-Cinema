@@ -3,18 +3,24 @@ using LonghornCinemaFinalProject.DAL;
 using System.Data.Entity.Migrations;
 using System;
 using System.Linq;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 
 namespace LonghornCinemaFinalProject.Migrations
 {
     public class UserData
     {
-       /* public void SeedAppUsers(AppDbContext db)
+        public void SeedAppUsers(AppDbContext db)
         {
-            User c1 = new User();
+            //create a user manager and a role manager to use for this method
+            AppUserManager UserManager = new AppUserManager(new UserStore<AppUser>(db));
+
+            AppUser c1 = new AppUser();
             c1.LastName = "Baker";
             c1.FirstName = "Christopher";
             c1.Email = "cbaker@example.com";
-            c1.Password = "hello1";
+            //c1.Password = "hello1";
             c1.Birthday = new DateTime(1949, 11, 23);
             c1.StreetAddress = "1245 Lake Anchorage Blvd.";
             c1.City = "Austin";
@@ -22,9 +28,19 @@ namespace LonghornCinemaFinalProject.Migrations
             c1.ZipCode = 78705;
             c1.PhoneNumber = "5125550180";
             c1.PopcornPointsBalance = 110;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c1);
+            //db.AppUsers.AddOrUpdate(c => c.LastName, c1);
+            var result = UserManager.Create(c1, "Abc123!");
+            db.SaveChanges();
+            c1 = db.Users.First(u => u.UserName == "cbaker@example.com");
+            //make sure user is in role
+            if (UserManager.IsInRole(c1.Id, "Customer") == false)
+            {
+                UserManager.AddToRole(c1.Id, "Customer");
+            }
             db.SaveChanges();
 
+
+            /*
             User c2 = new User();
             c2.LastName = "Banks";
             c2.FirstName = "Michelle";
@@ -37,9 +53,16 @@ namespace LonghornCinemaFinalProject.Migrations
             c2.ZipCode = 78712;
             c2.PhoneNumber = "5125550183";
             c2.PopcornPointsBalance = 40;
-            db.AppUsers.AddOrUpdate(c => c.LastName, c2);
+            // db.AppUsers.AddOrUpdate(c => c.LastName, c2);
+            if (RoleManager.RoleExists("Customer") == false)
+            {
+                RoleManager.Create(new AppRole("Customer"));
+            }
+
             db.SaveChanges();
 
+
+            
             User c3 = new User();
             c3.LastName = "Broccolo";
             c3.FirstName = "Franco";
@@ -1198,6 +1221,6 @@ namespace LonghornCinemaFinalProject.Migrations
 
 
 
-        }*/
+       */ }
     }
 }
