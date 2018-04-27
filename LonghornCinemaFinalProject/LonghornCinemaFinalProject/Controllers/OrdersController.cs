@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LonghornCinemaFinalProject.Controllers
 {
@@ -37,6 +38,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Orders/Create
+        
         public ActionResult Create(int OrderID, int ShowingID)
         {
 
@@ -57,6 +59,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        //[Authorize(Roles = "Customer")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderID")] Order order, Ticket tic, int SelectedShowing, int SelectedMoviePrice, int UserID)
         {
@@ -153,8 +156,8 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Orders/cancel/5
+        public ActionResult Cancel(int? id)
         {
             if (id == null)
             {
@@ -168,13 +171,13 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Orders/cancel/5
+        [HttpPost, ActionName("Cancel")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult cancelConfirmed(int id)
         {
             Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            order.active = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
