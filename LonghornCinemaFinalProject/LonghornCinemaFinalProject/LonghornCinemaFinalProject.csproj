@@ -380,6 +380,7 @@
     <Content Include="Views\MovieReviews\Details.cshtml" />
     <Content Include="Views\MovieReviews\Edit.cshtml" />
     <Content Include="Views\MovieReviews\Index.cshtml" />
+    <Content Include="Views\MovieReviews\VoteSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

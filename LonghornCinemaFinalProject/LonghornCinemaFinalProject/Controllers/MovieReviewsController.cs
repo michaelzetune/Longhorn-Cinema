@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
 
+
 namespace LonghornCinemaFinalProject.Controllers
 {
     public class MovieReviewsController : Controller
@@ -32,6 +33,34 @@ namespace LonghornCinemaFinalProject.Controllers
             if (movieReview == null)
             {
                 return HttpNotFound();
+            }
+            return View(movieReview);
+        }
+
+        public ActionResult Upvote(int? id)
+        {
+            MovieReview movieReview = db.MovieReviews.Find(id);
+
+            if (ModelState.IsValid)
+            {
+                movieReview.Votes += 1;
+                db.Entry(movieReview).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("VoteSuccess", movieReview);
+            }
+            return View(movieReview);
+        }
+
+        public ActionResult Downvote(int? id)
+        {
+            MovieReview movieReview = db.MovieReviews.Find(id);
+
+            if (ModelState.IsValid)
+            {
+                movieReview.Votes -= 1;
+                db.Entry(movieReview).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("VoteSuccess", movieReview);
             }
             return View(movieReview);
         }
