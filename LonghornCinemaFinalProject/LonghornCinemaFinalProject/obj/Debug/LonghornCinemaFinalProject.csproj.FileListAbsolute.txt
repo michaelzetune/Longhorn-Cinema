@@ -355,10 +355,10 @@ C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCi
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AnotherOne.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AddSeatClass.resources
 C:\Users\Ben\Documents\MIS 333K\S18Team5-1\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.SeatUpdates.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.TestUsers.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AddAppUserNavProperty.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixUserData.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateExtendedPrice.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AnotherOne.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AddSeatClass.resources
-C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.SeatUpdates.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.UpdateExtendedPrice.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AnotherOne.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.AddSeatClass.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.SeatUpdates.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.Stuff.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixRequiredFieldsInOrder.resources
+V:\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixRequiredFieldsInOrder2.resources

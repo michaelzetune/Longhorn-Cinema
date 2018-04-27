@@ -16,7 +16,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div >
+    <div>
         <hr />
         <dl class="dl-horizontal">
 
@@ -60,11 +60,9 @@
             </dd>
         </dl>
     </div>
-    <div class ="sams-class"><p>hello</p></div>
-    <table class="sams-class">
-        <tr>
-            <th class="sams-class">SCREEN</th>
-        </tr>
+
+    <table class="table-bordered">
+        <b>SCREEN</b>
         <tr>
             <td>A1</td>
             <td>A2</td>
@@ -107,12 +105,11 @@
         </tr>
     </table>
 
-    
-
+    <br />
     <div class="form-group">
-        <label class="custom-control-label col-md-2">Seats</label>
+        <label class="custom-control-label col-md-2">Seat</label>
         <div class="col-md-10">
-            @Html.ListBox("SelectedSeats", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
+            @Html.DropDownList("SelectedSeats", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
         </div>
     </div>
 
@@ -122,7 +119,6 @@
         </div>
     </div>
 </div>
-
 
 
 
