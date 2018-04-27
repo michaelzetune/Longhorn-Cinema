@@ -326,6 +326,10 @@
     <Compile Include="Migrations\201804272320208_BoolAdditionOrder.Designer.cs">
       <DependentUpon>201804272320208_BoolAdditionOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804272340294_ConfirmationCode.cs" />
+    <Compile Include="Migrations\201804272340294_ConfirmationCode.Designer.cs">
+      <DependentUpon>201804272340294_ConfirmationCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -539,6 +543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804272320208_BoolAdditionOrder.resx">
       <DependentUpon>201804272320208_BoolAdditionOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804272340294_ConfirmationCode.resx">
+      <DependentUpon>201804272340294_ConfirmationCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

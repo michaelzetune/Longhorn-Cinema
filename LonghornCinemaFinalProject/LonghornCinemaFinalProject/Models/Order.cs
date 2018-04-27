@@ -10,10 +10,11 @@ namespace LonghornCinemaFinalProject.Models
     {
         // Properties
         // OrderID
+        
         public Int32 OrderID { get; set; }
 
         //TODO: implement get for transaction ID/add utility class
-        public Int32 ConfirmationID { get; set; }
+        public Int32 ConfirmationCode { get; set; }
 
         public Boolean Complete { get; set; }
 

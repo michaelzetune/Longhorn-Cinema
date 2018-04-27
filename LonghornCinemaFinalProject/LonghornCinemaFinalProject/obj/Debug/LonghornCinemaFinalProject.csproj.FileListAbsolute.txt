@@ -373,3 +373,4 @@ C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornC
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixRequiredFieldsInOrder.resources
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.FixRequiredFieldsInOrder2.resources
 C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.BoolAdditionOrder.resources
+C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.ConfirmationCode.resources
