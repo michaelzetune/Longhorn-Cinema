@@ -322,6 +322,10 @@
     <Compile Include="Migrations\201804272124215_FixRequiredFieldsInOrder2.Designer.cs">
       <DependentUpon>201804272124215_FixRequiredFieldsInOrder2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804272320208_BoolAdditionOrder.cs" />
+    <Compile Include="Migrations\201804272320208_BoolAdditionOrder.Designer.cs">
+      <DependentUpon>201804272320208_BoolAdditionOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -532,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804272124215_FixRequiredFieldsInOrder2.resx">
       <DependentUpon>201804272124215_FixRequiredFieldsInOrder2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804272320208_BoolAdditionOrder.resx">
+      <DependentUpon>201804272320208_BoolAdditionOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
