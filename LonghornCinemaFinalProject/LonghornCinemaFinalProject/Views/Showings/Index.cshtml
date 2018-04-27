@@ -58,7 +58,7 @@
             @Html.ActionLink("Details", "Details", new { id = item.ShowingID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
 
-            @Html.ActionLink("Buy Ticket", "Create", "Orders", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Buy Ticket", "Create", "Orders", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }

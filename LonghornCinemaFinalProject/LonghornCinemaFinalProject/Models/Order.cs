@@ -17,16 +17,13 @@ namespace LonghornCinemaFinalProject.Models
 
         public Boolean Complete { get; set; }
 
-        // Navigation Properties
-        [Required(ErrorMessage = "TicketPrice is required.")]
-        public decimal Subtotal { get; set; }
+        public Decimal Subtotal { get; set; }
 
-        [Required(ErrorMessage = "Tax Amount is required.")]
-        public decimal TaxAmount { get; set; }
+        public Decimal TaxAmount { get; set; }
 
-        [Required(ErrorMessage = "Total is required.")]
-        public decimal Total { get; set; }
+        public Decimal Total { get; set; }
 
+<<<<<<< HEAD
 
         public bool active { get; set; }
 
@@ -34,10 +31,10 @@ namespace LonghornCinemaFinalProject.Models
         public String CreditCardUsed {get; set;}
 
         [Required(ErrorMessage = "OrderDate is required.")]
+=======
+>>>>>>> 807ae42298a08f988a93823ec3295b4f202d485a
         public DateTime OrderDate { get; set; }
 
-        [Required(ErrorMessage = "TransactionNumber is required.")]
-        public Int32 TransactionNumber { get; set; }
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card

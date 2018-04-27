@@ -38,21 +38,16 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Orders/Create
+<<<<<<< HEAD
         
         public ActionResult Create(int OrderID, int ShowingID)
+=======
+        public ActionResult Create(int ShowingID)
+>>>>>>> 807ae42298a08f988a93823ec3295b4f202d485a
         {
-
-            Showing show = db.Showings.Find(ShowingID);
-           
-            Ticket tic = new Ticket();
-
-            Order ord = db.Orders.Find(OrderID);
-
-            tic.Order = ord;
-
-            tic.Showing = show;
-
-            return View(tic);
+            ViewBag.CurrentShowingID = ShowingID;
+            //Showing showing = db.Showings.Find(ShowingID);
+            return View();
         }
 
         // POST: Orders/Create
@@ -61,68 +56,31 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         //[Authorize(Roles = "Customer")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID")] Order order, Ticket tic, int SelectedShowing, int SelectedMoviePrice, int UserID)
+        public ActionResult Create([Bind(Include = "OrderID,ConfirmationID,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
         {
-            // find next order number
-            //AppUser user = db.Users.Find(User.Identity.GetUserId());
-            //order.TicketPrice = Utilities.GenerateTicketPrice.GetNextOrderNumber();
 
             //Record date of order
             order.OrderDate = DateTime.Today;
+            order.Complete = false;
 
-            Showing showing = db.Showings.Find(SelectedShowing);
+            order.ConfirmationID = 1;
+            order.Subtotal = 1;
+            order.TaxAmount = 1;
+            order.Total = 2;
 
-            MoviePrice movieprice = db.MoviePrices.Find(SelectedMoviePrice);
-            tic.Showing = showing;
+            Showing showing = db.Showings.Find(ViewBag.CurrentShowingID);
 
-            Order ord = db.Orders.Find(tic.Order.OrderID);
-
-            AppUser user = db.Users.Find(UserID);
-
-            tic.Order = ord;
-
-            tic.TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(showing.StartTime);
-
-            if (showing.SpecialEventStatus == SpecialEvent.NotSpecial)
-            {
-                //sets senior citizen discount
-                //TODO: Add logic for only allowing discount for 2 tickets per transaction
-                if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
-                {
-                    tic.TicketPrice = tic.TicketPrice - 2;
-                    ViewBag.SeniorCitizen = "$2 Senior Citizen Discount Applied";
-                }
-                else
-                {
-                    ViewBag.SeniorCitizen = "No Discount";
-                }
-
-                //vars for determining time between now and showing start time
-                Int32 intDayHours = (DateTime.Now.Day - showing.StartTime.Day) * 24;
-                Int32 intHours = (DateTime.Now.Hour - showing.StartTime.Hour);
-                Int32 intTotalHours = intDayHours + intHours;
-
-                //sets discount if ticket is purchased 48 hours in advance
-                if ((intTotalHours >= 48))
-                {
-                    tic.TicketPrice = tic.TicketPrice - 1;
-                    ViewBag.Advance = "$1 Discount for Purchasing Early";
-                }
-                else
-                {
-                    ViewBag.Advance = "No Discount";
-                }
-            }
-            tic.ExtendedPrice = tic.TicketPrice * tic.Quantity;
+            //AppUser user = db.Users.Find(User.Identity.GetUserId());
+            //order.AppUser = user;
 
             if (ModelState.IsValid)
             {
-                db.Tickets.Add(tic);
+                db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Orders", new { id = ord.OrderID });
+                return RedirectToAction("Create", "Tickets", new { OrderID = order.OrderID, ShowingID = showing.ShowingID });
             }
 
-            return View(tic);
+            return View(order);
         }
 
         // GET: Orders/Edit/5
