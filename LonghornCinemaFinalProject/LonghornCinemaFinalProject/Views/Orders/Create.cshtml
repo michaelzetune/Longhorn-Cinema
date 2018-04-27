@@ -43,7 +43,17 @@
                 <dd>
                     @Html.DisplayFor(model => model.Tickets.First().Showing.StartTime)
                 </dd>
+                <dt>
+                    Ticket Price
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Tickets.First().TicketPrice)
+                    @if(ViewBag.Advance = "No Discount") { }
+                    else{ ViewBag.Advance}
 
+                    @if (ViewBag.SeniorCitizen = "No Discount") { }
+                    else { ViewBag.SeniorCitizen}
+                </dd>
             </dl>
         </div>
 

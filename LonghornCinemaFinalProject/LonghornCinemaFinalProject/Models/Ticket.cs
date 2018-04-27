@@ -19,7 +19,8 @@ namespace LonghornCinemaFinalProject.Models
         public Int32 Quantity { get; set; }
 
         [Required(ErrorMessage = "ExtendedPrice is required.")]
-        public Int32 ExtendedPrice { get; set; }
+        public Decimal ExtendedPrice { get; set; }
+
         // Commenting this out because I think TicketPrice and MoviePrice would be the same value (-Michael) :
         // Price
         [Required(ErrorMessage = "TicketPrice is required.")]

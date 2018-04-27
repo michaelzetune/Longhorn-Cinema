@@ -58,7 +58,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID")] Order order, Ticket tic, int SelectedShowing, int SelectedMoviePrice)
+        public ActionResult Create([Bind(Include = "OrderID")] Order order, Ticket tic, int SelectedShowing, int SelectedMoviePrice, int UserID)
         {
             // find next order number
             //AppUser user = db.Users.Find(User.Identity.GetUserId());
@@ -74,46 +74,43 @@ namespace LonghornCinemaFinalProject.Controllers
 
             Order ord = db.Orders.Find(tic.Order.OrderID);
 
+            AppUser user = db.Users.Find(UserID);
+
             tic.Order = ord;
 
-            //sets movie price if day is Tuesday & movie starts before 5pm
-            if (showing.StartTime.DayOfWeek == DayOfWeek.Tuesday &&
-                showing.StartTime.Hour > 17)
-            {
-                tic.TicketPrice = movieprice.decTuesdayPrice;
-            }
-            
-            //sets weekend movie price
-            if ((showing.StartTime.DayOfWeek == DayOfWeek.Friday && showing.StartTime.Hour > 12) ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Saturday || 
-                showing.StartTime.DayOfWeek == DayOfWeek.Sunday)
-            {
-                tic.TicketPrice = movieprice.decWeekendPrice;
-            }
+            tic.TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(showing.StartTime);
 
-            //sets matinee movie price
-            if ((showing.StartTime.DayOfWeek == DayOfWeek.Monday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Tuesday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Wednesday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Thursday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Friday) &&
-                showing.StartTime.Hour < 12)
+            if (showing.SpecialEventStatus == SpecialEvent.NotSpecial)
             {
-                tic.TicketPrice = movieprice.decMatineePrice;
-            }
+                //sets senior citizen discount
+                //TODO: Add logic for only allowing discount for 2 tickets per transaction
+                if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
+                {
+                    tic.TicketPrice = tic.TicketPrice - 2;
+                    ViewBag.SeniorCitizen = "$2 Senior Citizen Discount Applied";
+                }
+                else
+                {
+                    ViewBag.SeniorCitizen = "No Discount";
+                }
 
-            //sets weekday movie price
-            if ((showing.StartTime.DayOfWeek == DayOfWeek.Monday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Tuesday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Wednesday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Thursday ||
-                showing.StartTime.DayOfWeek == DayOfWeek.Friday) &&
-                showing.StartTime.Hour > 12)
-            {
-                tic.TicketPrice = movieprice.decWeekPrice;
-            }
+                //vars for determining time between now and showing start time
+                Int32 intDayHours = (DateTime.Now.Day - showing.StartTime.Day) * 24;
+                Int32 intHours = (DateTime.Now.Hour - showing.StartTime.Hour);
+                Int32 intTotalHours = intDayHours + intHours;
 
-            //tic.ExtendedPrice = tic.TicketPrice * tic.Quantity;
+                //sets discount if ticket is purchased 48 hours in advance
+                if ((intTotalHours >= 48))
+                {
+                    tic.TicketPrice = tic.TicketPrice - 1;
+                    ViewBag.Advance = "$1 Discount for Purchasing Early";
+                }
+                else
+                {
+                    ViewBag.Advance = "No Discount";
+                }
+            }
+            tic.ExtendedPrice = tic.TicketPrice * tic.Quantity;
 
             if (ModelState.IsValid)
             {
