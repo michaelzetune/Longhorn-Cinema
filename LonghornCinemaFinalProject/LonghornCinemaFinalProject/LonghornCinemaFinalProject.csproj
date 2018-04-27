@@ -310,6 +310,18 @@
     <Compile Include="Migrations\201804271815174_SeatUpdates.Designer.cs">
       <DependentUpon>201804271815174_SeatUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804272006490_Stuff.cs" />
+    <Compile Include="Migrations\201804272006490_Stuff.Designer.cs">
+      <DependentUpon>201804272006490_Stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804272122326_FixRequiredFieldsInOrder.cs" />
+    <Compile Include="Migrations\201804272122326_FixRequiredFieldsInOrder.Designer.cs">
+      <DependentUpon>201804272122326_FixRequiredFieldsInOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804272124215_FixRequiredFieldsInOrder2.cs" />
+    <Compile Include="Migrations\201804272124215_FixRequiredFieldsInOrder2.Designer.cs">
+      <DependentUpon>201804272124215_FixRequiredFieldsInOrder2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -511,6 +523,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804271815174_SeatUpdates.resx">
       <DependentUpon>201804271815174_SeatUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804272006490_Stuff.resx">
+      <DependentUpon>201804272006490_Stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804272122326_FixRequiredFieldsInOrder.resx">
+      <DependentUpon>201804272122326_FixRequiredFieldsInOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804272124215_FixRequiredFieldsInOrder2.resx">
+      <DependentUpon>201804272124215_FixRequiredFieldsInOrder2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -60,11 +60,17 @@
             </dd>
         </dl>
     </div>
+<<<<<<< HEAD
     <div class ="sams-class"><p>hello</p></div>
     <table class="sams-class">
         <tr>
             <th class="sams-class">SCREEN</th>
         </tr>
+=======
+
+    <table class="table-bordered">
+        <b>SCREEN</b>
+>>>>>>> 807ae42298a08f988a93823ec3295b4f202d485a
         <tr>
             <td>A1</td>
             <td>A2</td>
@@ -107,12 +113,16 @@
         </tr>
     </table>
 
+<<<<<<< HEAD
     
 
+=======
+    <br />
+>>>>>>> 807ae42298a08f988a93823ec3295b4f202d485a
     <div class="form-group">
-        <label class="custom-control-label col-md-2">Seats</label>
+        <label class="custom-control-label col-md-2">Seat</label>
         <div class="col-md-10">
-            @Html.ListBox("SelectedSeats", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
+            @Html.DropDownList("SelectedSeats", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
         </div>
     </div>
 

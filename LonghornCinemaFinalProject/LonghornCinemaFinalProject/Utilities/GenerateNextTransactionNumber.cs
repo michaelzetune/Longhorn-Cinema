@@ -35,7 +35,7 @@ namespace LonghornCinemaFinalProject.Utilities
 
             {
 
-                intMaxTransactionNumber = db.Orders.Max(c => c.TransactionNumber); //this is the highest number in the database right now
+                intMaxTransactionNumber = db.Orders.Max(c => c.ConfirmationID); //this is the highest number in the database right now
 
             }
 
