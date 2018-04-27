@@ -17,17 +17,12 @@ namespace LonghornCinemaFinalProject.Models
 
         public Boolean Complete { get; set; }
 
-        // Navigation Properties
-        [Required(ErrorMessage = "TicketPrice is required.")]
-        public decimal Subtotal { get; set; }
+        public Decimal Subtotal { get; set; }
 
-        [Required(ErrorMessage = "Tax Amount is required.")]
-        public decimal TaxAmount { get; set; }
+        public Decimal TaxAmount { get; set; }
 
-        [Required(ErrorMessage = "Total is required.")]
-        public decimal Total { get; set; }
+        public Decimal Total { get; set; }
 
-        [Required(ErrorMessage = "OrderDate is required.")]
         public DateTime OrderDate { get; set; }
 
         // Tickets

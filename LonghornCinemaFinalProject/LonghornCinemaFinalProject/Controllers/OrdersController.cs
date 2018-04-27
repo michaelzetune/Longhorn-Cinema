@@ -40,7 +40,8 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: Orders/Create
         public ActionResult Create(int ShowingID)
         {
-            Showing showing = db.Showings.Find(ShowingID);
+            ViewBag.CurrentShowingID = ShowingID;
+            //Showing showing = db.Showings.Find(ShowingID);
             return View();
         }
 
@@ -49,23 +50,28 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID")] Order order, int SelectedShowingID, int UserID)
+        public ActionResult Create([Bind(Include = "OrderID,ConfirmationID,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
         {
 
             //Record date of order
             order.OrderDate = DateTime.Today;
             order.Complete = false;
 
-            Showing showing = db.Showings.Find(SelectedShowingID);
+            order.ConfirmationID = 1;
+            order.Subtotal = 1;
+            order.TaxAmount = 1;
+            order.Total = 2;
 
-            AppUser user = db.Users.Find(User.Identity.GetUserId());
-            order.AppUser = user;
+            Showing showing = db.Showings.Find(ViewBag.CurrentShowingID);
+
+            //AppUser user = db.Users.Find(User.Identity.GetUserId());
+            //order.AppUser = user;
 
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Create", "Tickets", new { ordid = order.OrderID, showid = showing.ShowingID });
+                return RedirectToAction("Create", "Tickets", new { OrderID = order.OrderID, ShowingID = showing.ShowingID });
             }
 
             return View(order);
