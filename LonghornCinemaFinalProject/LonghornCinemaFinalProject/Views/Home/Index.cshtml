@@ -39,6 +39,9 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             @Html.DisplayNameFor(model => model.Runtime) (in minutes)
         </th>
         <th>
+            Reviews
+        </th>
+        <th>
             Showtimes (add later...)
         </th>
         <th></th>
@@ -46,32 +49,35 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GenresString)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MPAARating)
-            </td>
-            <td>
-                @if (item.MovieReviews.Count() == 0)
-                { <p>None</p> }
-                else
-                {  @Html.DisplayFor(modelItem => item.RatingAverage) }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Runtime)
-            </td>
-            <td>
-                @Html.ActionLink("Showtimes", "Details", new { id = item.MovieID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenresString)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MPAARating)
+        </td>
+        <td>
+            @if (item.MovieReviews.Count() == 0)
+        {<p>None</p> }
+    else
+    { @Html.DisplayFor(modelItem => item.RatingAverage)}
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Runtime)
+        </td>
+        <td>
+            @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Showtimes", "Details", new { id = item.MovieID })
+        </td>
+    </tr>
     }
 
 </table>
