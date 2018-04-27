@@ -66,6 +66,10 @@ html {
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
+sams-class {
+    text-align: center;
+    color: #17a2b8;
+}
 
 body {
   margin: 0;

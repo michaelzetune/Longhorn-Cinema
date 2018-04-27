@@ -38,17 +38,14 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Tickets/Create
-        public ActionResult Create(int OrderID, int ShowingID)
+        public ActionResult Create()
         {
-            Showing show = db.Showings.Find(ShowingID); // 63 is the showingID, need to make the viewbag pass this from Showings Index view
-
-            Order ord = db.Orders.Find(OrderID);
+            Showing show = db.Showings.Find(63); // 63 is the showingID, need to make the viewbag pass this from Showings Index view
 
             Ticket tic = new Ticket();
 
-            tic.Order = ord;
             tic.Showing = show;
-            
+
             ViewBag.AllSeats = FindAvailableSeats(show.Tickets);
             return View(tic);
         }
@@ -60,6 +57,10 @@ namespace LonghornCinemaFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Order order, int SelectedShowing, int SelectedMoviePrice, int UserID)
         {
+            // find next order number
+            //AppUser user = db.Users.Find(User.Identity.GetUserId());
+            //order.TicketPrice = Utilities.GenerateTicketPrice.GetNextOrderNumber();
+
             //Record date of order
             order.OrderDate = DateTime.Today;
 
@@ -106,6 +107,7 @@ namespace LonghornCinemaFinalProject.Controllers
                     ViewBag.Advance = "No Discount";
                 }
             }
+            tic.ExtendedPrice = tic.TicketPrice * tic.Quantity;
 
             if (ModelState.IsValid)
             {
