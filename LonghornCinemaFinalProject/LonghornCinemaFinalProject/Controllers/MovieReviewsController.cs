@@ -36,8 +36,8 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             List<MovieReview> MovieReviewsToDisplay = query.ToList();
 
-            ViewBag.SelectedMoviesCount = MovieReviewsToDisplay.Count();
-            ViewBag.TotalMoviesCount = db.MovieReviews.ToList().Count();
+            ViewBag.SelectedMovieReviewsCount = MovieReviewsToDisplay.Count();
+            ViewBag.TotalMovieReviewsCount = db.MovieReviews.ToList().Count();
 
             return View(MovieReviewsToDisplay.OrderBy(r => r.NumStars));
         }

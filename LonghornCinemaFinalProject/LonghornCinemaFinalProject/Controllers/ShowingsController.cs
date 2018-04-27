@@ -16,9 +16,29 @@ namespace LonghornCinemaFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Showings
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(db.Showings.ToList());
+            if (id == null)
+            {
+                return View(db.Showings.ToList());
+            }
+            Movie m = db.Movies.Find(id);
+            if (m == null)
+            {
+                return HttpNotFound();
+            }
+
+            var query = from r in db.Showings select r;
+            if (m != null)
+            {
+                query = query.Where(r => r.Movie.MovieID == id);
+            }
+            List<Showing> ShowingsToDisplay = query.ToList();
+
+            ViewBag.SelectedShowingssCount = ShowingsToDisplay.Count();
+            ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
+
+            return View(ShowingsToDisplay.OrderBy(r => r.StartTime));
         }
 
         // GET: Showings/Details/5

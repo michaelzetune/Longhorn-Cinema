@@ -75,7 +75,7 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, null)
         </td>
         <td>
-            @Html.ActionLink("Showtimes", "Details", new { id = item.MovieID })
+            @Html.ActionLink("Showings", "Index", "Showings", new { id = item.MovieID }, null)
         </td>
     </tr>
     }
