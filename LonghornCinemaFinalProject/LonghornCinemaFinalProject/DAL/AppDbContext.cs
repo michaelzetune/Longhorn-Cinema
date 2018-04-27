@@ -23,10 +23,7 @@ namespace LonghornCinemaFinalProject.DAL
         public DbSet<MoviePrice> MoviePrices { get; set; }
         public DbSet<MovieReview> MovieReviews { get; set; }
         public DbSet<Order> Orders { get; set; }
-        
-        //may not need this because of Identity -Ben
-        //public DbSet<Role> Roles { get; set; }
-
+        public DbSet<Seat> Seats { get; set; }
         public DbSet<Showing> Showings { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
