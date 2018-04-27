@@ -1,0 +1,88 @@
+﻿@model LonghornCinemaFinalProject.Models.Movie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Overview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Overview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Runtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Runtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tagline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tagline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MPAARating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MPAARating)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

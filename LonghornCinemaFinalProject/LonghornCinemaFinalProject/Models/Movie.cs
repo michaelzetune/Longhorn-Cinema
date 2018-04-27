@@ -54,7 +54,7 @@ namespace LonghornCinemaFinalProject.Models
                 if (db.Movies.Find(MovieID).MovieReviews.Count() == 0)
                     return 0;
                 else
-                    return /*Decimal.Round(*/db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars)/*,1)*/;
+                    return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
             }
         }
 
@@ -67,6 +67,7 @@ namespace LonghornCinemaFinalProject.Models
                 {
                     ret += g.Name + ", ";
                 }
+                if (ret.Length < 2) return ret; // no Genres (this shouldn't happen, but if it does this will prevent an error
                 return ret.Substring(0,ret.Length-2); // removes ending comma and space
             }
         }
