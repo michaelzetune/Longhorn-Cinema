@@ -51,8 +51,7 @@ namespace LonghornCinemaFinalProject.Models
         {
             get
             {
-                Movie m = db.Movies.Find(MovieID);
-                if (m.MovieReviews.Count() == 0)
+                if (db.Movies.Find(MovieID).MovieReviews.Count() == 0)
                     return 0;
                 else
                     return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
