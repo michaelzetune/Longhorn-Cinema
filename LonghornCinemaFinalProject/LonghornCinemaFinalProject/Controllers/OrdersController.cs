@@ -23,6 +23,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Orders/Details/5
+        //[Authorize(Roles ="Customer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,6 +39,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Orders/Create
+        
         public ActionResult Create(int ShowingID)
         {
             ViewBag.CurrentShowingID = ShowingID;
@@ -49,6 +51,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        //[Authorize(Roles = "Customer")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderID,ConfirmationID,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
         {
@@ -97,6 +100,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //[Authorize(Roles = "Customer")]
         public ActionResult Edit([Bind(Include = "OrderID")] Order order)
         {
             if (ModelState.IsValid)
@@ -108,8 +112,8 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Orders/Cancel/5
+        public ActionResult Cancel(int? id)
         {
             if (id == null)
             {
@@ -123,13 +127,13 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Orders/Cancel/5
+        [HttpPost, ActionName("Cancel")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult CancelConfirmed(int id)
         {
             Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
+            order.Active = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
