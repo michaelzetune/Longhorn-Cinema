@@ -37,9 +37,20 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Orders/Create
-        public ActionResult Create()
+        public ActionResult Create(int OrderID, int ShowingID)
         {
-            return View();
+
+            Showing show = db.Showings.Find(ShowingID);
+           
+            Ticket tic = new Ticket();
+
+            Order ord = db.Orders.Find(OrderID);
+
+            tic.Order = ord;
+
+            tic.Showing = show;
+
+            return View(tic);
         }
 
         // POST: Orders/Create
@@ -47,7 +58,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID")] Order order)
+        public ActionResult Create([Bind(Include = "OrderID")] Order order, Ticket tic, int SelectedShowing, int SelectedMoviePrice)
         {
             // find next order number
             //AppUser user = db.Users.Find(User.Identity.GetUserId());
@@ -56,15 +67,62 @@ namespace LonghornCinemaFinalProject.Controllers
             //Record date of order
             order.OrderDate = DateTime.Today;
 
+            Showing showing = db.Showings.Find(SelectedShowing);
+
+            MoviePrice movieprice = db.MoviePrices.Find(SelectedMoviePrice);
+            tic.Showing = showing;
+
+            Order ord = db.Orders.Find(tic.Order.OrderID);
+
+            tic.Order = ord;
+
+            //sets movie price if day is Tuesday & movie starts before 5pm
+            if (showing.StartTime.DayOfWeek == DayOfWeek.Tuesday &&
+                showing.StartTime.Hour > 17)
+            {
+                tic.TicketPrice = movieprice.decTuesdayPrice;
+            }
+            
+            //sets weekend movie price
+            if ((showing.StartTime.DayOfWeek == DayOfWeek.Friday && showing.StartTime.Hour > 12) ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Saturday || 
+                showing.StartTime.DayOfWeek == DayOfWeek.Sunday)
+            {
+                tic.TicketPrice = movieprice.decWeekendPrice;
+            }
+
+            //sets matinee movie price
+            if ((showing.StartTime.DayOfWeek == DayOfWeek.Monday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Tuesday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Wednesday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Thursday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Friday) &&
+                showing.StartTime.Hour < 12)
+            {
+                tic.TicketPrice = movieprice.decMatineePrice;
+            }
+
+            //sets weekday movie price
+            if ((showing.StartTime.DayOfWeek == DayOfWeek.Monday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Tuesday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Wednesday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Thursday ||
+                showing.StartTime.DayOfWeek == DayOfWeek.Friday) &&
+                showing.StartTime.Hour > 12)
+            {
+                tic.TicketPrice = movieprice.decWeekPrice;
+            }
+
+            //tic.ExtendedPrice = tic.TicketPrice * tic.Quantity;
 
             if (ModelState.IsValid)
             {
-                db.Orders.Add(order);
+                db.Tickets.Add(tic);
                 db.SaveChanges();
-                return RedirectToAction("Checkout");
+                return RedirectToAction("Details", "Orders", new { id = ord.OrderID });
             }
 
-            return View(order);
+            return View(tic);
         }
 
         // GET: Orders/Edit/5
