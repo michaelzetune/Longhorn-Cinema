@@ -293,6 +293,22 @@
     <Compile Include="Migrations\201804271509364_FixUserData.Designer.cs">
       <DependentUpon>201804271509364_FixUserData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804271517597_UpdateExtendedPrice.cs" />
+    <Compile Include="Migrations\201804271517597_UpdateExtendedPrice.Designer.cs">
+      <DependentUpon>201804271517597_UpdateExtendedPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804271522063_AnotherOne.cs" />
+    <Compile Include="Migrations\201804271522063_AnotherOne.Designer.cs">
+      <DependentUpon>201804271522063_AnotherOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804271812119_AddSeatClass.cs" />
+    <Compile Include="Migrations\201804271812119_AddSeatClass.Designer.cs">
+      <DependentUpon>201804271812119_AddSeatClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804271815174_SeatUpdates.cs" />
+    <Compile Include="Migrations\201804271815174_SeatUpdates.Designer.cs">
+      <DependentUpon>201804271815174_SeatUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -307,6 +323,7 @@
     <Compile Include="Models\MovieReview.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
+    <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Migrations\MovieData.cs" />
@@ -475,6 +492,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804271509364_FixUserData.resx">
       <DependentUpon>201804271509364_FixUserData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271517597_UpdateExtendedPrice.resx">
+      <DependentUpon>201804271517597_UpdateExtendedPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271522063_AnotherOne.resx">
+      <DependentUpon>201804271522063_AnotherOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271812119_AddSeatClass.resx">
+      <DependentUpon>201804271812119_AddSeatClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271815174_SeatUpdates.resx">
+      <DependentUpon>201804271815174_SeatUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
