@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum ApprovalStatus { NotApproved, Approved}
+    public enum ApprovalStatus {NotApproved, Approved}
 
     public class MovieReview
     {
@@ -27,6 +27,9 @@ namespace LonghornCinemaFinalProject.Models
 
         // Approved
         public ApprovalStatus ApprovalStatus { get; set; }
+
+        // Votes
+        public Int32 Votes { get; set; }
 
         // Navigation Properties
         // Movie

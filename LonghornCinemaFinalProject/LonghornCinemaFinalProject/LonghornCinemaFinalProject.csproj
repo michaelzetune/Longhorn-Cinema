@@ -289,6 +289,10 @@
     <Compile Include="Migrations\201804262140333_AddAppUserNavProperty.Designer.cs">
       <DependentUpon>201804262140333_AddAppUserNavProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804271509364_FixUserData.cs" />
+    <Compile Include="Migrations\201804271509364_FixUserData.Designer.cs">
+      <DependentUpon>201804271509364_FixUserData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
@@ -468,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804262140333_AddAppUserNavProperty.resx">
       <DependentUpon>201804262140333_AddAppUserNavProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271509364_FixUserData.resx">
+      <DependentUpon>201804271509364_FixUserData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

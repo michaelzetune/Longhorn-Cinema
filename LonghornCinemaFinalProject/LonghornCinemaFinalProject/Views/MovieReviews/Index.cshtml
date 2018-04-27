@@ -21,9 +21,8 @@
             @Html.DisplayNameFor(model => model.NumStars)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApprovalStatus)
+            @Html.DisplayNameFor(model => model.Votes)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -38,7 +37,7 @@
             @Html.DisplayFor(modelItem => item.NumStars)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApprovalStatus)
+            @Html.DisplayFor(modelItem => item.Votes)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
