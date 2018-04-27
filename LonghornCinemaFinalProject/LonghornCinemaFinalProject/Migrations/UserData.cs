@@ -1310,7 +1310,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e1.ZipCode = 78628;
                 e1.PhoneNumber = "9074653365";
                 e1.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e1, "Todd");
+                var result = UserManager.Create(e1, "society");
                 db.SaveChanges();
                 e1 = db.Users.First(e => e.UserName == "t.jacobs@longhorncinema.com");
             }
@@ -1335,7 +1335,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e2.ZipCode = 78746;
                 e2.PhoneNumber = "9073876657";
                 e2.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e2, "Eryn");
+                var result = UserManager.Create(e2, "ricearoni");
                 db.SaveChanges();
                 e2 = db.Users.First(e => e.UserName == "e.rice@longhorncinema.com");
             }
@@ -1360,7 +1360,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e3.ZipCode = 78705;
                 e3.PhoneNumber = "9074678821";
                 e3.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e3, "Brad");
+                var result = UserManager.Create(e3, "ingram45");
                 db.SaveChanges();
                 e3 = db.Users.First(e => e.UserName == "b.ingram@longhorncinema.com");
             }
@@ -1385,7 +1385,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e4.ZipCode = 78727;
                 e4.PhoneNumber = "9074748452";
                 e4.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e4, "Allison");
+                var result = UserManager.Create(e4, "nostalgic");
                 db.SaveChanges();
                 e4 = db.Users.First(e => e.UserName == "a.taylor@longhorncinema.com");
             }
@@ -1410,7 +1410,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e5.ZipCode = 78712;
                 e5.PhoneNumber = "9078746718";
                 e5.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e5, "Gregory");
+                var result = UserManager.Create(e5, "fungus");
                 db.SaveChanges();
                 e5 = db.Users.First(e => e.UserName == "g.martinez@longhorncinema.com");
             }
@@ -1435,7 +1435,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e6.ZipCode = 78666;
                 e6.PhoneNumber = "9075479167";
                 e6.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e6, "Martin");
+                var result = UserManager.Create(e6, "longhorns");
                 db.SaveChanges();
                 e6 = db.Users.First(e => e.UserName == "m.sheffield@longhorncinema.com");
             }
@@ -1460,7 +1460,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e7.ZipCode = 78705;
                 e7.PhoneNumber = "9074748138";
                 e7.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e7, "Jennifer");
+                var result = UserManager.Create(e7, "smitty");
                 db.SaveChanges();
                 e7 = db.Users.First(e => e.UserName == "j.macleod@longhorncinema.com");
             }
@@ -1485,7 +1485,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e8.ZipCode = 78712;
                 e8.PhoneNumber = "9074590929";
                 e8.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e8, "Jeremy");
+                var result = UserManager.Create(e8, "tanman");
                 db.SaveChanges();
                 e8 = db.Users.First(e => e.UserName == "j.tanner@longhorncinema.com");
             }
@@ -1510,7 +1510,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e9.ZipCode = 78729;
                 e9.PhoneNumber = "9073744746";
                 e9.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e9, "Megan");
+                var result = UserManager.Create(e9, "countryrhodes");
                 db.SaveChanges();
                 e9 = db.Users.First(e => e.UserName == "m.rhodes@longhorncinema.com");
             }
@@ -1535,7 +1535,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e10.ZipCode = 78758;
                 e10.PhoneNumber = "9078178335";
                 e10.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e10, "Eric");
+                var result = UserManager.Create(e10, "stewboy");
                 db.SaveChanges();
                 e10 = db.Users.First(e => e.UserName == "e.stuart@longhorncinema.com");
             }
@@ -1560,7 +1560,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e11.ZipCode = 78709;
                 e11.PhoneNumber = "9077458615";
                 e11.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e11, "Charles");
+                var result = UserManager.Create(e11, "squirrel");
                 db.SaveChanges();
                 e11 = db.Users.First(e => e.UserName == "c.miller@longhorncinema.com");
             }
@@ -1585,7 +1585,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e12.ZipCode = 78746;
                 e12.PhoneNumber = "9074512631";
                 e12.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e12, "Rachel");
+                var result = UserManager.Create(e12, "swansong");
                 db.SaveChanges();
                 e12 = db.Users.First(e => e.UserName == "r.taylor@longhorncinema.com");
             }
@@ -1610,7 +1610,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e13.ZipCode = 78712;
                 e13.PhoneNumber = "9079457399";
                 e13.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e13, "Victoria");
+                var result = UserManager.Create(e13, "lottery");
                 db.SaveChanges();
                 e13 = db.Users.First(e => e.UserName == "v.lawrence@longhorncinema.com");
             }
@@ -1635,7 +1635,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e14.ZipCode = 78705;
                 e14.PhoneNumber = "9078752943";
                 e14.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e14, "Allen");
+                var result = UserManager.Create(e14, "evanescent");
                 db.SaveChanges();
                 e14 = db.Users.First(e => e.UserName == "a.rogers@longhorncinema.com");
             }
@@ -1660,7 +1660,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e15.ZipCode = 78785;
                 e15.PhoneNumber = "9074579845";
                 e15.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e15, "Elizabeth");
+                var result = UserManager.Create(e15, "monty3");
                 db.SaveChanges();
                 e15 = db.Users.First(e => e.UserName == "e.markham@longhorncinema.com");
             }
@@ -1685,7 +1685,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e16.ZipCode = 78613;
                 e16.PhoneNumber = "9075571146";
                 e16.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e16, "Christopher");
+                var result = UserManager.Create(e16, "hecktour");
                 db.SaveChanges();
                 e16 = db.Users.First(e => e.UserName == "c.baker@longhorncinema.com");
             }
@@ -1710,7 +1710,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e17.ZipCode = 78733;
                 e17.PhoneNumber = "9073497810";
                 e17.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e17, "Sarah");
+                var result = UserManager.Create(e17, "rankmary");
                 db.SaveChanges();
                 e17 = db.Users.First(e => e.UserName == "s.saunders@longhorncinema.com");
             }
@@ -1735,7 +1735,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e18.ZipCode = 78755;
                 e18.PhoneNumber = "9074510084";
                 e18.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e18, "William");
+                var result = UserManager.Create(e18, "walkamile");
                 db.SaveChanges();
                 e18 = db.Users.First(e => e.UserName == "w.sewell@longhorncinema.com");
             }
@@ -1760,7 +1760,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e19.ZipCode = 78701;
                 e19.PhoneNumber = "9018833432";
                 e19.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e19, "Jack");
+                var result = UserManager.Create(e19, "changalang");
                 db.SaveChanges();
                 e19 = db.Users.First(e => e.UserName == "j.mason@longhorncinema.com");
             }
@@ -1785,7 +1785,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e20.ZipCode = 78760;
                 e20.PhoneNumber = "9075554545";
                 e20.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e20, "Jack");
+                var result = UserManager.Create(e20, "offbeat");
                 db.SaveChanges();
                 e20 = db.Users.First(e => e.UserName == "j.jackson@longhorncinema.com");
             }
@@ -1810,7 +1810,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e21.ZipCode = 78734;
                 e21.PhoneNumber = "9075524141";
                 e21.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e21, "Mary");
+                var result = UserManager.Create(e21, "landus");
                 db.SaveChanges();
                 e21 = db.Users.First(e => e.UserName == "m.nguyen@longhorncinema.com");
             }
@@ -1835,7 +1835,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e22.ZipCode = 78640;
                 e22.PhoneNumber = "9556662323";
                 e22.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e22, "Susan");
+                var result = UserManager.Create(e22, "rhythm");
                 db.SaveChanges();
                 e22 = db.Users.First(e => e.UserName == "s.barnes@longhorncinema.com");
             }
@@ -1860,7 +1860,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e23.ZipCode = 78747;
                 e23.PhoneNumber = "9886662222";
                 e23.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e23, "Lester");
+                var result = UserManager.Create(e23, "kindly");
                 db.SaveChanges();
                 e23 = db.Users.First(e => e.UserName == "l.jones@longhorncinema.com");
             }
@@ -1885,7 +1885,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e24.ZipCode = 78712;
                 e24.PhoneNumber = "9221114444";
                 e24.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e24, "Hector");
+                var result = UserManager.Create(e24, "instrument");
                 db.SaveChanges();
                 e24 = db.Users.First(e => e.UserName == "h.garcia@longhorncinema.com");
             }
@@ -1910,7 +1910,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e25.ZipCode = 78758;
                 e25.PhoneNumber = "9221113333";
                 e25.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e25, "Cindy");
+                var result = UserManager.Create(e25, "arched");
                 db.SaveChanges();
                 e25 = db.Users.First(e => e.UserName == "c.silva@longhorncinema.com");
             }
@@ -1935,7 +1935,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e26.ZipCode = 78729;
                 e26.PhoneNumber = "9234442222";
                 e26.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e26, "Marshall");
+                var result = UserManager.Create(e26, "median");
                 db.SaveChanges();
                 e26 = db.Users.First(e => e.UserName == "m.lopez@longhorncinema.com");
             }
@@ -1960,7 +1960,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e27.ZipCode = 78665;
                 e27.PhoneNumber = "9795554444";
                 e27.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e27, "Bill");
+                var result = UserManager.Create(e27, "approval");
                 db.SaveChanges();
                 e27 = db.Users.First(e => e.UserName == "b.larson@longhorncinema.com");
             }
@@ -1985,7 +1985,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 e28.ZipCode = 78712;
                 e28.PhoneNumber = "9893336666";
                 e28.PopcornPointsBalance = 0;
-                var result = UserManager.Create(e28, "Suzie");
+                var result = UserManager.Create(e28, "decorate");
                 db.SaveChanges();
                 e28 = db.Users.First(e => e.UserName == "s.rankin@longhorncinema.com");
             }
@@ -1994,17 +1994,6 @@ namespace LonghornCinemaFinalProject.Migrations
                 UserManager.AddToRole(e28.Id, "Employee");
             }
             db.SaveChanges();
-
-
-
-
-
-
-
-
-
-
-
 
 
 
