@@ -25,6 +25,8 @@ namespace LonghornCinemaFinalProject.Models
 
         public DateTime OrderDate { get; set; }
 
+        public Boolean Active { get; set; }
+
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card

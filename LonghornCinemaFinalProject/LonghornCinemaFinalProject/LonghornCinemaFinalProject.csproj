@@ -395,7 +395,7 @@
     <Content Include="Views\Showings\Details.cshtml" />
     <Content Include="Views\Showings\Edit.cshtml" />
     <Content Include="Views\Showings\Index.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Cancel.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
