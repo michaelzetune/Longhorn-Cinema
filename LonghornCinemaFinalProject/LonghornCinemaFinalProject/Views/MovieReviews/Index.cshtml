@@ -40,6 +40,8 @@
             @Html.DisplayFor(modelItem => item.Votes)
         </td>
         <td>
+            @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID }) |
+            @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID }) |
             @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
             @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
