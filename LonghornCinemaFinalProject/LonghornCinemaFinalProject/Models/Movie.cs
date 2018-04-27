@@ -46,6 +46,7 @@ namespace LonghornCinemaFinalProject.Models
         public MPAARating MPAARating { get; set; }
 
         // Customer Rating Average
+        [DisplayFormat(DataFormatString = "{0:0.#}")]
         public Decimal RatingAverage
         {
             get
@@ -53,7 +54,7 @@ namespace LonghornCinemaFinalProject.Models
                 if (db.Movies.Find(MovieID).MovieReviews.Count() == 0)
                     return 0;
                 else
-                    return db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars);
+                    return /*Decimal.Round(*/db.Movies.Find(MovieID).MovieReviews.Average(mr => mr.NumStars)/*,1)*/;
             }
         }
 

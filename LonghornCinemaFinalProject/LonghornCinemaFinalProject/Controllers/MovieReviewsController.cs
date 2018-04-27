@@ -58,7 +58,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.AllMoviesList = GetAllMovies();
             return View(movieReview);
         }
 
@@ -91,6 +91,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.AllMoviesList = GetAllMovies();
             return View(movieReview);
         }
 

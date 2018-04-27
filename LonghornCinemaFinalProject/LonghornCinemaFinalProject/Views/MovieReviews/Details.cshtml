@@ -7,9 +7,17 @@
 <h2>Details</h2>
 
 <div>
-    <h4>MovieReview</h4>
+    <h4>Movie Review</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.ReviewText)
         </dt>
@@ -27,11 +35,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ApprovalStatus)
+            @Html.DisplayNameFor(model => model.Votes)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ApprovalStatus)
+            @Html.DisplayFor(model => model.Votes)
         </dd>
 
     </dl>
