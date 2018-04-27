@@ -27,14 +27,9 @@ namespace LonghornCinemaFinalProject.Models
         [Required(ErrorMessage = "Total is required.")]
         public decimal Total { get; set; }
 
-        [Required(ErrorMessage = "CreditCardUsed is required.")]
-        public String CreditCardUsed {get; set;}
-
         [Required(ErrorMessage = "OrderDate is required.")]
         public DateTime OrderDate { get; set; }
 
-        [Required(ErrorMessage = "TransactionNumber is required.")]
-        public Int32 TransactionNumber { get; set; }
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card
