@@ -50,16 +50,16 @@ namespace LonghornCinemaFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MovieID,Title,Overview,ReleaseDate,Revenue,Runtime,Tagline,Actors,MPAARating")] Movie movie, int[] SelectedGenres)
         {
+            foreach (int i in SelectedGenres)
+            {
+                Genre gen = db.Genres.Find(i);
+                movie.Genres.Add(gen);
+                gen.Movies.Add(movie);
+                db.SaveChanges();
+            }
+
             if (ModelState.IsValid)
             {
-                foreach (int i in SelectedGenres)
-                {
-                    Genre gen = db.Genres.Find(i);
-                    movie.Genres.Add(gen);
-                    gen.Movies.Add(movie);
-                    db.SaveChanges();
-                }
-
                 db.Movies.Add(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
