@@ -60,7 +60,10 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
                 @Html.DisplayFor(modelItem => item.MPAARating)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RatingAverage)
+                @if (item.MovieReviews.Count() == 0)
+                { <p>None</p> }
+                else
+                {  @Html.DisplayFor(modelItem => item.RatingAverage) }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Runtime)

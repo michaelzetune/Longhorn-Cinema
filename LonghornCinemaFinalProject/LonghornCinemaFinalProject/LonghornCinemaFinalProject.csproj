@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -370,6 +371,11 @@
     <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\MovieReviews\Create.cshtml" />
+    <Content Include="Views\MovieReviews\Delete.cshtml" />
+    <Content Include="Views\MovieReviews\Details.cshtml" />
+    <Content Include="Views\MovieReviews\Edit.cshtml" />
+    <Content Include="Views\MovieReviews\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
