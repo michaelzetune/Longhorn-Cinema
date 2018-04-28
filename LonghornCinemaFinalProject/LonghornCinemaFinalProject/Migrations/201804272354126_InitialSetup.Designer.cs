@@ -7,13 +7,13 @@ namespace LonghornCinemaFinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Samtest2 : IMigrationMetadata
+    public sealed partial class InitialSetup : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Samtest2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804261129028_Samtest2"; }
+            get { return "201804272354126_InitialSetup"; }
         }
         
         string IMigrationMetadata.Source
