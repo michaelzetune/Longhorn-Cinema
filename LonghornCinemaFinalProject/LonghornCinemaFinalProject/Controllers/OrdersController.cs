@@ -42,6 +42,7 @@ namespace LonghornCinemaFinalProject.Controllers
         
         public ActionResult Create(int ShowingID)
         {
+            
             ViewBag.CurrentShowingID = ShowingID;
             //Showing showing = db.Showings.Find(ShowingID);
             return View();
@@ -53,14 +54,14 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         //[Authorize(Roles = "Customer")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,ConfirmationID,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
+        public ActionResult Create([Bind(Include = "OrderID,ConfirmationCode,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
         {
 
             //Record date of order
             order.OrderDate = DateTime.Today;
             order.Complete = false;
 
-            order.ConfirmationID = 1;
+            order.ConfirmationCode = 1;
             order.Subtotal = 1;
             order.TaxAmount = 1;
             order.Total = 2;
