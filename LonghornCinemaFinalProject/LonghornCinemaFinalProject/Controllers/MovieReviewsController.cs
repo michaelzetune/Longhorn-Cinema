@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 
 namespace LonghornCinemaFinalProject.Controllers
@@ -39,7 +40,7 @@ namespace LonghornCinemaFinalProject.Controllers
             ViewBag.SelectedMovieReviewsCount = MovieReviewsToDisplay.Count();
             ViewBag.TotalMovieReviewsCount = db.MovieReviews.ToList().Count();
 
-            return View(MovieReviewsToDisplay.OrderBy(r => r.NumStars));
+            return View(MovieReviewsToDisplay.OrderByDescending(r => r.Votes));
         }
 
         // GET: MovieReviews/Details/5
@@ -57,6 +58,7 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(movieReview);
         }
 
+        [Authorize(Roles="Customer")]
         public ActionResult Upvote(int? id)
         {
             MovieReview movieReview = db.MovieReviews.Find(id);
@@ -71,6 +73,7 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(movieReview);
         }
 
+        [Authorize(Roles = "Customer")]
         public ActionResult Downvote(int? id)
         {
             MovieReview movieReview = db.MovieReviews.Find(id);
@@ -85,6 +88,7 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(movieReview);
         }
 
+        [Authorize(Roles = "Customer")]
         // GET: MovieReviews/Create
         public ActionResult Create()
         {
@@ -97,9 +101,12 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
         public ActionResult Create([Bind(Include = "MovieReviewID,ReviewText,NumStars,ApprovalStatus")] MovieReview movieReview, Int32 SearchMovieID)
         {
             movieReview.Movie = db.Movies.First(m => m.MovieID == SearchMovieID);
+            String UserID = User.Identity.GetUserId();
+            movieReview.AppUser = db.Users.First(u => u.Id == UserID);
 
             if (ModelState.IsValid)
             {
@@ -112,6 +119,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: MovieReviews/Edit/5
+        [Authorize(Roles = "Customer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -124,7 +132,11 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.AllMoviesList = GetAllMovies();
-            return View(movieReview);
+
+            if (movieReview.AppUser.Id == User.Identity.GetUserId())
+                    return View(movieReview);
+            else
+                return View("Error", new string[] { "This is not your Movie Review!!" });
         }
 
         // POST: MovieReviews/Edit/5
@@ -132,6 +144,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
         public ActionResult Edit([Bind(Include = "MovieReviewID,ReviewText,NumStars,ApprovalStatus")] MovieReview movieReview)
         {
             if (ModelState.IsValid)
@@ -141,10 +154,15 @@ namespace LonghornCinemaFinalProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AllMoviesList = GetAllMovies();
-            return View(movieReview);
+
+            if (movieReview.AppUser.Id == User.Identity.GetUserId())
+                return View(movieReview);
+            else
+                return View("Error", new string[] { "This is not your Movie Review!!" });
         }
 
         // GET: MovieReviews/Delete/5
+        [Authorize(Roles = "Customer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -156,18 +174,29 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(movieReview);
+
+            if (movieReview.AppUser.Id == User.Identity.GetUserId())
+                return View(movieReview);
+            else
+                return View("Error", new string[] { "This is not your Movie Review!!" });
         }
 
         // POST: MovieReviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Customer")]
         public ActionResult DeleteConfirmed(int id)
         {
             MovieReview movieReview = db.MovieReviews.Find(id);
             db.MovieReviews.Remove(movieReview);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (movieReview.AppUser.Id == User.Identity.GetUserId())
+                return RedirectToAction("Index");
+            else
+                return View("Error", new string[] { "This is not your Movie Review!!" });
+
+            
         }
 
         public SelectList GetAllMovies()

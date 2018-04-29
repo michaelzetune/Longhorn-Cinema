@@ -156,6 +156,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         //GET: Accounts/Index
+        [Authorize]
         public ActionResult Index()
         {
             IndexViewModel ivm = new IndexViewModel();
@@ -178,6 +179,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
         //Logic for change password
         // GET: /Accounts/ChangePassword
+        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -187,6 +189,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: /Accounts/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid)

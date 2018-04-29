@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
 using LonghornCinemaFinalProject.Utilities;
+using Microsoft.AspNet.Identity;
 
 namespace LonghornCinemaFinalProject.Controllers
 {
@@ -17,12 +18,21 @@ namespace LonghornCinemaFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Tickets
+        [Authorize(Roles = "Manager,Customer")]
         public ActionResult Index()
         {
-            return View(db.Tickets.ToList());
+            if (User.IsInRole("Manager"))
+                return View(db.Orders.ToList());
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                List<Order> Orders = db.Orders.Where(o => o.AppUser.Id == UserID).ToList();
+                return View(Orders);
+            }
         }
 
         // GET: Tickets/Details/5
+        [Authorize(Roles = "Manager,Customer")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,10 +44,24 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+            if (User.IsInRole("Manager,Employee"))
+                return View(ticket);
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                if (ticket.Order.AppUser.Id == UserID)
+                {
+                    return View(ticket);
+                }
+                else
+                {
+                    return View("Error", new string[] { "This is not your ticket!!" });
+                }
+            }
         }
 
         // GET: Tickets/Create
+        [Authorize]
         public ActionResult Create(int OrderID, int ShowingID)
         {
             Showing show = db.Showings.Find(ShowingID); // 63 is the showingID, need to make the viewbag pass this from Showings Index view
@@ -58,6 +82,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Order order, int SelectedShowing, int SelectedMoviePrice, int UserID)
         {
             //Record date of order
@@ -134,6 +159,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Tickets/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -145,7 +171,16 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+            if (User.IsInRole("Manager,Employee"))
+                return View(ticket);
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                if (ticket.Order.AppUser.Id == UserID)
+                    return View(ticket);
+                else
+                    return View("Error", new string[] { "This is not your ticket!!" });
+            }
         }
 
         // POST: Tickets/Edit/5
@@ -153,6 +188,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket ticket)
         {
             if (ModelState.IsValid)
@@ -161,10 +197,20 @@ namespace LonghornCinemaFinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ticket);
+            if (User.IsInRole("Manager,Employee"))
+                return View(ticket);
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                if (ticket.Order.AppUser.Id == UserID)
+                    return View(ticket);
+                else
+                    return View("Error", new string[] { "This is not your ticket!!" });
+            }
         }
 
         // GET: Tickets/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -176,18 +222,39 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+
+            if (User.IsInRole("Manager,Employee"))
+                return View(ticket);
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                if (ticket.Order.AppUser.Id == UserID)
+                    return View(ticket);
+                else
+                    return View("Error", new string[] { "This is not your ticket!!" });
+            }
         }
 
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Ticket ticket = db.Tickets.Find(id);
             db.Tickets.Remove(ticket);
             db.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (User.IsInRole("Manager,Employee"))
+                return RedirectToAction("Index");
+            else
+            {
+                String UserID = User.Identity.GetUserId();
+                if (ticket.Order.AppUser.Id == UserID)
+                    return RedirectToAction("Index");
+                else
+                    return View("Error", new string[] { "This is not your ticket!!" });
+            }
         }
 
         public SelectList FindAvailableSeats(List<Ticket> tickets)

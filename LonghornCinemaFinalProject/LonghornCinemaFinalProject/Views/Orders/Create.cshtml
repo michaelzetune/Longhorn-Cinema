@@ -1,9 +1,12 @@
 ﻿@model LonghornCinemaFinalProject.Models.Order
-@using LonghornCinemaFinalProject.Models
+@*@using LonghornCinemaFinalProject.Models*@
+
 @{
     ViewBag.Title = "Create";
 }
+
 <h2>Seat Selection</h2>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

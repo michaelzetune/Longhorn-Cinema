@@ -31,7 +31,7 @@ namespace LonghornCinemaFinalProject.Migrations
                 c1.ZipCode = 78705;
                 c1.PhoneNumber = "5125550180";
                 c1.PopcornPointsBalance = 110;
-                var result = UserManager.Create(c1, "hello1!");
+                var result = UserManager.Create(c1, "hello1");
                 db.SaveChanges();
                 c1 = db.Users.First(u => u.UserName == "cbaker@example.com");
             }

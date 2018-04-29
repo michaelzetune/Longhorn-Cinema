@@ -16,10 +16,11 @@ namespace LonghornCinemaFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Movies
-        public ActionResult Index()
-        {
-            return View(db.Movies.ToList());
-        }
+        // NOTE: commented out because we don't use Movies Index, we use HomeController's Index now
+        //public ActionResult Index()
+        //{
+        //    return View(db.Movies.ToList());
+        //}
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
@@ -37,6 +38,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles ="Manager")]
         public ActionResult Create()
         {
             ViewBag.AllGenres = GetAllGenres();
@@ -48,6 +50,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
         public ActionResult Create([Bind(Include = "MovieID,Title,Overview,ReleaseDate,Revenue,Runtime,Tagline,Actors,MPAARating")] Movie movie, int[] SelectedGenres)
         {
             if (ModelState.IsValid)
@@ -69,6 +72,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Manager")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -89,6 +93,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
         public ActionResult Edit([Bind(Include = "MovieID,Title,Overview,ReleaseDate,Revenue,Runtime,Tagline,Actors,MPAARating")] Movie movie/*, String Title, String Overview, DateTime ReleaseDate, Int32 Revenue, Int32 Runtime, String Tagline, String Actors, MPAARating MPAARating*/, int[] SelectedGenres)
         {
             if (ModelState.IsValid)
@@ -121,6 +126,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -138,6 +144,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
         public ActionResult DeleteConfirmed(int id)
         {
             Movie movie = db.Movies.Find(id);

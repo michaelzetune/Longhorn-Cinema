@@ -16,7 +16,6 @@ namespace LonghornCinemaFinalProject.Controllers
     //[Authorize(Roles = "Manager")]
     public class RoleAdminController : Controller
     {
-        //
         // GET: /RoleAdmin/
         public ActionResult Index()
         {
