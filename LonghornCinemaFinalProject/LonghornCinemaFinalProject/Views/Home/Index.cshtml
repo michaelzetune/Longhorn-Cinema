@@ -16,6 +16,11 @@
     </p>
 }
 
+@if (this.User.IsInRole("Manager"))
+{
+    <p>@Html.ActionLink("Create new movie", "Create", "Movies")</p>
+}
+
 Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
 
 <table class="table">
@@ -44,40 +49,58 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
         <th>
             Showings
         </th>
+        @if (this.User.IsInRole("Manager"))
+        {
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        }
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GenresString)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MPAARating)
-        </td>
-        <td>
-            @if (item.MovieReviews.Count() == 0)
-        {<p>None</p> }
-    else
-    { @Html.DisplayFor(modelItem => item.RatingAverage)}
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Runtime)
-        </td>
-        <td>
-            @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, null)
-        </td>
-        <td>
-            @Html.ActionLink("Showings", "Index", "Showings", new { id = item.MovieID }, null)
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenresString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MPAARating)
+            </td>
+            <td>
+                @if (item.MovieReviews.Count() == 0)
+                {<p>None</p> }
+                else
+                { @Html.DisplayFor(modelItem => item.RatingAverage)}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Runtime)
+            </td>
+            <td>
+                @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Showings", "Index", "Showings", new { id = item.MovieID }, null)
+            </td>
+            @if (this.User.IsInRole("Manager"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Movies", new { id = item.MovieID }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Movies", new { id = item.MovieID }, null)
+                </td>
+            }
+        </tr>
     }
 
 </table>
