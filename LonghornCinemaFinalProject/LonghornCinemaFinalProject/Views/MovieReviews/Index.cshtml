@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Movie Reviews</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -44,17 +44,23 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
                 @Html.DisplayFor(modelItem => item.Votes)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID }) |
+                <p>
+                @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID })
                 @if (User.Identity.GetUserId() != item.AppUser.Id)
                 {
+                    <p>
                     @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID }) |
-                    @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID }) |
+                    @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })
+                    </p>
                 }
                 else
                 {
+                    <p>
                     @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
+                    </p>
                 }
+                </p>
             </td>
         </tr>
     }
