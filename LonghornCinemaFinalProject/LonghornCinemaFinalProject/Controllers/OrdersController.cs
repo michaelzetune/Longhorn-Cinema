@@ -17,9 +17,17 @@ namespace LonghornCinemaFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Orders
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            if (User.IsInRole("Manager,Employee"))
+                return View(db.Orders.ToList());
+            else
+            {
+                var query = from o in db.Orders select o;
+                query = query.Where(o => o.AppUser.Id == User.Identity.GetUserId());
+                return View(query.ToList());
+            }
         }
 
         // GET: Orders/Details/5

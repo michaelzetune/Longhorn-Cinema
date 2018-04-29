@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<LonghornCinemaFinalProject.Models.MovieReview>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Index";
@@ -27,28 +28,35 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Movie.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewText)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumStars)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Votes)
-        </td>
-        <td>
-            @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID }) |
-            @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID }) |
-            @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumStars)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Votes)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID }) |
+                @if (User.Identity.GetUserId() != item.AppUser.Id)
+                {
+                    @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID }) |
+                    @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID }) |
+                }
+                else
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
+                }
+            </td>
+        </tr>
+    }
 
 </table>
