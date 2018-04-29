@@ -56,7 +56,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 {
                     Genre gen = db.Genres.Find(i);
                     movie.Genres.Add(gen);
-                    gen.Movies.Add(movie);
+                    //gen.Movies.Add(movie); // Brooke on Piazza says we don't need to add Movie to Genre AND Genre to Movie, just one -Michael
                     db.SaveChanges();
                 }
 
