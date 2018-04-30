@@ -55,7 +55,12 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize]
         public ActionResult Create(int TicketID)
         {
-            return View();
+            // Add the first ticket to the order. For subsequent tickets, this is handled in the
+            // POST Tickets/Create near the end
+            Order ord = new Order();
+            Ticket ticket = db.Tickets.Find(TicketID);
+            ord.Tickets.Add(ticket);
+            return View(ord);
         }
 
         // POST: Orders/Create
@@ -64,8 +69,11 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,ConfirmationCode,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
+        public ActionResult Create([Bind(Include = "OrderID,ConfirmationCode,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order, Int32 TicketID)
         {
+            // Add first ticket to order
+            Ticket ticket = db.Tickets.Find(TicketID);
+            order.Tickets.Add(ticket);
 
             //Record date of order
             order.OrderDate = DateTime.Today;

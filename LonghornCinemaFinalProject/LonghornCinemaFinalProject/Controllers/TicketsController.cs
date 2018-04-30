@@ -35,14 +35,10 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Tickets/Details/5
-        [Authorize(Roles = "Manager,Customer")]
-        public ActionResult Details(int? id)
+        [Authorize]
+        public ActionResult Details(int OrderID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Tickets.Find(OrderID);
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -134,6 +130,41 @@ namespace LonghornCinemaFinalProject.Controllers
             //double-check everything is okay now that we've added seat
             ValidateModel(tic);
 
+            //*******  Shouldn't need this section, right? ************
+            Decimal TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(show.StartTime);
+
+            if (show.SpecialEventStatus == SpecialEvent.NotSpecial)
+            {
+                //sets senior citizen discount
+                //TODO: Add logic for only allowing discount for 2 tickets per transaction
+                if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
+                {
+                    TicketPrice = TicketPrice - 2;
+                    ViewBag.SeniorCitizen = "$2 Senior Citizen Discount Applied";
+                }
+                else
+                {
+                    ViewBag.SeniorCitizen = "No Discount";
+                }
+
+                //vars for determining time between now and showing start time
+                TimeSpan TimeBetween = (show.StartTime - DateTime.Now);
+
+                //sets discount if ticket is purchased 48 hours in advance
+                if ((TimeBetween.TotalHours >= 48))
+                {
+                    TicketPrice = TicketPrice - 1;
+                    ViewBag.Advance = "$1 Discount for Purchasing Early";
+                }
+                else
+                {
+                    ViewBag.Advance = "No Discount";
+                }
+            }
+
+            tic.TicketPrice = TicketPrice;
+
+            // ********************************************************
 
             if (ModelState.IsValid)
             {
@@ -161,6 +192,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 else
                 {
                     LastOrder.Tickets.Add(tic);
+                    db.SaveChanges();
                     return RedirectToAction("Details", "Orders", new { OrderID = LastOrder.OrderID });
                 }
             }
@@ -171,13 +203,9 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Tickets/Edit/5
         [Authorize]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int OrderID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Tickets.Find(OrderID);
             if (ticket == null)
             {
                 return HttpNotFound();

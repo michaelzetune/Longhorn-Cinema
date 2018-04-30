@@ -13,7 +13,43 @@
     </dl>
     <p>If you're here the Ticket should have been created and an Order should have been created with the Ticket on it. You can check the Tickets and Orders table with the corresponding OrderID and TicketID to verify this.</p>
 </div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Movie
+        </th>
+        <th>
+            Show Start Time
+        </th>
+        <th>
+            Ticket Price
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var tic in Model.Tickets)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => tic.Showing.Movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => tic.Showing.StartTime)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => tic.TicketPrice)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Add more tickets", "Index", "Showings") |
+    @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }) |
+    @Html.ActionLink("Edit", "Edit", new { OrderID = Model.OrderID })
 </p>
