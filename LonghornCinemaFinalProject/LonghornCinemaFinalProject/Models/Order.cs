@@ -8,22 +8,47 @@ namespace LonghornCinemaFinalProject.Models
 {
     public class Order
     {
+        private const Decimal TAX_RATE = 0.0825m;
+
         // Properties
         // OrderID
-        
+
         public Int32 OrderID { get; set; }
 
-        //TODO: implement get for transaction ID/add utility class
         public Int32 ConfirmationCode { get; set; }
 
         public Boolean Complete { get; set; }
 
-        public Decimal Subtotal { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public Decimal Subtotal
+        {
+            get
+            {
+                return Tickets.Sum(t => t.TicketPrice);
+            }
+        }
 
-        public Decimal TaxAmount { get; set; }
+        [Display(Name = "Tax")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public Decimal TaxAmount
+        {
+            get
+            {
+                return TAX_RATE * Subtotal;
+            }
+        }
 
-        public Decimal Total { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public Decimal Total
+        {
+            get
+            {
+                return Subtotal + TaxAmount;
+            }
+        }
 
+        [Display(Name = "Order Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime OrderDate { get; set; }
 
         public Boolean Active { get; set; }
