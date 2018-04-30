@@ -84,7 +84,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Create", "Tickets", new { OrderID = order.OrderID });
+                return RedirectToAction("Details", "Orders", new { OrderID = order.OrderID });
             }
             //ViewBag.
             return View(order);
