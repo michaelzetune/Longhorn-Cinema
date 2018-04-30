@@ -53,7 +53,7 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
                     @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })
                     </p>
                 }
-                else
+                @if (User.Identity.GetUserId() == item.AppUser.Id)
                 {
                     <p>
                     @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
