@@ -19,6 +19,9 @@ namespace LonghornCinemaFinalProject.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
+            MoviePriceData AddMoviePrices = new MoviePriceData();
+            AddMoviePrices.SeedMoviePrice(context);
+
             MovieData AddMovies = new MovieData();
             AddMovies.SeedMovies(context);
 

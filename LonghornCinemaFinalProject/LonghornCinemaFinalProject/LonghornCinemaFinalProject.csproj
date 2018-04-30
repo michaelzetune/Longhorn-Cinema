@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
+    <Compile Include="Migrations\MoviePriceData.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
     <Compile Include="Migrations\UserData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
