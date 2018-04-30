@@ -22,7 +22,12 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             if (id == null)
             {
-                return View(db.MovieReviews.ToList());
+                var query1 = from r in db.MovieReviews select r;
+                if (User.IsInRole("Customer"))
+                    query1 = query1.Where(r => r.ApprovalStatus == ApprovalStatus.Approved);
+                ViewBag.SelectedMovieReviewsCount = query1.Count();
+                ViewBag.TotalMovieReviewsCount = db.MovieReviews.ToList().Count();
+                return View(query1.ToList());
             }
             Movie m = db.Movies.Find(id);
             if (m == null)
@@ -34,6 +39,7 @@ namespace LonghornCinemaFinalProject.Controllers
             if (m != null)
             {
                 query = query.Where(r => r.Movie.MovieID == id);
+                query = query.Where(r => r.ApprovalStatus == ApprovalStatus.Approved);
             }
             List<MovieReview> MovieReviewsToDisplay = query.ToList();
 
@@ -107,6 +113,7 @@ namespace LonghornCinemaFinalProject.Controllers
             movieReview.Movie = db.Movies.First(m => m.MovieID == SearchMovieID);
             String UserID = User.Identity.GetUserId();
             movieReview.AppUser = db.Users.First(u => u.Id == UserID);
+            movieReview.ApprovalStatus = ApprovalStatus.NotApproved;
 
             if (ModelState.IsValid)
             {
@@ -205,6 +212,36 @@ namespace LonghornCinemaFinalProject.Controllers
 
             SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.Title), "MovieID", "Title");
             return AllMovies;
+        }
+
+        public ActionResult ApproveReview(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            MovieReview m = db.MovieReviews.Find(id);
+            if (m == null)
+            {
+                return HttpNotFound();
+            }
+            m.ApprovalStatus = ApprovalStatus.Approved;
+            return View();
+        }
+
+        public ActionResult UnapproveReview(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            MovieReview m = db.MovieReviews.Find(id);
+            if (m == null)
+            {
+                return HttpNotFound();
+            }
+            m.ApprovalStatus = ApprovalStatus.NotApproved;
+            return View();
         }
 
         protected override void Dispose(bool disposing)

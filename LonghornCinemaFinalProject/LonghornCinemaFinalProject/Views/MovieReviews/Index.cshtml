@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<LonghornCinemaFinalProject.Models.MovieReview>
 @using Microsoft.AspNet.Identity
+@using LonghornCinemaFinalProject.Models
 
 @{
     ViewBag.Title = "Index";
@@ -8,7 +9,9 @@
 <h2>Movie Reviews</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Customer"))
+    {@Html.ActionLink("Create New", "Create") <p> Only Movie Reviews that have been approved by a Manager or Employee appear here. </p> }
+    
 </p>
 
 Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Movie Reviews
@@ -30,39 +33,54 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Movie.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumStars)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Votes)
-            </td>
-            <td>
-                <p>
-                @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID })
-                @if (User.Identity.GetUserId() != item.AppUser.Id && User.IsInRole("Customer"))
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumStars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Votes)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID })
+        </td>
+        <td>
+            @if (User.Identity.GetUserId() != item.AppUser.Id && User.IsInRole("Customer")) // non-author customer
+            {
+            @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID })
+            @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })
+            }
+        </td>
+        <td>
+            @if (User.Identity.GetUserId() == item.AppUser.Id || User.IsInRole("Manager,Employee")) // Manager, Employee, or author (a customer)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
+            }
+        </td>
+        <td>
+            @if (User.IsInRole("Manager, Employee"))
+            {
+                if (item.ApprovalStatus == ApprovalStatus.NotApproved)
                 {
-                    <p>
-                    @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID }) |
-                    @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })
-                    </p>
+
+                    @Html.ActionLink("Approve", "ApproveReview", new { id = item.MovieReviewID })
+
                 }
-                @if (User.Identity.GetUserId() == item.AppUser.Id)
+                else
                 {
-                    <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
-                    </p>
+
+                    @Html.ActionLink("Unapprove", "UnapproveReview", new { id = item.MovieReviewID })
+
                 }
-                </p>
-            </td>
-        </tr>
+            }
+        </td>
+    </tr>
     }
 
 </table>
