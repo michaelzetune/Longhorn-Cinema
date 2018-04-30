@@ -69,8 +69,8 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             Showing show = db.Showings.Find(ShowingID);
             ShowID = ShowingID;
+            ViewBag.ShowID = ShowingID;
             
-
 
             ViewBag.CurrentMovieTitle = show.Movie.Title;
 
@@ -120,7 +120,7 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic)
+        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Int32 ShowID)
         {
             if (ShowID == 1) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
 

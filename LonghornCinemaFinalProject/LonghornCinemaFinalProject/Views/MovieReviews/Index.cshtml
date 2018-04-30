@@ -49,37 +49,28 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID })
         </td>
-        <td>
-            @if (User.Identity.GetUserId() != item.AppUser.Id && User.IsInRole("Customer")) // non-author customer
+            @if (User.Identity.GetUserId() != item.AppUser.Id & this.User.IsInRole("Customer")) // non-author customer
             {
-            @Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID })
-            @Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })
+                <td>@Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID })</td>
+                <td>@Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })</td>
             }
-        </td>
-        <td>
-            @if (User.Identity.GetUserId() == item.AppUser.Id || User.IsInRole("Manager,Employee")) // Manager, Employee, or author (a customer)
+            @if (User.Identity.GetUserId() == item.AppUser.Id | User.IsInRole("Manager,Employee")) // Manager, Employee, or author (a customer)
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID })
-                @Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID })</td>
+                
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })</td>
             }
-        </td>
-        <td>
             @if (User.IsInRole("Manager, Employee"))
             {
                 if (item.ApprovalStatus == ApprovalStatus.NotApproved)
                 {
-
-                    @Html.ActionLink("Approve", "ApproveReview", new { id = item.MovieReviewID })
-
+                    <td>@Html.ActionLink("Approve", "ApproveReview", new { id = item.MovieReviewID })</td>
                 }
                 else
                 {
-
-                    @Html.ActionLink("Unapprove", "UnapproveReview", new { id = item.MovieReviewID })
-
+                    <td>@Html.ActionLink("Unapprove", "UnapproveReview", new { id = item.MovieReviewID })</td>
                 }
             }
-        </td>
     </tr>
     }
 
