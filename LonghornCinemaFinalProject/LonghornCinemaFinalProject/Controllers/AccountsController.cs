@@ -73,8 +73,8 @@ namespace LonghornCinemaFinalProject.Controllers
         //
         // POST: /Accounts/Login
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -108,8 +108,8 @@ namespace LonghornCinemaFinalProject.Controllers
         // NOTE: Here is your logic for registering a new user
         // POST: /Accounts/Register
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -156,7 +156,6 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         //GET: Accounts/Index
-        [Authorize]
         public ActionResult Index()
         {
             IndexViewModel ivm = new IndexViewModel();
@@ -179,7 +178,6 @@ namespace LonghornCinemaFinalProject.Controllers
 
         //Logic for change password
         // GET: /Accounts/ChangePassword
-        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -189,7 +187,6 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: /Accounts/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
             if (!ModelState.IsValid)

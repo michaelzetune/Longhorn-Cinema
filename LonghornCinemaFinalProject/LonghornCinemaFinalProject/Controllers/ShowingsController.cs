@@ -58,7 +58,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         // GET: Showings/Create
-        [Authorize(Roles ="Manager")]
+        [Authorize(Roles = "Manager")]
         public ActionResult Create()
         {
             ViewBag.AllMoviesList = GetAllMovies();
@@ -109,7 +109,7 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Manager")]
-        public ActionResult Edit([Bind(Include = "ShowingID,StartTime,EndTime,SpecialEvent,TheatreNum,SeatList")] Showing showing)
+        public ActionResult Edit([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")] Showing showing)
         {
             if (ModelState.IsValid)
             {

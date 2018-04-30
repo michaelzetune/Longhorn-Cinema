@@ -7,9 +7,13 @@
 
 <h2>Showings</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if(User.IsInRole("Manager"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -54,11 +58,16 @@
             { <p>2</p>}
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ShowingID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
-
-            @Html.ActionLink("Buy Ticket", "Create", "Orders", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" })
+            @if (User.IsInRole("Manager"))
+            {
+                <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+                </p>
+            }
+            @if (item.StartTime > DateTime.Now)
+            { @Html.ActionLink("Buy Ticket", "Create", "Tickets", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" }) } 
         </td>
     </tr>
 }

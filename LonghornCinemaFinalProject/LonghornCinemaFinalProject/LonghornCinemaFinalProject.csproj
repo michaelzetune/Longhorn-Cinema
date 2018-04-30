@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201804292117405_AddUserToMovieReview.Designer.cs">
       <DependentUpon>201804292117405_AddUserToMovieReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804300356173_UpdateOrderProperties.cs" />
+    <Compile Include="Migrations\201804300356173_UpdateOrderProperties.Designer.cs">
+      <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -315,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804292117405_AddUserToMovieReview.resx">
       <DependentUpon>201804292117405_AddUserToMovieReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804300356173_UpdateOrderProperties.resx">
+      <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

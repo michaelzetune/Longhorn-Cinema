@@ -19,44 +19,36 @@
     <div>
         <hr />
         <dl class="dl-horizontal">
-
             <dt>
-                @Html.DisplayNameFor(model => model.Order.OrderDate)
+                Movie Title:
             </dt>
-
             <dd>
-                @Html.DisplayFor(model => model.Order.OrderDate)
+                @ViewBag.CurrentMovieTitle
             </dd>
             <dt>
-                Email
+                Rating:
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Order.AppUser.Email)
+                @ViewBag.CurrentMovieRating
             </dd>
             <dt>
-                Movie
+                Start Time:
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Showing.Movie.Title)
+                @ViewBag.CurrentTicketStartTime
             </dd>
             <dt>
-                Start Time
+                Ticket Price:
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Showing.StartTime)
+                $@ViewBag.CurrentTicketPrice
             </dd>
-            <dt>
-                Ticket Price
-            </dt>
             <dd>
-                @Html.DisplayFor(model => model.TicketPrice)
-                @if (ViewBag.Advance == "No Discount") { }
-                else
-                {@Html.ViewBag.Advance}
-
-                @if (ViewBag.SeniorCitizen == "No Discount") { }
-                else
-                {@Html.ViewBag.SeniorCitizen}
+                @if (@ViewBag.Advance != "No Discount")
+                {@ViewBag.Advance}
+                <p></p>
+                @if (@ViewBag.SeniorCitizen != "No Discount")
+                {@ViewBag.SeniorCitizen}
             </dd>
         </dl>
     </div>
@@ -115,7 +107,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </div>
 </div>
@@ -126,7 +118,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index","Showings")
 </div>
 
 @section Scripts {

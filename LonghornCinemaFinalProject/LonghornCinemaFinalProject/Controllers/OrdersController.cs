@@ -57,10 +57,8 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Orders/Create
         [Authorize]
-        public ActionResult Create(int ShowingID)
+        public ActionResult Create(int TicketID)
         {
-            ViewBag.CurrentShowingID = ShowingID;
-            //Showing showing = db.Showings.Find(ShowingID);
             return View();
         }
 
@@ -70,30 +68,25 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OrderID,ConfirmationCode,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order, Showing showingID)
+        public ActionResult Create([Bind(Include = "OrderID,ConfirmationCode,Complete,Subtotal,TaxAmount,Total,OrderDate")] Order order)
         {
 
             //Record date of order
             order.OrderDate = DateTime.Today;
             order.Complete = false;
 
-            order.ConfirmationCode = 1;
-            order.Subtotal = 1;
-            order.TaxAmount = 1;
-            order.Total = 2;
+            order.ConfirmationCode = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber();
 
-            Showing showing = db.Showings.Find(ViewBag.CurrentShowingID);
-
-            //AppUser user = db.Users.Find(User.Identity.GetUserId());
-            //order.AppUser = user;
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+            order.AppUser = user;
 
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Create", "Tickets", new { OrderID = order.OrderID, ShowingID = showing.ShowingID });
+                return RedirectToAction("Create", "Tickets", new { OrderID = order.OrderID });
             }
-
+            //ViewBag.
             return View(order);
         }
 
