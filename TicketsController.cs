@@ -124,40 +124,53 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Int32 ShowingID)
+        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Int32 ShowingID, Int32 SelectedSeats)
         {
             if (ShowingID == 1) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
 
             Showing show = db.Showings.Find(ShowingID);
+            tic.Showing = show;
             AppUser user = db.Users.Find(User.Identity.GetUserId()); //TODO: make sure this is assigned correctly
 
-            tic.TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(show.StartTime);
+            //tic.TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(show.StartTime);
 
-            if (show.SpecialEventStatus == SpecialEvent.NotSpecial)
-            {
-                //sets senior citizen discount
-                //TODO: Add logic for only allowing discount for 2 tickets per transaction
-                if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
-                {
-                    tic.TicketPrice = tic.TicketPrice - 2;
-                }
+            //if (show.SpecialEventStatus == SpecialEvent.NotSpecial)
+            //{
+            //    //sets senior citizen discount
+            //    //TODO: Add logic for only allowing discount for 2 tickets per transaction
+            //    if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
+            //    {
+            //        tic.TicketPrice = tic.TicketPrice - 2;
+            //    }
 
-                //vars for determining time between now and showing start time
-                TimeSpan TimeBetween = (show.StartTime - DateTime.Now);
+            //    //vars for determining time between now and showing start time
+            //    TimeSpan TimeBetween = (show.StartTime - DateTime.Now);
 
-                //sets discount if ticket is purchased 48 hours in advance
-                if ((TimeBetween.Hours >= 48))
-                {
-                    tic.TicketPrice = tic.TicketPrice - 1;
-                }
-            }
+            //    //sets discount if ticket is purchased 48 hours in advance
+            //    if ((TimeBetween.Hours >= 48))
+            //    {
+            //        tic.TicketPrice = tic.TicketPrice - 1;
+            //    }
+            //}
+
+            //clear existing errors - we know there is no seat
+            ModelState.Clear();
+
+
+            //Add the logic to see what seat they picked
+            List<Seat> AllSeats = GetAllSeats();
+            Seat seat = AllSeats.FirstOrDefault(s => s.SeatID == SelectedSeats);
+            tic.Seat = seat.SeatName;
+
+            //double-check everything is okay now that we've added seat
+            ValidateModel(tic);
 
             if (ModelState.IsValid)
             {
                 db.Tickets.Add(tic);
                 db.SaveChanges();
-
-                Order LastOrder = db.Orders.Where(o => o.AppUser == user).LastOrDefault();
+                String UserId = User.Identity.GetUserId();
+                Order LastOrder = db.Orders.LastOrDefault(o => o.AppUser.Id == UserId);
 
                 //Redirects the user to Orders/Create if the order is null or completed
                 if (LastOrder == null || LastOrder.Complete)
