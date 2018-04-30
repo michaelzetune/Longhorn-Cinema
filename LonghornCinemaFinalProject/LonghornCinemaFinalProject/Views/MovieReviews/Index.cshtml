@@ -8,11 +8,11 @@
 
 <h2>Movie Reviews</h2>
 
-<p>
+
     @if (User.IsInRole("Customer"))
     {@Html.ActionLink("Create New", "Create") <p> Only Movie Reviews that have been approved by a Manager or Employee appear here. </p> }
     
-</p>
+
 
 Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Movie Reviews
 <table class="table">

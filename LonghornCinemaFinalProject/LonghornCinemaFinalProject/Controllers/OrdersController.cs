@@ -32,13 +32,9 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Orders/Details/5
         [Authorize]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int OrderID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
+            Order order = db.Orders.Find(OrderID);
             if (order == null)
             {
                 return HttpNotFound();

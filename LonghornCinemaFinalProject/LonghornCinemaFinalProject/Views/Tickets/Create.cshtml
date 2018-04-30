@@ -15,7 +15,8 @@
     <h4>Ticket</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor("ShowID", @ViewBag.ShowID)
+    @*@Html.HiddenFor("ShowID", @ViewBag.ShowID)*@
+    @Html.HiddenFor(model => model.Showing.ShowingID)
 
     <div>
         <hr />
@@ -24,25 +25,30 @@
                 Movie Title:
             </dt>
             <dd>
-                @ViewBag.CurrentMovieTitle
+                @*@ViewBag.CurrentMovieTitle*@
+                @Html.DisplayFor(m => Model.Showing.Movie.Title);
             </dd>
             <dt>
                 Rating:
             </dt>
             <dd>
-                @ViewBag.CurrentMovieRating
+                @*@ViewBag.CurrentMovieRating*@
+                @Html.DisplayFor(m => Model.Showing.Movie.MPAARating);
             </dd>
             <dt>
                 Start Time:
             </dt>
             <dd>
-                @ViewBag.CurrentTicketStartTime
+                @*@ViewBag.CurrentTicketStartTime*@
+                @Html.DisplayFor(m => Model.Showing.StartTime);
             </dd>
             <dt>
                 Ticket Price:
             </dt>
             <dd>
-                $@ViewBag.CurrentTicketPrice
+                @*$@ViewBag.CurrentTicketPrice*@
+                @*//TODO: Add a display attribute to your model class to format the price for you*@
+                $@Html.DisplayFor(m => m.TicketPrice)
             </dd>
             <dd>
                 @if (@ViewBag.Advance != "No Discount")
@@ -53,7 +59,6 @@
             </dd>
         </dl>
     </div>
-
     <table class="table-bordered">
         <b>SCREEN</b>
         <tr>
@@ -97,15 +102,13 @@
             <td>D8</td>
         </tr>
     </table>
-
     <br />
     <div class="form-group">
         <label class="custom-control-label col-md-2">Seat</label>
         <div class="col-md-10">
-            @Html.DropDownList("SelectedSeats", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
+            @Html.DropDownList("SelectedSeat", (SelectList)ViewBag.AllSeats, new { @class = "form-control" })
         </div>
     </div>
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-primary" />

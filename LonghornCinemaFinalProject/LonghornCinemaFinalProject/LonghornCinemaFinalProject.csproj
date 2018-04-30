@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201804300356173_UpdateOrderProperties.Designer.cs">
       <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804301819265_UnrequireSeatInticket.cs" />
+    <Compile Include="Migrations\201804301819265_UnrequireSeatInticket.Designer.cs">
+      <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -322,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804300356173_UpdateOrderProperties.resx">
       <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804301819265_UnrequireSeatInticket.resx">
+      <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,7 +12,7 @@ namespace LonghornCinemaFinalProject.Models
         // TicketID
         public Int32 TicketID { get; set; }
         // Seat
-        [Required(ErrorMessage = "Seat is required.")]
+        //[Required(ErrorMessage = "Seat is required.")]
         public String Seat { get; set; }
 
         // Commenting this out because I think TicketPrice and MoviePrice would be the same value (-Michael) :

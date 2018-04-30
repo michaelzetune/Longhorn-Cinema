@@ -16,7 +16,7 @@ namespace LonghornCinemaFinalProject.Controllers
     public class TicketsController : Controller
     {
         private AppDbContext db = new AppDbContext();
-        private Int32 ShowID;
+        // private Int32 ShowID;
 
 
 
@@ -68,14 +68,13 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult Create(int ShowingID)
         {
             Showing show = db.Showings.Find(ShowingID);
-            ShowID = ShowingID;
-            ViewBag.ShowID = ShowingID;
-            
 
-            ViewBag.CurrentMovieTitle = show.Movie.Title;
+            Ticket tic = new Ticket();
+            tic.Showing = show;
 
-            AppUser user = db.Users.Find(User.Identity.GetUserId()); //TODO: make sure this is assigned correctly
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
             Decimal TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(show.StartTime);
+
 
             if (show.SpecialEventStatus == SpecialEvent.NotSpecial)
             {
@@ -105,13 +104,11 @@ namespace LonghornCinemaFinalProject.Controllers
                     ViewBag.Advance = "No Discount";
                 }
             }
-            ViewBag.CurrentTicketPrice = TicketPrice;
 
-            ViewBag.CurrentTicketStartTime = show.StartTime;
-            ViewBag.CurrentMovieRating = show.Movie.MPAARating;
+            tic.TicketPrice = TicketPrice;
 
             ViewBag.AllSeats = FindAvailableSeats(show.Tickets);
-            return View();
+            return View(tic);
         }
 
         // POST: Tickets/Create
@@ -120,40 +117,39 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Int32 ShowID)
+        public ActionResult Create([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket tic, Int32 ShowingID, Int32 SelectedSeat)
         {
-            if (ShowID == 1) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); }
-
-            Showing show = db.Showings.Find(ShowID);
+            Showing show = db.Showings.Find(ShowingID);
+            tic.Showing = show;
             AppUser user = db.Users.Find(User.Identity.GetUserId()); //TODO: make sure this is assigned correctly
 
-            tic.TicketPrice = Utilities.GenerateTicketPrice.GetTicketPrice(show.StartTime);
+            //clear existing errors - we know there is no seat
+            ModelState.Clear();
 
-            if (show.SpecialEventStatus == SpecialEvent.NotSpecial)
-            {
-                //sets senior citizen discount
-                //TODO: Add logic for only allowing discount for 2 tickets per transaction
-                if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
-                {
-                    tic.TicketPrice = tic.TicketPrice - 2;
-                }
+            //Add the logic to see what seat they picked
+            List<Seat> AllSeats = GetAllSeats();
+            Seat seat = AllSeats.FirstOrDefault(s => s.SeatID == SelectedSeat);
+            tic.Seat = seat.SeatName;
 
-                //vars for determining time between now and showing start time
-                TimeSpan TimeBetween = (show.StartTime - DateTime.Now);
+            //double-check everything is okay now that we've added seat
+            ValidateModel(tic);
 
-                //sets discount if ticket is purchased 48 hours in advance
-                if ((TimeBetween.Hours >= 48))
-                {
-                    tic.TicketPrice = tic.TicketPrice - 1;
-                }
-            }
 
             if (ModelState.IsValid)
             {
                 db.Tickets.Add(tic);
                 db.SaveChanges();
+                String UserId = User.Identity.GetUserId();
 
-                Order LastOrder = db.Orders.Where(o => o.AppUser == user).LastOrDefault();
+                //These six lines replace the next commented out line (Order LastOrder...)
+                List<Order> TempOrdersList = db.Orders.Where(o => o.AppUser.Id == UserId).ToList();
+                Order LastOrder;
+                if (TempOrdersList.Count() != 0)
+                    LastOrder = TempOrdersList.Last();
+                else
+                    LastOrder = null;
+
+                //Order LastOrder = db.Orders.LastOrDefault(o => o.AppUser.Id == UserId);
 
                 //Redirects the user to Orders/Create if the order is null or completed
                 if (LastOrder == null || LastOrder.Complete)
@@ -169,7 +165,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
             }
 
-            ViewBag.AllSeats = FindAvailableSeats(show.Tickets);
+            ViewBag.AllSeats = FindAvailableSeats(tic.Showing.Tickets);
             return View(tic);
         }
 
