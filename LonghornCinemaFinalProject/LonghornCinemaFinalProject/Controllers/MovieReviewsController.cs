@@ -110,19 +110,40 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize(Roles = "Customer")]
         public ActionResult Create([Bind(Include = "MovieReviewID,ReviewText,NumStars,ApprovalStatus")] MovieReview movieReview, Int32 SearchMovieID)
         {
-            movieReview.Movie = db.Movies.First(m => m.MovieID == SearchMovieID);
-            String UserID = User.Identity.GetUserId();
-            movieReview.AppUser = db.Users.First(u => u.Id == UserID);
-            movieReview.ApprovalStatus = ApprovalStatus.NotApproved;
-
-            if (ModelState.IsValid)
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+            Movie thisMovie = movieReview.Movie;
+            Boolean UserBoughtMovie = false;
+            foreach (Order o in user.Orders)
             {
-                db.MovieReviews.Add(movieReview);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                foreach (Ticket t in o.Tickets)
+                {
+                    if (t.Showing.Movie.Title == thisMovie.Title)
+                        UserBoughtMovie = true;
+                }
             }
-            ViewBag.AllMoviesList = GetAllMovies();
-            return View(movieReview);
+
+            if (UserBoughtMovie) // only allow review to be created if the user bought a ticket to the movie
+            {
+                movieReview.Movie = db.Movies.First(m => m.MovieID == SearchMovieID);
+                String UserID = User.Identity.GetUserId();
+                movieReview.AppUser = db.Users.First(u => u.Id == UserID);
+                movieReview.ApprovalStatus = ApprovalStatus.NotApproved;
+
+                if (ModelState.IsValid)
+                {
+                    db.MovieReviews.Add(movieReview);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.AllMoviesList = GetAllMovies();
+                return View(movieReview);
+            }
+            else
+            {
+                return View("Error", new string[] { "You haven't bought a ticket to this Movie!" });
+            }
+
+            
         }
 
         // GET: MovieReviews/Edit/5
