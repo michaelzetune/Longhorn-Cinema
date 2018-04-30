@@ -57,10 +57,10 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             // Add the first ticket to the order. For subsequent tickets, this is handled in the
             // POST Tickets/Create near the end
-            Order ord = new Order();
-            Ticket ticket = db.Tickets.Find(TicketID);
-            ord.Tickets.Add(ticket);
-            return View(ord);
+            //Order ord = new Order();
+            //Ticket ticket = db.Tickets.Find(TicketID);
+            //ord.Tickets.Add(ticket);
+            return View();
         }
 
         // POST: Orders/Create

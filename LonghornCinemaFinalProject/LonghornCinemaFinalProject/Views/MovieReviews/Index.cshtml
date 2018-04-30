@@ -29,6 +29,35 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
         <th>
             @Html.DisplayNameFor(model => model.Votes)
         </th>
+        <th>
+            Details
+        </th>
+        @if (this.User.IsInRole("Customer"))
+        {
+            <th>
+                Vote Up (or Edit)
+            </th>
+            <th>
+                Vote Down (or Delete)
+            </th>
+        }
+        @if (this.User.IsInRole("Manager") || this.User.IsInRole("Employee"))
+        {
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+        }
+
+        @if (this.User.IsInRole("Manager") || this.User.IsInRole("Employee"))
+        {
+            <th>
+                Change Approval
+            </th>
+        }
+
     </tr>
 
     @foreach (var item in Model)
@@ -49,18 +78,21 @@ Showing @ViewBag.SelectedMovieReviewsCount of @ViewBag.TotalMovieReviewsCount Mo
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.MovieReviewID })
         </td>
-            @if (User.Identity.GetUserId() != item.AppUser.Id & this.User.IsInRole("Customer")) // non-author customer
+
+            @if (this.User.Identity.GetUserId() != item.AppUser.Id & this.User.IsInRole("Customer")) // non-author customer
             {
                 <td>@Html.ActionLink("Upvote", "Upvote", new { id = item.MovieReviewID })</td>
                 <td>@Html.ActionLink("Downvote", "Downvote", new { id = item.MovieReviewID })</td>
             }
-            @if (User.Identity.GetUserId() == item.AppUser.Id | User.IsInRole("Manager,Employee")) // Manager, Employee, or author (a customer)
+
+            @if (this.User.Identity.GetUserId() == item.AppUser.Id || this.User.IsInRole("Manager") || this.User.IsInRole("Employee")) // Manager, Employee, or author (a customer)
             {
                 <td>@Html.ActionLink("Edit", "Edit", new { id = item.MovieReviewID })</td>
                 
                 <td>@Html.ActionLink("Delete", "Delete", new { id = item.MovieReviewID })</td>
             }
-            @if (User.IsInRole("Manager, Employee"))
+
+            @if (this.User.IsInRole("Manager") || this.User.IsInRole("Employee"))
             {
                 if (item.ApprovalStatus == ApprovalStatus.NotApproved)
                 {
