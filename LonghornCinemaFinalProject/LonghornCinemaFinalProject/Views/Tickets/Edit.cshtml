@@ -17,6 +17,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.TicketID)
+    @Html.HiddenFor(model => model.TicketPrice)
     <table class="table">
         <tr>
             <th>Movie</th>
@@ -29,55 +30,64 @@
             <td>$@Html.DisplayFor(model => model.TicketPrice)</td>
         </tr>
     </table>
-
+    <table class="table-bordered">
+        <b>SCREEN</b>
+        <tr>
+            <td>A1</td>
+            <td>A2</td>
+            <td>A3</td>
+            <td>A4</td>
+            <td>A5</td>
+            <td>A6</td>
+            <td>A7</td>
+            <td>A8</td>
+        </tr>
+        <tr>
+            <td>B1</td>
+            <td>B2</td>
+            <td>B3</td>
+            <td>B4</td>
+            <td>B5</td>
+            <td>B6</td>
+            <td>B7</td>
+            <td>B8</td>
+        </tr>
+        <tr>
+            <td>C1</td>
+            <td>C2</td>
+            <td>C3</td>
+            <td>C4</td>
+            <td>C5</td>
+            <td>C6</td>
+            <td>C7</td>
+            <td>C8</td>
+        </tr>
+        <tr>
+            <td>D1</td>
+            <td>D2</td>
+            <td>D3</td>
+            <td>D4</td>
+            <td>D5</td>
+            <td>D6</td>
+            <td>D7</td>
+            <td>D8</td>
+        </tr>
+    </table>
+    <br />
     <div class="form-group">
         <b>@Html.LabelFor(model => model.Seat, htmlAttributes: new { @class = "control-label col-md-2" })</b>
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Seat, (SelectList)ViewBag.AllSeats, htmlAttributes: new { @class = "form-control"} })
+            @Html.DropDownListFor(model => model.Seat, (SelectList)ViewBag.AllSeatsWithName, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Seat, "", new { @class = "text-danger" })
         </div>
     </div>
 
-
-
-
-    @*<table>
-        <tr>
-            <th>
-                Movie
-            </th>
-            <th>
-                Show Start Time
-            </th>
-            <th>
-                Ticket Price
-            </th>
-        </tr>
-
-        @foreach (var tic in Model.Tickets)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => tic.Showing.Movie.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => tic.Showing.StartTime)
-                </td>
-                <td>
-                    $@Html.DisplayFor(modelItem => tic.TicketPrice)
-                </td>
-                </td>
-            </tr>
-        </table>*@
-
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
         </div>
     </div>
+</div>
 }
 
 <div>

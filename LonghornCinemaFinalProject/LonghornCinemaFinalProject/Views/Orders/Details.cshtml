@@ -59,7 +59,6 @@
 
 
 <p>
-    @Html.ActionLink("Add more tickets", "Index", "Showings") |
-    @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID })
+    @Html.ActionLink("Add More Tickets", "Index", "Showings", null, new{ @class = "btn btn-primary" })
+    @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }, new { @class = "btn btn-success" })
 </p>

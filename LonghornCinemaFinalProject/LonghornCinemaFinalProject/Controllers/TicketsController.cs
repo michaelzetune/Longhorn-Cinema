@@ -212,7 +212,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             if (User.IsInRole("Manager,Employee"))
             {
-                ViewBag.AllSeats = FindAvailableSeats(ticket.Showing.Tickets);
+                ViewBag.AllSeatsWithName = FindAvailableSeatsForEdit(ticket.Showing.Tickets);
                 return View(ticket);
             }
             else
@@ -220,7 +220,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 String UserID = User.Identity.GetUserId();
                 if (ticket.Order.AppUser.Id == UserID)
                 {
-                    ViewBag.AllSeats = FindAvailableSeats(ticket.Showing.Tickets);
+                    ViewBag.AllSeatsWithName = FindAvailableSeatsForEdit(ticket.Showing.Tickets);
                     return View(ticket);
                 }
                 else
@@ -236,11 +236,21 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize]
         public ActionResult Edit([Bind(Include = "TicketID,Seat,TicketPrice")] Ticket ticket)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Entry(ticket).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                String UserId = User.Identity.GetUserId();
+                List<Order> TempOrdersList = db.Orders.Where(o => o.AppUser.Id == UserId).ToList();
+                Order LastOrder;
+                if (TempOrdersList.Count() != 0)
+                    LastOrder = TempOrdersList.Last();
+                else
+                    LastOrder = null;
+
+                return RedirectToAction("Details","Orders", new { OrderID = LastOrder.OrderID });
             }
             if (User.IsInRole("Manager,Employee"))
                 return View(ticket);
@@ -256,13 +266,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Tickets/Delete/5
         [Authorize]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? TicketID)
         {
-            if (id == null)
+            if (TicketID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Tickets.Find(TicketID);
             if (ticket == null)
             {
                 return HttpNotFound();
@@ -284,19 +294,30 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int TicketID)
         {
-            Ticket ticket = db.Tickets.Find(id);
+            Ticket ticket = db.Tickets.Find(TicketID);
+            Order order = ticket.Order;
             db.Tickets.Remove(ticket);
             db.SaveChanges();
 
+            String UserId = User.Identity.GetUserId();
+            List<Order> TempOrdersList = db.Orders.Where(o => o.AppUser.Id == UserId).ToList();
+            Order LastOrder;
+
+            if (TempOrdersList.Count() != 0)
+                LastOrder = TempOrdersList.Last();
+            else
+                LastOrder = null;
+
             if (User.IsInRole("Manager,Employee"))
-                return RedirectToAction("Index");
+            {
+                return RedirectToAction("Details", "Orders", new { OrderID = LastOrder.OrderID });
+            }
             else
             {
-                String UserID = User.Identity.GetUserId();
-                if (ticket.Order.AppUser.Id == UserID)
-                    return RedirectToAction("Index");
+                if (order.AppUser.Id == UserId)
+                    return RedirectToAction("Details", "Orders", new { OrderID = LastOrder.OrderID });
                 else
                     return View("Error", new string[] { "This is not your ticket!!" });
             }
@@ -317,6 +338,24 @@ namespace LonghornCinemaFinalProject.Controllers
             List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats).ToList();
 
             SelectList slAvailableSeats = new SelectList(AvailableSeats, "SeatID", "SeatName");
+            return slAvailableSeats;
+        }
+
+        public SelectList FindAvailableSeatsForEdit(List<Ticket> tickets)
+        {
+            List<Seat> TakenSeats = new List<Seat>();
+
+            foreach (Ticket t in tickets)
+            {
+                Seat s = new Seat();
+                s.SeatName = t.Seat;
+                s.SeatID = GetSeatID(s.SeatName);
+                TakenSeats.Add(s);
+            }
+
+            List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats).ToList();
+
+            SelectList slAvailableSeats = new SelectList(AvailableSeats, "SeatName", "SeatName");
             return slAvailableSeats;
         }
 
