@@ -139,12 +139,18 @@ namespace LonghornCinemaFinalProject.Controllers
                         
                     }
                 }
-
     
+<<<<<<< HEAD
             }
 
             TimeSpan eighteenYears = new TimeSpan(24 * 365 * 18, 0, 0);
             if (DateTime.Now - user.Birthday < eighteenYears)
+=======
+            }
+            //Order LastOrder = db.Orders.LastOrDefault(o => o.AppUser.Id == UserId);
+            TimeSpan eighteenYears = new TimeSpan(24 * 365 * 18, 0, 0);
+            if ((DateTime.Now - user.Birthday) < eighteenYears)
+>>>>>>> 70a079261fdabdb434ee484fe1e8c4197f1584fb
             {
                 if (tic.Showing.Movie.MPAARating == MPAARating.R || tic.Showing.Movie.MPAARating == MPAARating.NC17)
                 {
@@ -152,7 +158,8 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
 
             }
-            
+
+
             /////////////////////////
 
             //double-check everything is okay now that we've added seat
@@ -208,7 +215,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 else
                     LastOrder = null;
 
-                //Order LastOrder = db.Orders.LastOrDefault(o => o.AppUser.Id == UserId);
+
 
                 //Redirects the user to Orders/Create if the order is null or completed
                 if (LastOrder == null || LastOrder.Status == OrderStatus.Complete)
