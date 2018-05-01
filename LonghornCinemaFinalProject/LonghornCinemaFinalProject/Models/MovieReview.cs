@@ -37,5 +37,11 @@ namespace LonghornCinemaFinalProject.Models
 
         // AppUser
         public virtual AppUser AppUser { get; set; }
+
+        // Users that upvoted for this review
+        public virtual List<AppUser> UsersThatUpVoted { get; set; }
+
+        // Users that downvoted for this review
+        public virtual List<AppUser> UsersThatDownVoted { get; set; }
     }
 }
