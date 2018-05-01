@@ -1,0 +1,100 @@
+﻿@model LonghornCinemaFinalProject.Models.Order
+@using LonghornCinemaFinalProject.Models
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OrderDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AppUser.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppUser.Email)
+            </dd>
+        </dl>
+    </div>
+
+    <h4>Tickets</h4>
+    <table class="table table.sm table-striped table-hover">
+        <tr>
+            <th>Movie</th>
+            <th>Show Start Time</th>
+            <th>Seat</th>
+            <th>Ticket Price</th>
+            <th>Discounts</th>
+        </tr>
+        @foreach (Ticket tic in Model.Tickets)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => tic.Showing.Movie.Title)</td>
+                <td>@Html.DisplayFor(modelItem => tic.Showing.StartTime)</td>
+                <td>@Html.DisplayFor(modelItem => tic.Seat)</td>
+                <td>@Html.DisplayFor(modelItem => tic.TicketPrice)</td>
+                <td>
+                    @if (@ViewBag.Advance != "No Discount")
+                    {<p class="text-info">@ViewBag.Advance</p>}
+                    <p></p>
+                    @if (@ViewBag.SeniorCitizen != "No Discount")
+                    {<p class="text-info">@ViewBag.SeniorCitizen</p>}
+                    @if (@ViewBag.Advance != "No Discount" & @ViewBag.SeniorCitizen != "No Discount")
+                    {<p class="text-info">No Discount</p>}
+                </td>
+            </tr>
+        }
+    </table>
+
+    <table class="table table-sm table-bordered" style="width:30%">
+        <tr>
+            <th colspan="2" style="text-align:center">Order Summary</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Subtotal):</td>
+            <td>@Html.DisplayFor(model => model.Subtotal)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.TaxAmount):</td>
+            <td>@Html.DisplayFor(model => model.TaxAmount)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Total):</td>
+            <td>@Html.DisplayFor(model => model.Total)</td>
+        </tr>
+    </table>
+
+    <div class="form-horizontal">
+        <h4>Payment</h4>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreditCard.CardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreditCard.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreditCard.CardNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Review Order" class="btn btn-success" />
+                @Html.ActionLink("Back", "Details", "Orders", new { OrderID = Model.OrderID }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+}

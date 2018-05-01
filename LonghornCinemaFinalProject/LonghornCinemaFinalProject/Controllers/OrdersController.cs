@@ -50,7 +50,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 if (order.AppUser.Id == User.Identity.GetUserId())
                     return View(order);
                 else
-                    return View("Error", new string[] { "This is not your Order!!" });
+                    return View("Error", new string[] { "This is not your Order!" });
             }
         }
 
@@ -117,7 +117,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 if (order.AppUser.Id == User.Identity.GetUserId())
                     return View(order);
                 else
-                    return View("Error", new string[] { "This is not your Order!!" });
+                    return View("Error", new string[] { "This is not your Order!" });
             }
 
         }
@@ -144,7 +144,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 if (order.AppUser.Id == User.Identity.GetUserId())
                     return View(order);
                 else
-                    return View("Error", new string[] { "This is not your Order!!" });
+                    return View("Error", new string[] { "This is not your Order!" });
             }
         }
 
@@ -169,7 +169,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 if (order.AppUser.Id == User.Identity.GetUserId())
                     return View(order);
                 else
-                    return View("Error", new string[] { "This is not your Order!!" });
+                    return View("Error", new string[] { "This is not your Order!" });
             }
         }
 
@@ -190,10 +190,66 @@ namespace LonghornCinemaFinalProject.Controllers
                 if (order.AppUser.Id == User.Identity.GetUserId())
                     return View(order);
                 else
-                    return View("Error", new string[] { "This is not your Order!!" });
+                    return View("Error", new string[] { "This is not your Order!" });
             }
         }
 
+        // GET: Orders/Checkout/ID
+        public ActionResult Checkout(int? OrderID)
+        {
+            if (OrderID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(OrderID);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (User.IsInRole("Manager,Employee"))
+                return View(order);
+            else
+            {
+                if (order.AppUser.Id == User.Identity.GetUserId())
+                {
+                    return View(order);
+                }
+                else
+                {
+                    return View("Error", new string[] { "This is not your Order!" });
+                }
+            }
+        }
+
+        // POST: Orders/Checkout/ID
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Checkout([Bind(Include = "OrderID")] Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("Confirm");
+            }
+
+            if (User.IsInRole("Manager,Employee"))
+                return View(order);
+            else
+            {
+                if (order.AppUser.Id == User.Identity.GetUserId())
+                {
+                    return View(order);
+                }
+                else
+                {
+                    return View("Error", new string[] { "This is not your Order!" });
+                }
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
