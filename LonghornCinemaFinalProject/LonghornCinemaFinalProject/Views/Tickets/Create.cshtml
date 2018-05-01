@@ -47,20 +47,19 @@
             </dt>
             <dd>
                 @*$@ViewBag.CurrentTicketPrice*@
-                @*//TODO: Add a display attribute to your model class to format the price for you*@
-                $@Html.DisplayFor(m => m.TicketPrice)
+                @Html.DisplayFor(m => m.TicketPrice)
             </dd>
             <dd>
                 @if (@ViewBag.Advance != "No Discount")
-                {@ViewBag.Advance}
+                {<p class="text-info">@ViewBag.Advance</p>}
                 <p></p>
                 @if (@ViewBag.SeniorCitizen != "No Discount")
-                {@ViewBag.SeniorCitizen}
-            </dd>
+                {<p class="text-info">@ViewBag.SeniorCitizen</p>}
+</dd>
         </dl>
     </div>
     <table class="table-bordered">
-        <b>SCREEN</b>
+        <b>SCREEN</b> 
         <tr>
             <td>A1</td>
             <td>A2</td>

@@ -9,7 +9,6 @@ namespace LonghornCinemaFinalProject.Models
 {
     public enum MPAARating { G, PG, R, Unrated, None};
 
-
     public class Movie
     {
         private AppDbContext db = new AppDbContext();
@@ -26,10 +25,13 @@ namespace LonghornCinemaFinalProject.Models
         public String Overview { get; set; }
 
         // ReleaseDate
+        [DataType(DataType.Date)]
         [Display(Name = "Release Date")]
+        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}",ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
 
         // Revenue
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public Int64 Revenue { get; set; }
 
         // Runtime (in minutes)

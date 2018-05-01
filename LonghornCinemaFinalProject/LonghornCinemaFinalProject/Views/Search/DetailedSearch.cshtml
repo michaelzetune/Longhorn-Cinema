@@ -29,7 +29,8 @@
 
     Actors: @Html.TextBox("SearchActor", null, new { @class = "form-control" })
     <br />
-    <input type="submit" value="Search" class="=" btn btn-default" />
+    <input type="submit" value="Search" class="btn btn-primary" />
+    @Html.ActionLink("Back to Movies", "Index", "Movies", null, new {@class ="btn btn-info" })
 </p>
 }
 

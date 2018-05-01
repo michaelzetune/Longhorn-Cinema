@@ -18,6 +18,8 @@ namespace LonghornCinemaFinalProject.Models
         // Commenting this out because I think TicketPrice and MoviePrice would be the same value (-Michael) :
         // Price
         [Required(ErrorMessage = "TicketPrice is required.")]
+        [Display(Name ="Ticket Price")]
+        [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal TicketPrice { get; set; }        
 
         // Navigation Properties

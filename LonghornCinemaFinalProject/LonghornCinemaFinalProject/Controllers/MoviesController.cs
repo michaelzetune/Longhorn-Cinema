@@ -22,6 +22,23 @@ namespace LonghornCinemaFinalProject.Controllers
         //    return View(db.Movies.ToList());
         //}
 
+        public ActionResult Index(String BasicSearchString)
+        {
+            List<Movie> MoviesToDisplay = new List<Movie>();
+
+            var query = from r in db.Movies select r;
+            if (BasicSearchString != null)
+            {
+                query = query.Where(r => r.Title.Contains(BasicSearchString) || r.Tagline.Contains(BasicSearchString));
+            }
+            MoviesToDisplay = query.ToList();
+
+            ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
+            ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
+
+            return View(MoviesToDisplay.OrderBy(r => r.Title));
+        }
+
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
         {

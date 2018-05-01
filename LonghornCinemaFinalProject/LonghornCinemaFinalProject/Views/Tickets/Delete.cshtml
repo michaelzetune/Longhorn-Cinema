@@ -12,19 +12,30 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Seat)
+            Movie
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Seat)
+            @Html.DisplayFor(model => model.Showing.Movie.Title)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.TicketPrice)
+            Show Start Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Showing.StartTime)
+        </dd>
+        <dt>
+            Ticket Price
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TicketPrice)
+        </dd>
+        <dt>
+            Seat
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seat)
         </dd>
 
     </dl>
@@ -32,9 +43,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        @Html.ActionLink("Back to Order", "Details", "Orders", new { OrderID = Model.Order.OrderID }, null)
+    </div>
     }
 </div>
