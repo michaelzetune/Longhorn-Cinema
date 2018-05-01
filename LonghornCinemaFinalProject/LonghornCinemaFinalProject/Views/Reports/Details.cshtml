@@ -1,0 +1,58 @@
+﻿@model LonghornCinemaFinalProject.Models.Report
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplaySeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplaySeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayRevenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayRevenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingFilter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RatingFilter)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReportID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

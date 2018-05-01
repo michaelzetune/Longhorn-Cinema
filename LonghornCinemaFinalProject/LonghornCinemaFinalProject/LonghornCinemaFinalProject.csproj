@@ -182,6 +182,7 @@
     <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowingsController.cs" />
@@ -329,6 +330,11 @@
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Orders\Checkout.cshtml" />
     <Content Include="Views\Reports\Query.cshtml" />
+    <Content Include="Views\Reports\Create.cshtml" />
+    <Content Include="Views\Reports\Delete.cshtml" />
+    <Content Include="Views\Reports\Details.cshtml" />
+    <Content Include="Views\Reports\Edit.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
