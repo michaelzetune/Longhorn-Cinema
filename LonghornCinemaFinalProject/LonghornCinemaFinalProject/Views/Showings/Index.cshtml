@@ -37,7 +37,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Movie.Title)
+            @Html.ActionLink(item.Movie.Title, "Details", "Showings", new { id = item.ShowingID }, new { @class = "btn btn-link" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartTime)
@@ -58,7 +58,6 @@
             { <p>2</p>}
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id = item.ShowingID }) |
             @if (User.IsInRole("Manager"))
             {
                 <p>

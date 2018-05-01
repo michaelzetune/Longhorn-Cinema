@@ -11,8 +11,8 @@
     <p class="form-group">
         Basic Search: @Html.TextBox("BasicSearchString", null, new { @class = "form-control" }) <br />
         <input type="submit" value="Search" class="btn btn-primary" />
-        @Html.ActionLink("Detailed Search", "DetailedSearch", "Search", null, new { @class = "btn btn-info" })
-        @Html.ActionLink("Show All", "Index", "Movies", null, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Detailed Search", "DetailedSearch", "Search", null, new { @class = "btn btn-dark" })
+        @Html.ActionLink("Show All", "Index", "Movies", null, new { @class = "btn btn-success" })
     </p>
 }
 
@@ -86,10 +86,10 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
                 @Html.DisplayFor(modelItem => item.Runtime)
             </td>
             <td>
-                @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, null)
+                @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, new { @class = "btn btn-info" })
             </td>
             <td>
-                @Html.ActionLink("Showings", "Index", "Showings", new { id = item.MovieID }, null)
+                @Html.ActionLink("Showings", "Index", "Showings", new { id = item.MovieID }, new { @class = "btn btn-warning" })
             </td>
             @if (this.User.IsInRole("Manager"))
             {

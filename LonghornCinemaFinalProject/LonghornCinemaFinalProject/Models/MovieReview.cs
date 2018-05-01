@@ -22,13 +22,15 @@ namespace LonghornCinemaFinalProject.Models
         // NumStars
         [Display(Name = "Review Rating")]
         [Range(0, 5)]
-        [DisplayFormat(DataFormatString = "{0:0}")]
+        [DisplayFormat(DataFormatString = "{0:F1}")]
         public Decimal NumStars { get; set; }
 
         // Approved
         public ApprovalStatus ApprovalStatus { get; set; }
 
         // Votes
+        [Display(Name = "Net Vote")]
+        [DisplayFormat(DataFormatString = "{0:F0}")]
         public Int32 Votes { get; set; }
 
         // Navigation Properties
