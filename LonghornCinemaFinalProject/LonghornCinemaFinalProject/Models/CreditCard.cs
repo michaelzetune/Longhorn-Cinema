@@ -13,7 +13,8 @@ namespace LonghornCinemaFinalProject.Models
     {
         public Int32 CreditCardID { get; set; }
 
-        [StringLength(16, MinimumLength=15)]
+        [MinLength(15, ErrorMessage ="Credit Card must be 15-16 digits")]
+        [MaxLength(16, ErrorMessage ="Credit Card must be 15-16 digits")]
         public String CardNumber { get; set; }
 
         // CardType
@@ -38,6 +39,7 @@ namespace LonghornCinemaFinalProject.Models
         // Navigation Properties
         // Orders
         public virtual List<Order> Orders { get; set; }
+        public virtual AppUser User { get; set; }
 
         public CreditCard()
         {
@@ -45,6 +47,16 @@ namespace LonghornCinemaFinalProject.Models
             {
                 Orders = new List<Order>();
             }
+        }
+
+        public CreditCard(String CardNum)
+        {
+            if (Orders == null)
+            {
+                Orders = new List<Order>();
+            }
+
+            CardNumber = CardNum;
         }
     }
 }

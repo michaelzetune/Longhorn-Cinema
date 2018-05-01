@@ -15,12 +15,17 @@ namespace LonghornCinemaFinalProject.Models
         //[Required(ErrorMessage = "Seat is required.")]
         public String Seat { get; set; }
 
-        // Commenting this out because I think TicketPrice and MoviePrice would be the same value (-Michael) :
         // Price
         [Required(ErrorMessage = "TicketPrice is required.")]
         [Display(Name ="Ticket Price")]
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal TicketPrice { get; set; }        
+
+        [Display(Name = "Senior Citizen Discount")]
+        public String SeniorCitizenDiscount { get; set; }
+
+        [Display(Name = "Early Purchase Discount")]
+        public String EarlyDiscount { get; set; }
 
         // Navigation Properties
         // Order

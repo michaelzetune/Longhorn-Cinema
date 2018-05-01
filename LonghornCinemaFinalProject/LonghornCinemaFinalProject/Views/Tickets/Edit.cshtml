@@ -23,11 +23,13 @@
             <th>Movie</th>
             <th>Show Start Time</th>
             <th>Ticket Price</th>
+            <th>Current Seat</th>
         </tr>
         <tr>
             <td>@Html.DisplayFor(model => model.Showing.Movie.Title)</td>
             <td>@Html.DisplayFor(model => model.Showing.StartTime)</td>
             <td>@Html.DisplayFor(model => model.TicketPrice)</td>
+            <td>@Html.DisplayFor(model => model.Seat)</td>
         </tr>
     </table>
     <table class="table-bordered">

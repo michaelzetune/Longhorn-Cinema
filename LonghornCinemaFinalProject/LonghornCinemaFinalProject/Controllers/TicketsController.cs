@@ -144,7 +144,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             TimeSpan eighteenYears = new TimeSpan(24 * 365 * 18, 0, 0);
-            if (DateTime.Now - tic.Order.AppUser.Birthday < eighteenYears)
+            if (DateTime.Now - user.Birthday < eighteenYears)
             {
                 if (tic.Showing.Movie.MPAARating == MPAARating.R || tic.Showing.Movie.MPAARating == MPAARating.NC17)
                 {
