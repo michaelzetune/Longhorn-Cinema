@@ -1,0 +1,50 @@
+﻿@model LonghornCinemaFinalProject.Models.MovieReview
+
+@{
+    ViewBag.Title = "VoteFailure";
+}
+
+<h2>Vote Failed</h2>
+
+
+<div>
+    <h4>You were not able to vote for this MovieReview because you have already voted in this direction for it:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumStars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumStars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Votes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Votes)
+        </dd>
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

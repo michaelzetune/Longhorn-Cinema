@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201804301819265_UnrequireSeatInticket.Designer.cs">
       <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805010434148_UpdateMovieReview.cs" />
+    <Compile Include="Migrations\201805010434148_UpdateMovieReview.Designer.cs">
+      <DependentUpon>201805010434148_UpdateMovieReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -300,6 +304,7 @@
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Edit.cshtml" />
+    <Content Include="Views\MovieReviews\VoteFailure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804301819265_UnrequireSeatInticket.resx">
       <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010434148_UpdateMovieReview.resx">
+      <DependentUpon>201805010434148_UpdateMovieReview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

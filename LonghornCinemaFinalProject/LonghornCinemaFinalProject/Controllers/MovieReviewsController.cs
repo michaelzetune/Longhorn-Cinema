@@ -68,13 +68,32 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult Upvote(int? id)
         {
             MovieReview movieReview = db.MovieReviews.Find(id);
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
 
             if (ModelState.IsValid)
             {
-                movieReview.Votes += 1;
-                db.Entry(movieReview).State = EntityState.Modified;
-                db.SaveChanges();
-                return View("VoteSuccess", movieReview);
+                if (!movieReview.UsersThatUpVoted.Contains(user) && !movieReview.UsersThatDownVoted.Contains(user)) // user never voted for this
+                {
+                    movieReview.Votes += 1;
+                    movieReview.UsersThatUpVoted.Add(user);
+                    db.Entry(movieReview).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("VoteSuccess", movieReview);
+                }
+                else if (movieReview.UsersThatUpVoted.Contains(user)) // user previously upvoted this
+                {
+                    return View("VoteFailure", movieReview);
+                }
+                else // user previously downvoted this
+                {
+                    movieReview.Votes += 2; // aded 2 because undo downvote and do upvote
+                    movieReview.UsersThatDownVoted.Remove(user);
+                    movieReview.UsersThatUpVoted.Add(user);
+                    db.Entry(movieReview).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("VoteSuccess", movieReview);
+                }
+                
             }
             return View(movieReview);
         }
@@ -83,13 +102,33 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult Downvote(int? id)
         {
             MovieReview movieReview = db.MovieReviews.Find(id);
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
 
             if (ModelState.IsValid)
             {
-                movieReview.Votes -= 1;
-                db.Entry(movieReview).State = EntityState.Modified;
-                db.SaveChanges();
-                return View("VoteSuccess", movieReview);
+                if (!movieReview.UsersThatUpVoted.Contains(user) && !movieReview.UsersThatDownVoted.Contains(user)) // user never voted for this
+                {
+                    movieReview.Votes -= 1;
+                    movieReview.UsersThatDownVoted.Add(user);
+                    db.Entry(movieReview).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("VoteSuccess", movieReview);
+                }
+                else if (movieReview.UsersThatUpVoted.Contains(user)) // user previously upvoted this
+                {
+                    movieReview.Votes -= 2; // aded 2 because undo downvote and do upvote
+                    movieReview.UsersThatUpVoted.Remove(user);
+                    movieReview.UsersThatDownVoted.Add(user);
+                    db.Entry(movieReview).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("VoteSuccess", movieReview);
+
+                }
+                else // user previously downvoted this
+                {
+                    return View("VoteFailure", movieReview);
+                }
+
             }
             return View(movieReview);
         }
