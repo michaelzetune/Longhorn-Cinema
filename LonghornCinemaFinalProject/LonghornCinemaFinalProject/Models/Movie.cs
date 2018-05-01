@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum MPAARating { G, PG, R, Unrated, None};
+    public enum MPAARating { G, PG, R, Unrated, PG13, NC17, None};
 
     public class Movie
     {
