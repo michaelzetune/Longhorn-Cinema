@@ -1,0 +1,35 @@
+﻿@model LonghornCinemaFinalProject.Models.Report
+
+@{
+    ViewBag.Title = "Query";
+}
+
+<h2>Query</h2>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        @using (Html.BeginForm("DisplayReportResults", "Reports", FormMethod.Get))
+    {
+        <p class="form-group">
+            Display Seats Information?: @Html.DropDownListFor(modelItem => modelItem.DisplaySeats, new[] { new SelectListItem { Text = "True", Value = "1" }, new SelectListItem { Text = "False", Value = "0" } }) <br />
+
+            Display Revenue Information?: @Html.DropDownListFor(modelItem => modelItem.DisplayRevenue, new[] { new SelectListItem { Text = "True", Value = "1" }, new SelectListItem { Text = "False", Value = "0" } }) <br />
+
+            Start Date: @Html.TextBoxFor(modelItem => modelItem.StartDate, null, new { @class = "form-control" }) <br />
+
+            End Date: @Html.TextBoxFor(modelItem => modelItem.EndDate, null, new { @class = "form-control" }) <br />
+
+            Movie Filter: @Html.DropDownListFor(modelItem => modelItem.MovieFilter, (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
+
+            Rating Filter: @Html.DropDownListFor(modelItem => modelItem.RatingFilter, (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
+
+            Customer Filter: Movie Filter: @Html.DropDownListFor(modelItem => modelItem.CustomerFilter, (SelectList)ViewBag.AllCustomers, new { @class = "form-control" })
+
+            <input type="submit" value="Search" class="btn btn-primary" />
+
+        </p>
+}
