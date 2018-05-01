@@ -1,4 +1,5 @@
 ﻿@model LonghornCinemaFinalProject.Models.Ticket
+@using LonghornCinemaFinalProject.Models
 
 @{
     ViewBag.Title = "Edit";
@@ -11,27 +12,65 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Ticket</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.TicketID)
+<div class="form-horizontal">
+    <h4>Ticket</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.TicketID)
+    <table class="table">
+        <tr>
+            <th>Movie</th>
+            <th>Show Start Time</th>
+            <th>Ticket Price</th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.Showing.Movie.Title)</td>
+            <td>@Html.DisplayFor(model => model.Showing.StartTime)</td>
+            <td>$@Html.DisplayFor(model => model.TicketPrice)</td>
+        </tr>
+    </table>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Seat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Seat, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Seat, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <b>@Html.LabelFor(model => model.Seat, htmlAttributes: new { @class = "control-label col-md-2" })</b>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Seat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Seat, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TicketPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TicketPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TicketPrice, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
+
+
+    @*<table>
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Show Start Time
+            </th>
+            <th>
+                Ticket Price
+            </th>
+        </tr>
+
+        @foreach (var tic in Model.Tickets)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => tic.Showing.Movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => tic.Showing.StartTime)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => tic.TicketPrice)
+                </td>
+                </td>
+            </tr>
+        </table>*@
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -42,7 +81,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Order", "Details","Orders",new { OrderID = Model.Order.OrderID}, null)
 </div>
 
 @section Scripts {

@@ -203,9 +203,9 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Tickets/Edit/5
         [Authorize]
-        public ActionResult Edit(int OrderID)
+        public ActionResult Edit(int TicketID)
         {
-            Ticket ticket = db.Tickets.Find(OrderID);
+            Ticket ticket = db.Tickets.Find(TicketID);
             if (ticket == null)
             {
                 return HttpNotFound();

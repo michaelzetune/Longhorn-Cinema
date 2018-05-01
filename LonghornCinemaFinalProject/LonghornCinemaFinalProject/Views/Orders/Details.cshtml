@@ -26,6 +26,9 @@
         <th>
             Ticket Price
         </th>
+        <th>
+            Seat
+        </th>
 
         <th></th>
     </tr>
@@ -42,6 +45,13 @@
             <td>
                 $@Html.DisplayFor(modelItem => tic.TicketPrice)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => tic.Seat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit","Tickets",new { TicketID = tic.TicketID}, null) |
+                @Html.ActionLink("Delete","Delete","Tickets",new { TicketID = tic.TicketID},null)
+            </td>
         </tr>
     }
 
@@ -51,5 +61,5 @@
 <p>
     @Html.ActionLink("Add more tickets", "Index", "Showings") |
     @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }) |
-    @Html.ActionLink("Edit", "Edit", new { OrderID = Model.OrderID })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID })
 </p>
