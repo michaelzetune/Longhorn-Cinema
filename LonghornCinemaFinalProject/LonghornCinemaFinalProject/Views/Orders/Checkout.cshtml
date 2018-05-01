@@ -49,12 +49,12 @@
                 <td>@Html.DisplayFor(modelItem => tic.Seat)</td>
                 <td>@Html.DisplayFor(modelItem => tic.TicketPrice)</td>
                 <td>
-                    @if (ViewBag.Advance != "No Discount")
-                    {<p class="text-info">@ViewBag.Advance</p>}
+                    @if (tic.EarlyDiscount != "No Discount")
+                    {<p class="text-info">@Html.DisplayFor(modelItem => tic.EarlyDiscount)</p>}
                     <p></p>
-                    @if (ViewBag.SeniorCitizen != "No Discount")
-                    {<p class="text-info">@ViewBag.SeniorCitizen</p>}
-                    @if (ViewBag.Advance == "" && ViewBag.SeniorCitizen == "")
+                    @if (tic.SeniorCitizenDiscount != "No Discount")
+                    {<p class="text-info">@Html.DisplayFor(modelItem => tic.SeniorCitizenDiscount)</p>}
+                    @if (tic.EarlyDiscount == "No Discount" && tic.SeniorCitizenDiscount == "No Discount")
                     {<p class="text-info">No Discount</p>}
                 </td>
             </tr>
@@ -87,6 +87,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreditCard.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CreditCard.CardNumber, "", new { @class = "text-danger" })
+                @ViewBag.CardTypeError
             </div>
         </div>
 
