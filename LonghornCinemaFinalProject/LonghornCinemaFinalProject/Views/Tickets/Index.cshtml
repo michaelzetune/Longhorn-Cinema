@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.TicketPrice)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TicketID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TicketID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TicketID })
+            @Html.ActionLink("Edit", "Edit", new { TicketID=item.TicketID }) |
+            @Html.ActionLink("Details", "Details", new { TicketID=item.TicketID }) |
+            @Html.ActionLink("Delete", "Delete", new { TicketID=item.TicketID })
         </td>
     </tr>
 }
