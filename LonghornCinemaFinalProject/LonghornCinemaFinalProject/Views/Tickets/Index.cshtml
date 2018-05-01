@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+            Movie
+        </th>
+        <th>
+            Show Start Time
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Seat)
         </th>
         <th>
@@ -22,6 +28,12 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showing.Movie.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Showing.StartTime)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Seat)
         </td>

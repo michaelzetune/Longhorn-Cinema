@@ -33,7 +33,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Tickets/Details/5
         [Authorize]
-        public ActionResult Details(int OrderID)
+        public ActionResult Details(int? OrderID)
         {
             Ticket ticket = db.Tickets.Find(OrderID);
             if (ticket == null)

@@ -11,6 +11,18 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            Movie
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Showing.Movie.Title)
+        </dd>
+        <dt>
+            Show Start Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Showing.StartTime)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Seat)
         </dt>
 

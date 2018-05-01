@@ -41,7 +41,7 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             @Html.DisplayNameFor(model => model.RatingAverage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Runtime) (in minutes)
+            @Html.DisplayNameFor(model => model.Runtime)
         </th>
         <th>
             Reviews
@@ -83,7 +83,7 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
                 { @Html.DisplayFor(modelItem => item.RatingAverage)}
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Runtime)
+                @Html.DisplayFor(modelItem => item.Runtime) min
             </td>
             <td>
                 @Html.ActionLink("Reviews", "Index", "MovieReviews", new { id = item.MovieID }, new { @class = "btn btn-info" })
