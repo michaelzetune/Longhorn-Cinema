@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
+    public enum OrderStatus { Pending, Complete, Cancelled }
+
     public class Order
     {
         private const Decimal TAX_RATE = 0.0825m;
@@ -17,7 +19,7 @@ namespace LonghornCinemaFinalProject.Models
 
         public Int32 ConfirmationCode { get; set; }
 
-        public Boolean Complete { get; set; }
+        public OrderStatus Status { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         public Decimal Subtotal
