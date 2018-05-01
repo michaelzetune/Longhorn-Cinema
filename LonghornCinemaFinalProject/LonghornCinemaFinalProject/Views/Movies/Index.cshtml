@@ -57,6 +57,9 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             <th>
                 Delete
             </th>
+            <th>
+                Schedule Movie
+            </th>
         }
     </tr>
 
@@ -97,6 +100,9 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
                 </td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", "Movies", new { id = item.MovieID }, null)
+                </td>
+                <td>
+                    @Html.ActionLink("Add To Schedule","AddToSchedule","Schedule",new { id = item.MovieID },new { @class ="btn btn-primary"})
                 </td>
             }
         </tr>

@@ -1,0 +1,44 @@
+﻿@model LonghornCinemaFinalProject.Models.Showing
+
+@{
+    ViewBag.Title = "AddToSchedule";
+}
+
+<h2>AddMovies</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <p class="form-group">
+        Insert StartTime: @Html.TextBox("TimeString", null, new { @class = "form-control" }) <br />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+
+        <p class="form-group">
+        Insert DateTime(mm/dd/yr): @Html.TextBox("TimeString", null, new { @class = "form-control" }) <br />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+
+
+
+   
+        <div class="form-group">
+            @Html.LabelFor(model => model.TheatreNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.TheatreNum, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TheatreNum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Add To Showings", "Index", "Showing")
+</div>
