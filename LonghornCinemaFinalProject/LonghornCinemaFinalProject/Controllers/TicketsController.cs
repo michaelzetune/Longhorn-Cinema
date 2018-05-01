@@ -211,12 +211,18 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
             if (User.IsInRole("Manager,Employee"))
+            {
+                ViewBag.AllSeats = FindAvailableSeats(ticket.Showing.Tickets);
                 return View(ticket);
+            }
             else
             {
                 String UserID = User.Identity.GetUserId();
                 if (ticket.Order.AppUser.Id == UserID)
+                {
+                    ViewBag.AllSeats = FindAvailableSeats(ticket.Showing.Tickets);
                     return View(ticket);
+                }
                 else
                     return View("Error", new string[] { "This is not your ticket!!" });
             }
