@@ -47,8 +47,7 @@
             </dt>
             <dd>
                 @*$@ViewBag.CurrentTicketPrice*@
-                @*//TODO: Add a display attribute to your model class to format the price for you*@
-                $@Html.DisplayFor(m => m.TicketPrice)
+                @Html.DisplayFor(m => m.TicketPrice)
             </dd>
             <dd>
                 @if (@ViewBag.Advance != "No Discount")

@@ -16,21 +16,18 @@ namespace LonghornCinemaFinalProject.Controllers
     public class TicketsController : Controller
     {
         private AppDbContext db = new AppDbContext();
-        // private Int32 ShowID;
-
-
-
+        
         // GET: Tickets
         [Authorize(Roles = "Manager,Customer")]
         public ActionResult Index()
         {
             if (User.IsInRole("Manager"))
-                return View(db.Orders.ToList());
+                return View(db.Tickets.ToList());
             else
             {
                 String UserID = User.Identity.GetUserId();
-                List<Order> Orders = db.Orders.Where(o => o.AppUser.Id == UserID).ToList();
-                return View(Orders);
+                List<Ticket> Tickets = db.Tickets.Where(t => t.Order.AppUser.Id == UserID).ToList();
+                return View(Tickets);
             }
         }
 

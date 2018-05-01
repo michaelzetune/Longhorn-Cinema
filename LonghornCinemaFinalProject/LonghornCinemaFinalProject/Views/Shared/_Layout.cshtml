@@ -22,14 +22,22 @@
                         @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
+                        @Html.ActionLink("Movies","Index","Movies", null, new { @class ="nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Movie Reviews", "Index", "MovieReviews", null, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
                         @Html.ActionLink("Showings", "Index", "Showings", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Tickets", "Index", "Tickets", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Movie Reviews", "Index", "MovieReviews", null, new { @class = "nav-link" })
+                        @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
                     </li>
+
+
                     @*@if (Request.IsAuthenticated)
         {
             <li class="nav-item">

@@ -132,7 +132,7 @@ namespace LonghornCinemaFinalProject.Controllers
             ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
             ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
 
-            return View("~/Views/Home/Index.cshtml", MoviesToDisplay);
+            return View("~/Views/Movies/Index.cshtml", MoviesToDisplay);
         }
 
         public SelectList GetAllGenres()
