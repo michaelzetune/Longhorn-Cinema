@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LonghornCinemaFinalProject.Models
 {
-    public enum CardType { MasterCard, Visa, Discover, Amex}
+    public enum CardType { MasterCard, Visa, Discover, Amex, Invalid }
 
     public class CreditCard
     {
@@ -31,7 +31,7 @@ namespace LonghornCinemaFinalProject.Models
                 else if (CardNumber.Substring(0, 1) == "6")
                     return CardType.Discover;
                 else
-                    throw new System.Exception("Card Number is not in a valid format");
+                    return CardType.Invalid;
             }
         }
 

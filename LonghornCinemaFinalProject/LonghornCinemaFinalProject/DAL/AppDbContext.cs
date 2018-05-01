@@ -31,6 +31,8 @@ namespace LonghornCinemaFinalProject.DAL
 
         //NOTE: This is a dbSet that you need to make roles work
         public DbSet<AppRole> AppRoles { get; set; }
+
+        public System.Data.Entity.DbSet<LonghornCinemaFinalProject.Models.Report> Reports { get; set; }
     }
 
 }

@@ -227,17 +227,26 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order, String CardNumber)
+        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order)
         {
             AppUser user = db.Users.Find(User.Identity.GetUserId());
-            CreditCard thisCard = new CreditCard(CardNumber);
-            thisCard.User = user;
 
-            db.CreditCards.Add(thisCard);
+            db.CreditCards.Add(order.CreditCard);
             db.SaveChanges();
 
-            order.CreditCard = db.CreditCards.Find(thisCard.CreditCardID);
+            if (order.CreditCard.CardType == CardType.Invalid)
+            {
+                db.CreditCards.Remove(order.CreditCard);
+                db.SaveChanges();
+
+                ViewBag.CardTypeError = "Invalid Credit Card Number";
+                return View(order);
+            }
+            else
+            {
+                db.CreditCards.Add(order.CreditCard);
+                db.SaveChanges();
+            }
 
             // TODO: MOVE THIS:
             //order.Status = OrderStatus.Complete;

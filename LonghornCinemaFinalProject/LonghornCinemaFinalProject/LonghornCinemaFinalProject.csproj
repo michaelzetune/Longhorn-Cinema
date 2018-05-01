@@ -226,6 +226,10 @@
     <Compile Include="Migrations\201805012151299_UpdateTicket.Designer.cs">
       <DependentUpon>201805012151299_UpdateTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805012320071_AddReport.cs" />
+    <Compile Include="Migrations\201805012320071_AddReport.Designer.cs">
+      <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -240,6 +244,7 @@
     <Compile Include="Models\MoviePrice.cs" />
     <Compile Include="Models\MovieReview.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\Showing.cs" />
@@ -323,6 +328,7 @@
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Orders\Checkout.cshtml" />
+    <Content Include="Views\Reports\Query.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805012151299_UpdateTicket.resx">
       <DependentUpon>201805012151299_UpdateTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805012320071_AddReport.resx">
+      <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

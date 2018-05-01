@@ -167,11 +167,11 @@ namespace LonghornCinemaFinalProject.Controllers
                 if ((DateTime.Now.Year - user.Birthday.Year) >= 60)
                 {
                     TicketPrice = TicketPrice - 2;
-                    ViewBag.SeniorCitizen = "$2 Senior Citizen Discount Applied";
+                    tic.SeniorCitizenDiscount = "$2 Senior Citizen Discount Applied";
                 }
                 else
                 {
-                    ViewBag.SeniorCitizen = "No Discount";
+                    tic.SeniorCitizenDiscount = "No Discount";
                 }
 
                 //vars for determining time between now and showing start time
@@ -181,11 +181,11 @@ namespace LonghornCinemaFinalProject.Controllers
                 if ((TimeBetween.TotalHours >= 48))
                 {
                     TicketPrice = TicketPrice - 1;
-                    ViewBag.Advance = "$1 Discount for Purchasing Early";
+                    tic.EarlyDiscount = "$1 Discount for Purchasing Early";
                 }
                 else
                 {
-                    ViewBag.Advance = "No Discount";
+                    tic.EarlyDiscount = "No Discount";
                 }
             }
 
