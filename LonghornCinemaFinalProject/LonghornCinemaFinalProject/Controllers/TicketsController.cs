@@ -127,6 +127,27 @@ namespace LonghornCinemaFinalProject.Controllers
             Seat seat = AllSeats.FirstOrDefault(s => s.SeatID == SelectedSeat);
             tic.Seat = seat.SeatName;
 
+            
+            
+            //create logic that will not allow overlapping tickets 
+            List<Ticket> BoughtTickets = db.Tickets.Where(t => t.Order.AppUser.Id == user.Id).ToList();
+            foreach (Ticket t in BoughtTickets)
+            {   
+                if ((!(t.Showing.ShowingID == ShowingID)) && (t.Showing.StartTime.Day == tic.Showing.StartTime.Day))
+                {
+                    if (t.Showing.StartTime.Add(t.Showing.EndTime - t.Showing.StartTime) > tic.Showing.StartTime && (tic.Showing.EndTime > t.Showing.StartTime) )
+                    {
+                        //ViewBag.OverlappingTicketMessage = "Error: Overlapping Movies. Select another showing.";
+                        return View("Error", new string[] { "Cannot buy overlapping Tickets!!" });
+                        
+                    }
+                }
+
+    
+            }
+            
+            /////////////////////////
+
             //double-check everything is okay now that we've added seat
             ValidateModel(tic);
 
@@ -269,7 +290,9 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             if (User.IsInRole("Manager,Employee"))
+            {
                 return View(ticket);
+            }
             else
             {
                 String UserID = User.Identity.GetUserId();
@@ -304,8 +327,9 @@ namespace LonghornCinemaFinalProject.Controllers
 
         public SelectList FindAvailableSeats(List<Ticket> tickets)
         {
+            //create new seat object
             List<Seat> TakenSeats = new List<Seat>();
-
+            //create logic that will add seats already purchased to a list for filtering
             foreach (Ticket t in tickets)
             {
                 Seat s = new Seat();
@@ -313,7 +337,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 s.SeatID = GetSeatID(s.SeatName);
                 TakenSeats.Add(s);
             }
-
+            //filter through the seats already purchased
             List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats).ToList();
 
             SelectList slAvailableSeats = new SelectList(AvailableSeats, "SeatID", "SeatName");
