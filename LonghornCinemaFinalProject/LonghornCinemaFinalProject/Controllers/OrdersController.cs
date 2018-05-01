@@ -80,7 +80,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
             //Record date of order
             order.OrderDate = DateTime.Today;
-            order.Complete = false;
+            order.Status = OrderStatus.Pending;
 
             order.ConfirmationCode = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber();
 
@@ -180,7 +180,7 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult CancelConfirmed(int id)
         {
             Order order = db.Orders.Find(id);
-            order.Complete = true;
+            order.Status = OrderStatus.Cancelled;
             db.SaveChanges();
 
             if (User.IsInRole("Manager,Employee"))
@@ -229,6 +229,8 @@ namespace LonghornCinemaFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Checkout([Bind(Include = "OrderID")] Order order)
         {
+            // TODO: MOVE THIS:
+            //order.Status = OrderStatus.Complete;
             if (ModelState.IsValid)
             {
                 db.Entry(order).State = EntityState.Modified;

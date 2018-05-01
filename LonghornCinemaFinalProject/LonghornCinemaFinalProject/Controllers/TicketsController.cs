@@ -211,7 +211,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 //Order LastOrder = db.Orders.LastOrDefault(o => o.AppUser.Id == UserId);
 
                 //Redirects the user to Orders/Create if the order is null or completed
-                if (LastOrder == null || LastOrder.Complete)
+                if (LastOrder == null || LastOrder.Status == OrderStatus.Complete)
                 {
                     return RedirectToAction("Create", "Orders", new { TicketID = tic.TicketID });
                 }

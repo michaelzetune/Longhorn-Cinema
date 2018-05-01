@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201805010615267_DeleteActivePropertyFromOrderModelClass.Designer.cs">
       <DependentUpon>201805010615267_DeleteActivePropertyFromOrderModelClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.cs" />
+    <Compile Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.Designer.cs">
+      <DependentUpon>201805012043437_ChangeCompleteToOrderStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -346,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805010615267_DeleteActivePropertyFromOrderModelClass.resx">
       <DependentUpon>201805010615267_DeleteActivePropertyFromOrderModelClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.resx">
+      <DependentUpon>201805012043437_ChangeCompleteToOrderStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
