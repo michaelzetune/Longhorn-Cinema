@@ -6,9 +6,9 @@ using LonghornCinemaFinalProject.DAL;
 
 namespace LonghornCinemaFinalProject.Utilities
 {
-    public class GenerateNextTransactionNumber
+    public class GenerateNextConfirmationCode
     {
-        public static Int32 GetNextTransactionNumber()
+        public static Int32 GetNextConfirmationCode()
 
         {
 
@@ -17,9 +17,9 @@ namespace LonghornCinemaFinalProject.Utilities
             AppDbContext db = new AppDbContext();
 
 
-            Int32 intMaxTransactionNumber; //the current maximum Order number
+            Int32 intMaxConfirmationCode; //the current maximum Order number
 
-            Int32 intNextTransactionNumber; //the Order number for the next Product
+            Int32 intNextConfirmationCode; //the Order number for the next Product
 
 
 
@@ -27,7 +27,7 @@ namespace LonghornCinemaFinalProject.Utilities
 
             {
 
-                intMaxTransactionNumber = 5000; //registration numbers start at 101
+                intMaxConfirmationCode = 5000; //registration numbers start at 101
 
             }
 
@@ -35,7 +35,7 @@ namespace LonghornCinemaFinalProject.Utilities
 
             {
 
-                intMaxTransactionNumber = db.Orders.Max(c => c.ConfirmationCode); //this is the highest number in the database right now
+                intMaxConfirmationCode = db.Orders.Max(c => c.ConfirmationCode); //this is the highest number in the database right now
 
             }
 
@@ -43,13 +43,13 @@ namespace LonghornCinemaFinalProject.Utilities
 
             //add one to the current max to find the next one
 
-            intNextTransactionNumber = intMaxTransactionNumber + 1;
+            intNextConfirmationCode = intMaxConfirmationCode + 1;
 
 
 
             //return the value
 
-            return intNextTransactionNumber;
+            return intNextConfirmationCode;
 
         }
     }

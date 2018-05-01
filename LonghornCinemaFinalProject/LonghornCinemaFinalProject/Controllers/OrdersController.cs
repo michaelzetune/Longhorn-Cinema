@@ -82,7 +82,7 @@ namespace LonghornCinemaFinalProject.Controllers
             order.OrderDate = DateTime.Today;
             order.Status = OrderStatus.Pending;
 
-            order.ConfirmationCode = Utilities.GenerateNextTransactionNumber.GetNextTransactionNumber();
+            order.ConfirmationCode = Utilities.GenerateNextConfirmationCode.GetNextConfirmationCode();
 
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             order.AppUser = user;
@@ -227,8 +227,10 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "OrderID")] Order order)
+        public ActionResult Checkout(Order order)
         {
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+           
             // TODO: MOVE THIS:
             //order.Status = OrderStatus.Complete;
             if (ModelState.IsValid)
