@@ -230,15 +230,10 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order)
         {
             AppUser user = db.Users.Find(User.Identity.GetUserId());
-
-            db.CreditCards.Add(order.CreditCard);
-            db.SaveChanges();
+            order.CreditCard.User = user;
 
             if (order.CreditCard.CardType == CardType.Invalid)
             {
-                db.CreditCards.Remove(order.CreditCard);
-                db.SaveChanges();
-
                 ViewBag.CardTypeError = "Invalid Credit Card Number";
                 return View(order);
             }

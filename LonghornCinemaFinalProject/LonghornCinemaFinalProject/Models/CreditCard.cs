@@ -13,6 +13,7 @@ namespace LonghornCinemaFinalProject.Models
     {
         public Int32 CreditCardID { get; set; }
 
+        [Display(Name ="Credit Card Number")]
         [MinLength(15, ErrorMessage ="Credit Card must be 15-16 digits")]
         [MaxLength(16, ErrorMessage ="Credit Card must be 15-16 digits")]
         public String CardNumber { get; set; }
