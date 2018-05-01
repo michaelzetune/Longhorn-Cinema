@@ -230,6 +230,7 @@
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Migrations\MovieData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\EmailMessaging.cs" />
     <Compile Include="Utilities\GenerateNextTransactionNumber.cs" />
     <Compile Include="Utilities\GenerateTicketPrice.cs" />
   </ItemGroup>
