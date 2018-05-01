@@ -51,8 +51,6 @@ namespace LonghornCinemaFinalProject.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime OrderDate { get; set; }
 
-        public Boolean Active { get; set; }
-
         // Tickets
         public virtual List<Ticket> Tickets { get; set; }
         // Credit Card

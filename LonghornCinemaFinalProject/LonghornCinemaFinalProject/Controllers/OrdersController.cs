@@ -177,7 +177,7 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult CancelConfirmed(int id)
         {
             Order order = db.Orders.Find(id);
-            order.Active = false;
+            order.Complete = true;
             db.SaveChanges();
 
             if (User.IsInRole("Manager,Employee"))
