@@ -111,13 +111,14 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult Create([Bind(Include = "MovieReviewID,ReviewText,NumStars,ApprovalStatus")] MovieReview movieReview, Int32 SearchMovieID)
         {
             AppUser user = db.Users.Find(User.Identity.GetUserId());
-            Movie thisMovie = movieReview.Movie;
+            Movie thisMovie = db.Movies.Find(SearchMovieID);
             Boolean UserBoughtMovie = false;
+
             foreach (Order o in user.Orders)
             {
                 foreach (Ticket t in o.Tickets)
                 {
-                    if (t.Showing.Movie.Title == thisMovie.Title)
+                    if (t.Showing.Movie.MovieID == thisMovie.MovieID)
                         UserBoughtMovie = true;
                 }
             }
@@ -142,8 +143,6 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return View("Error", new string[] { "You haven't bought a ticket to this Movie!" });
             }
-
-            
         }
 
         // GET: MovieReviews/Edit/5
