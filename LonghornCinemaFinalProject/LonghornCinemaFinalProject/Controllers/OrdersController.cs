@@ -24,9 +24,12 @@ namespace LonghornCinemaFinalProject.Controllers
                 return View(db.Orders.ToList());
             else
             {
-                var query = from o in db.Orders select o;
-                query = query.Where(o => o.AppUser.Id == User.Identity.GetUserId());
-                return View(query.ToList());
+                String UserID = User.Identity.GetUserId();
+                List<Order> Orders = db.Orders.Where(o => o.AppUser.Id == UserID).ToList();
+                return View(Orders);
+                //var query = from o in db.Orders select o;
+                //query = query.Where(o => o.AppUser.Id == User.Identity.GetUserId());
+                //return View(query.ToList());
             }
         }
 
