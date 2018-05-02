@@ -185,6 +185,7 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShowingsController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
@@ -349,6 +350,7 @@
     <Content Include="Views\CreditCards\Edit.cshtml" />
     <Content Include="Views\CreditCards\Index.cshtml" />
     <Content Include="Views\Reports\Results.cshtml" />
+    <Content Include="Views\Schedule\AddToSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

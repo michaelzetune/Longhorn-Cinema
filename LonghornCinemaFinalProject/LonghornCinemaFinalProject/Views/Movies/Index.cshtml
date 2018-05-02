@@ -96,15 +96,15 @@ Displaying @ViewBag.SelectedMoviesCount of @ViewBag.TotalMoviesCount Movies
             @if (this.User.IsInRole("Manager"))
             {
                 <td>
+                    @Html.ActionLink("Add To Schedule", "AddToSchedule", "Schedule", new { id = item.MovieID }, new { @class = "btn btn-success" })
+                </td>
+                <td>
                     @Html.ActionLink("Edit", "Edit", "Movies", new { id = item.MovieID }, null)
                 </td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", "Movies", new { id = item.MovieID }, null)
                 </td>
-                <td>
-                    @Html.ActionLink("Add To Schedule","AddToSchedule","Schedule",new { id = item.MovieID },new { @class ="btn btn-primary"})
-                </td>
-            }
+             }
         </tr>
     }
 

@@ -1,0 +1,30 @@
+﻿@model LonghornCinemaFinalProject.Models.Movie
+
+@{
+    ViewBag.Title = "AddToSchedule";
+}
+
+<h2>AddToSchedule</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <p class="form-group">
+        Insert StartTime: @Html.TextBox("TimeString", null, new { @class = "form-control" }) <br />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+
+    <p class="form-group">
+        Insert Date(mm/dd/yr): @Html.TextBox("TimeString", null, new { @class = "form-control" }) <br />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
