@@ -232,7 +232,12 @@ namespace LonghornCinemaFinalProject.Controllers
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             order.CreditCard.User = user;
 
-            if (order.CreditCard.CardType == CardType.Invalid)
+            if ((order.CreditCard.CardType == CardType.Invalid) ||
+                (order.CreditCard.CardNumber.Length == 1) ||
+                (order.CreditCard.CardType == CardType.Amex && order.CreditCard.CardNumber.Length != 15) ||
+                (order.CreditCard.CardType == CardType.Visa && order.CreditCard.CardNumber.Length != 16) ||
+                (order.CreditCard.CardType == CardType.MasterCard && order.CreditCard.CardNumber.Length != 16) ||
+                (order.CreditCard.CardType == CardType.Discover && order.CreditCard.CardNumber.Length != 16))
             {
                 ViewBag.CardTypeError = "Invalid Credit Card Number";
                 return View(order);

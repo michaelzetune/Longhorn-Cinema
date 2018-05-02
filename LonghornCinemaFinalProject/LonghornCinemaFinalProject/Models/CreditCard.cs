@@ -23,7 +23,9 @@ namespace LonghornCinemaFinalProject.Models
         {
             get
             {
-                if (CardNumber.Length == 15)
+                if (CardNumber == null || CardNumber.Length == 0 || CardNumber.Length == 1)
+                    return CardType.Invalid;
+                else if (CardNumber.Length == 15)
                     return CardType.Amex;
                 else if (CardNumber.Substring(0, 2) == "54")
                     return CardType.MasterCard;
