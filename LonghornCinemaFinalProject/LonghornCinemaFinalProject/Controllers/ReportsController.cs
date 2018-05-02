@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LonghornCinemaFinalProject.Controllers
 {
@@ -25,6 +26,8 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: Query page
         public ActionResult Query() // represents a view, not an actual query action
         {
+            ViewBag.AllMovies = GetAllMovies();
+            ViewBag.AllCustomers = GetAllCustomers();
             return View();
         }
 
@@ -138,6 +141,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
             SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.Title), "MovieID", "Title");
             return AllMovies;
+        }
+
+        public SelectList GetAllCustomers()
+        {
+            List<AppUser> Customers = db.Users.ToList();
+            SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "LastName", "Email");
+            return AllCustomers;
         }
 
 
