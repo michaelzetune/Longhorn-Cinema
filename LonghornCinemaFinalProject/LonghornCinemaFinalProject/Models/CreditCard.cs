@@ -42,7 +42,7 @@ namespace LonghornCinemaFinalProject.Models
         // Navigation Properties
         // Orders
         public virtual List<Order> Orders { get; set; }
-        public virtual AppUser User { get; set; }
+        public virtual AppUser AppUser { get; set; }
 
         public CreditCard()
         {

@@ -208,11 +208,15 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             if (User.IsInRole("Manager,Employee"))
+            {
+                ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
+            }
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
                 {
+                    ViewBag.AllCreditCards = GetCreditCards();
                     return View(order);
                 }
                 else
@@ -227,10 +231,10 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order)
+        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order, Int32 CreditCardID )
         {
             AppUser user = db.Users.Find(User.Identity.GetUserId());
-            order.CreditCard.User = user;
+            order.CreditCard.AppUser = user;
 
             if ((order.CreditCard.CardType == CardType.Invalid) ||
                 (order.CreditCard.CardNumber.Length == 1) ||
@@ -240,6 +244,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 (order.CreditCard.CardType == CardType.Discover && order.CreditCard.CardNumber.Length != 16))
             {
                 ViewBag.CardTypeError = "Invalid Credit Card Number";
+                ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
             }
             else
@@ -258,11 +263,15 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             if (User.IsInRole("Manager,Employee"))
+            {
+                ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
+            }
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
                 {
+                    ViewBag.AllCreditCards = GetCreditCards();
                     return View(order);
                 }
                 else
@@ -271,6 +280,16 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
             }
         }
+
+        public SelectList GetCreditCards()
+        {
+            String UserID = User.Identity.GetUserId();
+            List<CreditCard> CreditCards = db.CreditCards.Where(u => u.AppUser.Id == UserID).ToList();
+
+            SelectList AllCreditCards = new SelectList(CreditCards.OrderBy(u => u.CardNumber), "CreditCardID", "CardNumber");
+            return AllCreditCards;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
