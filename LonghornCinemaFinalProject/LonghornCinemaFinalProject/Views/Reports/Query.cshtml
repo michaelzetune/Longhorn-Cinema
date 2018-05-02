@@ -13,16 +13,18 @@
     <dl class="dl-horizontal">
 
 
-        @using (Html.BeginForm("DisplayReportResults", "Reports", FormMethod.Get))
-    {
+        @using (Html.BeginForm("Query", "Reports", FormMethod.Post))
+        {
         <p class="form-group">
-            Display Seats Information?: @Html.DropDownListFor(modelItem => modelItem.DisplaySeats, new[] { new SelectListItem { Text = "True", Value = "1" }, new SelectListItem { Text = "False", Value = "0" } }) <br />
+            Display Seats Information?: @Html.DropDownListFor(modelItem => modelItem.DisplaySeats, new[] { new SelectListItem { Text = "Yes", Value = "1" }, new SelectListItem { Text = "No", Value = "0" } }) <br />
 
-            Display Revenue Information?: @Html.DropDownListFor(modelItem => modelItem.DisplayRevenue, new[] { new SelectListItem { Text = "True", Value = "1" }, new SelectListItem { Text = "False", Value = "0" } }) <br />
+            Display Revenue Information?: @Html.DropDownListFor(modelItem => modelItem.DisplayRevenue, new[] { new SelectListItem { Text = "Yes", Value = "1" }, new SelectListItem { Text = "No", Value = "0" } }) <br />
 
-            Start Date: @Html.TextBoxFor(modelItem => modelItem.StartDate, null, new { @class = "form-control" }) <br />
+            Start Date: @Html.EditorFor(modelItem => modelItem.StartDate, null, new { @class = "form-control" }) <br />
+            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
 
-            End Date: @Html.TextBoxFor(modelItem => modelItem.EndDate, null, new { @class = "form-control" }) <br />
+            End Date: @Html.EditorFor(modelItem => modelItem.EndDate, null, new { @class = "form-control" }) <br />
+            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
 
             Movie Filter: @Html.DropDownListFor(modelItem => modelItem.MovieFilter, (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
 
@@ -30,7 +32,7 @@
 
             Customer Filter: Movie Filter: @Html.DropDownListFor(modelItem => modelItem.CustomerFilter, (SelectList)ViewBag.AllCustomers, new { @class = "form-control" })
 
-            <input type="submit" value="Search" class="btn btn-primary" />
+            <input type="submit" value="Generate Report" class="btn btn-primary" />
 
         </p>
-}
+        }
