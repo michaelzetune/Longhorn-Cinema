@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201805012320071_AddReport.Designer.cs">
       <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805012353256_UpdateStuff.cs" />
+    <Compile Include="Migrations\201805012353256_UpdateStuff.Designer.cs">
+      <DependentUpon>201805012353256_UpdateStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -382,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805012320071_AddReport.resx">
       <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805012353256_UpdateStuff.resx">
+      <DependentUpon>201805012353256_UpdateStuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
