@@ -231,36 +231,37 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Order order, Int32 CreditCardID )
+        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Int32 CreditCardID, Int32 OrderID)
         {
-            AppUser user = db.Users.Find(User.Identity.GetUserId());
-            order.CreditCard.AppUser = user;
 
-            if ((order.CreditCard.CardType == CardType.Invalid) ||
-                (order.CreditCard.CardNumber.Length == 1) ||
-                (order.CreditCard.CardType == CardType.Amex && order.CreditCard.CardNumber.Length != 15) ||
-                (order.CreditCard.CardType == CardType.Visa && order.CreditCard.CardNumber.Length != 16) ||
-                (order.CreditCard.CardType == CardType.MasterCard && order.CreditCard.CardNumber.Length != 16) ||
-                (order.CreditCard.CardType == CardType.Discover && order.CreditCard.CardNumber.Length != 16))
+            Order order = db.Orders.Find(OrderID);
+            CreditCard creditCard = new CreditCard();
+            order.CreditCard = creditCard;
+
+            if (((creditCard.CardNumber != null) &&
+                (creditCard.CardType != CardType.Invalid) &&
+                (creditCard.CardNumber.Length > 0)) &&
+                (creditCard.CardType == CardType.Amex && creditCard.CardNumber.Length == 15) ||
+                (creditCard.CardType == CardType.Visa && creditCard.CardNumber.Length == 16) ||
+                (creditCard.CardType == CardType.MasterCard && creditCard.CardNumber.Length == 16) ||
+                (creditCard.CardType == CardType.Discover && creditCard.CardNumber.Length == 16))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(order).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View("Confirm");
+                }
+            }
+            else
             {
                 ViewBag.CardTypeError = "Invalid Credit Card Number";
                 ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
             }
-            else
-            {
-                db.CreditCards.Add(order.CreditCard);
-                db.SaveChanges();
-            }
-
             // TODO: MOVE THIS:
             //order.Status = OrderStatus.Complete;
-            if (ModelState.IsValid)
-            {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
-                return View("Confirm");
-            }
+
 
             if (User.IsInRole("Manager,Employee"))
             {

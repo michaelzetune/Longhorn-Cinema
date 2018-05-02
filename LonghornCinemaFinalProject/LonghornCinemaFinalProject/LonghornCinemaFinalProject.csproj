@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -343,6 +344,11 @@
     <Content Include="Views\Reports\Details.cshtml" />
     <Content Include="Views\Reports\Edit.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\CreditCards\Create.cshtml" />
+    <Content Include="Views\CreditCards\Delete.cshtml" />
+    <Content Include="Views\CreditCards\Details.cshtml" />
+    <Content Include="Views\CreditCards\Edit.cshtml" />
+    <Content Include="Views\CreditCards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

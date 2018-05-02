@@ -85,21 +85,18 @@
 
         <div class="form-group">
             <p>Credit Cards on File</p>
-            @Html.LabelFor(model => model.AppUser.CreditCards, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CreditCardID", (SelectList)ViewBag.AllCreditCards, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AppUser.CreditCards, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <p>Add New Credit Card</p>
-            @Html.LabelFor(model => model.CreditCard.CardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreditCard.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
-                <p class="text-danger">@ViewBag.CardTypeError</p>
-                @Html.ValidationMessageFor(model => model.CreditCard.CardNumber, "", new { @class = "text-danger" })
-            </div>
+        @*TODO: Fix logic for credit card entry*@
+        <div class="col-md-10">
+            <p>Use Other Credit Card</p>
+            @Html.EditorFor(model => model.CreditCard.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+            <p class="text-danger">@ViewBag.CardTypeError</p>
+            @Html.ValidationMessageFor(model => model.CreditCard.CardNumber, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
