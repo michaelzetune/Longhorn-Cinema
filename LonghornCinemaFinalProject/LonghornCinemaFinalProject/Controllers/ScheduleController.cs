@@ -27,7 +27,7 @@ namespace LonghornCinemaFinalProject.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddToSchedule([Bind(Include = "ShowingID,StartTime, EndTime, SpecialEvent,TheatreNum,SeatList,MovieID")] Showing showing)
+        public ActionResult AddToSchedule([Bind(Include = "MovieID")]String TimeString, String DateString)
         {
             //To see how showing was originally seeded for showings
             /*Showing s1 = new Showing();
@@ -39,7 +39,15 @@ namespace LonghornCinemaFinalProject.Controllers
             db.Showings.AddOrUpdate(s => s.StartTime, s1);
             db.SaveChanges();*/
 
-            return View(showing);
+            //Split Strings by colons
+            String[] timestrings = TimeString.Split(':');
+            String[] datestrings = DateString.Split('/');
+            DateTime Dtproduct = DateTime.Parse(datestrings[0] + "," + datestrings[1] + "," + datestrings[2] + "," + timestrings[0] +"," + timestrings[1]);
+            //Create new showing and populate the correct Showing Starttime and Endtime
+            Showing show = new Showing();
+            show.StartTime = Dtproduct;
+
+            return View();
         }
     }
 }

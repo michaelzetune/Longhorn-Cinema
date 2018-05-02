@@ -5,6 +5,7 @@
 }
 
 <h2>AddToSchedule</h2>
+@Html.HiddenFor(model => model.MovieID)
 
 @using (Html.BeginForm())
 {
@@ -16,13 +17,13 @@
     </p>
 
     <p class="form-group">
-        Insert Date(mm/dd/yr): @Html.TextBox("TimeString", null, new { @class = "form-control" }) <br />
+        Insert Date(mm/dd/yr): @Html.TextBox("DateString", null, new { @class = "form-control" }) <br />
         <input type="submit" value="Search" class="btn btn-primary" />
     </p>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
 
