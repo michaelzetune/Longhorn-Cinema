@@ -1,4 +1,4 @@
-﻿@model LonghornCinemaFinalProject.Models.Order
+@model LonghornCinemaFinalProject.Models.Order
 @using LonghornCinemaFinalProject.Models
 
 @{
@@ -6,7 +6,6 @@
 }
 
 <h2>Details</h2>
-
 <div>
     <h4>Order</h4>
     <hr />
@@ -14,7 +13,6 @@
     <p>Status:</p>
     <p>@Model.Status</p>
 </div>
-
 
 <table class="table">
     <tr>
@@ -30,6 +28,9 @@
         <th>
             Seat
         </th>
+        @if (Model.Status == OrderStatus.Pending)
+        {
+            <th></th>}
     </tr>
 
     @foreach (var tic in Model.Tickets)
@@ -47,16 +48,16 @@
             <td>
                 @Html.DisplayFor(modelItem => tic.Seat)
             </td>
-            @* TODO: add logic to only show buttons if order is not complete*@
-            <td>
-                @Html.ActionLink("Edit","Edit","Tickets",new { TicketID = tic.TicketID}, null) |
-                @Html.ActionLink("Delete","Delete","Tickets",new { TicketID = tic.TicketID},null)
-            </td>
+            @if (Model.Status == OrderStatus.Pending)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Tickets", new { TicketID = tic.TicketID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Tickets", new { TicketID = tic.TicketID }, null)
+                </td>}
         </tr>
     }
 
 </table>
-
 
 <p>
     @if (Model.Status == OrderStatus.Pending)
@@ -66,7 +67,7 @@
     }
     @if (Model.Status == OrderStatus.Complete)
     {
-        @Html.ActionLink("Cancel Order", "Cancel", "Order", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Cancel Order", "Cancel", "Order", null, new { @class = "btn btn-danger" })
     }
 
 </p>
