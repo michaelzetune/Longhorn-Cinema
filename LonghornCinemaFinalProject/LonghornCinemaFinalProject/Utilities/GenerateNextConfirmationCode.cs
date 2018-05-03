@@ -27,7 +27,7 @@ namespace LonghornCinemaFinalProject.Utilities
 
             {
 
-                intMaxConfirmationCode = 5000; //registration numbers start at 101
+                intMaxConfirmationCode = 10000; //registration numbers start at 101
 
             }
 

@@ -124,19 +124,19 @@ namespace LonghornCinemaFinalProject.Controllers
             Seat seat = AllSeats.FirstOrDefault(s => s.SeatID == SelectedSeat);
             tic.Seat = seat.SeatName;
 
-            
-            
+
+
             //create logic that will not allow overlapping tickets 
             List<Ticket> BoughtTickets = db.Tickets.Where(t => t.Order.AppUser.Id == user.Id).ToList();
             foreach (Ticket t in BoughtTickets)
-            {   
+            {
                 if ((!(t.Showing.ShowingID == ShowingID)) && (t.Showing.StartTime.Day == tic.Showing.StartTime.Day))
                 {
-                    if (t.Showing.StartTime.Add(t.Showing.EndTime - t.Showing.StartTime) > tic.Showing.StartTime && (tic.Showing.EndTime > t.Showing.StartTime) )
+                    if (t.Showing.StartTime.Add(t.Showing.EndTime - t.Showing.StartTime) > tic.Showing.StartTime && (tic.Showing.EndTime > t.Showing.StartTime))
                     {
                         //ViewBag.OverlappingTicketMessage = "Error: Overlapping Movies. Select another showing.";
                         return View("Error", new string[] { "Cannot buy overlapping Tickets!!" });
-                        
+
                     }
                 }
             }
@@ -210,7 +210,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
 
                 //Redirects the user to Orders/Create if the order is null or completed
-                if (LastOrder == null || LastOrder.Status == OrderStatus.Complete)
+                if (LastOrder == null || LastOrder.Status == OrderStatus.Complete || LastOrder.Status == OrderStatus.Cancelled)
                 {
                     return RedirectToAction("Create", "Orders", new { TicketID = tic.TicketID });
                 }
