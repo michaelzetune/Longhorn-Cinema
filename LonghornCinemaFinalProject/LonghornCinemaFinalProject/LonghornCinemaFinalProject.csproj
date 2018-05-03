@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201805030108339_RemoveTicketPriceRequired.Designer.cs">
       <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.cs" />
+    <Compile Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.Designer.cs">
+      <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -282,6 +286,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\longhorncinema5 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\longhorncinema5 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805030108339_RemoveTicketPriceRequired.resx">
       <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.resx">
+      <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
