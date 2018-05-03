@@ -33,6 +33,8 @@ namespace LonghornCinemaFinalProject.DAL
         public DbSet<AppRole> AppRoles { get; set; }
 
         public System.Data.Entity.DbSet<LonghornCinemaFinalProject.Models.Report> Reports { get; set; }
+
+        //public System.Data.Entity.DbSet<LonghornCinemaFinalProject.Models.AppUser> AppUsers { get; set; }
     }
 
 }
