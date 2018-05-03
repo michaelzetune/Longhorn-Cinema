@@ -249,6 +249,10 @@
     <Compile Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.Designer.cs">
       <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805032222320_RevertMovieRatingChange.cs" />
+    <Compile Include="Migrations\201805032222320_RevertMovieRatingChange.Designer.cs">
+      <DependentUpon>201805032222320_RevertMovieRatingChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -422,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.resx">
       <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805032222320_RevertMovieRatingChange.resx">
+      <DependentUpon>201805032222320_RevertMovieRatingChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
