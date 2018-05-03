@@ -38,6 +38,29 @@ namespace LonghornCinemaFinalProject.Models
             }
         }
 
+        public String CardNumberShort
+        {
+            get
+            {
+                if (CardNumber == "Enter a New Card")
+                {
+                    return CardNumber;
+                }
+                else if (CardType == CardType.Amex)
+                {
+                    String x = "XXXX-XXXXXX-";
+                    x += CardNumber.Substring(CardNumber.Length - 5);
+                    return x;
+                }
+                else
+                {
+                    String x = "XXXX-XXXX-XXXX-";
+                    x += CardNumber.Substring(CardNumber.Length - 4);
+                    return x;
+                }
+            }
+        }
+
 
         // Navigation Properties
         // Orders

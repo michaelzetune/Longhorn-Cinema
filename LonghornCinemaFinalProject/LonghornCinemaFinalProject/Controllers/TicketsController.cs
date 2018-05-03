@@ -374,10 +374,13 @@ namespace LonghornCinemaFinalProject.Controllers
                 //create logic that will add seats already purchased to a list for filtering
                 foreach (Ticket t in tickets)
                 {
-                    Seat s = new Seat();
-                    s.SeatName = t.Seat;
-                    s.SeatID = GetSeatID(s.SeatName);
-                    TakenSeats.Add(s);
+                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    {
+                        Seat s = new Seat();
+                        s.SeatName = t.Seat;
+                        s.SeatID = GetSeatID(s.SeatName);
+                        TakenSeats.Add(s);
+                    }
                 }
                 //filter through the seats already purchased
                 List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats, new SeatComparer()).ToList();
@@ -391,10 +394,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
                 foreach (Ticket t in tickets)
                 {
-                    Seat s = new Seat();
-                    s.SeatName = t.Seat;
-                    s.SeatID = GetSeatID(s.SeatName);
-                    TakenSeats.Add(s);
+                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    {
+                        Seat s = new Seat();
+                        s.SeatName = t.Seat;
+                        s.SeatID = GetSeatID(s.SeatName);
+                        TakenSeats.Add(s);
+                    }
                 }
 
                 List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats, new SeatComparer()).ToList();

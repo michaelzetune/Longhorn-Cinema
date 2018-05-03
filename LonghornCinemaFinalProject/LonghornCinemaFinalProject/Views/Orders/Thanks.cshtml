@@ -12,11 +12,17 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <h3>Thank you for your order! wE aPpReCiAtE yOuR bUsInEsS</h3>
+        <h3>We appreciate your business!</h3>
+        <div class="thumbnail">
+            <img src="https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg">
+            <div class="caption">
+                <h3>Enjoy the movie!</h3>
+            </div>
+        </div>
+        <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("Back", "Checkout", "Orders", new { OrderID = Model.OrderID }, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Home","Index","Home",null,new { @class = "btn btn-warning"})
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary btn-block" })
             </div>
         </div>
     }

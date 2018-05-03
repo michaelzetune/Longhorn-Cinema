@@ -351,9 +351,10 @@ namespace LonghornCinemaFinalProject.Controllers
             String UserID = User.Identity.GetUserId();
             CreditCard custom = new CreditCard("Enter a New Card");
             List<CreditCard> CreditCards = new List<CreditCard> { custom };
+
+            SelectList AllCreditCards = new SelectList(CreditCards.OrderBy(u => u.CardNumber), "CreditCardID", "CardNumberShort");
             CreditCards.AddRange(db.CreditCards.Where(u => u.AppUser.Id == UserID).ToList());
 
-            SelectList AllCreditCards = new SelectList(CreditCards.OrderBy(u => u.CardNumber), "CreditCardID", "CardNumber");
             return AllCreditCards;
         }
 
