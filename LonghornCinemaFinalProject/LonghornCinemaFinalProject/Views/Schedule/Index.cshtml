@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<LonghornCinemaFinalProject.Models.Showing>
 @using LonghornCinemaFinalProject.Models
 @{
-    ViewBag.Title = "Schedule";
+    ViewBag.Title = "Showings";
 }
 <h2>Showings</h2>
 @if (User.IsInRole("Manager"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("ModifySchedule", "ModifySchedule")
     </p>
 }
 <table class="table">
@@ -53,22 +53,18 @@
                 @if (item.TheatreNum == Theatre.TheatreTwo)
                 {<p>2</p>}
             </td>
-
             <td>
-                <p>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
-                @Html.ActionLink("Cancel", "Cancel", new { id = item.ShowingID })
-
-                </p>
+                @if (User.IsInRole("Manager"))
+                {
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+                    </p>
+                }
+                @if ((item.StartTime > DateTime.Now) && !(User.IsInRole("Employee") || User.IsInRole("Manager")))
+                {@Html.ActionLink("Buy Ticket", "Create", "Tickets", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" })}
             </td>
         </tr>
     }
 </table>
-
-@Html.ActionLink("Next", "Next Day", new { id = -1}, new { @class = "btn btn-primary" })
-@Html.ActionLink("Previous", "Next Day", new { id = 1 }, new { @class = "btn btn-primary" })
-
-
-
-
 

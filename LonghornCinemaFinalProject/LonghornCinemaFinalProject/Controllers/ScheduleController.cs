@@ -15,39 +15,75 @@ namespace LonghornCinemaFinalProject.Controllers
     [Authorize(Roles = "Manager")]
     public class ScheduleController : Controller
     {
-        public ActionResult Index()
+        private AppDbContext db = new AppDbContext();
+
+        public ActionResult Index(int? movieID)
         {
-            return View(RedirectToAction("Index", "MoviesController"));
+            if (movieID == null)
+            {
+                var query1 = db.Showings.Where(s => s.StartTime.Month == DateTime.Now.Month);
+                return View(query1.ToList());
+            }
+            Movie m = db.Movies.Find(movieID);
+            if (m == null)
+            {
+                return HttpNotFound();
+            }
+
+            var query = from r in db.Showings select r;
+            if (m != null)
+            {
+                query = query.Where(r => r.Movie.MovieID == movieID);
+            }
+            List<Showing> ShowingsToDisplay = query.ToList();
+
+            ViewBag.SelectedShowingssCount = ShowingsToDisplay.Count();
+            ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
+
+            return View(ShowingsToDisplay.OrderBy(r => r.StartTime));
+            //return View(RedirectToAction("Index", "MoviesController"));
+
         }
 
         public ActionResult AddToSchedule(int? MovieID)
         {
-           
-            return View(MovieID);
+            //Create a list of showings that are shown on a certain day
+            DateTime dt = DateTime.Now;
+            var query  = db.Showings.Where(s => s.StartTime == DateTime.Today);
+            List<Showing> Showings = query.ToList();
+            ViewBag.DayShowings = Showings;
+            return View(Showings.OrderBy(r => r.StartTime));
+            
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddToSchedule([Bind(Include = "MovieID")]String TimeString, String DateString)
         {
-            //To see how showing was originally seeded for showings
-            /*Showing s1 = new Showing();
-            s1.StartTime = new DateTime(2018, 5, 4, 9, 5, 0); // 2018, May 4th, 9:05:00
-            s1.EndTime = new DateTime(2018, 5, 4, 11, 14, 0); // 2018, May 4th, 11:14:00
-            s1.SpecialEventStatus = SpecialEvent.NotSpecial;
-            s1.TheatreNum = Theatre.TheatreOne;
-            s1.Movie = db.Movies.FirstOrDefault(x => x.Title == "The Sting");
-            db.Showings.AddOrUpdate(s => s.StartTime, s1);
-            db.SaveChanges();*/
-
-            //Split Strings by colons
-            String[] timestrings = TimeString.Split(':');
-            String[] datestrings = DateString.Split('/');
-            DateTime Dtproduct = DateTime.Parse(datestrings[0] + "," + datestrings[1] + "," + datestrings[2] + "," + timestrings[0] +"," + timestrings[1]);
-            //Create new showing and populate the correct Showing Starttime and Endtime
-            Showing show = new Showing();
-            show.StartTime = Dtproduct;
-
             return View();
         }
+
+        public ActionResult NextDay(int? x)
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NextDay()
+        {
+            return View();
+        }
+
+        ////Split Strings by colons
+        //String[] timestrings = TimeString.Split(':');
+        //String[] datestrings = DateString.Split('/');
+        //DateTime Dtproduct = DateTime.Parse(datestrings[0] + "," + datestrings[1] + "," + datestrings[2] + "," + timestrings[0] +"," + timestrings[1]);
+        ////Create new showing and populate the correct Showing Starttime and Endtime
+        //Showing show = new Showing();
+        //show.StartTime = Dtproduct;
+
+
+
+
+
     }
 }
