@@ -113,7 +113,7 @@ namespace LonghornCinemaFinalProject.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && ((DateTime.Now.Year - model.Birthday.Year) >= 13))
             {
                 //DONE: Add fields to user here so they will be saved to do the database
                 var user = new AppUser {
@@ -149,7 +149,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewBag.BirthdayError = "You must be at least 13 years old to create an account";
             // If we got this far, something failed, redisplay form
             return View(model);
         }
