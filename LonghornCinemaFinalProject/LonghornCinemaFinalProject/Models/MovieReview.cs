@@ -21,8 +21,9 @@ namespace LonghornCinemaFinalProject.Models
 
         // NumStars
         [Display(Name = "Review Rating")]
-        [Range(0, 5)]
+        [Range(1, 5)]
         [DisplayFormat(DataFormatString = "{0:F1}")]
+        //[RegularExpression(@"/^\d+$/", ErrorMessage = "Whole numbers only")]
         public Decimal NumStars { get; set; }
 
         // Approved

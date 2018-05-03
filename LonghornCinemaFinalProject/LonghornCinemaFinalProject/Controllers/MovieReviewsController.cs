@@ -221,8 +221,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             ViewBag.AllMoviesList = GetAllMovies();
 
-            String UserID = User.Identity.GetUserId();
-            if (movieReview.AppUser.Id == UserID || User.IsInRole("Manager") || User.IsInRole("Employee"))
+            if (movieReview.AppUser.Id == User.Identity.GetUserId() || User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(movieReview);
             else
                 return View("Error", new string[] { "This is not your Movie Review!!" });
