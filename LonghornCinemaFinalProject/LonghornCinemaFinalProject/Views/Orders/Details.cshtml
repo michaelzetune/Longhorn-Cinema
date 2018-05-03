@@ -1,4 +1,5 @@
 ﻿@model LonghornCinemaFinalProject.Models.Order
+@using LonghornCinemaFinalProject.Models
 
 @{
     ViewBag.Title = "Details";
@@ -9,9 +10,9 @@
 <div>
     <h4>Order</h4>
     <hr />
-    <dl class="dl-horizontal">
-    </dl>
-    <p>If you're here the Ticket should have been created and an Order should have been created with the Ticket on it. You can check the Tickets and Orders table with the corresponding OrderID and TicketID to verify this.</p>
+    <dl class="dl-horizontal"></dl>
+    <p>Status:</p>
+    <p>@Model.Status</p>
 </div>
 
 
@@ -29,8 +30,6 @@
         <th>
             Seat
         </th>
-
-        <th></th>
     </tr>
 
     @foreach (var tic in Model.Tickets)
@@ -60,6 +59,14 @@
 
 
 <p>
-    @Html.ActionLink("Add More Tickets", "Index", "Showings", null, new{ @class = "btn btn-primary" })
-    @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }, new { @class = "btn btn-success" })
+    @if (Model.Status == OrderStatus.Pending)
+    {
+        @Html.ActionLink("Add More Tickets", "Index", "Showings", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }, new { @class = "btn btn-success" })
+    }
+    @if (Model.Status == OrderStatus.Complete)
+    {
+        @Html.ActionLink("Cancel Order", "Cancel", "Order", null, new { @class = "btn btn-primary" })
+    }
+
 </p>
