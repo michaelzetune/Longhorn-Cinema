@@ -16,21 +16,21 @@
         @using (Html.BeginForm("Query", "Reports", FormMethod.Post))
         {
         <p class="form-group">
-            Display Seats Information?: @Html.DropDownListFor(modelItem => modelItem.DisplaySeats, new[] { new SelectListItem { Text = "Yes", Value = "1" }, new SelectListItem { Text = "No", Value = "0" } }) <br />
+            Display Seats Information?: @Html.EditorFor(model => model.DisplaySeats) <br />
 
-            Display Revenue Information?: @Html.DropDownListFor(modelItem => modelItem.DisplayRevenue, new[] { new SelectListItem { Text = "Yes", Value = "1" }, new SelectListItem { Text = "No", Value = "0" } }) <br />
+            Display Revenue Information?: @Html.EditorFor(model => model.DisplayRevenue) <br />
 
             Start Date: @Html.EditorFor(modelItem => modelItem.StartDate, null, new { @class = "form-control" }) <br />
-            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })<br />
 
             End Date: @Html.EditorFor(modelItem => modelItem.EndDate, null, new { @class = "form-control" }) <br />
-            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })<br />
 
-            Movie Filter: @Html.DropDownListFor(modelItem => modelItem.MovieFilter, (SelectList)ViewBag.AllMovies, new { @class = "form-control" })
+            Movie Filter: @Html.EditorFor(model => model.MovieFilter.Title) @*@Html.DropDownListFor(modelItem => modelItem.MovieFilter, (SelectList)ViewBag.AllMovies, new { @class = "form-control" })*@ <br />
 
             Rating Filter: @Html.EnumDropDownListFor(modelItem => modelItem.RatingFilter, htmlAttributes: new { @class = "form-control" })
 
-            Customer Filter: Movie Filter: @Html.DropDownListFor(modelItem => modelItem.CustomerFilter, (SelectList)ViewBag.AllCustomers, new { @class = "form-control" })
+            Customer Filter: Movie Filter: @Html.DropDownList("CustomerFilterID", (SelectList)ViewBag.AllCustomers, new { @class = "form-control" })
 
             <input type="submit" value="Generate Report" class="btn btn-primary" />
 

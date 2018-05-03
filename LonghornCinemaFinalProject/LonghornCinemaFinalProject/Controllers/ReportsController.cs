@@ -34,8 +34,28 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: Query
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Query([Bind(Include = "ReportID")] Report report)
+        public ActionResult Query([Bind(Include = "ReportID,StartDate,EndDate,DisplaySeats,DisplayRevenue,MovieFilter,RatingFilter,CustomerFilter")] Report report, Int32 CustomerFilterID)
         {
+            AppUser FilterUser = db.Users.Find(CustomerFilterID);
+            report.CustomerFilter = FilterUser;
+
+            var query = from t in db.Tickets select t;
+            if (report.StartDate != null)
+                query = query.Where(t => t.Order.OrderDate > report.StartDate);
+            if (report.EndDate != null)
+                query = query.Where(t => t.Order.OrderDate < report.EndDate);
+            if (report.MovieFilter != null)
+                query = query.Where(t => t.Showing.Movie.MovieID == report.MovieFilter.MovieID);
+            if (report.RatingFilter != MPAARating.None)
+                query = query.Where(t => t.Showing.Movie.MPAARating == report.RatingFilter);
+            if (report.CustomerFilter != null)
+                query = query.Where(t => t.Order.AppUser.Id == report.CustomerFilter.Id);
+
+            ViewBag.SeatsSold = query.Count();
+            if (query.Count() > 0)
+                ViewBag.Revenue = query.Sum(t => t.TicketPrice);
+            else
+                ViewBag.Revenue = 0;
 
             if (ModelState.IsValid)
             {
@@ -43,7 +63,11 @@ namespace LonghornCinemaFinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Results", new { ReportID = report.ReportID });
             }
-            //ViewBag.
+            else throw new HttpException(400, "Bad Request");
+
+            ViewBag.AllMovies = GetAllMovies();
+            ViewBag.AllCustomers = GetAllCustomers();
+
             return View(report);
         }
 
@@ -70,7 +94,7 @@ namespace LonghornCinemaFinalProject.Controllers
         public SelectList GetAllCustomers()
         {
             List<AppUser> Customers = db.Users.ToList();
-            SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "LastName", "Email");
+            SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "Id", "Email");
             return AllCustomers;
         }
 

@@ -16,7 +16,6 @@ namespace LonghornCinemaFinalProject.Models
         public String Seat { get; set; }
 
         // Price
-        [Required(ErrorMessage = "TicketPrice is required.")]
         [Display(Name ="Ticket Price")]
         [DisplayFormat(DataFormatString ="{0:C}")]
         public Decimal TicketPrice { get; set; }        
