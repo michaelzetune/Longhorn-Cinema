@@ -102,5 +102,25 @@ namespace LonghornCinemaFinalProject.Models
                 Showings = new List<Showing>();   
             }
         }
+
+        public Movie(String MovieTitle)
+        {
+            if (Genres == null)
+            {
+                Genres = new List<Genre>();
+            }
+
+            if (MovieReviews == null)
+            {
+                MovieReviews = new List<MovieReview>();
+            }
+
+            if (Showings == null)
+            {
+                Showings = new List<Showing>();
+            }
+
+            Title = MovieTitle;
+        }
     }
 }

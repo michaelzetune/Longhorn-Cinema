@@ -22,6 +22,9 @@
         <th>
             Total
         </th>
+        <th>
+            Status
+        </th>
         <th></th>
     </tr>
 
@@ -37,9 +40,17 @@
             @Html.DisplayFor(modelItem => item.Total)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { OrderID=item.OrderID })
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+
+            @Html.ActionLink("Details", "Details", new { OrderID = item.OrderID })
+
+            @if (item.Status == OrderStatus.Complete)
+                {@Html.ActionLink("Cancel", "Cancel", new { OrderID = item.OrderID })}
+
             @if (User.IsInRole("Manager"))
-            { @Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID }) }
+                {@Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID })}
         </td>
     </tr>
 }

@@ -124,19 +124,19 @@ namespace LonghornCinemaFinalProject.Controllers
             Seat seat = AllSeats.FirstOrDefault(s => s.SeatID == SelectedSeat);
             tic.Seat = seat.SeatName;
 
-            
-            
+
+
             //create logic that will not allow overlapping tickets 
             List<Ticket> BoughtTickets = db.Tickets.Where(t => t.Order.AppUser.Id == user.Id).ToList();
             foreach (Ticket t in BoughtTickets)
-            {   
+            {
                 if ((!(t.Showing.ShowingID == ShowingID)) && (t.Showing.StartTime.Day == tic.Showing.StartTime.Day))
                 {
-                    if (t.Showing.StartTime.Add(t.Showing.EndTime - t.Showing.StartTime) > tic.Showing.StartTime && (tic.Showing.EndTime > t.Showing.StartTime) )
+                    if (t.Showing.StartTime.Add(t.Showing.EndTime - t.Showing.StartTime) > tic.Showing.StartTime && (tic.Showing.EndTime > t.Showing.StartTime))
                     {
                         //ViewBag.OverlappingTicketMessage = "Error: Overlapping Movies. Select another showing.";
                         return View("Error", new string[] { "Cannot buy overlapping Tickets!!" });
-                        
+
                     }
                 }
             }
@@ -210,7 +210,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
 
                 //Redirects the user to Orders/Create if the order is null or completed
-                if (LastOrder == null || LastOrder.Status == OrderStatus.Complete)
+                if (LastOrder == null || LastOrder.Status == OrderStatus.Complete || LastOrder.Status == OrderStatus.Cancelled)
                 {
                     return RedirectToAction("Create", "Orders", new { TicketID = tic.TicketID });
                 }
@@ -374,10 +374,13 @@ namespace LonghornCinemaFinalProject.Controllers
                 //create logic that will add seats already purchased to a list for filtering
                 foreach (Ticket t in tickets)
                 {
-                    Seat s = new Seat();
-                    s.SeatName = t.Seat;
-                    s.SeatID = GetSeatID(s.SeatName);
-                    TakenSeats.Add(s);
+                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    {
+                        Seat s = new Seat();
+                        s.SeatName = t.Seat;
+                        s.SeatID = GetSeatID(s.SeatName);
+                        TakenSeats.Add(s);
+                    }
                 }
                 //filter through the seats already purchased
                 List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats, new SeatComparer()).ToList();
@@ -391,10 +394,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
                 foreach (Ticket t in tickets)
                 {
-                    Seat s = new Seat();
-                    s.SeatName = t.Seat;
-                    s.SeatID = GetSeatID(s.SeatName);
-                    TakenSeats.Add(s);
+                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    {
+                        Seat s = new Seat();
+                        s.SeatName = t.Seat;
+                        s.SeatID = GetSeatID(s.SeatName);
+                        TakenSeats.Add(s);
+                    }
                 }
 
                 List<Seat> AvailableSeats = GetAllSeats().Except(TakenSeats, new SeatComparer()).ToList();

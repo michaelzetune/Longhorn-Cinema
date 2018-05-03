@@ -1,19 +1,18 @@
-﻿@model LonghornCinemaFinalProject.Models.Order
+@model LonghornCinemaFinalProject.Models.Order
+@using LonghornCinemaFinalProject.Models
 
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
-
 <div>
     <h4>Order</h4>
     <hr />
-    <dl class="dl-horizontal">
-    </dl>
-    <p>If you're here the Ticket should have been created and an Order should have been created with the Ticket on it. You can check the Tickets and Orders table with the corresponding OrderID and TicketID to verify this.</p>
+    <dl class="dl-horizontal"></dl>
+    <p>Status:</p>
+    <p>@Model.Status</p>
 </div>
-
 
 <table class="table">
     <tr>
@@ -29,8 +28,9 @@
         <th>
             Seat
         </th>
-
-        <th></th>
+        @if (Model.Status == OrderStatus.Pending)
+        {
+            <th></th>}
     </tr>
 
     @foreach (var tic in Model.Tickets)
@@ -48,18 +48,27 @@
             <td>
                 @Html.DisplayFor(modelItem => tic.Seat)
             </td>
-            @* TODO: add logic to only show buttons if order is not complete*@
-            <td>
-                @Html.ActionLink("Edit","Edit","Tickets",new { TicketID = tic.TicketID}, null) |
-                @Html.ActionLink("Delete","Delete","Tickets",new { TicketID = tic.TicketID},null)
-            </td>
+            @if (Model.Status == OrderStatus.Pending)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Tickets", new { TicketID = tic.TicketID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Tickets", new { TicketID = tic.TicketID }, null)
+                </td>}
         </tr>
     }
 
 </table>
 
-
 <p>
-    @Html.ActionLink("Add More Tickets", "Index", "Showings", null, new{ @class = "btn btn-primary" })
-    @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }, new { @class = "btn btn-success" })
+    @if (Model.Status == OrderStatus.Pending)
+    {
+        @Html.ActionLink("Add More Tickets", "Index", "Showings", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Checkout", "Checkout", new { OrderID = Model.OrderID }, new { @class = "btn btn-success" })
+    }
+    @if (Model.Status == OrderStatus.Complete)
+    {
+        @Html.ActionLink("Cancel Order", "Cancel", "Orders", new { OrderID = Model.OrderID }, new { @class = "btn btn-danger" })
+    }
+    @Html.ActionLink("Back to List", "Index")
+
 </p>

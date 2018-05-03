@@ -1,0 +1,62 @@
+﻿@model LonghornCinemaFinalProject.Models.MoviePrice
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MoviePrice</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MoviePriceID)
+
+        <div class="form-group">
+            Please populate all fields with a price to two decimals and no dollar sign <br />
+            Regular Matinee Price:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.decMatineePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.decMatineePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tuesday Price:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.decTuesdayPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.decTuesdayPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Weekend Price:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.decWeekendPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.decWeekendPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Weekday Price:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.decWeekPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.decWeekPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

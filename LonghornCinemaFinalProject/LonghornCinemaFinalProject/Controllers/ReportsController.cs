@@ -34,9 +34,10 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: Query
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Query([Bind(Include = "ReportID,StartDate,EndDate,DisplaySeats,DisplayRevenue,MovieFilter,RatingFilter,CustomerFilter")] Report report, Int32 CustomerFilterID)
+        public ActionResult Query([Bind(Include = "ReportID,StartDate,EndDate,DisplaySeats,DisplayRevenue,MovieFilter,RatingFilter,CustomerFilter")] Report report, Int32 MovieID, Int32? CustomerFilterID)
         {
             AppUser FilterUser = db.Users.Find(CustomerFilterID);
+            Movie movie = db.Movies.Find(MovieID);
             report.CustomerFilter = FilterUser;
 
             var query = from t in db.Tickets select t;
@@ -44,12 +45,14 @@ namespace LonghornCinemaFinalProject.Controllers
                 query = query.Where(t => t.Order.OrderDate > report.StartDate);
             if (report.EndDate != null)
                 query = query.Where(t => t.Order.OrderDate < report.EndDate);
-            if (report.MovieFilter != null)
-                query = query.Where(t => t.Showing.Movie.MovieID == report.MovieFilter.MovieID);
+            if (MovieID != 0)
+                query = query.Where(t => t.Showing.Movie.MovieID == MovieID);
+            //if (report.MovieFilter != null)
+            //    query = query.Where(t => t.Showing.Movie.MovieID == report.MovieFilter.MovieID);
             if (report.RatingFilter != MPAARating.None)
                 query = query.Where(t => t.Showing.Movie.MPAARating == report.RatingFilter);
-            if (report.CustomerFilter != null)
-                query = query.Where(t => t.Order.AppUser.Id == report.CustomerFilter.Id);
+            if (CustomerFilterID != null)
+                query = query.Where(t => t.Order.AppUser.Id == CustomerFilterID.ToString());
 
             ViewBag.SeatsSold = query.Count();
             if (query.Count() > 0)
@@ -85,15 +88,23 @@ namespace LonghornCinemaFinalProject.Controllers
 
         public SelectList GetAllMovies()
         {
-            List<Movie> Movies = db.Movies.ToList();
+            Movie custom = new Movie("All Movies");
+            List<Movie> Movies = new List<Movie> { custom };
+            SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.MovieID), "MovieID", "Title");
+            Movies.AddRange(db.Movies);
 
-            SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.Title), "MovieID", "Title");
             return AllMovies;
         }
 
         public SelectList GetAllCustomers()
         {
+            //AppUser custom = new AppUser("All Customers");
             List<AppUser> Customers = db.Users.ToList();
+
+            //SelectListItem s = new SelectListItem() { Text = "All Customers", Value = "0" };
+            
+            //SelectList AllCustomers = new SelectList( IEnumerable(s) ) ;
+
             SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "Id", "Email");
             return AllCustomers;
         }
