@@ -311,6 +311,41 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(order);
         }
 
+        // POST: Orders/Confirm/ID
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Confirm([Bind(Include = "OrderID")] Int32 OrderID)
+        {
+            Order order = db.Orders.Find(OrderID);
+            order.Status = OrderStatus.Complete;
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Thanks", "Orders", new { OrderID = order.OrderID });
+            }
+            return View(order);
+        }
+
+        // GET: Orders/Thanks/ID
+        public ActionResult Thanks(int? OrderID)
+        {
+            if (OrderID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(OrderID);
+
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+            return View(order);
+        }
+
         public SelectList GetCreditCards()
         {
             String UserID = User.Identity.GetUserId();
