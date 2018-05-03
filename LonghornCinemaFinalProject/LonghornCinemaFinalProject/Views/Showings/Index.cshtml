@@ -65,7 +65,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
                 </p>
             }
-            @if (item.StartTime > DateTime.Now)
+            @if ((item.StartTime > DateTime.Now) && !(User.IsInRole("Employee") || User.IsInRole("Manager")))
             { @Html.ActionLink("Buy Ticket", "Create", "Tickets", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" }) } 
         </td>
     </tr>

@@ -38,7 +38,9 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { OrderID=item.OrderID })
-            @if (User.IsInRole("Manager"))
+            @if (
+                
+                ("Manager"))
             { @Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID }) }
         </td>
     </tr>

@@ -13,10 +13,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CardNumber)
+            Card Type
         </th>
         <th>
-            Card Type
+            @Html.DisplayNameFor(model => model.CardNumber)
         </th>
         <th></th>
     </tr>
@@ -24,10 +24,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CardNumber)
+            @Html.DisplayFor(modelItem => item.CardType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CardType)
+            @Html.DisplayFor(modelItem => item.CardNumber)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CreditCardID }) |

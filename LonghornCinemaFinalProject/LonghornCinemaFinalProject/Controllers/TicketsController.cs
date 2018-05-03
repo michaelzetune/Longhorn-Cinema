@@ -40,7 +40,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(ticket);
             else
             {
@@ -237,7 +237,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 ViewBag.AllSeatsWithName = SeatHelper.FindAvailableSeatsForEdit(ticket.Showing.Tickets);
                 return View(ticket);
@@ -279,7 +279,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
                 return RedirectToAction("Details","Orders", new { OrderID = LastOrder.OrderID });
             }
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(ticket);
             else
             {
@@ -305,7 +305,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 return View(ticket);
             }
@@ -339,7 +339,7 @@ namespace LonghornCinemaFinalProject.Controllers
             else
                 LastOrder = null;
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 return RedirectToAction("Details", "Orders", new { OrderID = LastOrder.OrderID });
             }

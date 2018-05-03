@@ -19,6 +19,7 @@
                 @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
                 <p></p>
                 <p class="text-danger">@ViewBag.CardTypeError</p>
+                <p class="text-danger">@ViewBag.TooManyCards</p>
                 @Html.ValidationMessageFor(model => model.CardNumber, "", new { @class = "text-danger" })
             </div>
         </div>

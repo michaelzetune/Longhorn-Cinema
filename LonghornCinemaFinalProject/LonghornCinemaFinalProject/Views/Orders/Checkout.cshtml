@@ -86,7 +86,7 @@
         <div class="form-group">
             <p>Credit Cards on File</p>
             <div class="col-md-10">
-                @Html.DropDownList("CreditCardID", (SelectList)ViewBag.AllCreditCards, new { @class = "form-control" })
+                @Html.DropDownList("CreditCardIndex", (SelectList)ViewBag.AllCreditCards, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.AppUser.CreditCards, "", new { @class = "text-danger" })
             </div>
         </div>

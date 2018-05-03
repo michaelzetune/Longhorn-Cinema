@@ -20,7 +20,7 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(db.Orders.ToList());
             else
             {
@@ -43,8 +43,8 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
-                return View(order);
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
+                    return View(order);
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
@@ -110,8 +110,8 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
-                return View(order);
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
+                    return View(order);
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
@@ -137,7 +137,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(order);
             else
             {
@@ -162,7 +162,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(order);
             else
             {
@@ -183,7 +183,7 @@ namespace LonghornCinemaFinalProject.Controllers
             order.Status = OrderStatus.Cancelled;
             db.SaveChanges();
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(order);
             else
             {
@@ -207,7 +207,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
@@ -231,11 +231,28 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Int32 CreditCardID, Int32 OrderID)
+        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Int32 CreditCardIndex, Int32 OrderID)
         {
+            String UserID = User.Identity.GetUserId();
+            AppUser user = db.Users.Find(UserID);
 
             Order order = db.Orders.Find(OrderID);
             CreditCard creditCard = new CreditCard();
+            if (CreditCardIndex != 0)
+            {
+                List<CreditCard> UserCards = db.CreditCards.Where(c => c.AppUser == user).ToList();
+
+                if (CreditCardIndex == 1)
+                {
+                    order.CreditCard = UserCards[1];
+                }
+                else
+                {
+                    order.CreditCard = UserCards[2];
+                }
+            }
+
+
             order.CreditCard = creditCard;
 
             if (((creditCard.CardNumber != null) &&
@@ -263,7 +280,7 @@ namespace LonghornCinemaFinalProject.Controllers
             //order.Status = OrderStatus.Complete;
 
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 ViewBag.AllCreditCards = GetCreditCards();
                 return View(order);
@@ -285,7 +302,9 @@ namespace LonghornCinemaFinalProject.Controllers
         public SelectList GetCreditCards()
         {
             String UserID = User.Identity.GetUserId();
-            List<CreditCard> CreditCards = db.CreditCards.Where(u => u.AppUser.Id == UserID).ToList();
+            CreditCard custom = new CreditCard("Enter a New Card");
+            List<CreditCard> CreditCards = new List<CreditCard> { custom };
+            CreditCards.AddRange(db.CreditCards.Where(u => u.AppUser.Id == UserID).ToList());
 
             SelectList AllCreditCards = new SelectList(CreditCards.OrderBy(u => u.CardNumber), "CreditCardID", "CardNumber");
             return AllCreditCards;

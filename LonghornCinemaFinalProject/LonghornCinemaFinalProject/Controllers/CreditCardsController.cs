@@ -18,9 +18,10 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: CreditCards
         [Authorize]
+
         public ActionResult Index()
         {
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(db.CreditCards.ToList());
             else
             {
@@ -45,7 +46,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(creditcard);
             else
             {
@@ -72,6 +73,14 @@ namespace LonghornCinemaFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CreditCardID,CardNumber")] CreditCard creditCard)
         {
+            String UserID = User.Identity.GetUserId();
+
+            if (db.CreditCards.Where(c => c.AppUser.Id == UserID).Count() == 2)
+            {
+                ViewBag.TooManyCards = "You can only store up to two credit cards!";
+                return View(creditCard);
+            }
+
             if (creditCard.CardNumber == null)
                 return View(creditCard);
 
@@ -111,7 +120,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(creditCard);
             else
             {
@@ -165,7 +174,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.IsInRole("Manager,Employee"))
+            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return View(creditCard);
             else
             {
