@@ -38,16 +38,22 @@
                         <li class="nav-item">
                         @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item">
-                        @Html.ActionLink("Credit Cards", "Index", "CreditCards", null, new { @class = "nav-link" })
-                        </li>
                      }
                     @if (User.IsInRole("Manager"))
                      {
                         <li class="nav-item">
                         @Html.ActionLink("Schedule", "Index", "Movies", null, new { @class = "nav-link" })
                         </li>
+                        <li class="nav-item">
+                        @Html.ActionLink("Reports", "Query", "Reports", null, new { @class = "nav-link" })
+                        </li>
                      }
+                    @if (User.IsInRole("Customer"))
+                    {
+                        <li class="nav-item">
+                        @Html.ActionLink("Credit Cards", "Index", "CreditCards", null, new { @class = "nav-link" })
+                        </li>
+                    }
 
                 @*if (Request.IsAuthenticated)
     {
