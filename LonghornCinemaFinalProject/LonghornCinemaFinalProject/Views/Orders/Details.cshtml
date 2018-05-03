@@ -67,7 +67,8 @@
     }
     @if (Model.Status == OrderStatus.Complete)
     {
-        @Html.ActionLink("Cancel Order", "Cancel", "Order", null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Cancel Order", "Cancel", "Orders", new { OrderID = Model.OrderID }, new { @class = "btn btn-danger" })
     }
+    @Html.ActionLink("Back to List", "Index")
 
 </p>

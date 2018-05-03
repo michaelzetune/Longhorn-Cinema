@@ -150,13 +150,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Orders/Cancel/5
         [Authorize]
-        public ActionResult Cancel(int? id)
+        public ActionResult Cancel(int OrderID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
+            //if (OrderID == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Order order = db.Orders.Find(OrderID);
             if (order == null)
             {
                 return HttpNotFound();
@@ -177,18 +177,24 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost, ActionName("Cancel")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult CancelConfirmed(int id)
+        public ActionResult CancelConfirmed(int OrderID)
         {
-            Order order = db.Orders.Find(id);
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+            Order order = db.Orders.Find(OrderID);
             order.Status = OrderStatus.Cancelled;
+            db.Entry(order).State = EntityState.Modified;
             db.SaveChanges();
 
+            Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Cancellation Confirmation",
+                        "You've successfully cancelled your order with LonghornCinema.\n" +
+                        "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was cancelled.");
+
             if (User.IsInRole("Manager") || User.IsInRole("Employee"))
-                return View(order);
+                return RedirectToAction("Index", "Orders");
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
-                    return View(order);
+                    return RedirectToAction("Index", "Orders");
                 else
                     return View("Error", new string[] { "This is not your Order!" });
             }
@@ -320,11 +326,17 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             Order order = db.Orders.Find(OrderID);
             order.Status = OrderStatus.Complete;
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
 
             if (ModelState.IsValid)
             {
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
+
+                Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Confirmation",
+                        "Thanks for ordering with LonghornCinema!\n" +
+                        "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was completed. ");
+
                 return RedirectToAction("Thanks", "Orders", new { OrderID = order.OrderID });
             }
             return View(order);
