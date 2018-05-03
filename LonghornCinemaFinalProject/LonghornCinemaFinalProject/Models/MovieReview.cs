@@ -23,6 +23,7 @@ namespace LonghornCinemaFinalProject.Models
         [Display(Name = "Review Rating")]
         [Range(0, 5)]
         [DisplayFormat(DataFormatString = "{0:F1}")]
+        [RegularExpression(@"^\d+.\d{0}$", ErrorMessage = "Rating must be whole number")]
         public Decimal NumStars { get; set; }
 
         // Approved
@@ -45,5 +46,11 @@ namespace LonghornCinemaFinalProject.Models
 
         // Users that downvoted for this review
         public virtual List<AppUser> UsersThatDownVoted { get; set; }
+
+        public MovieReview()
+        {
+            UsersThatUpVoted = new List<AppUser>();
+            UsersThatDownVoted = new List<AppUser>();
+        }
     }
 }
