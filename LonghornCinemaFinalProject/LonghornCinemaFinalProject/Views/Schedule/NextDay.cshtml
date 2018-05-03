@@ -59,7 +59,7 @@
             </td>
         </tr>
         <div>
-            @Html.ActionLink("Next Day", "NextDay", "Schedule", new {intcount = (intcount + 1)}, null)
+            @Html.ActionLink("Next Day", "NextDay", "Schedule", new {ShowingId = }, null)
             @Html.ActionLink("Previous Day", "Previous", "Schedule", new { intcount = (intcount + 1) }, null)
         </div>
     }

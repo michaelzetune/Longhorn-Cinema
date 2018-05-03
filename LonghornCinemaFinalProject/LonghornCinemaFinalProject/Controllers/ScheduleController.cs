@@ -45,34 +45,42 @@ namespace LonghornCinemaFinalProject.Controllers
 
         }
 
-        public ActionResult NextDay(int intcount)
+        public ActionResult NextDay(Showing showId)
         {
-            if (intcount == 0)
-            {
-                return RedirectToAction("Index");
-            }
+            // Get current Day of the showing list last displayed
+            Showing show = db.Showings.Find(showId);
+            DateTime dtrequested = show.StartTime;
 
-            DateTime dtrequested = DateTime.Now;
-            dtrequested.AddDays(intcount);
+            //Filter the next day to the next Day
+            dtrequested.AddDays(1);
+
+            //Query the database for all days that start the next day and return to view
             var query1 = db.Showings.Where(s => s.StartTime.Day == dtrequested.Day);
             return View(query1.ToList());
+        }
+
+        /*[HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NextDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")] Showing show)
+        {
+
+
+            return RedirectToAction("NextDay");
+            
+        } */
+        public ActionResult PrevDay(DateTime Showtime)
+        {
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NextDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")]int intcount, Showing ShowingID)
+        public ActionResult PrevDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")]int intcount, Showing ShowingID)
         {
-            if (intcount == 0)
-            {
-                return RedirectToAction("Index");
-            }
-
-            DateTime dtrequested = DateTime.Now;
-            dtrequested.AddDays(intcount);
-            var query1 = db.Showings.Where(s => s.StartTime.Day == dtrequested.Day);
-            return View(query1.ToList());
-            
+            return View();
         }
+
+
 
         ////Split Strings by colons
         //String[] timestrings = TimeString.Split(':');
