@@ -73,7 +73,8 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize(Roles = "Manager")]
         public ActionResult Create([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList,MovieID")] Showing showing, Int32 SearchMovieID)
         {
-            if (ModelState.IsValid)
+
+            if (ModelState.IsValid && showing.StartTime > DateTime.Now)
             {
                 Movie m = db.Movies.FirstOrDefault(x => x.MovieID == SearchMovieID);
                 showing.EndTime = showing.StartTime.AddMinutes(m.Runtime);
@@ -82,7 +83,8 @@ namespace LonghornCinemaFinalProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.AllMoviesList = GetAllMovies();
+            ViewBag.ShowingInPastError = "You've scheduled this Showing in the past. Pick a future start time.";
             return View(showing);
         }
 

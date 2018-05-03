@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MoviePricesController.cs" />
     <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -357,6 +358,11 @@
     <Content Include="Views\Schedule\AddToSchedule.cshtml" />
     <Content Include="Views\Orders\Confirm.cshtml" />
     <Content Include="Views\Orders\Thanks.cshtml" />
+    <Content Include="Views\MoviePrices\Create.cshtml" />
+    <Content Include="Views\MoviePrices\Delete.cshtml" />
+    <Content Include="Views\MoviePrices\Details.cshtml" />
+    <Content Include="Views\MoviePrices\Edit.cshtml" />
+    <Content Include="Views\MoviePrices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

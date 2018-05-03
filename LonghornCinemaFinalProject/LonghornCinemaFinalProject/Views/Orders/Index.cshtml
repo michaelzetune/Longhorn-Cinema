@@ -22,7 +22,9 @@
         <th>
             Total
         </th>
-        <th></th>
+        <th>
+            Status
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -37,9 +39,13 @@
             @Html.DisplayFor(modelItem => item.Total)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { OrderID=item.OrderID })
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { OrderID = item.OrderID })
+            @Html.ActionLink("Cancel", "Cancel", new { OrderID = item.OrderID })
             @if (User.IsInRole("Manager"))
-            { @Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID }) }
+    {@Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID })}
         </td>
     </tr>
 }
