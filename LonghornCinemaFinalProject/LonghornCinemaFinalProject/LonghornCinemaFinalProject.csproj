@@ -241,6 +241,10 @@
     <Compile Include="Migrations\201805020258147_UpdateCC.Designer.cs">
       <DependentUpon>201805020258147_UpdateCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805030108339_RemoveTicketPriceRequired.cs" />
+    <Compile Include="Migrations\201805030108339_RemoveTicketPriceRequired.Designer.cs">
+      <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
@@ -404,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805020258147_UpdateCC.resx">
       <DependentUpon>201805020258147_UpdateCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805030108339_RemoveTicketPriceRequired.resx">
+      <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

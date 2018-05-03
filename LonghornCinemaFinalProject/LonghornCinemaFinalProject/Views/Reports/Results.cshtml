@@ -1,4 +1,5 @@
 @model LonghornCinemaFinalProject.Models.Report
+@using LonghornCinemaFinalProject.Models
 
 @{
     ViewBag.Title = "Results";
@@ -10,6 +11,54 @@
     <h4>Report</h4>
     <hr />
     <dl class="dl-horizontal">
+
+        <dt>
+            Date Range:
+        </dt>
+        <dt>
+            @Model.StartDate to @Model.EndDate
+        </dt>
+        @if(Model.MovieFilter != null)
+        {
+            <dt>
+                Movie Filer: @Model.MovieFilter.Title
+            </dt>
+        }
+        @if(Model.RatingFilter != MPAARating.None)
+        {
+            <dt>
+                Rating Filter: @Model.RatingFilter
+            </dt>
+        }
+        @if(Model.CustomerFilter != null)
+        {
+            <dt>
+                Customer Filter: @Model.CustomerFilter.FirstName @Model.CustomerFilter.LastName
+            </dt>
+        }
+
+    @if (Model.DisplaySeats)
+    {
+        <dt>
+            Seats Sold:
+        </dt>
+
+        <dd>
+            @ViewBag.SeatsSold
+        </dd>
+    }
+
+    @if (Model.DisplaySeats)
+    {
+        <dt>
+            Revenue:
+        </dt>
+
+        <dd>
+            @ViewBag.Revenue
+        </dd>
+    }
+
 
 
     </dl>
