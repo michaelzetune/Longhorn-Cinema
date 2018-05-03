@@ -179,10 +179,15 @@ namespace LonghornCinemaFinalProject.Controllers
         [Authorize]
         public ActionResult CancelConfirmed(int OrderID)
         {
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
             Order order = db.Orders.Find(OrderID);
             order.Status = OrderStatus.Cancelled;
             db.Entry(order).State = EntityState.Modified;
             db.SaveChanges();
+
+            Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Cancellation Confirmation",
+                        "You've successfully cancelled your order with LonghornCinema.\n" +
+                        "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was cancelled.");
 
             if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                 return RedirectToAction("Index", "Orders");
@@ -321,11 +326,17 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             Order order = db.Orders.Find(OrderID);
             order.Status = OrderStatus.Complete;
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
 
             if (ModelState.IsValid)
             {
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
+
+                Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Confirmation",
+                        "Thanks for ordering with LonghornCinema!\n" +
+                        "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was completed. ");
+
                 return RedirectToAction("Thanks", "Orders", new { OrderID = order.OrderID });
             }
             return View(order);
