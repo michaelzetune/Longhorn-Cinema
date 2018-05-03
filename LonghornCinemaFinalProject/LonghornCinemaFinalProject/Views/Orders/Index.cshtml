@@ -43,9 +43,10 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { OrderID = item.OrderID })
-            @Html.ActionLink("Cancel", "Cancel", new { OrderID = item.OrderID })
+            @if (item.Status == OrderStatus.Complete)
+                {@Html.ActionLink("Cancel", "Cancel", new { OrderID = item.OrderID })}
             @if (User.IsInRole("Manager"))
-    {@Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID })}
+                {@Html.ActionLink("Delete", "Delete", new { OrderID = item.OrderID })}
         </td>
     </tr>
 }

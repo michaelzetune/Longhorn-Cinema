@@ -150,13 +150,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
         // GET: Orders/Cancel/5
         [Authorize]
-        public ActionResult Cancel(int? id)
+        public ActionResult Cancel(int OrderID)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Order order = db.Orders.Find(id);
+            //if (OrderID == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Order order = db.Orders.Find(OrderID);
             if (order == null)
             {
                 return HttpNotFound();
@@ -177,18 +177,19 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost, ActionName("Cancel")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult CancelConfirmed(int id)
+        public ActionResult CancelConfirmed(int OrderID)
         {
-            Order order = db.Orders.Find(id);
+            Order order = db.Orders.Find(OrderID);
             order.Status = OrderStatus.Cancelled;
+            db.Entry(order).State = EntityState.Modified;
             db.SaveChanges();
 
             if (User.IsInRole("Manager") || User.IsInRole("Employee"))
-                return View(order);
+                return RedirectToAction("Index", "Orders");
             else
             {
                 if (order.AppUser.Id == User.Identity.GetUserId())
-                    return View(order);
+                    return RedirectToAction("Index", "Orders");
                 else
                     return View("Error", new string[] { "This is not your Order!" });
             }
