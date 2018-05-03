@@ -181,23 +181,42 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             Order order = db.Orders.Find(OrderID);
-            order.Status = OrderStatus.Cancelled;
-            db.Entry(order).State = EntityState.Modified;
-            db.SaveChanges();
 
-            Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Cancellation Confirmation",
-                        "You've successfully cancelled your order with LonghornCinema.\n" +
-                        "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was cancelled.");
-
-            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
-                return RedirectToAction("Index", "Orders");
-            else
+            Boolean EligbleForCancellation = true;
+            foreach (Ticket t in order.Tickets)
             {
-                if (order.AppUser.Id == User.Identity.GetUserId())
+                if (DateTime.Now + new TimeSpan(1, 0, 0) > t.Showing.StartTime)
+                {
+                    EligbleForCancellation = false;
+                }
+            }
+
+            if (EligbleForCancellation)
+            {
+                order.Status = OrderStatus.Cancelled;
+                db.Entry(order).State = EntityState.Modified;
+                db.SaveChanges();
+
+                Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Order Cancellation Confirmation",
+                            "You've successfully cancelled your order with LonghornCinema.\n" +
+                            "This email confirms your order with confirmation number " + order.ConfirmationCode + " with " + order.Tickets.Count() + " tickets for a total of $" + order.Total + " was cancelled.");
+
+                if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                     return RedirectToAction("Index", "Orders");
                 else
-                    return View("Error", new string[] { "This is not your Order!" });
+                {
+                    if (order.AppUser.Id == User.Identity.GetUserId())
+                        return RedirectToAction("Index", "Orders");
+                    else
+                        return View("Error", new string[] { "This is not your Order!" });
+                }
             }
+            else
+            {
+                return View("Error", new string[] { "It is too late to cancel this order since it contains a showing that starts in the next hour." });
+            }
+
+           
         }
 
         // GET: Orders/Checkout/ID
