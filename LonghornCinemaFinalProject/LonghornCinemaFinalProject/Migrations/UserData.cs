@@ -1995,9 +1995,80 @@ namespace LonghornCinemaFinalProject.Migrations
             }
             db.SaveChanges();
 
+            AppUser m1 = db.Users.FirstOrDefault(u => u.Email == "ben@longhorncinema.com");
+            if (m1 == null)
+            {
+                m1 = new AppUser();
+                m1.UserName = "ben@longhorncinema.com";
+                m1.LastName = "Manager";
+                m1.FirstName = "Ben";
+                m1.Email = "ben@longhorncinema.com";
+                m1.Birthday = new DateTime(1985, 01, 01);
+                m1.StreetAddress = "123 Manager Street";
+                m1.City = "Austin";
+                m1.State = "TX";
+                m1.ZipCode = 78705;
+                m1.PhoneNumber = "5123333333";
+                m1.PopcornPointsBalance = 0;
+                var result = UserManager.Create(m1, "Abc123!");
+                db.SaveChanges();
+                m1 = db.Users.First(m => m.UserName == "ben@longhorncinema.com");
+            }
+            if (UserManager.IsInRole(m1.Id, "Manager") == false)
+            {
+                UserManager.AddToRole(m1.Id, "Manager");
+            }
+            db.SaveChanges();
 
+            AppUser m2 = db.Users.FirstOrDefault(u => u.Email == "michael@longhorncinema.com");
+            if (m2 == null)
+            {
+                m2 = new AppUser();
+                m2.UserName = "michael@longhorncinema.com";
+                m2.LastName = "Manager";
+                m2.FirstName = "Michael";
+                m2.Email = "michael@longhorncinema.com";
+                m2.Birthday = new DateTime(1985, 01, 01);
+                m2.StreetAddress = "123 Manager Street";
+                m2.City = "Austin";
+                m2.State = "TX";
+                m2.ZipCode = 78705;
+                m2.PhoneNumber = "5123333333";
+                m2.PopcornPointsBalance = 0;
+                var result = UserManager.Create(m2, "Abc123!");
+                db.SaveChanges();
+                m2 = db.Users.First(m => m.UserName == "michael@longhorncinema.com");
+            }
+            if (UserManager.IsInRole(m2.Id, "Manager") == false)
+            {
+                UserManager.AddToRole(m2.Id, "Manager");
+            }
+            db.SaveChanges();
 
-
+            AppUser m3 = db.Users.FirstOrDefault(u => u.Email == "sam@longhorncinema.com");
+            if (m3 == null)
+            {
+                m3 = new AppUser();
+                m3.UserName = "sam@longhorncinema.com";
+                m3.LastName = "Manager";
+                m3.FirstName = "Sam";
+                m3.Email = "sam@longhorncinema.com";
+                m3.Birthday = new DateTime(1985, 01, 01);
+                m3.StreetAddress = "123 Manager Street";
+                m3.City = "Austin";
+                m3.State = "TX";
+                m3.ZipCode = 78705;
+                m3.PhoneNumber = "5123333333";
+                m3.PopcornPointsBalance = 0;
+                var result = UserManager.Create(m3, "Abc123!");
+                db.SaveChanges();
+                m3 = db.Users.First(m => m.UserName == "sam@longhorncinema.com");
+            }
+            if (UserManager.IsInRole(m3.Id, "Manager") == false)
+            {
+                UserManager.AddToRole(m3.Id, "Manager");
+            }
+            db.SaveChanges();
         }
     }
 }
