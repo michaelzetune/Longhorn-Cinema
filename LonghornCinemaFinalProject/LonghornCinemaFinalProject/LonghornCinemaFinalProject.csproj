@@ -367,6 +367,9 @@
     <Content Include="Views\Orders\Confirm.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\Schedule\NextDay.cshtml" />
+    <Content Include="Views\Accounts\Profile.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Edit2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LonghornCinemaFinalProject.DAL;
-
+//added entity using statement -Ben
+using System.Data.Entity;
 using LonghornCinemaFinalProject.Models;
 using LonghornCinemaFinalProject.Utilities;
 
@@ -215,6 +216,49 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+
+        // GET: /Accounts/Profile
+        [Authorize]
+        public new ActionResult Profile()
+        {
+            //get user info
+            String id = User.Identity.GetUserId();
+            AppUser user = db.Users.Find(id);
+
+            return View(user);
+        }
+
+        // GET: Accounts/Edit/
+        [Authorize]
+        public ActionResult Edit()
+        {
+            String id = User.Identity.GetUserId();
+            AppUser user = db.Users.Find(id);
+
+            return View(user);
+        }
+
+        // POST: Accounts/Edit/
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "UserID,PhoneNumber,StreetAddress,City,State,ZipCode")] AppUser user)
+        {
+            String id = User.Identity.GetUserId();
+            AppUser user2 = db.Users.Find(id);
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(user2).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
         }
 
         protected override void Dispose(bool disposing)
