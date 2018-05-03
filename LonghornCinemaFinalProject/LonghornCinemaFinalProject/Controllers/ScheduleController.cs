@@ -21,7 +21,7 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             if (movieID == null)
             {
-                var query1 = db.Showings.Where(s => s.StartTime.Month == DateTime.Now.Month);
+                var query1 = db.Showings.Where(s => s.StartTime.Day == DateTime.Today.Day);
                 return View(query1.ToList());
             }
             Movie m = db.Movies.Find(movieID);
@@ -31,7 +31,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
 
             var query = from r in db.Showings select r;
-            if (m != null)
+            if (movieID != null)
             {
                 query = query.Where(r => r.Movie.MovieID == movieID);
             }
@@ -45,32 +45,33 @@ namespace LonghornCinemaFinalProject.Controllers
 
         }
 
-        public ActionResult AddToSchedule(int? MovieID)
+        public ActionResult NextDay(int intcount)
         {
-            //Create a list of showings that are shown on a certain day
-            DateTime dt = DateTime.Now;
-            var query  = db.Showings.Where(s => s.StartTime == DateTime.Today);
-            List<Showing> Showings = query.ToList();
-            ViewBag.DayShowings = Showings;
-            return View(Showings.OrderBy(r => r.StartTime));
-            
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddToSchedule([Bind(Include = "MovieID")]String TimeString, String DateString)
-        {
-            return View();
+            if (intcount == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            DateTime dtrequested = DateTime.Now;
+            dtrequested.AddDays(intcount);
+            var query1 = db.Showings.Where(s => s.StartTime.Day == dtrequested.Day);
+            return View(query1.ToList());
         }
 
-        public ActionResult NextDay(int? x)
-        {
-            return View();
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NextDay()
+        public ActionResult NextDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")]int intcount, Showing ShowingID)
         {
-            return View();
+            if (intcount == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+            DateTime dtrequested = DateTime.Now;
+            dtrequested.AddDays(intcount);
+            var query1 = db.Showings.Where(s => s.StartTime.Day == dtrequested.Day);
+            return View(query1.ToList());
+            
         }
 
         ////Split Strings by colons

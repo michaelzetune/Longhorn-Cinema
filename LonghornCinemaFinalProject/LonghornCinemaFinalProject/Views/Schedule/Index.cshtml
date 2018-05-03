@@ -54,17 +54,15 @@
                 {<p>2</p>}
             </td>
             <td>
-                @if (User.IsInRole("Manager"))
-                {
-                    <p>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
-                    </p>
-                }
-                @if ((item.StartTime > DateTime.Now) && !(User.IsInRole("Employee") || User.IsInRole("Manager")))
-                {@Html.ActionLink("Buy Ticket", "Create", "Tickets", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" })}
+                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
             </td>
         </tr>
     }
 </table>
+
+<p>
+    @Html.ActionLink("NextDay", "NextDay", new { id = item.ShowingID }) |
+    @Html.ActionLink("PreviousDay", "NextDay", new { id = item.ShowingID })
+</p>
 

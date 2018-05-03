@@ -354,9 +354,9 @@
     <Content Include="Views\CreditCards\Edit.cshtml" />
     <Content Include="Views\CreditCards\Index.cshtml" />
     <Content Include="Views\Reports\Results.cshtml" />
-    <Content Include="Views\Schedule\AddToSchedule.cshtml" />
     <Content Include="Views\Orders\Confirm.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Schedule\NextDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

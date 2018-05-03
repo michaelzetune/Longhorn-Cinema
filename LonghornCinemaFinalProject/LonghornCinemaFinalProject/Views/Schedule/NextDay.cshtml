@@ -1,15 +1,10 @@
 ﻿@model IEnumerable<LonghornCinemaFinalProject.Models.Showing>
 @using LonghornCinemaFinalProject.Models
 @{
-    ViewBag.Title = "Schedule";
+    ViewBag.Title = "Showings";
 }
-<h2>Showings</h2>
-@if (User.IsInRole("Manager"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
+<h2>Schedule</h2>
+
 <table class="table">
     <tr>
         <th>
@@ -53,21 +48,22 @@
                 @if (item.TheatreNum == Theatre.TheatreTwo)
                 {<p>2</p>}
             </td>
-
             <td>
-                <p>
+      
+                
+            <p>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
-                @Html.ActionLink("Cancel", "Cancel", new { id = item.ShowingID })
-
-                </p>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+            </p>
+                
             </td>
         </tr>
+        <div>
+            @Html.ActionLink("Next Day", "NextDay", "Schedule", new {intcount = (intcount + 1)}, null)
+            @Html.ActionLink("Previous Day", "Previous", "Schedule", new { intcount = (intcount + 1) }, null)
+        </div>
     }
 </table>
-
-@Html.ActionLink("Next", "Next Day", new { id = -1}, new { @class = "btn btn-primary" })
-@Html.ActionLink("Previous", "Next Day", new { id = 1 }, new { @class = "btn btn-primary" })
-
 
 
 
