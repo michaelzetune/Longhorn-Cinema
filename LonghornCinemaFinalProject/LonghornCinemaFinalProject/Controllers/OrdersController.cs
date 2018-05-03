@@ -231,43 +231,58 @@ namespace LonghornCinemaFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Int32 CreditCardIndex, Int32 OrderID)
+        public ActionResult Checkout([Bind(Include = "OrderID,CreditCard")] Int32 CreditCardID, String CreditCardInput, Int32 OrderID)
         {
             String UserID = User.Identity.GetUserId();
-            AppUser user = db.Users.Find(UserID);
 
             Order order = db.Orders.Find(OrderID);
-            CreditCard creditCard = new CreditCard();
-            if (CreditCardIndex != 0)
+
+            
+            //this logic happens if they select a credit card from the selectlist that's in their profile
+            if (CreditCardID != 0)
             {
-                List<CreditCard> UserCards = db.CreditCards.Where(c => c.AppUser == user).ToList();
+                
+                //List<CreditCard> UserCards = db.CreditCards.Where(c => c.AppUser.Id == UserID).ToList();
 
-                if (CreditCardIndex == 1)
-                {
-                    order.CreditCard = UserCards[1];
-                }
-                else
-                {
-                    order.CreditCard = UserCards[2];
-                }
-            }
+                order.CreditCard = db.CreditCards.Find(CreditCardID);
 
-
-            order.CreditCard = creditCard;
-
-            if (((creditCard.CardNumber != null) &&
-                (creditCard.CardType != CardType.Invalid) &&
-                (creditCard.CardNumber.Length > 0)) &&
-                (creditCard.CardType == CardType.Amex && creditCard.CardNumber.Length == 15) ||
-                (creditCard.CardType == CardType.Visa && creditCard.CardNumber.Length == 16) ||
-                (creditCard.CardType == CardType.MasterCard && creditCard.CardNumber.Length == 16) ||
-                (creditCard.CardType == CardType.Discover && creditCard.CardNumber.Length == 16))
-            {
                 if (ModelState.IsValid)
                 {
                     db.Entry(order).State = EntityState.Modified;
                     db.SaveChanges();
-                    return View("Confirm");
+                    return RedirectToAction("Confirm", "Orders", new { OrderID = order.OrderID });
+                }
+                else return View("Error", new string[] { "An error occurred with the credit card." });
+            }
+
+            //this logic happens if they type in a credit card in the textbox
+            CreditCard creditCard = new CreditCard(CreditCardInput);
+
+
+            creditCard.CardNumber = creditCard.CardNumber;
+            order.CreditCard = creditCard;
+
+            if (((order.CreditCard.CardNumber != null) &&
+                (order.CreditCard.CardType != CardType.Invalid) &&
+                (order.CreditCard.CardNumber.Length > 0)) &&
+                ((order.CreditCard.CardType == CardType.Amex && order.CreditCard.CardNumber.Length == 15) ||
+                (order.CreditCard.CardType == CardType.Visa && order.CreditCard.CardNumber.Length == 16) ||
+                (order.CreditCard.CardType == CardType.MasterCard && order.CreditCard.CardNumber.Length == 16) ||
+                (order.CreditCard.CardType == CardType.Discover && order.CreditCard.CardNumber.Length == 16)))
+            {
+                db.CreditCards.Add(creditCard);
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(order).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Confirm", "Orders", new { OrderID = order.OrderID });
+                }
+                else
+                {
+                    ViewBag.CardNumberError = "Invalid Credit Card";
+                    ViewBag.AllCreditCards = GetCreditCards();
+                    return View(order);
                 }
             }
             else
@@ -278,25 +293,22 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             // TODO: MOVE THIS:
             //order.Status = OrderStatus.Complete;
+        }
 
+        // GET: Orders/Confirm/ID
+        public ActionResult Confirm(int? OrderID)
+        {
+            if (OrderID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(OrderID);
 
-            if (User.IsInRole("Manager") || User.IsInRole("Employee"))
+            if (order == null)
             {
-                ViewBag.AllCreditCards = GetCreditCards();
-                return View(order);
+                return HttpNotFound();
             }
-            else
-            {
-                if (order.AppUser.Id == User.Identity.GetUserId())
-                {
-                    ViewBag.AllCreditCards = GetCreditCards();
-                    return View(order);
-                }
-                else
-                {
-                    return View("Error", new string[] { "This is not your Order!" });
-                }
-            }
+            return View(order);
         }
 
         public SelectList GetCreditCards()
