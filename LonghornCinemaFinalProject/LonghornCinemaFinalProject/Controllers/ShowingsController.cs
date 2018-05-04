@@ -185,11 +185,13 @@ namespace LonghornCinemaFinalProject.Controllers
         {
             Showing showing = db.Showings.Find(id);
             
-            
             ////Sam's code insertion
-            AppUser user = db.Users.Find(User.Identity.GetUserId());
-            Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Showing Cancellation Confirmation",
-            "We apologize but we cancelled your showing, " + showing.Movie.ToString());
+            foreach (Ticket tic in showing.Tickets)
+            {
+                Utilities.EmailMessaging.SendEmail(tic.Order.AppUser.Email, "Team 5: LonghornCinema Showing Cancellation", "We apologize but we cancelled your showing, " + showing.Movie.Title);
+            }
+
+
             db.Showings.Remove(showing);
             db.SaveChanges();
             return RedirectToAction("Index");
