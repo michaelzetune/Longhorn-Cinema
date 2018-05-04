@@ -19,9 +19,27 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: Showings
         public ActionResult Index(int? id)
         {
-            if (id == null)
+            if (id == null || id == -1)
             {
                 return View(db.Showings.ToList());
+            }
+            if (id == 0)
+            {
+                //DateTime Today = DateTime.Today;
+                //var query1 = from r in db.Showings select r;
+
+                //foreach (Showing s in query1.ToList())
+                //{
+                //    if (s.StartTime.Date == Today)
+                //        query1 = query1.Where(r => r.ShowingID != s.ShowingID);
+                //}
+
+                //List<Showing> ShowingsToDisplay1 = query1.ToList();
+
+                //ViewBag.SelectedShowingsCount = ShowingsToDisplay1.Count();
+                //ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
+                int Day = DateTime.Now.Day;
+                return View(db.Showings.Where(u => u.StartTime.Day == Day).ToList());
             }
             Movie m = db.Movies.Find(id);
             if (m == null)
@@ -36,11 +54,32 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             List<Showing> ShowingsToDisplay = query.ToList();
 
-            ViewBag.SelectedShowingssCount = ShowingsToDisplay.Count();
+            ViewBag.SelectedShowingsCount = ShowingsToDisplay.Count();
             ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
 
             return View(ShowingsToDisplay.OrderBy(r => r.StartTime));
         }
+
+        //public ActionResult FilterByToday()
+        //{
+        //    DateTime Today = DateTime.Today;
+        //    var query = from r in db.Showings select r;
+            
+        //    foreach (Showing s in query.ToList())
+        //    {
+        //        if (s.StartTime.Date == Today)
+        //            query = query.Where(r => r.ShowingID != s.ShowingID);
+        //    }
+
+        //    List<Showing> ShowingsToDisplay = query.ToList();
+
+        //    ViewBag.SelectedShowingsCount = ShowingsToDisplay.Count();
+        //    ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
+
+        //    return RedirectToAction("Index", new { id = 0 });
+        //}
+
+
 
         // GET: Showings/Details/5
         public ActionResult Details(int? id)

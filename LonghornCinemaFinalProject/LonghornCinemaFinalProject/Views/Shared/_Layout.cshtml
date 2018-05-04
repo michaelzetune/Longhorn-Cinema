@@ -30,54 +30,36 @@
                     <li class="nav-item">
                         @Html.ActionLink("Showings", "Index", "Showings", null, new { @class = "nav-link" })
                     </li>
-                    @if (User.Identity.IsAuthenticated)
-                     {
+                    
+
+					@if (User.Identity.IsAuthenticated)
+	                {
+				        <li class="nav-item">
+					        @Html.ActionLink("Tickets", "Index", "Tickets", null, new { @class = "nav-link" })
+				        </li>
+				        <li class="nav-item">
+					        @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
+				        </li>
+                    }
+					@if (User.IsInRole("Manager"))
+	                {
+				        <li class="nav-item">
+					        @Html.ActionLink("Schedule", "Index", "Schedule", null, new { @class = "nav-link" })
+				        </li>
+				        <li class="nav-item">
+					        @Html.ActionLink("Reports", "Query", "Reports", null, new { @class = "nav-link" })
+				        </li>
                         <li class="nav-item">
-                        @Html.ActionLink("Tickets", "Index", "Tickets", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                        @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
+                            @Html.ActionLink("MoviePrice", "Edit", "MoviePrices", null, new { @class = "nav-link" })
                         </li>
                      }
-                    @if (User.IsInRole("Manager"))
-                     {
-                        <li class="nav-item">
-                        @Html.ActionLink("Schedule", "Index", "Schedule", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                        @Html.ActionLink("Reports", "Query", "Reports", null, new { @class = "nav-link" })
-                        </li>
-                     }
-                    @if (User.IsInRole("Customer"))
-                    {
-                        <li class="nav-item">
-                        @Html.ActionLink("Credit Cards", "Index", "CreditCards", null, new { @class = "nav-link" })
-                        </li>
+					@if (User.IsInRole("Customer"))
+	                {
+				        <li class="nav-item">
+					        @Html.ActionLink("Credit Cards", "Index", "CreditCards", null, new { @class = "nav-link" })
+				        </li>
                     }
 
-                @*if (Request.IsAuthenticated)
-    {
-        <li class="nav-item">
-            @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
-        </li>
-
-        if (User.IsInRole("Manager"))
-        {
-            <li class="nav-item">
-                @Html.ActionLink("Vendors", "Index", "Vendors", null, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Manage Users", "Index", "RoleAdmin", null, new { @class = "nav-link" })
-            </li>
-        }
-
-    }
-    else
-    {
-        <li class="nav-item">
-            @Html.ActionLink("Log In", "Index", "Accounts", null, new { @class = "nav-link" })
-        </li>
-    }*@
                 </ul>
             </div>
             @Html.Partial("_LoginPartial")
