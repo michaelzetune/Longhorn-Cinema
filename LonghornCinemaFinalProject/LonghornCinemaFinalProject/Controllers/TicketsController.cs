@@ -100,7 +100,7 @@ namespace LonghornCinemaFinalProject.Controllers
 
             tic.TicketPrice = TicketPrice;
 
-            ViewBag.AllSeats = SeatHelper.FindAvailableSeats(show.Tickets);
+            ViewBag.AllSeats = SeatHelper.FindAvailableSeats(show.Tickets, User.Identity.GetUserId());
             return View(tic);
         }
 
@@ -224,7 +224,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
             }
 
-            ViewBag.AllSeats = SeatHelper.FindAvailableSeats(tic.Showing.Tickets);
+            ViewBag.AllSeats = SeatHelper.FindAvailableSeats(tic.Showing.Tickets, User.Identity.GetUserId());
             return View(tic);
         }
 
@@ -239,7 +239,7 @@ namespace LonghornCinemaFinalProject.Controllers
             }
             if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
-                ViewBag.AllSeatsWithName = SeatHelper.FindAvailableSeatsForEdit(ticket.Showing.Tickets);
+                ViewBag.AllSeatsWithName = SeatHelper.FindAvailableSeatsForEdit(ticket.Showing.Tickets, User.Identity.GetUserId());
                 return View(ticket);
             }
             else
@@ -247,7 +247,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 String UserID = User.Identity.GetUserId();
                 if (ticket.Order.AppUser.Id == UserID)
                 {
-                    ViewBag.AllSeatsWithName = SeatHelper.FindAvailableSeatsForEdit(ticket.Showing.Tickets);
+                    ViewBag.AllSeatsWithName = SeatHelper.FindAvailableSeatsForEdit(ticket.Showing.Tickets, User.Identity.GetUserId());
                     return View(ticket);
                 }
                 else
@@ -365,16 +365,17 @@ namespace LonghornCinemaFinalProject.Controllers
             }
         }
 
+
         public static class SeatHelper
         {
-            public static SelectList FindAvailableSeats(List<Ticket> tickets)
+            public static SelectList FindAvailableSeats(List<Ticket> tickets, String UserID)
             {
                 //create new seat object
                 List<Seat> TakenSeats = new List<Seat>();
                 //create logic that will add seats already purchased to a list for filtering
                 foreach (Ticket t in tickets)
                 {
-                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    if (t.Order != null && (t.Order.Status == OrderStatus.Complete || (t.Order.Status == OrderStatus.Pending && UserID == t.Order.AppUser.Id)))
                     {
                         Seat s = new Seat();
                         s.SeatName = t.Seat;
@@ -388,13 +389,16 @@ namespace LonghornCinemaFinalProject.Controllers
                 SelectList slAvailableSeats = new SelectList(AvailableSeats, "SeatID", "SeatName");
                 return slAvailableSeats;
             }
-            public static SelectList FindAvailableSeatsForEdit(List<Ticket> tickets)
+
+
+            public static SelectList FindAvailableSeatsForEdit(List<Ticket> tickets, String UserID)
             {
+               
                 List<Seat> TakenSeats = new List<Seat>();
 
                 foreach (Ticket t in tickets)
                 {
-                    if (t.Order != null && t.Order.Status == OrderStatus.Complete)
+                    if (t.Order != null && (t.Order.Status == OrderStatus.Complete || (t.Order.Status == OrderStatus.Pending && UserID == t.Order.AppUser.Id)))
                     {
                         Seat s = new Seat();
                         s.SeatName = t.Seat;
