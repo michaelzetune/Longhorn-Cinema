@@ -8,8 +8,6 @@
 
 <p>Welcome to Longhorn Cinema!</p>
 
-@if (!User.IsInRole("Customer"))
-{
 <div class="thumbnail">
     <img src="https://raw.githubusercontent.com/mis333k-spr18/S18Team5/master/IMG_0178.jpeg?token=Ah8FsacGeMrACCTM07Z3MAzuoelTh_Ilks5a9PIPwA%3D%3D" alt="" style="width: 624px; height: 468px;">
     <div class="caption">
@@ -18,8 +16,8 @@
         @*<h3>Enjoy ou</h3>*@
     </div>
 </div>
-}
-else
+
+@if (User.IsInRole("Customer"))
 {
 <br />
 <h4>Here are today's showings:</h4>
