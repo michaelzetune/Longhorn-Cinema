@@ -26,8 +26,8 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         public ActionResult Scheduling(string TargetDate, string TargetTheatre, string CopiedDate)
         {
-            
-            
+
+
             // create variables of appropriate datatype variables 
             DateTime copieddate = DateTime.Now;
             DateTime targetdate = DateTime.Now;
@@ -35,9 +35,9 @@ namespace LonghornCinemaFinalProject.Controllers
             //Filter through Try and Catch
             try
             {
-            copieddate = DateTime.Parse(CopiedDate);
-            targetdate = DateTime.Parse(TargetDate);
-            targettheatre = (Theatre)Theatre.Parse(typeof(Theatre),TargetTheatre);
+                copieddate = DateTime.Parse(CopiedDate);
+                targetdate = DateTime.Parse(TargetDate);
+                targettheatre = (Theatre)Theatre.Parse(typeof(Theatre), TargetTheatre);
             }
             catch
             {
@@ -48,7 +48,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 return RedirectToAction("Scheduling");
             }
-            
+
             //Create to a list to get all movies
             var query = from r in db.Showings select r;
             query = query.Where(sh => sh.StartTime.Day == copieddate.Day);
@@ -57,32 +57,39 @@ namespace LonghornCinemaFinalProject.Controllers
             //Get TimeBetween the date they want to copy and the date they want populate
             TimeSpan TimeBetween = (targetdate - copieddate);
             //Create new showing and populate the correct Showing Starttime and Endtime
-            
-            int limit = CopyShowings.Count;
-            
-            //Change Date of every copied showing date before adding to database
-            for (int i = 0; i < 2; i++)
-            {
-                if ((CopyShowings[i].StartTime.Day != targetdate.Day) ||((CopyShowings[i].StartTime.Month != targetdate.Month)))
-                {
-                    Showing show = new Showing();
-                    Showing copyshow = db.Showings.Find(CopyShowings[i].ShowingID);
-                    show.SpecialEventStatus = copyshow.SpecialEventStatus;
-                    show.Movie = db.Movies.Find(copyshow.Movie.MovieID);
-                    show.StartTime = copyshow.StartTime + TimeBetween;
-                    show.EndTime = copyshow.EndTime + TimeBetween;
-                    show.TheatreNum = targettheatre;
-                    db.Showings.Add(show);
-                    //db.Entry(show).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-            }
-            
-            //Create a list for all the movies in date
-            
-            return View("Confirmation");
-        }
 
+            int limit = CopyShowings.Count;
+            var query2 = from t in db.Showings select t;
+            query2 = query2.Where(sh => sh.StartTime.Day == targetdate.Day);
+            List<Showing> TestShowings = query2.ToList();
+            if (TestShowings.Count == 0) ;
+            {
+
+                //Change Date of every copied showing date before adding to database
+                for (int i = 0; i < limit; i++)
+                {
+                    if ((CopyShowings[i].StartTime.Day != targetdate.Day) || ((CopyShowings[i].StartTime.Month != targetdate.Month)))
+                    {
+                        Showing show = new Showing();
+                        Showing copyshow = db.Showings.Find(CopyShowings[i].ShowingID);
+                        show.SpecialEventStatus = copyshow.SpecialEventStatus;
+                        show.Movie = db.Movies.Find(copyshow.Movie.MovieID);
+                        show.StartTime = copyshow.StartTime + TimeBetween;
+                        show.EndTime = copyshow.EndTime + TimeBetween;
+                        show.TheatreNum = targettheatre;
+                        db.Showings.Add(show);
+                        //db.Entry(show).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+
+                //Create a list for all the movies in date
+
+                return View("Confirmation");
+            }
+            ViewBag.ErrorMessage = "Movies are already scheduled for this day";
+            return View("Scheduling");
+        }
         public ActionResult Confirmation()
         {
             String strconfirm = "Dates have been copied";

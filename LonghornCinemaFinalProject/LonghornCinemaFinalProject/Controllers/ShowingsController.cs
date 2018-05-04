@@ -190,6 +190,8 @@ namespace LonghornCinemaFinalProject.Controllers
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Showing Cancellation Confirmation",
             "We apologize but we cancelled your showing, " + showing.Movie.ToString());
+            db.Showings.Remove(showing);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
         public SelectList GetAllMovies()

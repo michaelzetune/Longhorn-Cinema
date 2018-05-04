@@ -5,17 +5,17 @@
     ViewBag.Title = "Scheduling";
 }
 
-<h2>Scheduling</h2>
-
+<h2>Copy Schedule</h2>
+<p>@ViewBag.ErrorMessage<</p>
 
 @using (Html.BeginForm("Scheduling", "Schedule", FormMethod.Post))
 {
     <p class="form-group">
-        TargetDate: @Html.TextBox("TargetDate", null, new { @class = "form-control" }) <br />
+        TargetDate: (Ex. May 04 2018) @Html.TextBox("TargetDate", null, new { @class = "form-control" }) <br />
 
-        CopiedDate: @Html.TextBox("CopiedDate", null, new { @class = "form-control" }) <br />
+        CopiedDate: (Ex. June 04 2018) @Html.TextBox("CopiedDate", null, new { @class = "form-control" }) <br />
 
-        TargetTheatre: @Html.TextBox("TargetTheatre", null, new { @class = "form-control" })<br />
+        TargetTheatre: (Ex. TheaterOne)@Html.TextBox("TargetTheatre", null, new { @class = "form-control" })<br />
 
 
 
