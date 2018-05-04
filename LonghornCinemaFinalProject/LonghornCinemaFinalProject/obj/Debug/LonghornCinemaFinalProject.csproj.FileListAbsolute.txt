@@ -401,3 +401,5 @@ Y:\Google Drive\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\Long
 Y:\Google Drive\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.RemoveTicketPriceRequired.resources
 Y:\Google Drive\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.ChangeMovieReviewRatingToInt.resources
 Y:\Google Drive\UT\Spring 2018\MIS 333K\S18Team5\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.RevertMovieRatingChange.resources
+C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.ChangeMovieReviewRatingToInt.resources
+C:\Users\samfg\OneDrive\Desktop\ValidGithub\LonghornCinemaFinalProject\LonghornCinemaFinalProject\obj\Debug\LonghornCinemaFinalProject.Migrations.RevertMovieRatingChange.resources

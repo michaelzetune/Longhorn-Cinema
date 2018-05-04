@@ -4,10 +4,11 @@
     ViewBag.Title = "Showings";
 }
 <h2>Showings</h2>
+
 @if (User.IsInRole("Manager"))
 {
     <p>
-        @Html.ActionLink("ModifySchedule", "ModifySchedule")
+        @Html.ActionLink("CopySchedule", "ModifySchedule")
     </p>
 }
 <table class="table">
@@ -53,16 +54,12 @@
                 @if (item.TheatreNum == Theatre.TheatreTwo)
                 {<p>2</p>}
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
-            </td>
         </tr>
     }
 </table>
+@Html.ActionLink("ChangeTimes", "Index", new {id = 1 }, new { @class = "btn btn-primary" })
+@Html.ActionLink("PreviousDay", "Index", new { id = 1 }, new { @class = "btn btn-primary" })
+@Html.ActionLink("NextDay", "NextDay", new { id = 1 }, new { @class = "btn btn-primary" })
 
-<p>
-    @Html.ActionLink("NextDay", "NextDay", new { id = item.ShowingID }) |
-    @Html.ActionLink("PreviousDay", "PrevDay", new { id = item.ShowingID })
-</p>
+
 

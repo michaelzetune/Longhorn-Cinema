@@ -186,6 +186,12 @@ namespace LonghornCinemaFinalProject.Controllers
             Showing showing = db.Showings.Find(id);
             db.Showings.Remove(showing);
             db.SaveChanges();
+            ////Sam's code insertion
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+            Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Showing Cancellation Confirmation",
+            "We have apologize but we cancelled your showing, " + showing.Movie.ToString());
+            db.Showings.Remove(showing);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
         public SelectList GetAllMovies()
@@ -194,6 +200,13 @@ namespace LonghornCinemaFinalProject.Controllers
 
             SelectList AllMovies = new SelectList(Movies.OrderBy(m => m.Title), "MovieID", "Title");
             return AllMovies;
+
+        }
+
+        public ActionResult CopyMovies(int id)
+        {
+
+            return View();
         }
         protected override void Dispose(bool disposing)
         {

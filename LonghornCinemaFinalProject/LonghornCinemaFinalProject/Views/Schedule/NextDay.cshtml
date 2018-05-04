@@ -49,21 +49,22 @@
                 {<p>2</p>}
             </td>
             <td>
-      
-                
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
-            </p>
-                
+
+
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+                </p>
+
             </td>
         </tr>
-        <div>
-            @Html.ActionLink("Next Day", "NextDay", "Schedule", new {ShowingId = }, null)
-            @Html.ActionLink("Previous Day", "Previous", "Schedule", new { intcount = (intcount + 1) }, null)
-        </div>
     }
 </table>
+<div>
+    @Html.ActionLink("ChangeTimes", "Index", new { id = 1 }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("PreviousDay", "Index", new { id = 1 }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("NextDay", "Index", new { id = 1 }, new { @class = "btn btn-primary" })
+</div>
 
 
 
