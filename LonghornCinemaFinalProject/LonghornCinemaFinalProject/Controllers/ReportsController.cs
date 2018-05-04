@@ -34,39 +34,65 @@ namespace LonghornCinemaFinalProject.Controllers
         // POST: Query
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Query([Bind(Include = "ReportID,StartDate,EndDate,DisplaySeats,DisplayRevenue,MovieFilter,RatingFilter,CustomerFilter")] Report report, Int32 MovieID, Int32? CustomerFilterID)
+        public ActionResult Query([Bind(Include = "ReportID,StartDate,EndDate,DisplaySeats,DisplayRevenue,MovieFilter,RatingFilter,CustomerFilter")] Report report, Int32 MovieID, String CustomerFilterID)
         {
-            AppUser FilterUser = db.Users.Find(CustomerFilterID);
-            Movie movie = db.Movies.Find(MovieID);
-            report.CustomerFilter = FilterUser;
+            if (CustomerFilterID != "0")
+            {
+                AppUser FilterUser = db.Users.Find(CustomerFilterID);
+                report.CustomerFilter = FilterUser;
+            }
+            if (MovieID != 0)
+            {
+                Movie movie = db.Movies.Find(MovieID);
+                report.MovieFilter = movie;
+            }
+
+
+            
 
             var query = from t in db.Tickets select t;
-            if (report.StartDate != null)
-                query = query.Where(t => t.Order.OrderDate > report.StartDate);
-            if (report.EndDate != null)
-                query = query.Where(t => t.Order.OrderDate < report.EndDate);
+            //if (report.StartDate != null)
+            //    query = query.Where(t => t.Order.OrderDate > report.StartDate);
+            //if (report.EndDate != null)
+            //    query = query.Where(t => t.Order.OrderDate < report.EndDate);
             if (MovieID != 0)
                 query = query.Where(t => t.Showing.Movie.MovieID == MovieID);
-            //if (report.MovieFilter != null)
-            //    query = query.Where(t => t.Showing.Movie.MovieID == report.MovieFilter.MovieID);
+            if (report.MovieFilter != null && MovieID != 0)
+                query = query.Where(t => t.Showing.Movie.MovieID == report.MovieFilter.MovieID);
             if (report.RatingFilter != MPAARating.None)
                 query = query.Where(t => t.Showing.Movie.MPAARating == report.RatingFilter);
-            if (CustomerFilterID != null)
+            if (CustomerFilterID != null && CustomerFilterID != "0")
                 query = query.Where(t => t.Order.AppUser.Id == CustomerFilterID.ToString());
 
-            ViewBag.SeatsSold = query.Count();
+            int intNumSeats = query.Count();
+            Decimal decRevenue = 0;
+
             if (query.Count() > 0)
-                ViewBag.Revenue = query.Sum(t => t.TicketPrice);
+                decRevenue = query.Sum(t => t.TicketPrice);
+
+            String TheCustomerFirstName; String TheCustomerLastName;
+            if (report.CustomerFilter != null)
+            {
+                TheCustomerFirstName = report.CustomerFilter.FirstName;
+                TheCustomerLastName = report.CustomerFilter.LastName;
+            } else
+            {
+                TheCustomerFirstName = "All";
+                TheCustomerLastName = "Customers";
+            }
+
+            String TheMovieTitle;
+            if (report.MovieFilter != null)
+                TheMovieTitle = report.MovieFilter.Title;
             else
-                ViewBag.Revenue = 0;
+                TheMovieTitle = "All Movies";
 
             if (ModelState.IsValid)
             {
                 db.Reports.Add(report);
                 db.SaveChanges();
-                return RedirectToAction("Results", new { ReportID = report.ReportID });
+                return RedirectToAction("Results", new { ReportID = report.ReportID, NumSeats = query.Count(), Revenue = decRevenue, CustomerName = TheCustomerFirstName + " " + TheCustomerLastName, MovieName = TheMovieTitle  });
             }
-            else throw new HttpException(400, "Bad Request");
 
             ViewBag.AllMovies = GetAllMovies();
             ViewBag.AllCustomers = GetAllCustomers();
@@ -74,7 +100,7 @@ namespace LonghornCinemaFinalProject.Controllers
             return View(report);
         }
 
-        public ActionResult Results(int ReportID)
+        public ActionResult Results(int ReportID, int NumSeats, Decimal Revenue, String CustomerName, String MovieName)
         {
             Report report = db.Reports.Find(ReportID);
             if (report == null)
@@ -82,7 +108,12 @@ namespace LonghornCinemaFinalProject.Controllers
                 return HttpNotFound();
             }
 
-            return View("~/Views/Reports/Results.cshtml", report);
+            ViewBag.NumSeats = NumSeats;
+            ViewBag.Revenue = Revenue;
+            ViewBag.CustomerName = CustomerName;
+            ViewBag.MovieName = MovieName;
+
+            return View(report);
 
         }
 
@@ -99,14 +130,21 @@ namespace LonghornCinemaFinalProject.Controllers
         public SelectList GetAllCustomers()
         {
             //AppUser custom = new AppUser("All Customers");
-            List<AppUser> Customers = db.Users.ToList();
-
-            //SelectListItem s = new SelectListItem() { Text = "All Customers", Value = "0" };
             
-            //SelectList AllCustomers = new SelectList( IEnumerable(s) ) ;
 
-            SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "Id", "Email");
-            return AllCustomers;
+            SelectListItem s = new SelectListItem() { Text = "All Customers", Value = "0" };
+
+            List<SelectListItem> ItemList = new List<SelectListItem>();
+            ItemList.Add(s);
+            List<AppUser> Customers = db.Users.ToList();
+            foreach (AppUser c in Customers)
+            {
+                ItemList.Add(new SelectListItem() { Text = c.FirstName + " " + c.LastName, Value = c.Id });
+            }
+
+
+            //SelectList AllCustomers = new SelectList(Customers.OrderBy(m => m.LastName), "Id", "Email");
+            return new SelectList(ItemList, "Value", "Text", null);
         }
 
         //// GET: Reports/Details/5
