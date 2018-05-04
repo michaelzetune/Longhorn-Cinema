@@ -235,7 +235,11 @@ namespace LonghornCinemaFinalProject.Controllers
             if (User.IsInRole("Manager") || User.IsInRole("Employee"))
             {
                 ViewBag.AllCreditCards = GetCreditCards();
-                return View(order);
+                return View("Error", new string[] { "Only customers can purchase tickets. Please login or create a customer profile." });
+            }
+            else if (order.Tickets.Count() == 0)
+            {
+                return View("Error", new string[] { "You must have at least one ticket in your order to checkout." });
             }
             else
             {

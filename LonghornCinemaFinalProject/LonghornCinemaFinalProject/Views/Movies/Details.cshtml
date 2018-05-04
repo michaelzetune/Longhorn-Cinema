@@ -77,6 +77,9 @@
     </dl>
 </div>
 <p>
+    @Html.ActionLink("Purchase Tickets","Index","Showings",new { id = Model.MovieID },new { @class = "btn btn-primary"})
+</p>
+<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MovieID }) |
     @Html.ActionLink("Back to List", "Index", "Movies")
 </p>
