@@ -1,0 +1,22 @@
+﻿
+
+@{
+    ViewBag.Title = "Scheduling";
+}
+
+<h2>Scheduling</h2>
+
+
+@using (Html.BeginForm("DisplaySearchResults", "Search", FormMethod.Get))
+{
+    <p class="form-group">
+        Movie Title: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
+
+        Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
+
+        Genre: @Html.DropDownList("SearchGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })<br />
+
+        @*@Html.ActionLink("Copy Schedule", "", "Schedule", new { @class = "btn btn-primary" })*@
+        
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>

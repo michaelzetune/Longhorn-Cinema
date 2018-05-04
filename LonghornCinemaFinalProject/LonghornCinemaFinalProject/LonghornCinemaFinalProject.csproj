@@ -367,6 +367,8 @@
     <Content Include="Views\Orders\Confirm.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\Schedule\NextDay.cshtml" />
+    <Content Include="Views\Schedule\Scheduling.cshtml" />
+    <Content Include="Views\Schedule\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

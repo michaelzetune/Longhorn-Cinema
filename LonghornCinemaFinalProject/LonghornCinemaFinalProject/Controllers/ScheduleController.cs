@@ -17,82 +17,92 @@ namespace LonghornCinemaFinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-        public ActionResult Index(int? movieID)
-        {
-            if (movieID == null)
-            {
-                var query1 = db.Showings.Where(s => s.StartTime.Day == DateTime.Today.Day);
-                return View(query1.ToList());
-            }
-            Movie m = db.Movies.Find(movieID);
-            if (m == null)
-            {
-                return HttpNotFound();
-            }
-
-            var query = from r in db.Showings select r;
-            if (movieID != null)
-            {
-                query = query.Where(r => r.Movie.MovieID == movieID);
-            }
-            List<Showing> ShowingsToDisplay = query.ToList();
-
-            ViewBag.SelectedShowingssCount = ShowingsToDisplay.Count();
-            ViewBag.TotalMovieShowingsCount = db.Showings.ToList().Count();
-
-            return View(ShowingsToDisplay.OrderBy(r => r.StartTime));
-            //return View(RedirectToAction("Index", "MoviesController"));
-
-        }
-
-        public ActionResult NextDay(Showing showId)
-        {
-            // Get current Day of the showing list last displayed
-            Showing show = db.Showings.Find(showId);
-            DateTime dtrequested = show.StartTime;
-
-            //Filter the next day to the next Day
-            dtrequested.AddDays(1);
-
-            //Query the database for all days that start the next day and return to view
-            var query1 = db.Showings.Where(s => s.StartTime.Day == dtrequested.Day);
-            return View(query1.ToList());
-        }
-
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult NextDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")] Showing show)
-        {
-
-
-            return RedirectToAction("NextDay");
-            
-        } */
-        public ActionResult PrevDay(DateTime Showtime)
+        public ActionResult Scheduling(int? ShowingID)
         {
             return View();
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult PrevDay([Bind(Include = "ShowingID,StartTime,SpecialEvent,TheatreNum,SeatList")]int intcount, Showing ShowingID)
+        public ActionResult Scheduling(string TargetDate, string TargetTheatre, string CopiedDate)
         {
+            // create variables of appropriate datatype variables 
+            DateTime copieddate = DateTime.Now;
+            DateTime targetdate = DateTime.Now;
+            Theatre targettheatre = Theatre.TheatreOne;
+            // Filter through Try and Catch
+            try
+            {
+                copieddate = DateTime.Parse(CopiedDate);
+                targetdate = DateTime.Parse(TargetDate);
+                targettheatre = (Theatre)Theatre.Parse(typeof(Theatre),TargetTheatre);
+            }
+            catch
+            {
+                return RedirectToAction("Scheduling");
+            }
+
+            if (copieddate > targetdate)
+            {
+                return RedirectToAction("Scheduling");
+            }
+            
+            //Create to a list to get all movies
+            var query = from r in db.Showings select r;
+            query = query.Where(sh => sh.StartTime.Day == copieddate.Day);
+            List<Showing> CopyShowings = query.ToList();
+
+            //Get TimeBetween the date they want to copy and the date they want populate
+            TimeSpan TimeBetween = (copieddate - targetdate);
+            //Create new showing and populate the correct Showing Starttime and Endtime
+            Showing show = new Showing();
+            int limit = CopyShowings.Count;
+
+            //Change Date of every copied showing date before adding to database
+            for (int i = 1; i <= limit; i++)
+            {
+                show = CopyShowings[i];
+                show.StartTime.Add(TimeBetween);
+                show.EndTime.Add(TimeBetween);
+                show.TheatreNum = targettheatre;
+                db.Showings.Add(show);
+                db.SaveChanges();
+            }
+            //Create a list for all the movies in date
+            
+            return View("Index","Showings");
+        }
+
+        public ActionResult Confirmation()
+        {
+            String strconfirm = "Dates have been copied";
+            ViewBag.Confirm = strconfirm;
             return View();
         }
 
-
+        //Showing s1 = new Showing();
+        //s1.StartTime = new DateTime(2018, 5, 4, 9, 5, 0); // 2018, May 4th, 9:05:00
+        //s1.EndTime = new DateTime(2018, 5, 4, 11, 14, 0); // 2018, May 4th, 11:14:00
+        //s1.SpecialEventStatus = SpecialEvent.NotSpecial;
+        //    s1.TheatreNum = Theatre.TheatreOne;
+        //    s1.Movie = db.Movies.FirstOrDefault(x => x.Title == "The Sting");
+        //    db.Showings.AddOrUpdate(s => s.StartTime, s1);
+        //    db.SaveChanges();
 
         ////Split Strings by colons
-        //String[] timestrings = TimeString.Split(':');
-        //String[] datestrings = DateString.Split('/');
-        //DateTime Dtproduct = DateTime.Parse(datestrings[0] + "," + datestrings[1] + "," + datestrings[2] + "," + timestrings[0] +"," + timestrings[1]);
-        ////Create new showing and populate the correct Showing Starttime and Endtime
-        //Showing show = new Showing();
-        //show.StartTime = Dtproduct;
 
 
 
 
 
     }
+    
 }
+
+
+
+
+
+
+
+
+    
+
