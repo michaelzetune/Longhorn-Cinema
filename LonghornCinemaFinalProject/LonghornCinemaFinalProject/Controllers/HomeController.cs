@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Net;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
 
@@ -16,7 +16,10 @@ namespace LonghornCinemaFinalProject.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole("Customer"))
+                return RedirectToAction("CustomerHome", "Showings");
+            else
+                return View();
         }
         //public ActionResult Index(String BasicSearchString)
         //{

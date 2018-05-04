@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LonghornCinemaFinalProject.Models.Showing>
+@using LonghornCinemaFinalProject.Models
+
+@{
+    ViewBag.Title = "CustomerHome";
+}
+
+<h2>Welcome to Longhorn Cinema!</h2>
+<br />
+<h4>Here are today's showings:</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            Movie
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialEventStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TheatreNum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Movie.Title, "Details", "Showings", new { id = item.ShowingID }, new { @class = "btn btn-link" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @if(item.SpecialEventStatus == SpecialEvent.NotSpecial)
+            { <p>No</p>}
+            @if(item.SpecialEventStatus == SpecialEvent.Special)
+            { <p>Yes</p>}
+        </td>
+        <td>
+            @if(item.TheatreNum == Theatre.TheatreOne)
+            { <p>1</p>}
+            @if(item.TheatreNum == Theatre.TheatreTwo)
+            { <p>2</p>}
+        </td>
+        <td>
+            @if (User.IsInRole("Manager"))
+            {
+                <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ShowingID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ShowingID })
+                </p>
+            }
+            @if ((item.StartTime > DateTime.Now) && !(User.IsInRole("Employee") || User.IsInRole("Manager")))
+            { @Html.ActionLink("Buy Ticket", "Create", "Tickets", new { ShowingID = item.ShowingID }, new { @class = "btn btn-primary" }) } 
+        </td>
+    </tr>
+}
+
+</table>

@@ -219,9 +219,9 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
 
-        // GET: /Accounts/Profile
+        // GET: /Accounts/UserProfile
         [Authorize]
-        public new ActionResult Profile()
+        public ActionResult UserProfile()
         {
             //get user info
             String id = User.Identity.GetUserId();
@@ -246,10 +246,15 @@ namespace LonghornCinemaFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "UserID,PhoneNumber,StreetAddress,City,State,ZipCode")] AppUser user)
+        public ActionResult Edit([Bind(Include = "Email,FirstName,LastName,Birthday,PhoneNumber,StreetAddress,City,State,ZipCode")] AppUser user, String PhoneNumber, String StreetAddress, String City, String State, Int32 ZipCode)
         {
             String id = User.Identity.GetUserId();
             AppUser user2 = db.Users.Find(id);
+            user2.PhoneNumber = PhoneNumber;
+            user2.StreetAddress = StreetAddress;
+            user2.City = City;
+            user2.State = State;
+            user2.ZipCode = ZipCode;
 
             if (ModelState.IsValid)
             {
