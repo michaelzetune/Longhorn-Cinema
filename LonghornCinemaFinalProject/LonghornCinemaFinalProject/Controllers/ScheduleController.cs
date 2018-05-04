@@ -62,11 +62,11 @@ namespace LonghornCinemaFinalProject.Controllers
             var query2 = from t in db.Showings select t;
             query2 = query2.Where(sh => sh.StartTime.Day == targetdate.Day);
             List<Showing> TestShowings = query2.ToList();
-            if (TestShowings.Count == 0) ;
+            if (TestShowings.Count == 0) 
             {
 
                 //Change Date of every copied showing date before adding to database
-                for (int i = 0; i < limit; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     if ((CopyShowings[i].StartTime.Day != targetdate.Day) || ((CopyShowings[i].StartTime.Month != targetdate.Month)))
                     {
@@ -84,7 +84,7 @@ namespace LonghornCinemaFinalProject.Controllers
                 }
 
                 //Create a list for all the movies in date
-
+                ViewBag.Confirm = "Dates have been successfully copied!";
                 return View("Confirmation");
             }
             ViewBag.ErrorMessage = "Movies are already scheduled for this day";
