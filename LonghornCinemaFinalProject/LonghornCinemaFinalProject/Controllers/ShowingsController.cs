@@ -184,8 +184,8 @@ namespace LonghornCinemaFinalProject.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Showing showing = db.Showings.Find(id);
-            db.Showings.Remove(showing);
-            db.SaveChanges();
+            
+            
             ////Sam's code insertion
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Showing Cancellation Confirmation",

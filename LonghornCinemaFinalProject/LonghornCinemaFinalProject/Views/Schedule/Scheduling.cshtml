@@ -8,7 +8,7 @@
 <h2>Scheduling</h2>
 
 
-@using (Html.BeginForm("Scheduling", "Schedule", FormMethod.Get))
+@using (Html.BeginForm("Scheduling", "Schedule", FormMethod.Post))
 {
     <p class="form-group">
         TargetDate: @Html.TextBox("TargetDate", null, new { @class = "form-control" }) <br />

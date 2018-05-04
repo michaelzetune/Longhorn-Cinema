@@ -32,22 +32,22 @@ namespace LonghornCinemaFinalProject.Controllers
             DateTime copieddate = DateTime.Now;
             DateTime targetdate = DateTime.Now;
             Theatre targettheatre = Theatre.TheatreOne;
-            // Filter through Try and Catch
-            //try
-            //{
+            //Filter through Try and Catch
+            try
+            {
             copieddate = DateTime.Parse(CopiedDate);
             targetdate = DateTime.Parse(TargetDate);
             targettheatre = (Theatre)Theatre.Parse(typeof(Theatre),TargetTheatre);
-            //}
-            //catch
-            //{
-                //return RedirectToAction("Scheduling");
-            //}
+            }
+            catch
+            {
+                return RedirectToAction("Scheduling");
+            }
 
-           // if (copieddate > targetdate)
-           // {
-                //return RedirectToAction("Scheduling");
-           // }
+            if (copieddate > targetdate)
+            {
+                return RedirectToAction("Scheduling");
+            }
             
             //Create to a list to get all movies
             var query = from r in db.Showings select r;
@@ -55,24 +55,29 @@ namespace LonghornCinemaFinalProject.Controllers
             List<Showing> CopyShowings = query.ToList();
 
             //Get TimeBetween the date they want to copy and the date they want populate
-            TimeSpan TimeBetween = (copieddate - targetdate);
+            TimeSpan TimeBetween = (targetdate - copieddate);
             //Create new showing and populate the correct Showing Starttime and Endtime
             Showing show = new Showing();
             int limit = CopyShowings.Count;
-
+            
             //Change Date of every copied showing date before adding to database
-            for (int i = 1; i <= limit; i++)
+            for (int i = 0; i < 2; i++)
             {
-                show = CopyShowings[i];
-                show.StartTime.Add(TimeBetween);
-                show.EndTime.Add(TimeBetween);
-                show.TheatreNum = targettheatre;
-                db.Showings.Add(show);
-                db.SaveChanges();
+                if ((CopyShowings[i].StartTime.Day != targetdate.Day) ||((CopyShowings[i].StartTime.Month != targetdate.Month)))
+                {
+                    show = CopyShowings[i];
+                    show.StartTime.Add(TimeBetween);
+                    show.EndTime.Add(TimeBetween);
+                    show.TheatreNum = targettheatre;
+                    db.Showings.Add(show);
+                    db.Entry(show).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
+            
             //Create a list for all the movies in date
             
-            return View("Index","Showings");
+            return View("Confirmation");
         }
 
         public ActionResult Confirmation()
