@@ -25,7 +25,7 @@
         </div>
 
     MPAA Rating: @Html.DropDownList("SearchMPAARating", (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
-
+        <br />
     <div class="form-group">
         Number of Stars: @Html.TextBox("SearchStars", null, new { @class = "form-control" })
         <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Greater, true)Greater than</label>
