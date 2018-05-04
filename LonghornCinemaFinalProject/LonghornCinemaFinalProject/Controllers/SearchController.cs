@@ -10,6 +10,7 @@ namespace LonghornCinemaFinalProject.Controllers
 {
     public enum Classification {  GreaterThan, LessThan }
     public enum StarFilter { Greater, Less }
+    public enum YearFilter { After, Before }
 
     public class SearchController : Controller
     {
@@ -37,10 +38,11 @@ namespace LonghornCinemaFinalProject.Controllers
             return View();
         }
         
-        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Int32 SearchGenreID, String SearchYear, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor)
+        public ActionResult DisplaySearchResults(String SearchTitle, String SearchTagline, Int32 SearchGenreID, MPAARating SearchMPAARating, String SearchStars, StarFilter SearchStarFilter, String SearchActor, YearFilter SearchYearFilter, String SearchYear)
         { // Update Actors and other fields to be multiselectable
             var query = from m in db.Movies
                         select m;
+            Boolean SomethingWrong = false;
 
             //SearchTitle for Movie Name
             if (SearchTitle != null)
@@ -63,18 +65,49 @@ namespace LonghornCinemaFinalProject.Controllers
 
             } // TODO: fix not being able to filter by Genre
 
-            // SearchYear for Movie year release
+
+            //YEAR
+            //code for year text box
             if (SearchYear != null && SearchYear != "")
             {
+                DateTime dtSearchYear;
                 try
                 {
-                    DateTime YearInDateTime = DateTime.Parse("Jan 1, " + SearchYear);
-                    query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
+                    dtSearchYear = new DateTime(Convert.ToInt32(SearchYear), 1, 1);
                 }
-                catch (Exception)
-                { Console.WriteLine("Exception with SearchYear"); }
-            }  
-              
+                catch
+                {
+                    ViewBag.YearMessage = SearchYear + " is not a valid year. Please try again";
+
+                    ViewBag.AllGenres = GetAllGenres();
+                    ViewBag.AllMPAARatings = GetAllMPAARatings();
+
+                    SomethingWrong = true;
+                    dtSearchYear = DateTime.Now;
+
+                }
+
+                //code for radio buttons of year
+                if (SearchYearFilter == YearFilter.After && !SomethingWrong)
+                {
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.ReleaseDate < dtSearchYear)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
+                }
+                else if (SearchYearFilter == YearFilter.Before)
+                {
+                    foreach (Movie m in query.ToList())
+                    {
+                        if (m.ReleaseDate > dtSearchYear)
+                            query = query.Where(x => x.Title != m.Title);
+                    }
+                }
+            }
+
+
+
             //code for MPAA Rating selection
             if (SearchMPAARating != MPAARating.None)
             {
@@ -96,11 +129,12 @@ namespace LonghornCinemaFinalProject.Controllers
                     ViewBag.AllGenres = GetAllGenres();
                     ViewBag.AllMPAARatings = GetAllMPAARatings();
 
-                    return View("DetailedSearch");
+                    SomethingWrong = true;
+                    decCustomerRating = -1;
                 }
 
                 //code for radio buttons
-                if (SearchStarFilter == StarFilter.Greater)
+                if (SearchStarFilter == StarFilter.Greater && !SomethingWrong)
                 {
                     foreach (Movie m in query.ToList())
                     {
@@ -132,7 +166,10 @@ namespace LonghornCinemaFinalProject.Controllers
             ViewBag.SelectedMoviesCount = MoviesToDisplay.Count();
             ViewBag.TotalMoviesCount = db.Movies.ToList().Count();
 
-            return View("~/Views/Movies/Index.cshtml", MoviesToDisplay);
+            if (!SomethingWrong)
+                return View("~/Views/Movies/Index.cshtml", MoviesToDisplay);
+            else
+                return View("DetailedSearch");
         }
 
         public SelectList GetAllGenres()
