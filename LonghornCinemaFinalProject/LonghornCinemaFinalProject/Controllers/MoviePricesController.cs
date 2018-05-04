@@ -60,13 +60,9 @@ namespace LonghornCinemaFinalProject.Controllers
         //}
 
         // GET: MoviePrices/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            MoviePrice moviePrice = db.MoviePrices.Find(id);
+            MoviePrice moviePrice = db.MoviePrices.Find(1);
             if (moviePrice == null)
             {
                 return HttpNotFound();

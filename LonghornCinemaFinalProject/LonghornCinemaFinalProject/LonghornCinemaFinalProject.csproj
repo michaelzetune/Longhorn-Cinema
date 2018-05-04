@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MoviePricesController.cs" />
     <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -372,6 +373,7 @@
     <Content Include="Views\Accounts\Edit2.cshtml" />
     <Content Include="Views\Showings\CustomerHome.cshtml" />
     <Content Include="Views\Orders\Thanks.cshtml" />
+    <Content Include="Views\MoviePrices\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
