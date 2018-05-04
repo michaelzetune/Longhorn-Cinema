@@ -66,7 +66,7 @@ namespace LonghornCinemaFinalProject.Controllers
             {
 
                 //Change Date of every copied showing date before adding to database
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < limit; i++)
                 {
                     if ((CopyShowings[i].StartTime.Day != targetdate.Day) || ((CopyShowings[i].StartTime.Month != targetdate.Month)))
                     {
