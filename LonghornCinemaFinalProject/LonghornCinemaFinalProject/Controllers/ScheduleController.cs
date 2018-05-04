@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -19,31 +20,34 @@ namespace LonghornCinemaFinalProject.Controllers
 
         public ActionResult Scheduling(int? ShowingID)
         {
+
             return View();
         }
         [HttpPost]
         public ActionResult Scheduling(string TargetDate, string TargetTheatre, string CopiedDate)
         {
+            
+            
             // create variables of appropriate datatype variables 
             DateTime copieddate = DateTime.Now;
             DateTime targetdate = DateTime.Now;
             Theatre targettheatre = Theatre.TheatreOne;
             // Filter through Try and Catch
-            try
-            {
-                copieddate = DateTime.Parse(CopiedDate);
-                targetdate = DateTime.Parse(TargetDate);
-                targettheatre = (Theatre)Theatre.Parse(typeof(Theatre),TargetTheatre);
-            }
-            catch
-            {
-                return RedirectToAction("Scheduling");
-            }
+            //try
+            //{
+            copieddate = DateTime.Parse(CopiedDate);
+            targetdate = DateTime.Parse(TargetDate);
+            targettheatre = (Theatre)Theatre.Parse(typeof(Theatre),TargetTheatre);
+            //}
+            //catch
+            //{
+                //return RedirectToAction("Scheduling");
+            //}
 
-            if (copieddate > targetdate)
-            {
-                return RedirectToAction("Scheduling");
-            }
+           // if (copieddate > targetdate)
+           // {
+                //return RedirectToAction("Scheduling");
+           // }
             
             //Create to a list to get all movies
             var query = from r in db.Showings select r;
