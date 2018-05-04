@@ -27,7 +27,7 @@ namespace LonghornCinemaFinalProject.Controllers
                     query1 = query1.Where(r => r.ApprovalStatus == ApprovalStatus.Approved);
                 ViewBag.SelectedMovieReviewsCount = query1.Count();
                 ViewBag.TotalMovieReviewsCount = db.MovieReviews.ToList().Count();
-                return View(query1.ToList());
+                return View(query1.OrderByDescending(mr => mr.Votes).ToList());
             }
             Movie m = db.Movies.Find(id);
             if (m == null)

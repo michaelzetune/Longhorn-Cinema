@@ -29,7 +29,7 @@ namespace LonghornCinemaFinalProject.Utilities
             Boolean bolBefore5 = false; //Variable to check whether it is = or < 5pm
 
             //Create movieprice object that references the most recent record of the MoviePriceID
-            MoviePrice movieprice = db.MoviePrices.Last();
+            MoviePrice movieprice = db.MoviePrices.FirstOrDefault(x => x.MoviePriceID == 2);
 
             ////Get prices of different showings to be able to compare and populate booleans
             Decimal decMoviePriceMat = movieprice.decMatineePrice;

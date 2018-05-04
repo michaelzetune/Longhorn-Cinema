@@ -50,12 +50,16 @@ namespace LonghornCinemaFinalProject.Models
                 {
                     String x = "XXXX-XXXXXX-";
                     x += CardNumber.Substring(CardNumber.Length - 5);
+                    x += " ";
+                    x += CardType;
                     return x;
                 }
                 else
                 {
                     String x = "XXXX-XXXX-XXXX-";
                     x += CardNumber.Substring(CardNumber.Length - 4);
+                    x += " ";
+                    x += CardType;
                     return x;
                 }
             }

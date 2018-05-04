@@ -1,17 +1,14 @@
 @model LonghornCinemaFinalProject.Models.Order
 @using LonghornCinemaFinalProject.Models
-
 @{
     ViewBag.Title = "Details";
 }
-
 <h2>Details</h2>
 <div>
     <h4>Order</h4>
     <hr />
     <dl class="dl-horizontal"></dl>
-    <p>Status:</p>
-    <p>@Model.Status</p>
+    <p>Status: @Model.Status</p>
 </div>
 
 <table class="table">
@@ -58,7 +55,23 @@
     }
 
 </table>
-
+<table class="table table-sm table-bordered" style="width:30%">
+    <tr>
+        <th colspan="2" style="text-align:center">Order Summary</th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Subtotal):</td>
+        <td>@Html.DisplayFor(model => model.Subtotal)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.TaxAmount):</td>
+        <td>@Html.DisplayFor(model => model.TaxAmount)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Total):</td>
+        <td>@Html.DisplayFor(model => model.Total)</td>
+    </tr>
+</table>
 <p>
     @if (Model.Status == OrderStatus.Pending)
     {
@@ -69,6 +82,6 @@
     {
         @Html.ActionLink("Cancel Order", "Cancel", "Orders", new { OrderID = Model.OrderID }, new { @class = "btn btn-danger" })
     }
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index",null,new { @class = "btn btn-warning" })
 
 </p>

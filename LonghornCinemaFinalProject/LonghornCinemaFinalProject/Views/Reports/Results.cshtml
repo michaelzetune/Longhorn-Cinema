@@ -17,27 +17,21 @@
 
         <p>@Model.StartDate to @Model.EndDate</p>
 
-        @if(ViewBag.MovieName != null)
-        {
+
             <dt>
                 Movie Filter: 
             </dt>
             <p>@ViewBag.MovieName</p>
-        }
-        @if(Model.RatingFilter != MPAARating.None)
-        {
+
             <dt>
                 Rating Filter: 
             </dt>
             <p>@Model.RatingFilter</p>
-        }
-        @if(ViewBag.CustomerName != "")
-        {
+
             <dt>
                 Customer Filter: 
             </dt>
             <p>@ViewBag.CustomerName</p>
-        }
 
     @if (Model.DisplaySeats)
     {
