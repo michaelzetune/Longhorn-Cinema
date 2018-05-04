@@ -189,9 +189,7 @@ namespace LonghornCinemaFinalProject.Controllers
             ////Sam's code insertion
             AppUser user = db.Users.Find(User.Identity.GetUserId());
             Utilities.EmailMessaging.SendEmail(user.Email, "Team 5: LonghornCinema Showing Cancellation Confirmation",
-            "We have apologize but we cancelled your showing, " + showing.Movie.ToString());
-            db.Showings.Remove(showing);
-            db.SaveChanges();
+            "We apologize but we cancelled your showing, " + showing.Movie.ToString());
             return RedirectToAction("Index");
         }
         public SelectList GetAllMovies()
