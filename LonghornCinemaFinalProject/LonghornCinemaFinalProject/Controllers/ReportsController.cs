@@ -51,10 +51,10 @@ namespace LonghornCinemaFinalProject.Controllers
             
 
             var query = from t in db.Tickets select t;
-            //if (report.StartDate != null)
-            //    query = query.Where(t => t.Order.OrderDate > report.StartDate);
-            //if (report.EndDate != null)
-            //    query = query.Where(t => t.Order.OrderDate < report.EndDate);
+            if (report.StartDate != null)
+                query = query.Where(t => t.Order.OrderDate > report.StartDate);
+            if (report.EndDate != null)
+                query = query.Where(t => t.Order.OrderDate < report.EndDate);
             if (MovieID != 0)
                 query = query.Where(t => t.Showing.Movie.MovieID == MovieID);
             if (report.MovieFilter != null && MovieID != 0)
