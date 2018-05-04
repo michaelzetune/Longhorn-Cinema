@@ -16,10 +16,10 @@
         @using (Html.BeginForm("Query", "Reports", FormMethod.Post))
         {
         <p class="form-group">
-            Display Seats Information?: @Html.EditorFor(model => model.DisplaySeats) <br />
+            Display Seat Information?: @Html.EditorFor(model => model.DisplaySeats) <br />
 
             Display Revenue Information?: @Html.EditorFor(model => model.DisplayRevenue) <br />
-
+            <br />
             Start Date: @Html.EditorFor(modelItem => modelItem.StartDate, null, new { @class = "form-control" }) <br />
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })<br />
 
@@ -28,10 +28,10 @@
 
             Movie Filter: @Html.DropDownList("MovieID", (SelectList)ViewBag.AllMovies, new { @class = "form-control" }) <br />
 
-            Rating Filter: @Html.EnumDropDownListFor(modelItem => modelItem.RatingFilter, htmlAttributes: new { @class = "form-control" })
-
+            Rating Filter (select "None" to disable rating filter): @Html.EnumDropDownListFor(modelItem => modelItem.RatingFilter, htmlAttributes: new { @class = "form-control" })
+            <br />
             Customer Filter: @Html.DropDownList("CustomerFilterID", (SelectList)ViewBag.AllCustomers, new { @class = "form-control" })
-
+            <br />
             <input type="submit" value="Generate Report" class="btn btn-primary" />
 
         </p>

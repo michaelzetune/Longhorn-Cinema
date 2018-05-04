@@ -5,36 +5,38 @@
     ViewBag.Title = "Results";
 }
 
-<h2>Details</h2>
+<h2>Report Details</h2>
 
 <div>
-    <h4>Report</h4>
     <hr />
     <dl class="dl-horizontal">
 
         <dt>
             Date Range:
         </dt>
-        <dt>
-            @Model.StartDate to @Model.EndDate
-        </dt>
-        @if(Model.MovieFilter != null)
+
+        <p>@Model.StartDate to @Model.EndDate</p>
+
+        @if(ViewBag.MovieName != null)
         {
             <dt>
-                Movie Filer: @Model.MovieFilter.Title
+                Movie Filter: 
             </dt>
+            <p>@ViewBag.MovieName</p>
         }
         @if(Model.RatingFilter != MPAARating.None)
         {
             <dt>
-                Rating Filter: @Model.RatingFilter
+                Rating Filter: 
             </dt>
+            <p>@Model.RatingFilter</p>
         }
-        @if(Model.CustomerFilter != null)
+        @if(ViewBag.CustomerName != "")
         {
             <dt>
-                Customer Filter: @Model.CustomerFilter.FirstName @Model.CustomerFilter.LastName
+                Customer Filter: 
             </dt>
+            <p>@ViewBag.CustomerName</p>
         }
 
     @if (Model.DisplaySeats)
@@ -43,19 +45,19 @@
             Seats Sold:
         </dt>
 
-        <dd>
-            @ViewBag.SeatsSold
-        </dd>
+        <p>
+            @ViewBag.NumSeats
+        </p>
     }
 
-    @if (Model.DisplaySeats)
+    @if (Model.DisplayRevenue)
     {
         <dt>
             Revenue:
         </dt>
 
         <dd>
-            @ViewBag.Revenue
+            $@ViewBag.Revenue
         </dd>
     }
 
@@ -64,6 +66,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Query", "Query","Reports",null,new { @class = "btn btn-primary" })
 </p>
 
