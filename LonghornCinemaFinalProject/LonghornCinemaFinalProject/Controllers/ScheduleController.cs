@@ -57,7 +57,7 @@ namespace LonghornCinemaFinalProject.Controllers
             //Get TimeBetween the date they want to copy and the date they want populate
             TimeSpan TimeBetween = (targetdate - copieddate);
             //Create new showing and populate the correct Showing Starttime and Endtime
-            Showing show = new Showing();
+            
             int limit = CopyShowings.Count;
             
             //Change Date of every copied showing date before adding to database
@@ -65,12 +65,15 @@ namespace LonghornCinemaFinalProject.Controllers
             {
                 if ((CopyShowings[i].StartTime.Day != targetdate.Day) ||((CopyShowings[i].StartTime.Month != targetdate.Month)))
                 {
-                    show = CopyShowings[i];
-                    show.StartTime.Add(TimeBetween);
-                    show.EndTime.Add(TimeBetween);
+                    Showing show = new Showing();
+                    Showing copyshow = db.Showings.Find(CopyShowings[i].ShowingID);
+                    show.SpecialEventStatus = copyshow.SpecialEventStatus;
+                    show.Movie = db.Movies.Find(copyshow.Movie.MovieID);
+                    show.StartTime = copyshow.StartTime + TimeBetween;
+                    show.EndTime = copyshow.EndTime + TimeBetween;
                     show.TheatreNum = targettheatre;
                     db.Showings.Add(show);
-                    db.Entry(show).State = EntityState.Modified;
+                    //db.Entry(show).State = EntityState.Modified;
                     db.SaveChanges();
                 }
             }
