@@ -371,6 +371,7 @@
     <Content Include="Views\Accounts\Edit.cshtml" />
     <Content Include="Views\Accounts\Edit2.cshtml" />
     <Content Include="Views\Showings\CustomerHome.cshtml" />
+    <Content Include="Views\Orders\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

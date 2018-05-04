@@ -13,13 +13,15 @@ namespace LonghornCinemaFinalProject.Controllers
     public class HomeController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
+        
         public ActionResult Index()
         {
-            if (User.IsInRole("Customer"))
-                return RedirectToAction("CustomerHome", "Showings");
-            else
-                return View();
+            //String Now = DateTime.Now.Date.ToString();
+
+            ViewBag.TodayShowingList = db.Showings.Where(u => u.StartTime.Day == DateTime.Now.Day).ToList();
+            //query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
+
+            return View();
         }
         //public ActionResult Index(String BasicSearchString)
         //{
