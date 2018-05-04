@@ -9,6 +9,9 @@
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Accounts", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
         </li>
+        <li>
+            @Html.ActionLink("Profile", "UserProfile", "Accounts", routeValues: null, htmlAttributes: new { title = "UserProfile", @class = "nav-link" })
+        </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="nav-link">Log Off</span></a></li>
     </ul>
     }

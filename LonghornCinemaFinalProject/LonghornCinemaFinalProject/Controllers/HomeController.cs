@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Net;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
 using LonghornCinemaFinalProject.DAL;
 using LonghornCinemaFinalProject.Models;
 
@@ -13,9 +13,14 @@ namespace LonghornCinemaFinalProject.Controllers
     public class HomeController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
+        
         public ActionResult Index()
         {
+            //String Now = DateTime.Now.Date.ToString();
+
+            ViewBag.TodayShowingList = db.Showings.Where(u => u.StartTime.Day == DateTime.Now.Day).ToList();
+            //query = query.Where(m => m.ReleaseDate.Year == YearInDateTime.Year);
+
             return View();
         }
         //public ActionResult Index(String BasicSearchString)

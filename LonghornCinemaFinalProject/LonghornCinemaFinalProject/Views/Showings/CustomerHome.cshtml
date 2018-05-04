@@ -2,19 +2,12 @@
 @using LonghornCinemaFinalProject.Models
 
 @{
-    ViewBag.Title = "Showings";
+    ViewBag.Title = "CustomerHome";
 }
 
-<h2>Showings</h2>
-
-@if(User.IsInRole("Manager"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
-
-    <p>@Html.ActionLink("Today's Showings", "Index", new { id = 0 }, new { @class = "btn btn-primary" }) @Html.ActionLink("All Showings", "Index", new { id = -1 }, new { @class = "btn btn-primary" })</p>
+<h2>Welcome to Longhorn Cinema!</h2>
+<br />
+<h4>Here are today's showings:</h4>
 
 <table class="table">
     <tr>
