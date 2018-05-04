@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm("DisplaySearchResults", "Search", FormMethod.Get))
 {
-<p class="form-group">
+    <p class="form-group">
     Movie Title: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
 
     Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
@@ -31,6 +31,6 @@
     <br />
     <input type="submit" value="Search" class="btn btn-primary" />
     @Html.ActionLink("Back to Movies", "Index", "Movies", null, new {@class ="btn btn-info" })
-</p>
+    </p>
 }
 
