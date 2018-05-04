@@ -30,22 +30,6 @@
                     <li class="nav-item">
                         @Html.ActionLink("Showings", "Index", "Showings", null, new { @class = "nav-link" })
                     </li>
-<<<<<<< HEAD
-                    @if (User.Identity.IsAuthenticated)
-                     {
-                        <li class="nav-item">
-                        @Html.ActionLink("Tickets", "Index", "Tickets", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item">
-                        @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "nav-link" })
-                        </li>
-                     }
-                    @if (User.IsInRole("Manager"))
-                     {
-                        <li class="nav-item">
-                        @Html.ActionLink("Schedule", "Scheduling", "Schedule", null, new { @class = "nav-link" })
-                        </li>
-=======
                     
 
 					@if (User.Identity.IsAuthenticated)
@@ -60,12 +44,11 @@
 					@if (User.IsInRole("Manager"))
 	                {
 				        <li class="nav-item">
-					        @Html.ActionLink("Schedule", "Index", "Schedule", null, new { @class = "nav-link" })
+					        @Html.ActionLink("Schedule", "Scheduling", "Schedule", null, new { @class = "nav-link" })
 				        </li>
 				        <li class="nav-item">
 					        @Html.ActionLink("Reports", "Query", "Reports", null, new { @class = "nav-link" })
 				        </li>
->>>>>>> 45426561e56feb133ca0ac913021d613b709de93
                         <li class="nav-item">
                             @Html.ActionLink("Pricing", "Edit", "MoviePrices", null, new { @class = "nav-link" })
                         </li>
