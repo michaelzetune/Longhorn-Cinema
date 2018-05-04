@@ -11,26 +11,32 @@
 @using (Html.BeginForm("DisplaySearchResults", "Search", FormMethod.Get))
 {
     <p class="form-group">
-    Movie Title: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
+        Movie Title: @Html.TextBox("SearchTitle", null, new { @class = "form-control" }) <br />
 
-    Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
+        Tagline: @Html.TextBox("SearchTagline", null, new { @class = "form-control" }) <br />
 
-    Genre: @Html.DropDownList("SearchGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
-    <br />
-    Year: @Html.TextBox("SearchYear", null, new { @class = "form-control" })
-    <br />
+        Genre: @Html.DropDownList("SearchGenreID", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+
+        <div class="form-group">
+            Year: @Html.TextBox("SearchYear", null, new { @class = "form-control" })
+            <label class="radio">@Html.RadioButton("SearchYearFilter", YearFilter.After, true)After</label>
+            <label class="radio">@Html.RadioButton("SearchYearFilter", YearFilter.Before)Before</label>
+            <h5 class="text-danger">@ViewBag.YearMessage</h5>
+        </div>
+
     MPAA Rating: @Html.DropDownList("SearchMPAARating", (SelectList)ViewBag.AllMPAARatings, new { @class = "form-control" })
 
     <div class="form-group">
-        Number of Stars: @Html.TextBox("SearchStars", null, new { @class = "form-control" }) 
+        Number of Stars: @Html.TextBox("SearchStars", null, new { @class = "form-control" })
         <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Greater, true)Greater than</label>
-        <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Less)Less than</label> @ViewBag.Message
+        <label class="radio">@Html.RadioButton("SearchStarFilter", StarFilter.Less)Less than</label>
+        <h5 class="text-danger">@ViewBag.Message</h5>
     </div>
 
     Actors: @Html.TextBox("SearchActor", null, new { @class = "form-control" })
     <br />
     <input type="submit" value="Search" class="btn btn-primary" />
-    @Html.ActionLink("Back to Movies", "Index", "Movies", null, new {@class ="btn btn-info" })
+    @Html.ActionLink("Back to Movies", "Index", "Movies", null, new { @class = "btn btn-info" })
     </p>
 }
 
