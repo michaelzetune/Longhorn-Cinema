@@ -62,7 +62,7 @@ namespace LonghornCinemaFinalProject.Controllers
         // GET: MoviePrices/Edit/5
         public ActionResult Edit()
         {
-            MoviePrice moviePrice = db.MoviePrices.Find(1);
+            MoviePrice moviePrice = db.MoviePrices.Find(2);
             if (moviePrice == null)
             {
                 return HttpNotFound();

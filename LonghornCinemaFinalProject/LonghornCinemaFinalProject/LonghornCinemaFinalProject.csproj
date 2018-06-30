@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CreditCardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MoviePricesController.cs" />
     <Compile Include="Controllers\MovieReviewsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -193,69 +194,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804272354126_InitialSetup.cs" />
-    <Compile Include="Migrations\201804272354126_InitialSetup.Designer.cs">
-      <DependentUpon>201804272354126_InitialSetup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804292117405_AddUserToMovieReview.cs" />
-    <Compile Include="Migrations\201804292117405_AddUserToMovieReview.Designer.cs">
-      <DependentUpon>201804292117405_AddUserToMovieReview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804300356173_UpdateOrderProperties.cs" />
-    <Compile Include="Migrations\201804300356173_UpdateOrderProperties.Designer.cs">
-      <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804301819265_UnrequireSeatInticket.cs" />
-    <Compile Include="Migrations\201804301819265_UnrequireSeatInticket.Designer.cs">
-      <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805010141571_updatesomething.cs" />
-    <Compile Include="Migrations\201805010141571_updatesomething.Designer.cs">
-      <DependentUpon>201805010141571_updatesomething.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805010615267_DeleteActivePropertyFromOrderModelClass.cs" />
-    <Compile Include="Migrations\201805010615267_DeleteActivePropertyFromOrderModelClass.Designer.cs">
-      <DependentUpon>201805010615267_DeleteActivePropertyFromOrderModelClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.cs" />
-    <Compile Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.Designer.cs">
-      <DependentUpon>201805012043437_ChangeCompleteToOrderStatus.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805012138180_UpdateCreditCardModel.cs" />
-    <Compile Include="Migrations\201805012138180_UpdateCreditCardModel.Designer.cs">
-      <DependentUpon>201805012138180_UpdateCreditCardModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805012151299_UpdateTicket.cs" />
-    <Compile Include="Migrations\201805012151299_UpdateTicket.Designer.cs">
-      <DependentUpon>201805012151299_UpdateTicket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805012320071_AddReport.cs" />
-    <Compile Include="Migrations\201805012320071_AddReport.Designer.cs">
-      <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805012353256_UpdateStuff.cs" />
-    <Compile Include="Migrations\201805012353256_UpdateStuff.Designer.cs">
-      <DependentUpon>201805012353256_UpdateStuff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805020258147_UpdateCC.cs" />
-    <Compile Include="Migrations\201805020258147_UpdateCC.Designer.cs">
-      <DependentUpon>201805020258147_UpdateCC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805030108339_RemoveTicketPriceRequired.cs" />
-    <Compile Include="Migrations\201805030108339_RemoveTicketPriceRequired.Designer.cs">
-      <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.cs" />
-    <Compile Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.Designer.cs">
-      <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805032222320_RevertMovieRatingChange.cs" />
-    <Compile Include="Migrations\201805032222320_RevertMovieRatingChange.Designer.cs">
-      <DependentUpon>201805032222320_RevertMovieRatingChange.cs</DependentUpon>
+    <Compile Include="Migrations\201806290459082_InitialSetup.cs" />
+    <Compile Include="Migrations\201806290459082_InitialSetup.Designer.cs">
+      <DependentUpon>201806290459082_InitialSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\SeedIdentity.cs" />
+    <Compile Include="Migrations\MovieData.cs" />
     <Compile Include="Migrations\MoviePriceData.cs" />
+    <Compile Include="Migrations\SeedIdentity.cs" />
     <Compile Include="Migrations\ShowingData.cs" />
     <Compile Include="Migrations\UserData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,7 +218,6 @@
     <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\Showing.cs" />
     <Compile Include="Models\Ticket.cs" />
-    <Compile Include="Migrations\MovieData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\EmailMessaging.cs" />
     <Compile Include="Utilities\GenerateNextConfirmationCode.cs" />
@@ -290,6 +235,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\longhorncinema10 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\longhorncinema10 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\longhorncinema5 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\longhorncinema5 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -387,50 +334,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804272354126_InitialSetup.resx">
-      <DependentUpon>201804272354126_InitialSetup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804292117405_AddUserToMovieReview.resx">
-      <DependentUpon>201804292117405_AddUserToMovieReview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804300356173_UpdateOrderProperties.resx">
-      <DependentUpon>201804300356173_UpdateOrderProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804301819265_UnrequireSeatInticket.resx">
-      <DependentUpon>201804301819265_UnrequireSeatInticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805010141571_updatesomething.resx">
-      <DependentUpon>201805010141571_updatesomething.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805010615267_DeleteActivePropertyFromOrderModelClass.resx">
-      <DependentUpon>201805010615267_DeleteActivePropertyFromOrderModelClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805012043437_ChangeCompleteToOrderStatus.resx">
-      <DependentUpon>201805012043437_ChangeCompleteToOrderStatus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805012138180_UpdateCreditCardModel.resx">
-      <DependentUpon>201805012138180_UpdateCreditCardModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805012151299_UpdateTicket.resx">
-      <DependentUpon>201805012151299_UpdateTicket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805012320071_AddReport.resx">
-      <DependentUpon>201805012320071_AddReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805012353256_UpdateStuff.resx">
-      <DependentUpon>201805012353256_UpdateStuff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805020258147_UpdateCC.resx">
-      <DependentUpon>201805020258147_UpdateCC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805030108339_RemoveTicketPriceRequired.resx">
-      <DependentUpon>201805030108339_RemoveTicketPriceRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805032209157_ChangeMovieReviewRatingToInt.resx">
-      <DependentUpon>201805032209157_ChangeMovieReviewRatingToInt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805032222320_RevertMovieRatingChange.resx">
-      <DependentUpon>201805032222320_RevertMovieRatingChange.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806290459082_InitialSetup.resx">
+      <DependentUpon>201806290459082_InitialSetup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
