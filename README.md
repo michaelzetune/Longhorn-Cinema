@@ -26,3 +26,21 @@ Feel free to try the following logins (email, password):
 - *Customer*: cbaker@example.com, hello1
 - *Employee*: s.saunders@longhorncinema.com, rankmary
 - *Manager*: michael@longhorncinema.com, Abc123!
+
+## Movies
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Movies.png)
+
+## Showings
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Showings.png)
+
+## Tickets
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Tickets.png)
+
+## Movie Search
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/MovieSearch.png)
+
+## Orders
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Orders.png)
+
+## Credit Cards
+![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/CreditCards.png)
