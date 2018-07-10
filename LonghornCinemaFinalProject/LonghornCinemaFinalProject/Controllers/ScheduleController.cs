@@ -98,8 +98,8 @@ namespace LonghornCinemaFinalProject.Controllers
         }
 
         //Showing s1 = new Showing();
-        //s1.StartTime = new DateTime(2018, 5, 4, 9, 5, 0); // 2018, May 4th, 9:05:00
-        //s1.EndTime = new DateTime(2018, 5, 4, 11, 14, 0); // 2018, May 4th, 11:14:00
+        //s1.StartTime = new DateTime(2019, 5, 4, 9, 5, 0); // 2019, May 4th, 9:05:00
+        //s1.EndTime = new DateTime(2019, 5, 4, 11, 14, 0); // 2019, May 4th, 11:14:00
         //s1.SpecialEventStatus = SpecialEvent.NotSpecial;
         //    s1.TheatreNum = Theatre.TheatreOne;
         //    s1.Movie = db.Movies.FirstOrDefault(x => x.Title == "The Sting");
