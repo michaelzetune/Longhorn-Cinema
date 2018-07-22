@@ -19,7 +19,7 @@ Employees can approve and edit reviews.
 Managers have employee functionality plus the ability to update movie information and showtimes, set ticket prices, add new movies, and more.
 
 ## Demo
-Full website location at www.longhorncinema10.azurewebsites.com
+Full website location at https://longhorncinema10.azurewebsites.net
 
 Feel free to try the following logins (email, password):
 - *None* (i.e. a user that is visiting the site for the first time)
