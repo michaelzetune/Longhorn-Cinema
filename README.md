@@ -36,9 +36,6 @@ Feel free to try the following logins (email, password):
 ## Tickets
 ![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Tickets.png)
 
-## Movie Search
-![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/MovieSearch.png)
-
 ## Orders
 ![Image not loaded](https://raw.githubusercontent.com/MichaelZetune/Longhorn-Cinema/master/Media/Orders.png)
 
